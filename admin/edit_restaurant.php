@@ -155,9 +155,9 @@ $get_id = $_GET['id'];
                                 $image_size = getimagesize($_FILES['image']['tmp_name']);
 
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
-                                $location = "upload/" . $_FILES["image"]["name"];
+                                $imglocation = "upload/" . $_FILES["image"]["name"];
 
-                                mysql_query("update restaurants set name='$name',location='$location',address='$address',pincode='$pincode',type='$type',cuisines='$cuisines',cost='$cost',hours='$hours',rating='$rating',discount='$discount',owner='$owner',image='$location' where id='$get_id'") or die(mysql_query());
+                                mysql_query("update restaurants set name='$name',location='$location',address='$address',pincode='$pincode',type='$type',cuisines='$cuisines',cost='$cost',hours='$hours',rating='$rating',discount='$discount',owner='$owner',image='$imglocation' where id='$get_id'") or die(mysql_query());
                                 header('location:restaurant.php');
                             }
                             ?>

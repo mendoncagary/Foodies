@@ -378,7 +378,7 @@ $("#signmebutton").click(function(){
 		
         success:function(response) {
 			
-			$("#myModal").hide();
+			$("#signupModal").hide();
    }
    });
 

@@ -84,13 +84,14 @@
 
                                     </tr>
 									
-                                <?php } ?>
+                                <?php include ('delete_user_modal.php');
+								} ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div> 
-                <?php include ('delete_user_modal.php');?>
+               
 				
 				</div>
              <!-- /. PAGE INNER  -->

@@ -482,7 +482,7 @@ Foodies is a an online marketplace for your favourite food. We have the widest r
     <div class="col">
       <h4>Company</h4>
 	  <a href="#">How it works</a></br>
-	  <a href="#">Service Area</a></br>
+	  <a href="../contact.php">Contact</a></br>
 	  <a href="#">Team</a></br>
 	  <a href="faq/faq.php">FAQs</a></br>
 	  <a href="#">Careers</a></br>

@@ -1,5 +1,9 @@
 <?php include ('session.php');?>	
-<?php include ('header.php');?>	
+<?php include ('header.php');
+
+
+$userid = $_SESSION['id'];
+?>	
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -64,7 +68,24 @@
                                 </thead>
                                 <tbody>
                                     <?php include ('connect.php');
-                                    $query = mysql_query("select * from tb_products") or die(mysql_error());
+                            
+        $query2 = mysql_query("select * from tb_user where user_id = $userid") or die(mysql_error());
+
+while ($row2 = mysql_fetch_array($query2))
+{
+	$username = $row2["username"];
+	
+}
+
+$query3 = mysql_query("select * from restaurants where owner = $username") or die(mysql_error());
+
+while ($row3 = mysql_fetch_array($query3))
+{
+	$resid = $row3["id"];
+	
+}
+
+							$query = mysql_query("select * from tb_products where resid=$resid") or die(mysql_error());
                                     while ($row = mysql_fetch_array($query)) {
                                         $id = $row['productID'];
 										

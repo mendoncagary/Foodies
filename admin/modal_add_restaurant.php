@@ -131,7 +131,7 @@
                                 $imglocation = "upload/" . $_FILES["image"]["name"];
 
 
-                                mysql_query("insert into restaurant(name,location,address,pincode,type,cuisines,cost,hours,rating,discount,image)
+                                mysql_query("insert into restaurants(name,location,address,pincode,type,cuisines,cost,hours,rating,discount,image)
                             	values ('$name','$location','$address','$pincode','$type','$cuisines','$cost','$hours','$rating','$discount','$imglocation')
                                 ") or die(mysql_error());
 

@@ -45,7 +45,7 @@ if(isset($_POST['action']) && $_POST['action'] == "signup")
 						Welcome to Foodies!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://localhost:81/Foodies/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://localhost:81/Foodies/includes/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
 						

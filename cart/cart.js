@@ -34,7 +34,7 @@ window.addEventListener('scroll', function(){ // on page scroll
 //Slide Toggle Sign in cart panel
 $(document).ready(function(){
 $("#panel-1").show();
- $(".next-step").click(function(){
+ $("#nextstepbutton").click(function(){
 	  $("#panel-1").hide();
 	  $("#panel-2").show();
 	  $("#panel-title-cart").removeClass("panel-active");
@@ -56,7 +56,22 @@ $("#panel-1").show();
 	});
 
 
-
+$("#proceedbutton").click(function(){
+	  $("#panel-3").show();
+	  $("#panel-2").hide();
+	  $("#panel-title-signin").removeClass("panel-active");
+	  $("#panel-title-delivery").addClass("panel-active");
+ });
+ 
+ 
+ 
+$("#proceedpayment").click(function(){
+	  $("#panel-4").show();
+	  $("#panel-3").hide();
+	  $("#panel-title-delivery").removeClass("panel-active");
+	  $("#panel-title-makepayment").addClass("panel-active");
+ });
+ 
  
  });
  

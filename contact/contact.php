@@ -2,9 +2,26 @@
 session_start();
 require_once '../includes/class.user.php';
 $user_login = new USER();
+$user = new USER();
+
+ require "../includes/config.php";
+						
+						if (isset ($_POST ['submit']))
+						
+						{
+							$name = $_POST['name'];	
+							
+							$email = $_POST['email'];
+							$message = $_POST['message'];
+	
 
 
-?>
+
+										mysql_query("insert into messages(name,email,message) VALUES('$name','$email','$message')");
+										
+						}
+					 ?>	
+
 
 
 <!DOCTYPE html>
@@ -362,7 +379,7 @@ else{
  <div class="grid__item six-twelfths palm-one-whole ">
  <div role="form" class="wpcf7" id="wpcf7-f4-p116-o1" dir="ltr" lang="en-US">
  <div class="screen-reader-response"></div>
- <form action="/demos/rosa/contact/#wpcf7-f4-p116-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+ <form action="contact.php" method="post" class="wpcf7-form" novalidate="novalidate">
  <div style="display: none;"> <input name="_wpcf7" value="4" type="hidden">
  <input name="_wpcf7_version" value="4.3.1" type="hidden">
  <input name="_wpcf7_locale" value="en_US" type="hidden"> 
@@ -371,12 +388,12 @@ else{
  <div class="grid pixcode--grid">
  <div class="grid__item  six-twelfths palm-one-whole"> 
  <span class="wpcf7-form-control-wrap your-name">
- <input name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name" type="text">
+ <input name="name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" type="text">
  </span></div>
  <div class="grid__item  six-twelfths palm-one-whole"> <span class="wpcf7-form-control-wrap last-name">
- <input name="last-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name" type="text"></span></div></div><p><span class="wpcf7-form-control-wrap your-email">
- <input name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" type="email"></span> 
- <span class="wpcf7-form-control-wrap your-message"><textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 236px;" name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea></span><input value="Send Message" class="wpcf7-form-control wpcf7-submit" type="submit"><img style="visibility: hidden;" alt="Sending ..." src="https://pixelgrade.com/demos/rosa/wp-content/plugins/contact-form-7/images/ajax-loader.gif" class="ajax-loader"></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></section></div> </section> </article>
+ <!--<input name="last-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Last Name" type="text"></span></div></div><p><span class="wpcf7-form-control-wrap your-email">-->
+ <input name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" type="email"></span> 
+ <span class="wpcf7-form-control-wrap your-message"><textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 236px;" name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea></span><input value="Send Message" class="wpcf7-form-control wpcf7-submit" type="submit"><img style="visibility: hidden;" alt="Sending ..." src="https://pixelgrade.com/demos/rosa/wp-content/plugins/contact-form-7/images/ajax-loader.gif" class="ajax-loader"></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></section></div> </section> </article>
 
 
 

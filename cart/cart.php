@@ -377,7 +377,7 @@ $user_login = new USER();
 		<div class="row"> <div class="col-sm-6 width50">
 		<input  value="Add More Items" class="continue-shoping" type="button"></div> 
 		<div class="col-sm-6 text-right width50">
-		<input  value="Next Step" class="next-step" type="button"></div> </div> </div>
+		<input id="nextstepbutton" value="Next Step" class="next-step" type="button"></div> </div> </div>
 		<div class="clearfix"></div>
 		<div class="space-20"></div> </div> </div> </div>
 
@@ -401,7 +401,7 @@ $user_login = new USER();
 		<input value="Logout" class="btn-block continue-shoping radius-3 margin-right" type="button"> </div>
 		<div class="col-sm-2 col-md-1 text-center center-text">Or</div>
 		<div class="col-sm-5 col-md-3">
-		<input value="Proceed to Payment" class="btn-block next-step radius-3 margin-left" ng-click="proceed_to_payment()" type="button">
+		<input id="proceedbutton" value="Proceed to Payment" class="btn-block next-step radius-3 margin-left" type="button">
 		</div> 
 		<div class="clearfix"></div> 
 		<div class="space-50"></div> </div>
@@ -565,7 +565,7 @@ $user_login = new USER();
 		<input value="Logout" class="btn-block continue-shoping radius-3 margin-right" type="button"> </div>
 		<div class="col-sm-2 col-md-1 text-center center-text">Or</div>
 		<div class="col-sm-5 col-md-3">
-		<input value="Proceed to Payment" class="btn-block next-step radius-3 margin-left" ng-click="proceed_to_payment()" type="button">
+		<input id="proceedbutton" value="Proceed to Payment" class="btn-block next-step radius-3 margin-left" type="button">
 		</div> 
 		<div class="clearfix"></div> 
 		<div class="space-50"></div> </div>
@@ -800,7 +800,7 @@ $user_login = new USER();
 		<!-- ngRepeat: address in addresses --> 
 		</ul> 
 		
-		<input ng-click="make_payment()" value="Make Payment" class="next-step radius-6" type="button"> </div> 
+		<input id="proceedpayment" value="Make Payment" class="next-step radius-6" type="button"> </div> 
 		<!--  </div>
                   </div> -->
 
@@ -835,7 +835,7 @@ $user_login = new USER();
 				  <h4 id="panel-title-makepayment" class="panel-title"> 
 				  <a style="text-decoration:none" id="pan-4" class="accordion-toggle" data-parent="#accordion" href="">Make Payment</a> 
 				  <a ng-show="preorder_availibility" id="preorder_time_selector" href="" class="pull-right ng-hide" ng-click="select_preorder_time()" style="pointer-events: none;font-size:17px" popover-template="'preorder_tutorial_message.html'" popover-is-open="show_preorder_popover" popover-placement="bottom" popover-trigger="none" popover-animation="true"><div id="preorder_clock_image" class="preorder-false-inactive"></div></a> 
-				  <a ng-hide="true" id="pan-41" class="accordion-toggle ng-hide" data-toggle="collapse" data-target="#panel-4" data-parent="#accordion" href="">Make Payment </a> </h4> </div> 
+				  <a id="pan-41" class="accordion-toggle ng-hide" data-toggle="collapse" data-target="#panel-4" data-parent="#accordion" href="">Make Payment </a> </h4> </div> 
 				  <div id="panel-4" class="panel-collapse collapse"> <payments class="ng-isolate-scope" open="" payment-method="payment_method" payment-methods="data.outlet_web.payment_methods" take-away="takeAway" show-coupon-applied="show_coupon_applied" promo-code="promo_code" final-price="final_price" total-cart-quanity="1" select-address="select_address" allowed-cashback="allowed_cashback" currency-used="currency_used" preorder-availibility="preorder_availibility" is-preorder-time-selected="is_preorder_time_selected" selected-preorder-time="selectedPreorderTime" pay-on-delivery-params="" total-payable-without-discount="total_payable_without_discount_coupon" total-payable="total_payable_coupon"><div class="panel-body"> 
 				  <div class="payment-ul" style="padding-bottom:0px"> <div class="col-sm-6"><span>Choose the payment mode</span></div> 
 				  <div class="clearfix"></div> <ul id="paymentMethods"> 
@@ -995,8 +995,10 @@ $user_login = new USER();
 				  <img class="ng-hide" ng-show="is_wallet_selected(wallet.name)" src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute">
 				  <img src="images/ola_money.d8db81b7.png" ng-src="images/ola_money.d8db81b7.png" alt="Ola Money" style="z-index: 1" height="60"> </div> 
 				  <label class="ng-binding" style="font-weight:100"> Ola Money </label> </li>
-				  <!-- end ngRepeat: wallet in valid_wallet --> </ul>
-				  <div class="col-sm-12"> 
+				  
+				  
+				  <!-- end ngRepeat: wallet in valid_wallet --> <!--</ul>-->
+				<!--  <div class="col-sm-12"> 
 				  <input ng-disabled="isClicked" ng-click="payment_validate('Wallet')" id="walletPaymentButton" value="Make Payment" class="next-step radius-6" type="button"> </div> </div> </div> 
 				  <div class="modal fade ng-isolate-scope" id="promo-code" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" modal-show="" modal-visible="show_invalid_code"> 
 				  <div class="modal-dialog modal-dialog-small" role="document">
@@ -1014,8 +1016,10 @@ $user_login = new USER();
 				  <input data-dismiss="modal" value="OK" class="next-step radius-3 height-btn" type="button"> </div> </div> 
 				  <div class="clearfix"></div> <div class="space-50"></div> </div> </div> </div> </div> 
 				  <div class="modal fade ng-isolate-scope" id="errorDialog" tabindex="-1" role="dialog" modal-show="" modal-visible="show_error_modal">
-				  <div class="modal-dialog"> <!-- Modal content--> 
-				  <div class="modal-content"> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <div class="modal-dialog">
+
+				  <!-- Modal content--> 
+				  <!--<div class="modal-content"> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <img src="images/close.47cfd871.png" alt=""></button> 
 				  <div class="panel-signin text-center">
 				  <div class="space-50"></div> 
@@ -1026,7 +1030,10 @@ $user_login = new USER();
 				  <div class="col-sm-7 col-sm-push-3"> 
 				  <input data-dismiss="modal" value="OK" class="next-step radius-3 height-btn" type="button"> </div> </div> 
 				  <div class="clearfix"></div> 
-				  <div class="space-50"></div> </div> </div> </div> </div>
+				  <div class="space-50"></div> </div> </div> 
+				  -->
+				  
+				  </div> </div>
 				  <select class="ng-hide" ng-show="false" id="citrusAvailableOptions">
 				  <option value="CID001">ICICI Bank</option>
 				  <option value="CID002">AXIS Bank</option>
