@@ -1,0 +1,166 @@
+
+* {
+	margin: 0px;
+	padding:0px;
+}
+
+
+
+
+
+#page{
+	display:none;
+	
+}
+
+
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
+
+a{
+	text-decoration:none;
+	text-align:center;
+	outline:none;
+}
+
+#submenu #innercontent ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+#submenu  #innercontent ul li {
+    float: left;
+	
+}
+
+
+.mainlink {
+    text-decoration: none;
+    color: #85171a;
+    position: absolute;
+    width: 193px;
+    height: 45px;
+    text-align: center;
+    background-image: url(images/img4.png);
+    line-height: 46px;
+    font-size: 26px;
+
+}
+li #link1 {
+	left:50%;
+	margin-left:-472px;
+	top:24px;
+	
+}
+
+li  #link2 {
+	left:50%;
+	margin-left:-276px;
+	top:24px;
+	
+}
+
+
+li #link3 {
+	
+	position: absolute;
+	text-align: center;
+	left:50%;
+	margin-left:-80px;
+	top:0px;
+	
+}
+
+li #link4 {
+	left:50%;
+	margin-left:80px;
+	top:24px;
+	
+}
+
+li #link5 {
+	left:50%;
+	margin-left:280px;
+	top:24px;
+	
+}
+
+
+
+.parallax {
+    /* The image used */
+    background-image: url("images/img1.jpg");
+
+    /* Set a specific height */
+    min-height: 700px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimg1, .bgimg2{
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.bgimg1 {
+  background-image: url("images/img6.jpg");
+  min-height: 100%;
+}
+
+.bgimg2 {
+  background-image: url("images/img7.jpg");
+  min-height: 400px;
+}
+
+
+#submenu{
+position: fixed;
+width: 100%;
+left: 0;
+top: 0px;
+z-index: 11000;
+background-image: url(images/img3.png);
+padding-top: 70px;
+padding-bottom: 25px;
+opacity:1;
+
+}
+
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  margin: -75px 0 0 -75px;
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid black;
+  
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
