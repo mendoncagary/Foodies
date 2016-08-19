@@ -90,7 +90,8 @@ li #link5 {
 
 
 
-.parallax {
+.bgimg1{
+	position:relative;
     /* The image used */
     background-image: url("images/img1.jpg");
 
@@ -103,7 +104,7 @@ li #link5 {
     background-size: cover;
 }
 
-.bgimg1, .bgimg2{
+.bgimg2, .bgimg3{
   position: relative;
   opacity: 0.65;
   background-attachment: fixed;
@@ -113,12 +114,12 @@ li #link5 {
 
 }
 
-.bgimg1 {
+.bgimg2 {
   background-image: url("images/img6.jpg");
   min-height: 100%;
 }
 
-.bgimg2 {
+.bgimg3 {
   background-image: url("images/img7.jpg");
   min-height: 400px;
 }

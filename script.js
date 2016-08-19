@@ -9,21 +9,23 @@ function showPage() {
   document.getElementById("page").style.display = "block";
 }
 
-/*
-Image img=new Image();
-var onScrollHandler = function() {
-  var newImageUrl = yourImageElement.src;
-  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  if (scrollTop > 100) {
-     newImageUrl = "img1.jpg"
-  }
-  if (scrollTop > 200) {
-     newImageUrl = "img2.jpg"
-  }
-  if (scrollTop > 300) {
-     newImageUrl = "img3.jpg"
-  }
-  yourImageElement.src = newImageUrl;
-};
-object.addEventListener ("scroll", onScrollHandler);
-*/
+window.requestAnimationFrame = window.requestAnimationFrame
+ || window.mozRequestAnimationFrame
+ || window.webkitRequestAnimationFrame
+ || window.msRequestAnimationFrame
+ || function(f){setTimeout(f, 1000/60)}
+ 
+ var bgimg1 = document.getElementsByClassName("bgimg1");
+ var bgimg2 = document.getElementsByClassName("bgimg2");
+ var bgimg3 = document.getElementsByClassName("bgimg3");
+ 
+function parallaxeffect(){
+ var scrolltop = window.pageYOffset ;// get number of pixels document has scrolled vertically 
+ bgimg3[0].style.backgroundPosition = -scrolltop * .2 + 'px'; // move bubble1 at 20% of scroll rate
+ bgimg2[0].style.backgroundPosition = -scrolltop * .5 + 'px'; // move bubble2 at 50% of scroll rate
+}
+ 
+window.addEventListener('scroll', function(){ // on page scroll
+ requestAnimationFrame(parallaxeffect) // call parallaxbubbles() on next available screen paint
+}, false)
+ 
