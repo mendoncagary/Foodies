@@ -1,3 +1,9 @@
+@font-face{
+	 font-family: 'Herr Von Muellerhoff';
+	 url('fonts/HerrVonMuellerhoff-Regular.ttf')  format('truetype'),
+	
+}
+
 
 * {
 	margin: 0px;
@@ -15,15 +21,28 @@
 
 
 
-@media screen and (max-width: 600px){
-    ul.topnav li.right, 
-    ul.topnav li {float: none;}
+@media screen and (min-height: 684px){
+    
 }
 
 a{
 	text-decoration:none;
 	text-align:center;
 	outline:none;
+}
+
+
+#submenu{
+position: fixed;
+width: 100%;
+left: 0;
+top: 0px;
+z-index: 30;
+background-image: url(images/img3.png);
+padding-top: 70px;
+padding-bottom: 25px;
+opacity:1;
+
 }
 
 #submenu #innercontent ul {
@@ -90,11 +109,66 @@ li #link5 {
 
 
 
+#scrolldown{
+	background:transparent;
+	 position: absolute;
+	 text-align:center;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -47px;
+    display: block;
+	z-index: 20;
+    cursor: pointer;
+	color:white;
+	
+}
+
+#scrollbutton{
+	position:relative;
+	-webkit-animation-name: scrollmove; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+    animation-name: scrollmove;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+	
+	
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes scrollmove {
+    0%   {top:0px;}
+    100% {top:10px;}
+}
+
+/* Standard syntax */
+@keyframes scrollmove {
+    0%   {top:0px;}
+	100% {top:10px;}
+}
+
+#headerbox{
+	position:absolute;
+	top:300px;
+	
+}
+   
+.headline {
+    position: relative;
+    font-family: "Herr Von Muellerhoff",Palatino,serif;
+    font-size: 100px;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0 72px;
+    margin: 0 -72px;
+    color: #c59d5f;
+}    
+
 .bgimg1{
 	position:relative;
     /* The image used */
     background-image: url("images/img1.jpg");
-
+    height:100vh;
     /* Set a specific height */
     min-height: 700px;
     /* Create the parallax scrolling effect */
@@ -127,18 +201,6 @@ li #link5 {
 }
 
 
-#submenu{
-position: fixed;
-width: 100%;
-left: 0;
-top: 0px;
-z-index: 11000;
-background-image: url(images/img3.png);
-padding-top: 70px;
-padding-bottom: 25px;
-opacity:1;
-
-}
 
 /* Center the loader */
 #loader {
