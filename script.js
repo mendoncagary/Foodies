@@ -19,10 +19,12 @@ window.requestAnimationFrame = window.requestAnimationFrame
  var bgimg2 = document.getElementsByClassName("bgimg2");
  var bgimg3 = document.getElementsByClassName("bgimg3");
  
+ 
 function parallaxeffect(){
  var scrolltop = window.pageYOffset ;// get number of pixels document has scrolled vertically 
- bgimg3[0].style.backgroundPosition = -scrolltop * .2 + 'px'; // move bubble1 at 20% of scroll rate
- bgimg2[0].style.backgroundPosition = -scrolltop * .5 + 'px'; // move bubble2 at 50% of scroll rate
+ bgimg1[0].style.backgroundPositionY = -scrolltop * .05 + 'px';
+ bgimg3[0].style.backgroundPositionY = -scrolltop * .07+ 'px'; // move bubble1 at 20% of scroll rate
+ bgimg2[0].style.backgroundPositionY = -scrolltop * .07 + 'px'; // move bubble2 at 50% of scroll rate
 }
  
 window.addEventListener('scroll', function(){ // on page scroll
