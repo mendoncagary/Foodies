@@ -1,9 +1,7 @@
-@font-face{
-	 font-family: 'Herr Von Muellerhoff';
-	 url('fonts/HerrVonMuellerhoff-Regular.ttf')  format('truetype'),
-	
+@font-face {
+   font-family: Herr Von Muellerhoff-regular;
+   src: url(fonts/HerrVonMuellerhoff-Regular.tff);
 }
-
 
 * {
 	margin: 0px;
@@ -154,7 +152,7 @@ li #link5 {
    
 .headline {
     position: relative;
-    font-family: "Herr Von Muellerhoff",Palatino,serif;
+    font-family: "Herr Von Muellerhoff-regular",Palatino,serif;
     font-size: 100px;
     font-weight: normal;
     letter-spacing: 0;
