@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
+<script src="assets/libraries/jquery-3.1.0.min.js"></script>
 <script src="script.js"></script>
 <title>Foodies</title>
 </head>
@@ -16,7 +17,7 @@
 
 
 
-<div id="submenu">
+<div id="header">
 <nav id="innercontent">
 <ul>
   <li><a id="link1" class="mainlink" href="#home">Home</a></li>
@@ -59,14 +60,210 @@ whats cooking
 </div>
 
 
-<div id="section3" style="height:400px;background-color:white;font-size:36px">
+<div id="section2" style="height:400px;background-color:white;font-size:36px">
 </div>
 
 <div class="bgimg3">
 nothing
 </div>
 
-<div id="section4" style="height:500px;background-color:white;font-size:36px">
+<div id="section3">
+
+<div id="wrapper">
+<h2 id="menutitle">Our Menu</h2>
+
+<ul class="menutext">
+					<li class="a-1">
+						<a href="#" class="menuaccord">Entrées   +</a>
+						<div class="afteraccord" style="display: none;">
+							<ul class="list-unstyled">
+								<li>
+									<h3>Soupe du jour <span class="vegan"></span></h3>
+									<p class="price">3<sup></sup></p>
+								</li>
+								<li>
+									<h3>Pois chiches rôtis <span class="vegan"></span></h3>
+									<p>Croustillants, épicés &amp; salés</p>
+									<p class="note"><span class="noix"></span>Ajout de noix torréfiées 3<sup>50</sup></p>
+									<p class="price">3<sup></sup></p>
+								</li>
+								<li>
+									<h3>Samosas Végé <span class="vegan"></span></h3>
+									<p>3 beignets de pommes de terre, pois verts &amp; légumes, sauce à la mangue </p>
+									<p class="price">6<sup></sup></p>
+								</li>
+								<li>
+									<h3>Crab Cakes <span class="coeur"></span></h3>
+									<p>2 croquettes 100% chair de crabe, mayo maison &amp; rémoulade céleri rave, céleri branche, chou savoie</p>
+									<p class="price">10<sup></sup></p>
+								</li>
+								<li>
+									<h3>Fish Pakora</h3>
+									<p>4 morceaux de morue du Canada frits, paprika fumé, mayo maison &amp; rémoulade céleri rave, céleri branche, chou savoie</p>
+									<p class="price">7<sup></sup></p>
+								</li>
+								<li>
+									<h3>Falafels &amp; tabouleh <span class="vegan"></span></h3>
+									<p>4 boules de pois chiches à l'indienne, tabouleh herbes &amp; amandes, raïta de tofu soyeux</p>
+									<p class="price">7<sup></sup></p>
+								</li>
+								<li>
+									<h3>Hummus <span class="vegan"></span></h3>
+									<p>Garniture de tabouleh herbes &amp; amandes, oignons marinés, chips de dos</p>
+									<p class="price">5<sup></sup></p>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="a-2">
+						<a href="#" class="menuaccord">Accompagnements</a>
+						<div class="afteraccord" style="display:none;">
+							<ul class="list-unstyled">
+								<li>
+									<h3>Aloo Gobi <span class="vegan"></span> <span class="coeur"></span></h3>
+									<p>Tranche de chou-fleur mariné, pommes de terre rôties, purée de pois verts à l'huile d'olive, bacon de coconut, pois chiches rôtis &amp; herbes fraiches.</p>
+									<p class="price">13<sup></sup></p>
+								</li>
+								<li>
+									<h3>Le Popeye</h3>
+									<p>Purée d'épinards, fromage grillé à la nigelle, yogourt coriandre &amp; menthe. </p>
+									<p class="price">6<sup>75</sup></p>
+								</li>
+								<li>
+									<h3>Salade de chou-fleur <span class="vegan"></span></h3>
+									<p>Mélange de chou-fleur mariné &amp; cru, chou de savoie, céleri et sésame grillé, vinaigrette au tahini &amp; citron</p>
+									<p class="note"><span class="noix"></span>Ajout de noix torréfiées  3<sup>50</sup></p>
+									<p class="price">11<sup></sup></p>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="a-3">
+						<a href="#" class="menuaccord">Les essentiels </a>
+						<div class="afteraccord" style="display:none;">
+							<ul class="list-unstyled">
+								<li>
+									<h3>Dosa <span class="vegan"></span></h3>
+									<p>Crêpe de lentilles et riz fermenté, craquante et aromatique</p>
+									<p class="price">2<sup>85</sup></p>
+								</li>
+								<li>
+									<h3>Naan <span class="vegan"></span></h3>
+									<p>Avec beurre clarifié ou huile de coco</p>
+									<p class="price">1<sup>25</sup></p>
+								</li>
+								<li>
+									<h3>Papadum <span class="vegan"></span></h3>
+									<p>Chips de farine de lentilles (frit) </p>
+									<p class="price">2<sup>85</sup></p>
+								</li>
+								<li>
+									<h3>Plateau de dégustation de trempettes</h3>
+									<p>Coulis mangue au fenouil, sauce tamarin, glaze épicé, chutney de mangue, yogourt coriandre &amp; menthe*, raïta de tofu, pâte de piment</p>
+									<p class="note"><span class="etoile"></span>Le yogourt peut être substitué par du taouleh pour offir un plateau</p>
+									<p class="price">4<sup></sup></p>
+								</li>
+								<li>
+									<h3>Biryani <span class="vegan"></span> <span class="coeur"></span></h3>
+									<p>Riz sauté aux épices, pois verts &amp; zucchini, herbes hachées et raïta</p>
+									<p><span class="pilon"></span> Ajout de 2 pilons 3<sup>50</sup></p>
+									<p class="price">6<sup></sup></p>
+								</li>
+								<li>
+									<h3>Riz au curcuma <span class="vegan"></span></h3>
+									<p class="price">2<sup></sup></p>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="a-4">
+						<a href="#" class="menuaccord">Curries</a>
+						<div class="afteraccord" style="display:none;">
+							<ul class="list-unstyled">
+								<li>
+									<h3>Poulet au beurre <span class="coeur"></span></h3>
+									<p>Poulet biologique des Voltigeurs, refroidi à l'air, élevé en liberté viande marinée et grillée, riche sauce tomatée, aromes de cardamome et coriandre </p>
+									<p class="price">13<sup>50</sup></p>
+								</li>
+								<li>
+									<h3>Crevettes nordiques &amp; morue</h3>
+									<p>Crevettes du Québec, morue du Canada pochée, légumes variés, sauce coco au galanga, gingembre &amp; citronnelle, lime kéfir, garniture de fèves germées croquantes. </p>
+									<p class="note"><span class="tofu"></span>Remplacer le poisson &amp; crevettes par du Tofu mariné 11<sup>25</sup> <span class="vegan"></span></p>
+									<p class="price">15<sup></sup></p>
+								</li>
+								<li>
+									<h3>Légumes Korma <span class="vegan"></span></h3>
+									<p>Légumes variés, lentilles, noix torréfiées, sauce coco aux arômes de macis, cardamome &amp; cumin, menthe fraiche </p>
+									<p class="price">11<sup></sup></p>
+								</li>
+								<li>
+									<h3>Pois chiches au tamarin <span class="vegan"></span></h3>
+									<p>Légumes variés, sauce relevée avec arômes de paprika, curcuma &amp; coriandre, coulis de mangue et gingembre</p>
+									<p class="price">10<sup></sup></p>
+								</li>
+								<li>
+									<h3>Pilon de poulet</h3>
+									<p>Poulet biologique des Voltigeurs, refroidi à l'air, élevé en liberté marinade au Garam Masala, 5 pilons grillés enrobés d'une sauce au paprika relevée, yogourt coriandre &amp; menthe.</p>
+									<p class="price">12<sup></sup></p>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="a-5">
+						<a href="#" class="menuaccord">Breuvages</a>
+						<div class="afteraccord" style="display:none;">
+							<ul class="list-unstyled">
+								<li>
+									<h3>Limonade concombre et menthe</h3>
+									<p class="price">3<sup></sup></p>
+								</li>
+								<li>
+									<h3>Limonade à l'eau de rose et pétales</h3>
+									<p class="price">3<sup></sup></p>
+								</li>
+								<li>
+									<h3>Chaï glacé</h3>
+									<p>Chaï infusé avec notre mélange d'épices <br>maison avec une touche de sucre</p>
+									<p class="note"><span class="milk"></span>Ajoutez du lait pour  0<sup>55</sup></p>
+									<p class="price">3<sup></sup></p>
+								</li>
+								<li>
+									<h3>Thé chaud (feuilles lousses)</h3>
+									<p>Vert au jasmin - earl grey - noir - chaï masala</p>
+									<p class="price">2<sup>85</sup></p>
+								</li>
+								<li>
+									<h3>Tisane (feuilles/fleurs lousses)</h3>
+									<p>Lavande - camomille - menthe - rose</p>
+									<p class="price">2<sup>85</sup></p>
+								</li>
+								<li>
+									<h3>Café filtre</h3>
+									<p>Phil &amp; Seb, bio - équitable - 3<sup>ième</sup> vague</p>
+									<p class="price">3<sup></sup></p>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="a-6">
+						<a href="#" class="menuaccord">Desserts</a>
+						<div class="afteraccord" style="display:none;">
+							<ul class="list-unstyled">
+								<li>
+									<h3>Malabi</h3>
+									<p>Pouding au lait de coco, garniture de fruits</p>
+									<p class="price">4<sup></sup></p>
+								</li>
+								<li>
+									<h3>Dessert du jour</h3>
+									<p>Dessert fait maison par le pâtissier du Café Frida</p>
+									<p class="price">5<sup>50</sup></p>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+</div>
 </div>
 
   

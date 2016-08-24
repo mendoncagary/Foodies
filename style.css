@@ -1,10 +1,15 @@
 @font-face {
-   font-family: Herr Von Muellerhoff-regular;
-   src: url(fonts/HerrVonMuellerhoff-Regular.tff);
+    font-family: 'herr_von_muellerhoffregular';
+    src: url('fonts/herrvonmuellerhoff-regular-webfont.woff2') format('woff2'),
+         url('fonts/herrvonmuellerhoff-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
+
 * {
-	margin: 0px;
+	margin:0px;
 	padding:0px;
 }
 
@@ -14,6 +19,8 @@
 
 #page{
 	display:none;
+	box-sizing:border-box;
+	padding:12px;
 	
 }
 
@@ -30,7 +37,7 @@ a{
 }
 
 
-#submenu{
+#header{
 position: fixed;
 width: 100%;
 left: 0;
@@ -40,15 +47,16 @@ background-image: url(images/img3.png);
 padding-top: 70px;
 padding-bottom: 25px;
 opacity:1;
+display:none;
 
 }
 
-#submenu #innercontent ul {
+#header #innercontent ul {
     list-style-type: none;
     overflow: hidden;
 }
 
-#submenu  #innercontent ul li {
+#header  #innercontent ul li {
     float: left;
 	
 }
@@ -106,6 +114,113 @@ li #link5 {
 }
 
 
+.bounce{
+	
+	animation-name:bounce;
+	animation-duration:1s;
+	-webkit-animation-name:bounce;
+	-webkit-animation-duration:1s;
+}
+
+
+@keyframes bounce {
+   
+0% {
+	transform:translateY(-80%);
+	opacity: 0;
+}
+5% {
+  	transform:translateY(-80%);
+    opacity: 0;
+}
+15% {
+  transform:translateY(-50%);
+  padding-bottom: 5px;
+}
+40% {
+  	transform:translateY(0%);
+    padding-bottom: 6px;
+}
+50% {
+  transform:translateY(-30%);
+}
+70% {
+    transform:translateY(0%);
+    padding-bottom: 7px;
+}
+80% {
+  transform:translateY(-15%);
+}
+90% {
+  transform:translateY(0%);
+  padding-bottom: 8px;
+}
+95% {
+  transform:translateY(-7%);
+}
+97% {
+  transform:translateY(0%);
+  padding-bottom: 9px;
+}
+99% {
+  transform:translateY(-3%);
+}
+100% {
+  transform:translateY(0);
+  padding-bottom: 9px;
+  opacity: 1;
+}
+}
+
+@-webkit-keyframes bounce {
+   
+0% {
+	transform:translateY(-80%);
+	opacity: 0;
+}
+5% {
+  	transform:translateY(-80%);
+    opacity: 0;
+}
+15% {
+  transform:translateY(-50%);
+  padding-bottom: 5px;
+}
+40% {
+  	transform:translateY(0%);
+    padding-bottom: 6px;
+}
+50% {
+  transform:translateY(-30%);
+}
+70% {
+    transform:translateY(0%);
+    padding-bottom: 7px;
+}
+80% {
+  transform:translateY(-15%);
+}
+90% {
+  transform:translateY(0%);
+  padding-bottom: 8px;
+}
+95% {
+  transform:translateY(-7%);
+}
+97% {
+  transform:translateY(0%);
+  padding-bottom: 9px;
+}
+99% {
+  transform:translateY(-3%);
+}
+100% {
+  transform:translateY(0);
+  padding-bottom: 9px;
+  opacity: 1;
+}
+}
+
 
 #scrolldown{
 	background:transparent;
@@ -146,13 +261,18 @@ li #link5 {
 
 #headerbox{
 	position:absolute;
-	top:300px;
-	
+	 top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em;;
+	text-align:center;
 }
    
 .headline {
     position: relative;
-    font-family: "Herr Von Muellerhoff-regular",Palatino,serif;
+    font-family: "herr_von_muellerhoffregular",Palatino,serif;
     font-size: 100px;
     font-weight: normal;
     letter-spacing: 0;
@@ -166,7 +286,7 @@ li #link5 {
 	position:relative;
     /* The image used */
     background-image: url("images/img1.jpg");
-    height:100vh;
+    height:96vh;
     /* Set a specific height */
     min-height: 700px;
     /* Create the parallax scrolling effect */
@@ -174,6 +294,7 @@ li #link5 {
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: cover;
+	
 }
 
 .bgimg2, .bgimg3{
@@ -198,6 +319,28 @@ li #link5 {
   min-height: 400px;
 }
 
+#section3{
+	
+	height:100%;
+	min-height:500px;
+	background-color:white;
+	font-size:36px;
+}
+
+#menutitle{
+	color: #85171a;
+	
+}
+
+.menuaccord.active::after {
+    content: "-";
+}
+
+.menuaccord.active{
+	
+	overflow:visible;
+	
+}
 
 
 /* Center the loader */
