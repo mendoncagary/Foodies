@@ -5,8 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="assets/libraries/jquery-3.1.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="script.js"></script>
 <title>Foodies</title>
+<style>
+.jumbotron{
+    background-color:BurlyWood;
+    color:black;
+	padding: 40px;
+}
+
+.Footerbutton {
+    width: 30px;
+    background-color: white;
+    border: 1px solid #5A1A0C;
+    border-radius: 25px;
+    color: #3b5998;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    border: 1px solid #5A1A0C;
+    border-radius: 25px;
+    color: #FF0202;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button2 {
+    background-color: white; 
+    border: 1px solid #5A1A0C;
+    border-radius: 25px;
+    color: #00aced;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+A{text-decoration:none}
+
+/* unvisited link */
+a:link {
+    color:#5A1A0C;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+</style>
+
 </head>
 
 <body onload="myFunction()">
@@ -268,6 +335,47 @@ nothing
 
   
 </div>
-
+<div class="jumbotron">
+ <div class="row">
+    <div class="col-lg-3 col-s-3 col-sm-6 col-xs-12">
+      <h4>Company</h4>
+	  <a href="#" style="text-decoration:none;">How it works</a></br>
+	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
+	  <a href="#" style="text-decoration:none;">Team</a></br>
+	  <a href="#" style="text-decoration:none;">Believers</a></br>
+	  <a href="#" style="text-decoration:none;">Careers</a></br>
+	  </div>
+    <div class="col-lg-3 col-s-3 col-sm-6 col-xs-12">
+      <h4>Legal</h4>
+	  <a href="#" style="text-decoration:none;">Terms & Conditions </a></br>
+	  <a href="#" style="text-decoration:none;">Quality Control </a></br>
+	  <a href="#" style="text-decoration:none;">Privacy Policy</a></br>
+	  
+	  </div>
+    
+	<div class="clearfix visible-sm"></div>
+ 
+    <div class="col-lg-3 col-s-3 col-sm-6 col-xs-12">
+      <h4>Menu</h4>
+	  <a href="#" style="text-decoration:none;">All Day Menu</a> </br>
+	  <a href="#" style="text-decoration:none;">Lunch</a></br>
+	  <a href="#" style="text-decoration:none;">Dinner</a></br>
+	  <a href="#" style="text-decoration:none;">Flavours</a></br>
+	  <a href="#" style="text-decoration:none;">Sitemap</a>
+	  
+	  </div>
+    <div class="col-lg-3 col-s-3 col-sm-6 col-xs-12">
+      <h4>Stay tuned</h4>
+	  Connect with us and stay updated!</br>
+	  <p>
+	  <button class="Footerbutton button" onclick="parent.open('https://www.facebook.com/')"><i class="fa fa-facebook-square" aria-hidden="true"></i></button>
+	  <button class="Footerbutton button1" onclick="parent.open('https://www.youtube.com/')"><i class="fa fa-youtube" aria-hidden="true"></i></button>
+	  <button class="Footerbutton button2" onclick="parent.open('https://www.twitter.com/')"><i class="fa fa-twitter-square" aria-hidden="true"></i></button>
+	  </p></div>
+  </div>
+</div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 </html>
