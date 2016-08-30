@@ -7,6 +7,15 @@
 
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto-regular-webfont.woff') format('woff'),
+         url('fonts/roboto-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 * {
 	margin:0px;
@@ -41,13 +50,14 @@ a{
 position: fixed;
 width: 100%;
 left: 0;
-top: 0px;
+top: 0;
 z-index: 30;
 background-image: url(images/img3.png);
 padding-top: 70px;
 padding-bottom: 25px;
 opacity:1;
 display:none;
+
 
 }
 
@@ -110,8 +120,160 @@ li #link5 {
 	left:50%;
 	margin-left:280px;
 	top:24px;
+	cursor:pointer;
 	
 }
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 40; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+	width:600px;
+	
+}
+
+.modal-content .modal-header h2{
+	
+	text-align: center;
+	font-weight: 300;
+	    font-size: 30px;
+}
+
+.modalinput {
+    border: none;
+    outline: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: 0 0;
+    z-index: 2;
+    border-bottom: 1px solid #e2e2e2;
+    line-height: 70px;
+}
+.col-sm-12{
+	
+	width: 100%;
+	float:left;
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.sign-up-btn{
+	
+    border-radius: 6px;
+    background: #323232;
+    font-size: 12px;
+    line-height: 50px !important;
+    color: #fff;	
+	text-transform: uppercase;
+	height: 50px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid transparent;
+    cursor:pointer;
+}
+
+
+.col-sm-6{
+	width: 50%;
+	float:left;
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+	
+}
+
+.facebook-btn{
+    line-height: 50px !important;
+    background: #3b5999;
+    color: #fff;
+    padding: 0 34px;
+	border-radius: 6px;
+	display: block;
+    width: 100%;
+	margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+     border: 1px solid transparent;
+     cursor:pointer;
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+
+
+
 
 
 .bounce{
@@ -233,6 +395,7 @@ li #link5 {
 	z-index: 20;
     cursor: pointer;
 	color:white;
+	font-family:Roboto,sans-serif;
 	
 }
 
@@ -286,7 +449,7 @@ li #link5 {
 	position:relative;
     /* The image used */
     background-image: url("images/img1.jpg");
-    height:96vh;
+    height:97vh;
     /* Set a specific height */
     min-height: 700px;
     /* Create the parallax scrolling effect */
@@ -368,5 +531,86 @@ li #link5 {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+
+
+
+.footer{
+    background-color:BurlyWood;
+    color:black;
+	display:inline-block;
+	width:100%;
+	
+	
+	
+}
+
+.Footerbutton1 {
+    background-color: white;
+    border: 1px solid #5A1A0C;
+    border-radius: 25px;
+    color: #3b5998;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.Footerbutton2 {
+    background-color: white;
+    border: 1px solid #5A1A0C;
+    border-radius: 25px;
+    color: #FF0202;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.Footerbutton3 {
+    background-color: white; 
+    border: 1px solid #5A1A0C;
+    border-radius: 25px;
+    color: #00aced;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.footercontent{
+	margin:0 auto;
+	width:80%;
+	margin-top:2%;
+	margin-bottom:2%;
+	
+}
+.col{
+	
+	float:left;
+	width:25%;
+	min-height:1px;
+	margin-bottom:5%;
+	margin-top:5%;
+}
+/* unvisited link */
+a:link {
+    color:#5A1A0C;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+}
+
+/* selected link */
+a:active {
+    color: blue;
 }
 
