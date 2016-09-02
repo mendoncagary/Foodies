@@ -15,7 +15,14 @@
                 }
             }
         });
-    });
+    
+	$("#scrolldown").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#section1").offset().top},
+        'slow');
+});
+	});
+	
 	
 
 var myVar;
@@ -43,8 +50,8 @@ window.requestAnimationFrame = window.requestAnimationFrame
 function parallaxeffect(){
  var scrolltop = window.pageYOffset ;// get number of pixels document has scrolled vertically 
  bgimg1[0].style.backgroundPositionY = -scrolltop * .05 + 'px';
- bgimg3[0].style.backgroundPositionY = -scrolltop * .07+ 'px'; // move bubble1 at 20% of scroll rate
- bgimg2[0].style.backgroundPositionY = -scrolltop * .07 + 'px'; // move bubble2 at 50% of scroll rate
+ bgimg3[0].style.backgroundPositionY = -scrolltop * .05+ 'px'; // move bubble1 at 20% of scroll rate
+ bgimg2[0].style.backgroundPositionY = -scrolltop * .05 + 'px'; // move bubble2 at 50% of scroll rate
 }
  
 window.addEventListener('scroll', function(){ // on page scroll

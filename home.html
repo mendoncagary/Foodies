@@ -26,7 +26,7 @@
   <li><a id="link1" class="mainlink" href="#home">Home</a></li>
   <li><a id="link2" class="mainlink" href="#news">About us</a></li>
   <li><a id="link3" href="home.html">
-      <img src="images/img5.png" alt="Foodies" id="logo" height="160" width="160">
+      <img src="assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
        </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
   <li><a id="link5" class="mainlink">Sign In</a></li>
@@ -50,25 +50,33 @@
 	
 	
     <div class="modal-body">
-	
       <input id="name" name="name" class="modalinput" type="text">
       <label for="name">Email/Mobile</label>
-    </div>
+      
+    
+     <div class="col-sm-12">
+     <input id="name" name="name"class="modalinput" type="password"> 
+	 <label for="name">Password</label>
+	 </div>
+	
 	
 	<div class="col-sm-12"> 
 	<input value="Let me in" class="sign-up-btn" type="button"> 
 	</div>
+     
+	<div class="text-center or">or</div>
 	
 	<div class="col-sm-6"> 
 	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
-	<i class="fa fa-facebook"></i> Sign in with Facebook
-	</button> </div>
+	<i class="fa fa-facebook"></i> Sign in with Facebook</button>
+	</div>
 	
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
-    </div>
+	<div class="col-sm-6"> 
+	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	</div>
+	
   </div>
-
+</div>
 </div>
 
 
@@ -83,18 +91,22 @@
 
 <a id="scrolldown">
 <div id="scrollTitle">SCROLL DOWN</div>
-<img id="scrollbutton"  src="images/img8.png">
+<img id="scrollbutton"  src="assets/images/img8.png">
 </a>
 
 </div>
 
 
 
-<div id="section1" style="height:500px;background-color:white;font-size:36px">
-
+<div id="section1" style="height:500px;background-color:white">
+<div class="aboutgrid">
+<p style="text-align: center;">
+Foodies is a restaurant, bar and coffee roastery located on a busy corner site in Mumbai's  Market.
+ With glazed frontage on two sides of the building, overlooking the market and a bustling  intersection.</p>
 </div>
+ </div>
 
-<div class="bgimg2" style="height:400px;font-size:36px">
+<div class="bgimg2">
 whats cooking
 </div>
 
@@ -113,8 +125,8 @@ nothing
 
 <ul class="menutext">
 					<li class="a-1">
-						<a href="#" class="menuaccord">Entrées   +</a>
-						<div class="afteraccord" style="display: none;">
+						<a href="/" class="menuaccord">Entrées</a>
+						<div class="afteraccord">
 							<ul class="list-unstyled">
 								<li>
 									<h3>Soupe du jour <span class="vegan"></span></h3>
@@ -155,8 +167,8 @@ nothing
 						</div>
 					</li>
 					<li class="a-2">
-						<a href="#" class="menuaccord">Accompagnements</a>
-						<div class="afteraccord" style="display:none;">
+						<a href="/" class="menuaccord">Accompagnements</a>
+						<div class="afteraccord">
 							<ul class="list-unstyled">
 								<li>
 									<h3>Aloo Gobi <span class="vegan"></span> <span class="coeur"></span></h3>
@@ -178,8 +190,8 @@ nothing
 						</div>
 					</li>
 					<li class="a-3">
-						<a href="#" class="menuaccord">Les essentiels </a>
-						<div class="afteraccord" style="display:none;">
+						<a href="/" class="menuaccord">Les essentiels </a>
+						<div class="afteraccord">
 							<ul class="list-unstyled">
 								<li>
 									<h3>Dosa <span class="vegan"></span></h3>
@@ -216,8 +228,8 @@ nothing
 						</div>
 					</li>
 					<li class="a-4">
-						<a href="#" class="menuaccord">Curries</a>
-						<div class="afteraccord" style="display:none;">
+						<a href="/" class="menuaccord">Curries</a>
+						<div class="afteraccord">
 							<ul class="list-unstyled">
 								<li>
 									<h3>Poulet au beurre <span class="coeur"></span></h3>
@@ -249,8 +261,8 @@ nothing
 						</div>
 					</li>
 					<li class="a-5">
-						<a href="#" class="menuaccord">Breuvages</a>
-						<div class="afteraccord" style="display:none;">
+						<a href="/" class="menuaccord">Breuvages</a>
+						<div class="afteraccord">
 							<ul class="list-unstyled">
 								<li>
 									<h3>Limonade concombre et menthe</h3>
@@ -285,8 +297,8 @@ nothing
 						</div>
 					</li>
 					<li class="a-6">
-						<a href="#" class="menuaccord">Desserts</a>
-						<div class="afteraccord" style="display:none;">
+						<a href="/" class="menuaccord">Desserts</a>
+						<div class="afteraccord">
 							<ul class="list-unstyled">
 								<li>
 									<h3>Malabi</h3>
@@ -313,28 +325,28 @@ nothing
 <div class="footercontent">
     <div class="col">
       <h4>Company</h4>
-	  <a href="#" style="text-decoration:none;">How it works</a></br>
-	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
-	  <a href="#" style="text-decoration:none;">Team</a></br>
-	  <a href="#" style="text-decoration:none;">Believers</a></br>
-	  <a href="#" style="text-decoration:none;">Careers</a></br>
+	  <a href="#">How it works</a></br>
+	  <a href="#">Service Area</a></br>
+	  <a href="#">Team</a></br>
+	  <a href="#">Believers</a></br>
+	  <a href="#">Careers</a></br>
 	  </div>
     <div class="col">
       <h4>Legal</h4>
-	  <a href="#" style="text-decoration:none;">Terms & Conditions </a></br>
-	  <a href="#" style="text-decoration:none;">Quality Control </a></br>
-	  <a href="#" style="text-decoration:none;">Privacy Policy</a></br>
+	  <a href="#">Terms & Conditions </a></br>
+	  <a href="#">Quality Control </a></br>
+	  <a href="#">Privacy Policy</a></br>
 	  
 	  </div>
     
  
     <div class="col">
       <h4>Menu</h4>
-	  <a href="#" style="text-decoration:none;">All Day Menu</a> </br>
-	  <a href="#" style="text-decoration:none;">Lunch</a></br>
-	  <a href="#" style="text-decoration:none;">Dinner</a></br>
-	  <a href="#" style="text-decoration:none;">Flavours</a></br>
-	  <a href="#" style="text-decoration:none;">Sitemap</a>
+	  <a href="#">All Day Menu</a> </br>
+	  <a href="#">Lunch</a></br>
+	  <a href="#">Dinner</a></br>
+	  <a href="#">Flavours</a></br>
+	  <a href="#">Sitemap</a>
 	  
 	  </div>
     <div class="col">
@@ -378,6 +390,17 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+var acc = document.getElementsByClassName("menuaccord");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+  }
+}
+
 
 </script>
 </body>

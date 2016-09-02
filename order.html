@@ -1,0 +1,120 @@
+<html>
+
+<head>
+
+</head>
+<style>
+
+
+
+.dish-img {
+    margin: 0;
+    background: #fff;
+    box-shadow: -1px 0px 5px -2px #bdbdbd, 0px -1px 5px -2px #bdbdbd, 2px 0px 5px -2px #bdbdbd;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.saffola-link {
+    position: absolute;
+    top: 7px;
+    right: 60px;
+    display: block;
+    z-index: 1;
+}
+
+.fooddiv{
+display:block;
+padding: 0 22px;
+margin: 0 0 45px;
+width: 33.3333333333%;
+position: relative;
+min-height: 1px;
+float:left;
+}
+
+.dish-label {
+    background: url(assets/images/img12.png) repeat-x;
+    font-weight: 700;
+	position: absolute;
+    top: 8px;
+    left: -5px;
+    color: #fff;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 17px;
+    height: 25px;
+    z-index: 2;
+    cursor: pointer;
+
+}
+
+dish-label::before {
+    background: url(assets/images/img13.png) no-repeat;
+	content: "";
+width: 8px;
+height: 25px;
+position: absolute;
+left: 0;
+}
+
+dish-label::after {
+    background: url(assets/images/img14.png) no-repeat;
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 10px;
+    height: 25px;
+}
+</style>
+<body>
+<div style="display: block;"  id="storeitem1" class="fooddiv">
+    <div class="dish-img">
+      <a class="saffola-link"  href="javascript:void(0)"><img alt="Fit foodie icon" src="https://d1e7veuf3koykl.cloudfront.net/food_items/sponsor_icons/000/020/707/original/fit_foodie_icon.png?1469623808"></a>
+      <!-- <a href="#" class="saffola-link"><img src="/assets/image_saffola.png"></a> -->
+      <div class="dish-image-anchor">
+        <a href="#"  class="modal-popup">
+          <label class="dish-label"><span>Saffola Fit Foodie Recipe</span></label>
+          <span class="dish-addToCart"></span>
+          <span class="dish-rating"><i class="icon icon-star"></i>4.7</span>
+          <img alt="Dsc 7926" class="food-item-placeholder-image-url" src="https://d1e7veuf3koykl.cloudfront.net/food_items/images/000/020/707/medium2/DSC_7926.JPG?1471438427">
+        </a>
+      </div>
+      <i class="icon icon-veg">
+        <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+      </i>
+    </div>
+    <div class="dish-description">
+      <p>
+        <a href="#" title="Palak Paneer made with Saffola Masala Oats served with Chapatis (4)">Palak Paneer made with Saffola Masala Oats served with Chapatis (4)</a>
+      </p>
+      <span class="dish-tag"></span>
+      <div class="dish-price">
+        <span class="pull-left">
+          <i class="icon icon-rupee"></i>180
+        </span>
+          <div class="dish-add-remove">
+            <button class="btn btn-default btn-white rmv-btn"  name="button" type="submit">-</button>
+            <span class="addet_item_cart"></span>
+            <button class="btn btn-default btn-orange add-btn menu-item"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
+          </div>
+      </div>
+        <div class="dish-chef">
+          <div class="dish-chef-img">
+            <a href="#">
+              <!--% if menu_item.second_chef %-->
+                </a><a href="/chefs/chef-archana-doshi"><img alt="Archana profile copy" class="lazy" src="https://d1e7veuf3koykl.cloudfront.net/cheffs/avatars/000/000/441/small2/Archana-profile_copy.jpg?1469171077"></a>
+            
+          </div>
+          <div class="dish-chef-detail">
+            <span class="chef-name"><a class="chefNameLink" href="/chefs/chef-archana-doshi">Saffola Chef Archana Doshi</a></span>
+              <span class="chef-tag">Hola MasterChef</span>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  </body>
+  </html>

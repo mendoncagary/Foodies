@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'herr_von_muellerhoffregular';
-    src: url('fonts/herrvonmuellerhoff-regular-webfont.woff2') format('woff2'),
-         url('fonts/herrvonmuellerhoff-regular-webfont.woff') format('woff');
+    src: url('assets/fonts/herrvonmuellerhoff-regular-webfont.woff2') format('woff2'),
+         url('assets/fonts/herrvonmuellerhoff-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url('fonts/roboto-regular-webfont.woff') format('woff'),
-         url('fonts/roboto-regular-webfont.woff2') format('woff2');
+    src: url('assets/fonts/roboto-regular-webfont.woff') format('woff'),
+         url('assets/fonts/roboto-regular-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 
@@ -24,25 +24,43 @@
 
 
 
+	
+@media (min-width:768px) {
+	.header  {
+		right:0;
+		left:auto;
+		font-size:18px;
+		
+		
+	}
+	.mainlink{
+	width: 60px;
+    height: 30px;
+	
+	}
+}
+@media screen and (min-height: 684px){
 
-
-#page{
+    
+}
+	
+	#page{
 	display:none;
 	box-sizing:border-box;
 	padding:12px;
+	font-family:Roboto,sans-serif;
 	
 }
 
 
 
-@media screen and (min-height: 684px){
-    
-}
+
 
 a{
 	text-decoration:none;
 	text-align:center;
 	outline:none;
+	color:white;
 }
 
 
@@ -52,7 +70,7 @@ width: 100%;
 left: 0;
 top: 0;
 z-index: 30;
-background-image: url(images/img3.png);
+background-image: url(assets/images/img3.png);
 padding-top: 70px;
 padding-bottom: 25px;
 opacity:1;
@@ -74,12 +92,12 @@ display:none;
 
 .mainlink {
     text-decoration: none;
-    color: #85171a;
+    color: black;
     position: absolute;
     width: 193px;
     height: 45px;
     text-align: center;
-    background-image: url(images/img4.png);
+    background-image: url(assets/images/img4.png);
     line-height: 46px;
     font-size: 26px;
 
@@ -147,15 +165,26 @@ li #link5 {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border: 1px solid #888
+    border: 1px solid #888;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
 	width:600px;
+	height:100%;
 	
 }
+
+.modal-header {
+    padding: 2px 16px;
+}
+
+.modal-body {padding: 2px 16px;}
+
+
+
+
 
 .modal-content .modal-header h2{
 	
@@ -230,6 +259,20 @@ li #link5 {
      cursor:pointer;
 }
 
+.google-btn{
+    line-height: 50px !important;
+    background: #dd4c39;
+    color: #fff;
+    padding: 0 34px;
+	border-radius: 6px;
+	display: block;
+    width: 100%;
+	margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+     border: 1px solid transparent;
+     cursor:pointer;
+}
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
@@ -244,7 +287,7 @@ li #link5 {
 
 /* The Close Button */
 .close {
-    color: white;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -256,23 +299,6 @@ li #link5 {
     text-decoration: none;
     cursor: pointer;
 }
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-
-
 
 
 
@@ -448,7 +474,7 @@ li #link5 {
 .bgimg1{
 	position:relative;
     /* The image used */
-    background-image: url("images/img1.jpg");
+    background-image: url("assets/images/img11.jpg");
     height:97vh;
     /* Set a specific height */
     min-height: 700px;
@@ -457,6 +483,17 @@ li #link5 {
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: cover;
+	
+}
+
+.aboutgrid{
+    padding: 250px;   
+	max-width: 1250px;
+	margin: 0 auto;
+	width:50%;
+	
+	
+	
 	
 }
 
@@ -472,37 +509,67 @@ li #link5 {
 }
 
 .bgimg2 {
-  background-image: url("images/img6.jpg");
+  background-image: url("assets/images/img15.jpg");
   min-height: 100%;
+  height:400px;
 
   }
 
 .bgimg3 {
-  background-image: url("images/img7.jpg");
-  min-height: 400px;
+  background-image: url("assets/images/img17.jpg");
+  min-height: 100%;
+  height:400px;
 }
 
 #section3{
 	
 	height:100%;
 	min-height:500px;
-	background-color:white;
 	font-size:36px;
+	background-image: url("assets/images/img9.jpg");
 }
 
 #menutitle{
-	color: #85171a;
+	color: black;
 	
 }
 
-.menuaccord.active::after {
+.menuaccord.active:after {
     content: "-";
 }
 
-.menuaccord.active{
+.afteraccord{
 	
-	overflow:visible;
+	display:none;
+	box-sizing:border-box;
 	
+}
+
+.afteraccord.show {
+    display:block;  
+}
+
+.menuaccord {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    font-size: 38px;
+    line-height: 38px;
+    padding: 14px 30px 14px 0;
+    text-transform: uppercase;
+    position: relative;
+    color: black;
+    font-family: 'Amatic SC', Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+	    
+	
+}
+
+.menuaccord:after
+{
+	content: '+';
+
 }
 
 
@@ -537,8 +604,8 @@ li #link5 {
 
 
 .footer{
-    background-color:BurlyWood;
-    color:black;
+    background-color: #262526;
+    color: white;
 	display:inline-block;
 	width:100%;
 	
@@ -593,24 +660,5 @@ li #link5 {
 	min-height:1px;
 	margin-bottom:5%;
 	margin-top:5%;
-}
-/* unvisited link */
-a:link {
-    color:#5A1A0C;
-}
-
-/* visited link */
-a:visited {
-    color: green;
-}
-
-/* mouse over link */
-a:hover {
-    color: red;
-}
-
-/* selected link */
-a:active {
-    color: blue;
 }
 
