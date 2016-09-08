@@ -1,3 +1,6 @@
+ //Header Scroll
+ 
+ 
  $(document).ready(function() {
         var headerTop = $('#header').offset().top;
         var headerBottom = headerTop + 600; // Sub-header should appear after this distance from top.
@@ -25,6 +28,8 @@
 	
 	
 
+//Preloader
+	
 var myVar;
 
 function myFunction() {
@@ -35,6 +40,13 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("page").style.display = "block";
 }
+
+
+
+
+
+//Parallax Effect
+
 
 window.requestAnimationFrame = window.requestAnimationFrame
  || window.mozRequestAnimationFrame
@@ -58,5 +70,79 @@ window.addEventListener('scroll', function(){ // on page scroll
  requestAnimationFrame(parallaxeffect) // call parallaxbubbles() on next available screen paint
 }, false)
  
+
+ 
+ 
+ 
+ 
+ //Geolocation
+ var x = document.getElementById("demo");
+
+ 
+	 
+ 
+
+
+ 
+  var geoOptions = {
+     timeout: 10 * 1000
+  }
+  
+  
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition,showError,geoOptions);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+    
+	
+	
+function showPosition(position) {
+	
+      	var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var accuracy = position.coords.accuracy;
+ 
+    x.innerHTML="Latitude: " + latitude + 
+    "<br>Longitude: " + longitude;
+	
+	
+            var latlng = new google.maps.LatLng(latitude, longitude);
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[1]) {
+                        alert("Location: " + results[1].formatted_address);
+                    }
+                }
+            });
+         
+       
+}
+
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+ 
+ 
+
+	 
+      
+
  
  

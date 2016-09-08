@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+<title>Order</title>
+
 
 </head>
 <style>
@@ -15,14 +18,24 @@
 	box-sizing: border-box;
 }
 
-.saffola-link {
-    position: absolute;
-    top: 7px;
-    right: 60px;
-    display: block;
-    z-index: 1;
-}
+.dish-img img {
+    width: 100%;
+    height: 236px;
+   vertical-align:middle;
+   }
 
+.dish-img .dish-rating {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 13px;
+    line-height: 20px;
+    background: #403141;
+    padding: 0 21px 0 5px;
+    z-index: 2;
+}
 .fooddiv{
 display:block;
 padding: 0 22px;
@@ -67,39 +80,101 @@ dish-label::after {
     width: 10px;
     height: 25px;
 }
+
+.dish-description p a:hover {
+    color: #f17023;
+}
+
+.dish-description p a {
+    color: #333;
+    display: block;
+}
+
+a{
+	
+	text-decoration:none;
+}
+
+.dish-description {
+    font-size: 16px;
+    line-height: 22px;
+    font-family: "proxima_nova_rgregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    box-shadow: 0 2px 5px -1px #bdbdbd;
+    background: #fff;
+    padding: 10px 15px 0;
+}
+
+
+.pull-left {
+    float: left !important;
+}
+
+.dish-price {
+    margin: 0 -15px 10px;
+    padding: 0 15px 10px;
+}
+
+.dish-price {
+    overflow: hidden;
+    color: #212121;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+}
+
 </style>
 <body>
-<div style="display: block;"  id="storeitem1" class="fooddiv">
+<div id="storeitem1" class="fooddiv">
+   
     <div class="dish-img">
-      <a class="saffola-link"  href="javascript:void(0)"><img alt="Fit foodie icon" src="https://d1e7veuf3koykl.cloudfront.net/food_items/sponsor_icons/000/020/707/original/fit_foodie_icon.png?1469623808"></a>
-      <!-- <a href="#" class="saffola-link"><img src="/assets/image_saffola.png"></a> -->
+      
       <div class="dish-image-anchor">
         <a href="#"  class="modal-popup">
           <label class="dish-label"><span>Saffola Fit Foodie Recipe</span></label>
+          
           <span class="dish-addToCart"></span>
+          
           <span class="dish-rating"><i class="icon icon-star"></i>4.7</span>
+          
           <img alt="Dsc 7926" class="food-item-placeholder-image-url" src="https://d1e7veuf3koykl.cloudfront.net/food_items/images/000/020/707/medium2/DSC_7926.JPG?1471438427">
         </a>
       </div>
+      
       <i class="icon icon-veg">
         <span class="path1"></span><span class="path2"></span><span class="path3"></span>
       </i>
     </div>
+    
     <div class="dish-description">
       <p>
         <a href="#" title="Palak Paneer made with Saffola Masala Oats served with Chapatis (4)">Palak Paneer made with Saffola Masala Oats served with Chapatis (4)</a>
       </p>
-      <span class="dish-tag"></span>
+      
+      <span class="dish-tag">
+      	
+      	
+      	
+      </span>
+      
+      
+      
+      
       <div class="dish-price">
+      	
         <span class="pull-left">
           <i class="icon icon-rupee"></i>180
         </span>
+         
           <div class="dish-add-remove">
             <button class="btn btn-default btn-white rmv-btn"  name="button" type="submit">-</button>
             <span class="addet_item_cart"></span>
             <button class="btn btn-default btn-orange add-btn menu-item"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
           </div>
       </div>
+      
+      
         <div class="dish-chef">
           <div class="dish-chef-img">
             <a href="#">
@@ -108,7 +183,7 @@ dish-label::after {
             
           </div>
           <div class="dish-chef-detail">
-            <span class="chef-name"><a class="chefNameLink" href="/chefs/chef-archana-doshi">Saffola Chef Archana Doshi</a></span>
+            <span class="chef-name"><a class="chefNameLink" href="/chefs/chef-archana-doshi">Chef Archana Doshi</a></span>
               <span class="chef-tag">Hola MasterChef</span>
           </div>
         </div>
