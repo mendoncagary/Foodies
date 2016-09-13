@@ -1,0 +1,85 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form class="form-horizontal" method="post"  enctype="multipart/form-data">
+                                <div class="alert alert-info"><strong>Add Product:</strong></div>
+                                <hr>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputEmail">Name:</label>
+                                    <div class="controls">
+                                        <input type="text" name="name" id="inputEmail" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Description:</label>
+                                    <div class="controls">
+                                        <input type="text"  name="description"  placeholder="Description" >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Category:</label>
+                                    <div class="controls">
+                                        <select type="text" name="category"  placeholder="Category" >
+
+                                            <option></option>
+                                            <option>Guitar</option>
+                                            <option>Drums</option>
+                                            <option>Violin</option>
+                                            <option>Flute</option>
+                                            <option>Piano</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Origin:</label>
+                                    <div class="controls">
+                                        <input type="text" name="originated"  placeholder="Origin">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Price:</label>
+                                    <div class="controls">
+                                        <input type="text" name="price"  placeholder="Price" >
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Quantity:</label>
+                                    <div class="controls">
+                                        <input type="text" name="quantity" placeholder="Quantity"  >
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="input01">Image:</label>
+                                    <div class="controls">
+                                        <input type="file" name="image"> 
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <div class="controls">
+
+                                        <button type="submit" name="update" class="btn btn-success"><i class="icon-save"></i>&nbsp;Save</button>
+                                    </div>
+                                </div>
+                            </form>  
+
+
+
+
+									   </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>

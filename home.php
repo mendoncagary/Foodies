@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once 'includes/class.user.php';
+$user_login = new USER();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +31,38 @@
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="#home">Home</a></li>
-  <li><a id="link2" class="mainlink" href="#news">About us</a></li>
+  <li><a id="link1" class="mainlink" href="#home">About</a></li>
+  <li><a id="link2" class="mainlink" href="#news">Menu</a></li>
   <li><a id="link3" href="home.html">
       <img src="assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
        </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
-  <li><a id="link5" class="mainlink">Sign In</a></li>
+  <li><a id="link5" class="mainlink">
+  <?php
+	if($user_login->is_logged_in()!="")	
+{
+	echo "Welcome";
+}
+else{
+	
+	echo "Sign in";
+}
+
+if(isset($_POST['btn-login']))
+{
+	$email = trim($_POST['txtemail']);
+	$upass = trim($_POST['txtupass']);
+	
+	if($user_login->login($email,$upass))
+	{
+		echo "Welcome";
+	}
+}
+?>
+
+  
+  
+ </a></li>
 </ul>
 </nav>
 </div>
@@ -42,25 +76,27 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <div class="modal-header">
+    
+	<form method="POST">
+	<div class="modal-header">
       <span class="close">×</span>
       <h2>Sign In</h2>
     </div>
 	
 	
     <div class="modal-body">
-      <input id="name" name="name" class="modalinput" type="text">
+      <input id="name" name="txtemail" class="modalinput" type="text">
       <label for="name">Email/Mobile</label>
       
     
      <div class="col-sm-12">
-     <input id="name" name="name"class="modalinput" type="password"> 
+     <input id="name" name="txtupass" class="modalinput" type="password"> 
 	 <label for="name">Password</label>
 	 </div>
 	
 	
 	<div class="col-sm-12"> 
-	<input value="Let me in" class="sign-up-btn" type="button"> 
+	<input name="btn-login" value="Let me in" class="sign-up-btn" type="submit"> 
 	</div>
      
 	<div class="text-center or">or</div>
@@ -75,6 +111,8 @@
 	</div>
 	
   </div>
+  
+  </form>
 </div>
 </div>
 
@@ -99,6 +137,12 @@
 
 <div id="section1">
 <div class="aboutgrid">
+
+<h2 class = "headline-secondary">
+<span class="first-letter">D</span>
+iscover
+</h2>
+
 <p style="text-align: center;">
 Foodies is a restaurant, bar and coffee roastery located on a busy corner site in Mumbai's  Market.
  With glazed frontage on two sides of the building, overlooking the market and a bustling  intersection.</p>
@@ -114,8 +158,8 @@ whats cooking
 
 <div id="section2">
 
-<button onclick="getLocation()">Try It</button>
-<p id="demo"></p>
+<!--<button onclick="getLocation()">Try It</button>
+<p id="demo"></p>-->
 
 
 
@@ -128,26 +172,26 @@ whats cooking
               	 
 				 <span class="landing-page-input">
               	 	<a href="" ng-click="toggleDiv()">
-              	 		<img src="images/cross-white.26cb9f25.png" alt="" class="shift_right">
+              	 		
               	 		</a> 
               	 		</span> 
 						
-              	 		<input autocomplete="off" class="input-search" id="googleAutoCompleteBox" placeholder="Delivery Location e.g. Marine Drive, Mumbai" details="localityDetails" options="options" type="text"> </div> 
+              	 		<input autocomplete="off" value="" class="input-search" id="googleAutoCompleteBox" placeholder="Delivery Location e.g. Marine Drive, Mumbai" details="localityDetails" options="options" type="text"> </div> 
 						
 						
 						<div class="float-spinner">
               	 			<img class="rot" src="assets/images/img19.png" alt=""></div>
 							
-              	 			 <div class="clearfix visible-xs-block visible-sm-block"></div>
+             
               	 			  <div class="padding-order-now" onclick="onFocus()"> 
               	 			  	<button style="border: 0px" ng-click="select_outlet('locality_page')" class="order-now"> &nbsp; ORDER NOW</button> 
               	 			  	</div> 
               	 			  	<div class="padding-locate-me"> 
-              	 			  		<button ng-click="auto_detect_outlet()" class="locate-me">
+              	 			  		<button onclick="getLocation()" class="locate-me">
               	 			  			<i class="fa fa-location-arrow search-arrow"></i> &nbsp; LOCATE ME</button>
               	 			  			 </div> 
-										 
-              	 			  			 <div class="clearfix visible-md-block"></div> 
+										
+              	 			  			
               	 			  			 </div> 
               	 			  			 </div>
 
@@ -367,6 +411,92 @@ nothing
   
 
 
+<section class="video-sec" >
+<div class="wpb_row vc_row-fluid full-row">
+<div class="spattern">
+
+<video autoplay="" loop="" muted="" preload="auto" class="video-item">
+<source src="assets/videos/risotto-video01.mp4" type="video/mp4">
+Your browser does not support the video tag. I suggest you upgrade your browser.</video>
+
+
+<article class="slides-content">
+<div class="container">
+<div class="vc-coloumn">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper"><hr class="vertical-space4">
+<div class="divider">
+<i class="colora  li_star" style="background-color:"></i>
+<h3><span class="reservationtitle">Reservation</span>
+<span class="subtitle">BOOK A TABLE</span></h3></div>
+<hr class="vertical-space">
+	
+	<form action="http://www.opentable.com/restaurant-search.aspx" method="get" class="reservation-form" target="_blank">
+		<div class="res-sub-form">
+
+			<div class="reservation-col">
+				<i class="li_calendar"></i>
+				<span class="form-wrap">
+					<input name="startDate" class="reservation-date" value="" autocomplete="off" type="text">
+				</span>
+			</div>
+
+			<div class="reservation-col">
+				<i class="li_clock"></i>
+				<span class="form-wrap">
+					<select name="ResTime" class="otw-selectpicker"><option value="5:00pm">5:00 pm</option>
+<option value="5:30pm">5:30 pm</option>
+<option value="6:00pm">6:00 pm</option>
+<option value="6:30pm">6:30 pm</option>
+<option value="7:00pm" selected="selected">7:00 pm</option>
+<option value="7:30pm">7:30 pm</option>
+<option value="8:00pm">8:00 pm</option>
+<option value="8:30pm">8:30 pm</option>
+<option value="9:00pm">9:00 pm</option>
+<option value="9:30pm">9:30 pm</option>
+<option value="10:00pm">10:00 pm</option>
+<option value="10:30pm">10:30 pm</option>
+<option value="11:00pm">11:00 pm</option>
+<option value="11:30pm">11:30 pm</option>
+
+					</select>
+				</span>
+			</div>
+
+			<div class="reservation-col">
+				<i class="li_user"></i>
+				<span class="form-wrap">
+					<select name="partySize" class="otw-party-size-select">
+						<option value="1">1 Person</option>
+						<option value="2">2 People</option>
+						<option value="3">3 People</option>
+						<option value="4">4 People</option>
+						<option value="5">5 People</option>
+						<option value="6">6 People</option>
+						<option value="7">7 People</option>
+						<option value="8">8 People</option>
+						<option value="9">9 People</option>
+						<option value="10">10 People</option>
+					</select>
+				</span>
+			</div>
+
+			<div class="reservation-col">
+				<input value="FIND A TABLE" type="submit">
+			</div>
+
+			<input name="RestaurantID" class="RestaurantID" value="53425" type="hidden">
+			<input name="rid" class="rid" value="53425" type="hidden">
+			<input name="GeoID" class="GeoID" value="15" type="hidden">
+			<input name="txtDateFormat" class="txtDateFormat" value="MM/dd/yyyy" type="hidden">
+			<input name="RestaurantReferralID" class="RestaurantReferralID" value="53425" type="hidden">
+
+			<p>Openning hour is <strong>7:00 am - 11:00 pm</strong> every day on week</p>
+		</div>
+
+	</form><hr class="vertical-space5"></div></div></div></div></article></div></div></section>
+
+
 
 <div class="footer">
 <div class="footercontent">
@@ -375,7 +505,7 @@ nothing
 	  <a href="#">How it works</a></br>
 	  <a href="#">Service Area</a></br>
 	  <a href="#">Team</a></br>
-	  <a href="#">Believers</a></br>
+	  <a href="faq/faq.html">FAQs</a></br>
 	  <a href="#">Careers</a></br>
 	  </div>
     <div class="col">
@@ -411,7 +541,7 @@ nothing
 </div>
 <script src="assets/libraries/jquery-3.1.0.min.js"></script>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBKGVbFuHnb8ObXEyfMu8uin5YlMiM4zU"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBKGVbFuHnb8ObXEyfMu8uin5YlMiM4zU&libraries=places&region=in"></script>
 <script src="script.js"></script>
 
 

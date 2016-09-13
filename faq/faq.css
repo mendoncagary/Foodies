@@ -30,6 +30,8 @@
 	display:none;
 	box-sizing:border-box;
 	padding:12px;
+	font-family:Roboto,sans-serif;
+	
 	
 }
 
@@ -153,7 +155,7 @@ li #link5 {
     width:30em;
     height:18em;
     margin-top: -9em; /*set to a negative number 1/2 of your height*/
-    margin-left: -15em;;
+    margin-left: -15em;
 	text-align:center;
 }
    
@@ -267,12 +269,11 @@ li #link5 {
 
 
 .footer{
-    background-color: #262526;
+    background-image: url(../assets/images/img20.jpg);
     color: white;
 	display:inline-block;
 	width:100%;
 	position:absolute;
-	
 	top:2000px;
 	
 	
@@ -334,9 +335,9 @@ li #link5 {
 
 
  position:absolute;
- top:40vh;
- 
-  width: 1170px;
+ top:60vh;
+	
+  width: 90vw;
  
 }
 
@@ -399,3 +400,24 @@ p {
 
 padding:30px;
 }
+#food{
+	  background-image: url("../assets/images/food.png");
+    background-repeat: repeat-x;
+	animation: lol 10s linear infinite;
+	position: fixed;
+	bottom: 0%;
+	left: 0;
+	display: block;
+	width:100%;
+	height: 64px;
+	/*opacity:0.2;*/
+}
+	
+
+
+
+@keyframes lol {
+	from { background-position: 0 0; }
+	to {   background-position: -500px 0px; }
+}
+
