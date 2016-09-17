@@ -268,7 +268,7 @@ li #link5 {
 
 
 .footer{
-    background-color: #262526;
+    background-image: url(../assets/images/img20.jpg);
     color: white;
 	display:inline-block;
 	width:100%;
@@ -330,9 +330,9 @@ li #link5 {
 
 .section{
 	
-	height:1000px;
-
-	
+	height:auto;
+	padding:20px;
+	display:block;
 }
 
 
@@ -369,14 +369,15 @@ li #link5 {
 display:block;
 padding: 0 22px;
 margin: 0 0 45px;
-width: 33.3333333333%;
+width: 29.77777777%;
 position: relative;
 min-height: 1px;
 float:left;
+min-width:150px;
 }
 
 .dish-label {
-    background: url(assets/images/img12.png) repeat-x;
+    background: url(../assets/images/img12.png) repeat-x;
     font-weight: 700;
 	position: absolute;
     top: 8px;
@@ -391,8 +392,8 @@ float:left;
 
 }
 
-dish-label::before {
-    background: url(assets/images/img13.png) no-repeat;
+.dish-label::before {
+    background: url(../assets/images/img13.png) no-repeat;
 	content: "";
 width: 8px;
 height: 25px;
@@ -400,8 +401,8 @@ position: absolute;
 left: 0;
 }
 
-dish-label::after {
-    background: url(assets/images/img14.png) no-repeat;
+.dish-label::after {
+    background: url(../assets/images/img14.png) no-repeat;
     content: "";
     position: absolute;
     right: -10px;
@@ -409,6 +410,40 @@ dish-label::after {
     width: 10px;
     height: 25px;
 }
+
+
+.dish-img .dish-label span {
+    margin: 0 12px;
+    padding: 2px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.icon-star{
+
+
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1.26;
+}
+
+.icon-star{
+	color: #fff;
+    font-size: 10px;
+	position: absolute;
+	right: 5px;
+	top: 4px;
+
+}
+
+
+
+	
+
 
 .dish-description p a:hover {
     color: #f17023;
@@ -439,6 +474,15 @@ a{
     float: left !important;
 }
 
+.icon-rupee{
+font-size: 17px;
+color: #212121;
+margin-right: 5px;
+position: relative;
+top: 2px;
+left: 1px;
+}
+
 .dish-price {
     margin: 0 -15px 10px;
     padding: 0 15px 10px;
@@ -453,6 +497,16 @@ a{
     padding: 0 0 10px;
 }
 
+
+.dish-description .dish-price .dish-add-remove {
+    overflow: hidden;
+    text-align: right;
+    height: 32px;
+}
+
+.rmv-btn{
+    display: none;
+}
 
 .add-btn{
 	
@@ -472,3 +526,78 @@ a{
 	color:#fff;
 
 }
+
+.lazy{
+	vertical-align:middle;
+	border:0;
+	
+}
+
+
+/*Black Menu*/
+
+.black-menu {
+    background-color: #323232;
+    padding: 5px 10px;
+    margin: 0 auto;
+    min-height: 60px;
+    height: auto;
+    color: #fff;
+    z-index: 999 !important;
+
+}
+
+section{
+    display: block;
+}
+
+
+@media only screen and (min-width:1200px){
+.container {
+    width: 1170px;
+}
+}
+
+@media only screen and (min-width:768px){
+.container {
+    width: 750px;
+}
+}
+
+
+@media only screen and (min-width:992px){
+.container {
+    width: 970px;
+}
+}
+
+.container{
+    padding-right: 15px;
+    padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+.col-lg-6 {
+    padding-left: 0;
+    padding-right: 0;
+	position:relative;
+	min-height:1px;
+}
+
+
+@media only screen and (min-width:1200px){
+.col-lg-6 {
+    width: 50%;
+	float:left;
+}
+}
+
+@media only screen and (min-width:768px){
+.col-sm-6 {
+    width: 50%;
+	float:left;
+}
+}
+

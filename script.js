@@ -119,11 +119,36 @@ function initialize() {
 
 	}
 
-google.maps.event.addDomListener(window, 'load', initialize);	 
- 
+		
+ function validateplace() {
+    searchfield = $('#googleAutoCompleteBox').val();
+    var place = autocomplete.getPlace();
+    if (searchfield == "" || searchfield == null) { 
+        // No text entered
+        alert('Please enter text');
+        return false;
+    } else if (place== searchfield) { 
+        // Succ
+        // return true to submit the form
+        
+        alert('WADDUP!! Form submitted successfully bru!');
+        place = null;
+        placesearch = "";
+        $('#searchfield').val('');
+        return false; 
+    } else { 
+        // place info and search text do not match, perform manual lookup   
+        // when lookup is complete, the callback function will store the place info
+        // and resubmit the form
+        var request = {
+            query: searchfield
+        };
+        service.textSearch(request, textsearchcallback);
+        return false;
+    }
+}
 
- 
- 
+
  
  //Geolocation
  var x = document.getElementById("googleAutoCompleteBox");

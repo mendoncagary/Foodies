@@ -93,7 +93,7 @@ a{
 
 .mainlink {
     text-decoration: none;
-    color: black;
+    color: #85171a;
     position: absolute;
     width: 193px;
     height: 45px;
@@ -496,12 +496,11 @@ li #link5 {
 }
 
 .aboutgrid{
-    padding: 250px;   
+    
 	max-width: 1250px;
 	margin: 0 auto;
 	width:50%;
-	
-	
+	text-align:center;
 	
 	
 }
@@ -527,6 +526,14 @@ li #link5 {
 	font-family: "herr_von_muellerhoffregular",Palatino,serif;
 	font-weight: normal;
 	font-size:70px;
+	line-height:1.7;
+}
+
+.headline-primary{
+	color: #262526;
+	font-family:Roboto,sans-serif;
+	font-weight: bold;
+	font-size:25px;
 	line-height:1.7;
 }
 

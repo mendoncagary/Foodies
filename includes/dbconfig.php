@@ -1,12 +1,15 @@
 <?php
+
+
 class Database
 {
 	 
-	//private $config = parse_ini_file("../../private/config.ini");
-    private $host = "localhost";
-    private $db_name = "dbtest";
-    private $username = "root";
-    private $password = "LAWRANCE,291296";
+	
+	
+    private $host = 'localhost';
+    private $db_name = 	'db_project';
+    private $username = 'root';
+    private $password = 'LAWRANCE,291296';
     public $conn;
      
     public function dbConnection()

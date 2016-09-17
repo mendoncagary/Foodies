@@ -31,38 +31,45 @@ $user_login = new USER();
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="#home">About</a></li>
+  <li><a id="link1" class="mainlink" href="about/about.html">About</a></li>
   <li><a id="link2" class="mainlink" href="#news">Menu</a></li>
-  <li><a id="link3" href="home.html">
-      <img src="assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
-       </a></li>
+  <li><a id="link3" href="home.php">
+		<img src="assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
+      </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
-  <li><a id="link5" class="mainlink">
-  <?php
-	if($user_login->is_logged_in()!="")	
-{
-	echo "Welcome";
-}
-else{
+	<li>
+	<?php
+		if($user_login->is_logged_in()!="")	
+		{
+	?>
+		<a id="link5" class="mainlink">Welcome</a>
+	<?php
+		}
+		else
+		{
+	?>
+		<a id="link5" class="mainlink">Sign In</a>
 	
-	echo "Sign in";
-}
+	<?php
+		}
 
-if(isset($_POST['btn-login']))
-{
-	$email = trim($_POST['txtemail']);
-	$upass = trim($_POST['txtupass']);
+		if(isset($_POST['btn-login']))
+		{
+		$email = trim($_POST['txtemail']);
+		$upass = trim($_POST['txtupass']);
 	
-	if($user_login->login($email,$upass))
-	{
-		echo "Welcome";
-	}
-}
-?>
-
+		if($user_login->login($email,$upass))
+		{
+	?>
+		<a id="link5" class="mainlink">Welcome</a>
+	<?php
+		}
+		}
+	?>
+</li>
   
   
- </a></li>
+ 
 </ul>
 </nav>
 </div>
@@ -143,11 +150,13 @@ if(isset($_POST['btn-login']))
 iscover
 </h2>
 
+<h1 class="headline-primary">Our Story</h1>
+
 <p style="text-align: center;">
 Foodies is a restaurant, bar and coffee roastery located on a busy corner site in Mumbai's  Market.
  With glazed frontage on two sides of the building, overlooking the market and a bustling  intersection.</p>
  
- <p style="text-align: center;"><a class="aboutcode" href="reservations/">About Us</a></p>
+ <p style="text-align: center;"><a class="aboutcode" href="about/about.html">About Us</a></p>
 </div>
  </div>
 
@@ -183,8 +192,8 @@ whats cooking
               	 			<img class="rot" src="assets/images/img19.png" alt=""></div>
 							
              
-              	 			  <div class="padding-order-now" onclick="onFocus()"> 
-              	 			  	<button style="border: 0px" ng-click="select_outlet('locality_page')" class="order-now"> &nbsp; ORDER NOW</button> 
+              	 			  <div class="padding-order-now" onclick="validateplace"> 
+              	 			  	<button style="border: 0px" onclick="validateplace" class="order-now"> &nbsp; ORDER NOW</button> 
               	 			  	</div> 
               	 			  	<div class="padding-locate-me"> 
               	 			  		<button onclick="getLocation()" class="locate-me">
