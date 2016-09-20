@@ -30,7 +30,7 @@ if(isset($_POST['btn-submit']))
 				   <br /><br />
 				   Click Following Link To Reset Your Password 
 				   <br /><br />
-				   <a href='http://localhost/x/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
+				   <a href='http://localhost:81/Foodies/includes/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
 				   <br /><br />
 				   thank you :)
 				   ";

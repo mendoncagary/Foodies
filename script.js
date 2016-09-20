@@ -57,7 +57,20 @@ $(document).ready(function() {
 });
 
 
+$(document).ready(function() {
+	$("#sign-up-button").click(function(){
+		$("#signupModal").show();
+		$("#myModal").hide();
+		
+	});
+	
+	$("#sign-in-button").click(function(){
+		$("#myModal").show();
+		$("#signupModal").hide();
+		
+	});
 
+});
 //Preloader
 	
 var myVar;
@@ -119,7 +132,7 @@ function initialize() {
 
 	}
 
-		
+/*code for validating place		
  function validateplace() {
     searchfield = $('#googleAutoCompleteBox').val();
     var place = autocomplete.getPlace();
@@ -148,7 +161,7 @@ function initialize() {
     }
 }
 
-
+*/
  
  //Geolocation
  var x = document.getElementById("googleAutoCompleteBox");

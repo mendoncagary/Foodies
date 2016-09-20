@@ -28,14 +28,15 @@
                                         <select type="text" name="category" class = "form-control" placeholder="Category" >
 
                                             <option></option>
-                                            <option>School</option>
-                                            <option>Travelling</option>
-                                            <option>Hand</option>
+                                            <option>Starters</option>
+                                            <option>Lunch</option>
+                                            <option>Dinner</option>
+											<option>Deserts</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Origin:</label>
+                                    <label class="control-label" for="inputPassword">Filter:</label>
                                     <div class="controls">
                                         <input type="text" name="originated" class = "form-control" placeholder="Origin">
                                     </div>
@@ -44,7 +45,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputPassword">Price:</label>
                                     <div class="controls">
-                                        <input type="text" name="price"  class = "form-control" splaceholder="Price" >
+                                        <input type="text" name="price"  class = "form-control" placeholder="Price" >
                                     </div>
                                 </div>
 

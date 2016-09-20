@@ -53,7 +53,7 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Category</th>
-                                        <th>Origin</th>
+                                        <th>Filter</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Image</th>
@@ -77,7 +77,7 @@
                                             <td><?php echo $row['name']; ?></td> 
                                             <td><?php echo $row['description']; ?></td> 
                                             <td><?php echo $row['category']; ?></td> 
-                                            <td><?php echo $row['originated']; ?></td> 
+                                            <td><?php echo $row['filter']; ?></td> 
                                             <td style="text-align:right;"><?php echo number_format($row['price'],2); ?></td> 
                                             <td style="text-align:center;"><?php echo $total; ?></td> 
                                             <td width="50" align="center"><img src="<?php echo $row['location']; ?>" class="img-rounded" width="50" height="40"></td> 

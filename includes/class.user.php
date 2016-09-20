@@ -65,7 +65,9 @@ class USER
 					}
 					else
 					{
-						header("Location: index.php?error");
+						//echo "<span class='error-text'>Enter valid email or mobile number </span>";
+
+						//header("Location: index.php?error");
 						exit;
 					}
 				}
@@ -77,7 +79,8 @@ class USER
 			}
 			else
 			{
-				header("Location: index.php?error");
+				//echo "<span class='error-text'>Enter valid email or mobile number </span>";
+				//header("Location: index.php?error");
 				exit;
 			}		
 		}

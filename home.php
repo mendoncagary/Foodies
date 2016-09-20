@@ -2,6 +2,64 @@
 session_start();
 require_once 'includes/class.user.php';
 $user_login = new USER();
+$reg_user = new User();
+
+if(isset($_POST['btn-signup']))
+{
+	$uname = trim($_POST['regname']);
+	$email = trim($_POST['regemail']);
+	$upass = trim($_POST['regpass']);
+	$code = md5(uniqid(rand()));
+	
+	$stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
+	$stmt->execute(array(":email_id"=>$email));
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	
+	if($stmt->rowCount() > 0)
+	{
+		$msg = "
+		      <div class='alert alert-error'>
+				<button class='close' data-dismiss='alert'>&times;</button>
+					<strong>Sorry !</strong>  email allready exists , Please Try another one
+			  </div>
+			  ";
+	}
+	else
+	{
+		if($reg_user->register($uname,$email,$upass,$code))
+		{			
+			$id = $reg_user->lasdID();		
+			$key = base64_encode($id);
+			$id = $key;
+			
+			$message = "					
+						Hello $uname,
+						<br /><br />
+						Welcome to Foodies!<br/>
+						To complete your registration  please , just click following link<br/>
+						<br /><br />
+						<a href='http://localhost:81/Foodies/includes/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<br /><br />
+						Thanks,";
+						
+			$subject = "Confirm Registration";
+						
+			$reg_user->send_mail($email,$message,$subject);	
+			$msg = "
+					<div class='alert alert-success'>
+						<button class='close' data-dismiss='alert'>&times;</button>
+						<strong>Success!</strong>  We've sent an email to $email.
+                    Please click on the confirmation link in the email to create your account. 
+			  		</div>
+					";
+		}
+		else
+		{
+			echo "sorry , Query could no execute...";
+		}		
+	}
+}
+
 
 ?>
 
@@ -78,35 +136,74 @@ $user_login = new USER();
 
 
 
-<!-- The Modal -->
+<!-- Sign in Modal -->
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
     
+	
+	
+	
+    <div class="panel-signin">
+	
 	<form method="POST">
-	<div class="modal-header">
-      <span class="close">×</span>
+		<button id="signin_close" type="button" class="close" >
+		<span>×</span>
+		<!--<img src="images/close.47cfd871.png" alt="">-->
+		</button>
+      <div class="space-50"></div>
       <h2>Sign In</h2>
-    </div>
+	  
+	  
+	<div class="clearfix"></div>
 	
+	<div class="col-sm-12">
+	<div class="floating-placeholder"> 
+	<input id="name" name="txtemail" class="modalinput" type="text"> 
+	<label for="name">Email/Mobile</label> 
+	</div>
+	<!--Error text-->
+	<span class='error-text'>Enter valid email or mobile number </span>
+	</div>
 	
-    <div class="modal-body">
-      <input id="name" name="txtemail" class="modalinput" type="text">
-      <label for="name">Email/Mobile</label>
       
+	 <div class="col-sm-12">
+	 <div class="floating-placeholder">
+	 <input id="name" name="txtupass" class="modalinput" type="password"> 
+	 <label for="name">Password</label> </div>
+	<!--Error text-->
+	<span class="error-text">Password is too short(minimum is 6 character) </span> 
+	 </div> 
     
-     <div class="col-sm-12">
-     <input id="name" name="txtupass" class="modalinput" type="password"> 
-	 <label for="name">Password</label>
-	 </div>
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+	
+	 <div class="col-sm-12"> 
+	 <div class="pull-left">
+	 <input name="checkboxG1" id="checkboxG1" class="css-checkbox" type="checkbox">
+	 <label id="remember_label" for="checkboxG1" class="css-label">Remember me</label></div>
+	 <div class="pull-right">
+	 <a href="includes/fpass.php">Forgot Password ?</a>
+	 </div> </div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-20"></div>
 	
 	
 	<div class="col-sm-12"> 
 	<input name="btn-login" value="Let me in" class="sign-up-btn" type="submit"> 
 	</div>
-     
-	<div class="text-center or">or</div>
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+  
+	<div class="or">or</div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
 	
 	<div class="col-sm-6"> 
 	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
@@ -117,11 +214,122 @@ $user_login = new USER();
 	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
 	</div>
 	
+	<div class="clearfix"></div>
+	
+	<div class="space-15"></div>
+	
+	<p class="terms"> By signing here, you agree to our Terms of Service and Privacy Policy</p>
+	
+	<div class="space-20"></div>
+	<div class="clearfix"></div>
+	
+	<div class="col-sm-12"> <div class="new-member"> New User? 
+	<a class="" id="sign-up-button">Sign Up</a></div> </div>
+	<div class="clearfix"></div>
+	<div class="space-50"></div>
   </div>
   
   </form>
 </div>
 </div>
+
+
+
+<!-- Sign up Modal -->
+<div id="signupModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    
+	
+	
+	
+    <div class="panel-signin">
+	
+	<form method="POST">
+		<button id="signup_close" type="button" class="close" >
+		<span>×</span>
+		<!--<img src="images/close.47cfd871.png" alt="">-->
+		</button>
+      <div class="space-50"></div>
+      <h2>Sign up</h2>
+	  
+	  
+	<div class="clearfix"></div>
+	
+	<div class="col-sm-12">
+	<div class="floating-placeholder"> 
+	<input id="sign-up-name" name="regname" class="modalinput" type="text"> 
+	<label for="name">Name</label> 
+	</div>
+	<!--Error text-->
+	<span class='error-text'>Enter valid email or mobile number </span>
+	</div>
+	
+      
+	 <div class="col-sm-6">
+	 <div class="floating-placeholder">
+	 <input id="sign-up-password" name="regpass" class="modalinput" type="password"> 
+	 <label for="regpass">Password</label> </div>
+	<!--Error text-->
+	<span class="error-text">Password is too short(minimum is 6 character) </span> 
+	 </div> 
+    
+	 <div class="col-sm-6">
+	 <div class="floating-placeholder">
+	 <input id="sign-up-email" name="regemail" class="modalinput" type="email"> 
+	 <label for="regemail">Email</label> </div>
+	<!--Error text-->
+	<span class="error-text">Password is too short(minimum is 6 character) </span> 
+	 </div> 
+    
+	
+	<div class="clearfix"></div>
+	<div class="space-20"></div>
+	
+
+	
+	<div class="col-sm-12"> 
+	<input name="btn-signup" value="Sign up" class="sign-up-btn" type="submit"> 
+	</div>
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+  
+	<div class="or">or</div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
+	<i class="fa fa-facebook"></i> Sign in with Facebook</button>
+	</div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	</div>
+	
+	<div class="clearfix"></div>
+	
+	<div class="space-15"></div>
+	
+	<p class="terms"> By signing here, you agree to our Terms of Service and Privacy Policy</p>
+	
+	<div class="space-20"></div>
+	<div class="clearfix"></div>
+	
+	<div class="col-sm-12"> <div class="new-member"> Already a Member? 
+	<a class="" id="sign-in-button">Sign in</a></div> </div>
+	<div class="clearfix"></div>
+	<div class="space-50"></div>
+  </div>
+  
+  </form>
+</div>
+</div>
+
 
 
 
@@ -193,7 +401,7 @@ whats cooking
 							
              
               	 			  <div class="padding-order-now" onclick="validateplace"> 
-              	 			  	<button style="border: 0px" onclick="validateplace" class="order-now"> &nbsp; ORDER NOW</button> 
+              	 			  	<button style="border: 0px" onclick="document.location.href='order/order.php'" class="order-now"> &nbsp; ORDER NOW</button> 
               	 			  	</div> 
               	 			  	<div class="padding-locate-me"> 
               	 			  		<button onclick="getLocation()" class="locate-me">
@@ -435,7 +643,8 @@ Your browser does not support the video tag. I suggest you upgrade your browser.
 <div class="vc_column-inner ">
 <div class="wpb_wrapper"><hr class="vertical-space4">
 <div class="divider">
-<i class="colora  li_star" style="background-color:"></i>
+<i class="fa fa-star" aria-hidden="true"></i>
+
 <h3><span class="reservationtitle">Reservation</span>
 <span class="subtitle">BOOK A TABLE</span></h3></div>
 <hr class="vertical-space">
@@ -444,14 +653,15 @@ Your browser does not support the video tag. I suggest you upgrade your browser.
 		<div class="res-sub-form">
 
 			<div class="reservation-col">
-				<i class="li_calendar"></i>
+				<i class="fa fa-calendar" aria-hidden="true"></i>
+
 				<span class="form-wrap">
 					<input name="startDate" class="reservation-date" value="" autocomplete="off" type="text">
 				</span>
 			</div>
 
 			<div class="reservation-col">
-				<i class="li_clock"></i>
+				<i class="fa fa-clock-o" aria-hidden="true"></i
 				<span class="form-wrap">
 					<select name="ResTime" class="otw-selectpicker"><option value="5:00pm">5:00 pm</option>
 <option value="5:30pm">5:30 pm</option>
@@ -473,7 +683,8 @@ Your browser does not support the video tag. I suggest you upgrade your browser.
 			</div>
 
 			<div class="reservation-col">
-				<i class="li_user"></i>
+				<i class="fa fa-user" aria-hidden="true"></i>
+
 				<span class="form-wrap">
 					<select name="partySize" class="otw-party-size-select">
 						<option value="1">1 Person</option>
@@ -556,6 +767,23 @@ Your browser does not support the video tag. I suggest you upgrade your browser.
 
 
 <script>
+//Sign up modal
+var signupmodal = document.getElementById('signupModal');
+var span1 = document.getElementsByClassName("close")[1];
+span1.onclick = function() {
+    signupmodal.style.display = "none";
+};
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == signupmodal) {
+        signupmodal.style.display = "none";
+    }
+};
+
+
+
+// Sign in modal 
+
  var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
