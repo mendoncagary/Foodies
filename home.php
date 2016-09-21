@@ -2,7 +2,7 @@
 session_start();
 require_once 'includes/class.user.php';
 $user_login = new USER();
-$reg_user = new User();
+$reg_user = new USER();
 
 if(isset($_POST['btn-signup']))
 {
@@ -71,7 +71,8 @@ if(isset($_POST['btn-signup']))
 <meta  http-equiv="content-type" content="text/html" charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="assets/libraries/font-awesome-4.6.3/css/font-awesome.css">
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">-->
 
 <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
 <title>Foodies</title>
@@ -79,7 +80,49 @@ if(isset($_POST['btn-signup']))
 </head>
 
 <body onload="myFunction()">
+<script>
+//AJAX Code to check  input field values when onblur event triggerd.
+function validate(input,field, query)
+{
+	var xmlhttp;
+	
+if (window.XMLHttpRequest)
+  {// for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }	
+  
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState != 4 && xmlhttp.status == 200)
+        {
+			 
+			 document.getElementById(field).innerHTML = "Validating..";
+        }
+        else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {	
+			alert(xmlhttp.responseText);
+			document.getElementById(field).innerHTML = xmlhttp.responseText;
+        }
+        else
+        {
+			
+			alert("Error occured");
+            document.getElementById(field).innerHTML = "Error Occurred. <a href='index.php'>Reload Or Try Again</a> the page.";
+        
+    }
+    xmlhttp.open("GET", "includes/validation.php?input=" + input + "&field=" + field + "&query=" + query, false);
+    xmlhttp.send();
+};
 
+ 
+}
+
+
+</script>
 <div id="loader"></div>
 
 <div id="page">
@@ -147,7 +190,7 @@ if(isset($_POST['btn-signup']))
 	
     <div class="panel-signin">
 	
-	<form method="POST">
+	<form method="POST" id="sign-in-form">
 		<button id="signin_close" type="button" class="close" >
 		<span>×</span>
 		<!--<img src="images/close.47cfd871.png" alt="">-->
@@ -160,20 +203,20 @@ if(isset($_POST['btn-signup']))
 	
 	<div class="col-sm-12">
 	<div class="floating-placeholder"> 
-	<input id="name" name="txtemail" class="modalinput" type="text"> 
-	<label for="name">Email/Mobile</label> 
+	<input id="email-input" name="txtemail" class="modalinput" onblur="validate('email-input','email-error', this.value)" type="text"> 
+	<label for="email-input">Email/Mobile</label> 
 	</div>
 	<!--Error text-->
-	<span class='error-text'>Enter valid email or mobile number </span>
+	<span id="email-error" class='error-text'><!--Enter valid email or mobile number --></span>
 	</div>
 	
       
 	 <div class="col-sm-12">
 	 <div class="floating-placeholder">
-	 <input id="name" name="txtupass" class="modalinput" type="password"> 
-	 <label for="name">Password</label> </div>
+	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('pasword-input','password-error', this.value)" type="password"> 
+	 <label for="password-input">Password</label> </div>
 	<!--Error text-->
-	<span class="error-text">Password is too short(minimum is 6 character) </span> 
+	<span id="password-error" class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
 	 </div> 
     
 	<div class="clearfix"></div>
@@ -193,7 +236,7 @@ if(isset($_POST['btn-signup']))
 	
 	
 	<div class="col-sm-12"> 
-	<input name="btn-login" value="Let me in" class="sign-up-btn" type="submit"> 
+	<input name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -821,6 +864,10 @@ for (i = 0; i < acc.length; i++) {
         this.nextElementSibling.classList.toggle("show");
   };
 }
+
+
+
+
 
 
 </script>

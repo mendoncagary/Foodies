@@ -1,3 +1,7 @@
+
+
+
+
  //Header Scroll
  
  
@@ -71,7 +75,16 @@ $(document).ready(function() {
 	});
 
 });
+
+
+
+
+
+
+
 //Preloader
+
+
 	
 var myVar;
 
@@ -111,7 +124,7 @@ function parallaxeffect(){
  
 window.addEventListener('scroll', function(){ // on page scroll
  requestAnimationFrame(parallaxeffect) // call parallaxbubbles() on next available screen paint
-}, false)
+}, false);
  
 
 
@@ -170,7 +183,7 @@ function initialize() {
  
   var geoOptions = {
      timeout: 10 * 1000
-  }
+  };
   
   
 function getLocation() {
@@ -225,24 +238,59 @@ function showPosition(position) {
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            x.innerHTML = "User denied the request for Geolocation.";
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
+            x.innerHTML = "Location information is unavailable.";
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+            x.innerHTML = "The request to get user location timed out.";
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
+            x.innerHTML = "An unknown error occurred.";
             break;
     }
 }
  
  
-
-	 
-      
-
  
  
+
+ 
+function checkForm()
+{
+//fetching values from all input fields and storing them in variables
+    var txtupassvalue = document.getElementById("password-input").value;
+    var txtemailvalue = document.getElementById("email-input").value;
+    
+	
+//Check input Fields Should not be blanks.
+    if (txtemailvalue == '' || txtupassvalue == '' ) 
+    {
+        alert("Fill All Fields");
+    }
+
+    else
+    {
+	
+	//Notifying error fields
+	
+    var txtupass = document.getElementById("password-input");
+    var txtemail = document.getElementById("email-input");
+	
+	//Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
+        if (txtupass.innerHTML == "<span class='error-text'>Password is too short(minimum is 6 character) </span>" || txtemail.innerHTML == "<span class='error-text'>Enter valid email or mobile number </span>") 
+        {
+            alert("Fill Valid Information");
+        }
+        else 
+        {
+		//Submit Form When All values are valid.
+            document.getElementById("sign-in-form").submit();
+        }
+    }
+}
+
+
+
+

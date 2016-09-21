@@ -239,7 +239,7 @@ cursor:pointer;
 .error-text {
     color: #dd4c39;
     font-size: 11px;
-	display:none !important;
+	/*display:none !important;*/
 }
 
 
