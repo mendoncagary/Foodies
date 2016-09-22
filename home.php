@@ -80,49 +80,7 @@ if(isset($_POST['btn-signup']))
 </head>
 
 <body onload="myFunction()">
-<script>
-//AJAX Code to check  input field values when onblur event triggerd.
-function validate(input,field, query)
-{
-	var xmlhttp;
-	
-if (window.XMLHttpRequest)
-  {// for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }	
-  
-    xmlhttp.onreadystatechange = function()
-    {
-        if (xmlhttp.readyState != 4 && xmlhttp.status == 200)
-        {
-			 
-			 document.getElementById(field).innerHTML = "Validating..";
-        }
-        else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-        {	
-			alert(xmlhttp.responseText);
-			document.getElementById(field).innerHTML = xmlhttp.responseText;
-        }
-        else
-        {
-			
-			alert("Error occured");
-            document.getElementById(field).innerHTML = "Error Occurred. <a href='index.php'>Reload Or Try Again</a> the page.";
-        
-    }
-    xmlhttp.open("GET", "includes/validation.php?input=" + input + "&field=" + field + "&query=" + query, false);
-    xmlhttp.send();
-};
 
- 
-}
-
-
-</script>
 <div id="loader"></div>
 
 <div id="page">
@@ -213,7 +171,7 @@ else
       
 	 <div class="col-sm-12">
 	 <div class="floating-placeholder">
-	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('pasword-input','password-error', this.value)" type="password"> 
+	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('password-input','password-error', this.value)" type="password"> 
 	 <label for="password-input">Password</label> </div>
 	<!--Error text-->
 	<span id="password-error" class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
@@ -298,7 +256,7 @@ else
       <h2>Sign up</h2>
 	  
 	  
-	<div class="clearfix"></div>
+	  <div class="clearfix"></div> 
 	
 	<div class="col-sm-12">
 	<div class="floating-placeholder"> 
@@ -423,12 +381,12 @@ whats cooking
 
 
 
-
+<div class="row">
 <div class="search">
 	 <div class="search-inner"> 
 	 	
               <div class="input-bar">
-              	 <div class="search-img"></div> 
+              	 <div class="search-img col-md-1"></div> 
               	 
 				 <span class="landing-page-input">
               	 	<a href="" ng-click="toggleDiv()">
@@ -441,12 +399,12 @@ whats cooking
 						
 						<div class="float-spinner">
               	 			<img class="rot" src="assets/images/img19.png" alt=""></div>
-							
+							<div class="clearfixall"></div>
              
-              	 			  <div class="padding-order-now" onclick="validateplace"> 
+              	 			  <div class="padding-order-now col-md-2" onclick="validateplace"> 
               	 			  	<button style="border: 0px" onclick="document.location.href='order/order.php'" class="order-now"> &nbsp; ORDER NOW</button> 
               	 			  	</div> 
-              	 			  	<div class="padding-locate-me"> 
+              	 			  	<div class="padding-locate-me col-md-2"> 
               	 			  		<button onclick="getLocation()" class="locate-me">
               	 			  			<i class="fa fa-location-arrow search-arrow"></i> &nbsp; LOCATE ME</button>
               	 			  			 </div> 
@@ -463,7 +421,7 @@ whats cooking
 </div>
 
 
-
+</div>
 
 <div class="bgimg3">
 nothing
@@ -805,7 +763,7 @@ Your browser does not support the video tag. I suggest you upgrade your browser.
 <script src="assets/libraries/jquery-3.1.0.min.js"></script>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBKGVbFuHnb8ObXEyfMu8uin5YlMiM4zU&libraries=places&region=in"></script>
-<script src="script.js"></script>
+<script type="text/javascript"  src="script.js"></script>
 
 
 

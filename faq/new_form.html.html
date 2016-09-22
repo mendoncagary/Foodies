@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="faq.css">
+<link rel="stylesheet" type="text/css" href="../assets/libraries/font-awesome-4.6.3/css/font-awesome.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">-->
+<script src="../assets/libraries/jquery-3.1.0.min.js"></script>
+
+
+
+<title>FOODIES FORM</title>
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+
+#container 
+{ 
+position: relative; width: 50%; height: 650px; 
+} 
+
+body
+{
+background-attachment: fixed;
+background-position: center;
+}
+
+#bg { 
+background: #ccc;
+filter:alpha(opacity=60); /* IE */
+-moz-opacity:0.5; /* Mozilla */
+opacity: 0.6; /* CSS3 */
+position: absolute; top: 0; left: 0; height: 80%;
+width:100%;
+border-radius: 15px;
+}
+
+#text { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+</style>
+
+
+</head>
+
+<body onload="myFunction()">
+
+<div id="loader"></div>
+
+<div id="page">
+
+
+
+<div id="header">
+<nav id="innercontent">
+<ul>
+  <li><a id="link1" class="mainlink" href="../about/about.html">About</a></li>
+  <li><a id="link2" class="mainlink" href="">Menu</a></li>
+  <li><a id="link3" href="../home.php">
+      <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
+       </a></li>
+  <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
+  <li><a id="link5" class="mainlink">Sign In</a></li>
+</ul>
+</nav>
+</div>
+
+
+
+<center>
+<div id="container">
+<div id="bg"></div>
+<div id="text">
+<center> <table width="800" height="650">
+<tr valign="top">
+
+<!--
+<td background="rgba(0,0,0)" width="60%">
+http://il8.picdn.net/shutterstock/videos/16400158/thumb/1.jpg
+http://www.clipartsgram.com/image/908235016-featured47wdd2x.jpg
+http://www.traemcneely.com/wp-content/uploads/2011/11/wpid-000038881.jpg
+-->
+
+  <h2>FEEDBACK</h2>
+  <br>
+ <div id="formEle">
+    <form name="fnContact" onsubmit="return CheckContactUsForm();" action="../pr-forms/pr-contact.asp" method="post">
+        <div id="ErrFjMain"></div>
+        <div class="frmEle">
+            <div class="errClient" id="errMissingYN"></div>
+            <div class="frmEleLabel">Name:</div>
+            <input name="yourName" type="text" size="25" maxlength="25">
+        </div><br>
+        <div class="frmEle">
+            <div class="errClient" id="errMissingYE"></div>
+            <div class="frmEleLabel">Email:</div>
+            <input name="email" type="text" size="25" maxlength="25">
+        </div><br>
+        <div class="frmEle">
+        	<div class="errClient" id="errMissingMessage"></div>
+            <div class="errClient" id="errNotes"></div>
+            <div class="frmEleLabel">Message:</div>
+            <textarea name="message" onkeyup="CountContactChars(500);" onblur="CountContactChars(500);" rows="8" cols="30"></textarea>
+          </div><br>
+       
+    
+ <div class="form-group">        
+      
+        <div class="checkbox">
+          <label><input type="checkbox"> Remember me</label>
+        
+      </div>
+    </div>
+	
+    <div class="form-group">        
+    
+        <button type="submit" class="btn btn-default">Submit</button>
+      
+    </div>
+    </form>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="footer">
+<div class="footercontent">
+    <div class="col">
+      <h4>Company</h4>
+	  <a href="#" style="text-decoration:none;">How it works</a></br>
+	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
+	  <a href="#" style="text-decoration:none;">Team</a></br>
+	  <a href="faq.html" style="text-decoration:none;">FAQs</a></br>
+	  <a href="#" style="text-decoration:none;">Careers</a></br>
+	  </div>
+    <div class="col">
+      <h4>Legal</h4>
+	  <a href="#" style="text-decoration:none;">Terms & Conditions </a></br>
+	  <a href="#" style="text-decoration:none;">Quality Control </a></br>
+	  <a href="#" style="text-decoration:none;">Privacy Policy</a></br>
+	  
+	  </div>
+    
+ 
+    <div class="col">
+      <h4>Menu</h4>
+	  <a href="#" style="text-decoration:none;">All Day Menu</a> </br>
+	  <a href="#" style="text-decoration:none;">Lunch</a></br>
+	  <a href="#" style="text-decoration:none;">Dinner</a></br>
+	  <a href="#" style="text-decoration:none;">Flavours</a></br>
+	  <a href="#" style="text-decoration:none;">Sitemap</a>
+	  
+	  </div>
+    <div class="col">
+      <h4>Stay tuned</h4>
+	  Connect with us and stay updated!</br>
+	  <p>
+	  <button class="Footerbutton1" onclick="parent.open('https://www.facebook.com/')"><i class="fa fa-facebook-square" aria-hidden="true"></i></button>
+	  <button class="Footerbutton2" onclick="parent.open('https://www.youtube.com/')"><i class="fa fa-youtube" aria-hidden="true"></i></button>
+	  <button class="Footerbutton3" onclick="parent.open('https://www.twitter.com/')"><i class="fa fa-twitter-square" aria-hidden="true"></i></button>
+	  </p></div>
+
+</div>
+</div>
+
+
+
+
+<div id="food">
+</div>
+</div>
+</div>
+</body>
+
+</html>

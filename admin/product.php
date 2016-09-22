@@ -61,7 +61,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php include ('../includes/config.php');
+                                    <?php include ('connect.php');
                                     $query = mysql_query("select * from tb_products") or die(mysql_error());
                                     while ($row = mysql_fetch_array($query)) {
                                         $id = $row['productID'];

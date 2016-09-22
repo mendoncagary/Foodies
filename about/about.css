@@ -134,7 +134,7 @@ li #link5 {
 .bgimg1{
 	position:relative;
     /* The image used */
-    background-image: url("../assets/images/img22.jpg");
+    background-image: url("../assets/images/img11.jpg");
     height:50vh;
     /* Set a specific height */
     min-height: 200px;
@@ -144,6 +144,8 @@ li #link5 {
     background-position: 0 0;
     background-repeat: repeat-x;
     background-size: cover;
+	overflow:visible;
+
 	
 }
 

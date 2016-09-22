@@ -26,7 +26,7 @@
 
 
 	
-@media (min-width:768px) {
+/*@media (min-width:768px) {
 	.header  {
 		right:0;
 		left:auto;
@@ -42,7 +42,7 @@
 @media screen and (min-width: 684px){
 
     
-}
+}*/
 	
 	#page{
 	display:none;
@@ -742,15 +742,35 @@ content: " ";
 
 .search {
     position:absolute;
-    left: 25%;
-    width: 50%;
     z-index: 1;
-    float: left;
     min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
+   padding-right: 12px;
+   padding-left: 12px;
    margin-top:5%;
 }
+
+@media only screen and (min-width:992px){
+	
+	.search{
+		left: 25%;
+		width: 50%;
+		float: left;
+		
+	}
+	
+}
+
+/*@media only screen and (min-width:768px){
+	
+	.search{
+		left: 16.66666667%;
+		width: 66.66666667%;
+		float: left;
+		
+	}
+	
+}*/
+
 
 .search-inner{
 	
@@ -759,9 +779,17 @@ content: " ";
 	height: 55px;
     background: #fff;
     border-radius: 3px;
-    width: 100%;
     position: relative;
     min-height: 1px;
+}
+@media only screen and (min-width:992px){
+	
+	.search-inner{
+
+			width: 100%;
+			float:left;
+	}
+	
 }
 
 
@@ -769,38 +797,82 @@ content: " ";
 	background: url("assets/images/img18.png") 10px 20px no-repeat;
     height: 55px;
     padding: 0;
-    width: 8.33333333%;
-    float: left;
     position: relative;
     min-height: 1px;
 	
 	
 }
+
+@media only screen and (min-width:992px)
+{
+	.col-md-1{
+	 width: 6.33333333%;
+    float: left;
+	}
+}
+
+.clearfixall{
+	display:none !important;
+	box-sizing:border-box;
+}
+
+.clearfixall::before{
+display: table;
+content: " ";
+}
+
+.clearfixall::after{
+clear:both;
+display: table;
+content: " ";
+}
+
 
 .input-bar{
 	
 	padding-left: 0;
     padding-right: 0;
-    width: 83.33333333%;
-    float:left;
     position: relative;
     min-height: 1px;
 	
 	
 }
 
+@media only screen and (min-width:992px)
+{
+	.input-bar{
+	 width: 81.33333333%;
+    float: left;
+	}
+}
+
+/*@media only screen and (min-width:768px)
+{
+	.input-bar{
+	 width: 83.33333333%;
+    float: left;
+	}
+}*/
+
+
+
 .input-search{
 	height: 55px;
 border: none;
 margin-left: 5px;
-width: 85%;
+width: 90%;
+    white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+font-family: inherit;
+line-height: inherit;
 	
 }
 
 
 
 .rot{
-	padding: 5px; 
+	padding: 4px; 
 	float:right;
 	margin-top: 8px;
 	animation: spin .5s linear infinite;
@@ -814,20 +886,42 @@ width: 85%;
 
 
 .float-spinner{
-    display: none !important;
-	width: 16.66666667%;
-	float: left;
+    display: none;
 	position: relative;
 	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-right: 12px;
+	padding-left: 12px;
+	
 }
 
+
+@media only screen and (min-width:992px){
+.float-spinner{
+
+    width: 8.66666667%;
+	float:left;
+}
+}
+
+@media only screen and (min-width:992px){
+.col-md-2{
+
+    width: 16.66666667%;
+	float:left;
+}
+}
+
+
+.row{
+	margin-left:-15px;
+	margin-right:-15px;
+	box-sizing:border-box;
+	
+}
 
 .padding-locate-me{
 	padding-left: 0;
 	padding-right: 5px !important;
-	width: 15%;
 	position: relative;
     min-height: 1px;
 	float:left;
@@ -855,7 +949,6 @@ width: 85%;
 	
 	
 	padding-left: 0;
-	width: 15%;
 	padding-right: 10px !important;
  	display: none;
 	float: left;

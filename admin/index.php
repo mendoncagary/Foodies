@@ -30,7 +30,7 @@
   </center>
 </form>
 	<?php
-							include('../includes/config.php');
+							include('connect.php');
 							
 							if(isset($_POST['go']))
 							{

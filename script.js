@@ -77,10 +77,17 @@ $(document).ready(function() {
 });
 
 
+//Search Location loader function
+$(document).ready(function(){
+$('.locate-me').click(function(){
+  $(".input-bar").css("width","70%");
+  $('.float-spinner').show(); //<----here
+   
+});
 
 
 
-
+});
 
 //Preloader
 
@@ -117,9 +124,9 @@ window.requestAnimationFrame = window.requestAnimationFrame
  
 function parallaxeffect(){
  var scrolltop = window.pageYOffset ;// get number of pixels document has scrolled vertically 
- bgimg1[0].style.backgroundPositionY = -scrolltop * .05 + 'px';
- bgimg3[0].style.backgroundPositionY = -scrolltop * .05+ 'px'; // move bubble1 at 20% of scroll rate
- bgimg2[0].style.backgroundPositionY = -scrolltop * .05 + 'px'; // move bubble2 at 50% of scroll rate
+ bgimg1[0].style.backgroundPositionY = -scrolltop * .07 + 'px';
+ bgimg3[0].style.backgroundPositionY = -scrolltop * .07+ 'px'; // move bubble1 at 20% of scroll rate
+ bgimg2[0].style.backgroundPositionY = -scrolltop * .07 + 'px'; // move bubble2 at 50% of scroll rate
 }
  
 window.addEventListener('scroll', function(){ // on page scroll
@@ -215,6 +222,12 @@ function showPosition(position) {
                     if (results[1]) {
                         //alert("Location: " + results[1].formatted_address);
 						x.value = results[1].formatted_address;
+						
+						
+
+                       	$('.float-spinner').hide(); //<----here
+	
+					$(".input-bar").css("width","81%");
 					
 					var orderNow = document.getElementsByClassName("padding-order-now");
 					var order = orderNow[0];
@@ -275,11 +288,11 @@ function checkForm()
 	
 	//Notifying error fields
 	
-    var txtupass = document.getElementById("password-input");
-    var txtemail = document.getElementById("email-input");
+    var txtupass = document.getElementById("password-error");
+    var txtemail = document.getElementById("email-error");
 	
 	//Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
-        if (txtupass.innerHTML == "<span class='error-text'>Password is too short(minimum is 6 character) </span>" || txtemail.innerHTML == "<span class='error-text'>Enter valid email or mobile number </span>") 
+        if (txtupass.innerHTML == "Password is too short(minimum is 6 character)" || txtemail.innerHTML == "Enter valid email or mobile number ") 
         {
             alert("Fill Valid Information");
         }
@@ -292,5 +305,46 @@ function checkForm()
 }
 
 
+
+
+//AJAX Code to check  input field values when onblur event triggerd.
+function validate(input,field, query)
+{
+	var xmlhttp;
+	
+if (window.XMLHttpRequest)
+  {// for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }	
+  
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState != 4 && xmlhttp.status == 200)
+        {
+			console.log("Validating");
+			 document.getElementById(field).innerHTML = "Validating..";
+        }
+        else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {	
+			console.log(responseText);
+			document.getElementById(field).innerHTML = xmlhttp.responseText;
+        }
+        else
+        {
+			
+			
+            document.getElementById(field).innerHTML = "Error Occurred. <a href='index.php'>Reload Or Try Again</a> the page.";
+        
+    }
+    xmlhttp.open("GET", "includes/validation.php?input=" + input + "&field=" + field + "&query=" + query, false);
+    xmlhttp.send();
+};
+
+ 
+}
 
 

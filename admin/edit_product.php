@@ -38,7 +38,7 @@ $get_id = $_GET['id'];
                     <div class="col-md-5 well">
                         <div class="hero-unit-table">   
                           <div class="hero-unit-table">   
-                            <?php include ('../includes/config.php');
+                            <?php include ('connect.php');
                             $query = mysql_query("select * from tb_products where productID='$get_id'") or die(mysql_error());
                             $row = mysql_fetch_array($query);
                             ?>
@@ -73,9 +73,9 @@ $get_id = $_GET['id'];
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Origin</label>
+                                    <label class="control-label" for="inputPassword">Filter</label>
                                     <div class="controls">
-                                        <input type="text" name="originated" class = "form-control"  value="<?php echo $row['originated']; ?>">
+                                        <input type="text" name="originated" class = "form-control"  value="<?php echo $row['filter']; ?>">
                                     </div>
                                 </div>
 
@@ -124,7 +124,7 @@ $get_id = $_GET['id'];
                                 $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
                                 $image_name = addslashes($_FILES['image']['name']);
                                 $image_size = getimagesize($_FILES['image']['tmp_name']);
-//
+
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
                                 $location = "upload/" . $_FILES["image"]["name"];
 
