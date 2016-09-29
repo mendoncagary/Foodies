@@ -119,15 +119,21 @@ $user = new USER();
                 </div>
 
                 
-                                            <div class="ui divider"></div>
+                                            <div class="ui-divider"></div>
                     
-                    <div class="search-page-text clearfix row">
-                                                    <div class="clearfix"><span class="col-s-5 col-m-4 ttupper fontsize5 grey-text">Cuisines: </span><span class="col-s-11 col-m-12 nowrap  pl0"><a title="North Indian" href="https://www.zomato.com/mumbai/restaurants/north-indian">North Indian</a>, <a title="Chinese" href="https://www.zomato.com/mumbai/restaurants/chinese">Chinese</a>, <a title="Seafood" href="https://www.zomato.com/mumbai/restaurants/sea-food">Seafood</a></span></div>
+                    <div class="search-page-clearfix">
+                                                    <div class="clearfix">
+													<span class="ttuper-grey-text">Cuisines: </span>
+													<span class="nowrap-pl0">
+													<a class="cuisine-title" title="North Indian" href="https://www.zomato.com/mumbai/restaurants/north-indian">North Indian</a>, 
+													<a class="cuisine-title" title="Chinese" href="https://www.zomato.com/mumbai/restaurants/chinese">Chinese</a>,
+													<a class="cuisine-title" title="Seafood" href="https://www.zomato.com/mumbai/restaurants/sea-food">Seafood</a>
+													</span></div>
                         
-                                                    <div class="res-cost clearfix"><span class="col-s-5 col-m-4 ttupper fontsize5 grey-text">Cost for two:</span><span class="col-s-11 col-m-12 pl0">₹800</span></div>
+                                                    <div class="res-cost clearfix"><span class="ttuper-grey-text">Cost for two:</span><span class="col-s-11 col-m-12 pl0">₹800</span></div>
                         
                                                 <div class="res-timing clearfix" title="11:30 AM to 12:30 AM">
-                            <span class="col-s-5 col-m-4 ttupper   fontsize5  grey-text left">Hours:</span>
+                            <span class="ttuper-grey-text left">Hours:</span>
                             <div class="col-s-11 col-m-12 pl0 search-grid-right-text ">
                                 11:30 AM to 12:30 AM (Mon-Sun)
                                                             </div>

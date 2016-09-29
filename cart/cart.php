@@ -164,72 +164,72 @@ $user = new USER();
 		<div style="width: 7215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);" class="item">
 		
 		<!-- ngRepeat: product in upsell_products -->
-		<div aria-hidden="false" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive="">
-		<div class="slide" ng-class="upsell_products.length === 1 ? '' : '' ">
-		<div class="thumbnail border no-thumbnail thumbnail-space-upsell">
-		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/493/original/1110-X-810_DD.jpg?1470661865" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/493/original/1110-X-810_DD.jpg?1470661865" alt=""> 
+		<div class="ng-scope" >
+		<div class="slide" >
+		<div class="thumbnail-space">
+		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/493/original/1110-X-810_DD.jpg?1470661865" style="cursor:auto"  alt=""> 
 		<div class="caption" style="padding:10px">
 		<h3 class="ng-binding" style="font-size:13px;line-height:2">Super Saver Combo </h3> 
-		<span class="veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span> 
+		<span class="veg"  style="top:14px;right:11px!important"></span> 
 		<div class="pull-left rupee1 ng-binding" style="font-size:12px">
 		<span>₹</span> 68</div> 
 		<div class="pull-right">
-		<a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div>
-		<div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px">
-		<input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button">
-		<input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> 
-		<input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div>
+		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div>
+		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px">
+		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button">
+		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div>
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 	
 		<!-- end ngRepeat: product in upsell_products -->	
-		<div aria-hidden="false" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive=""> 
-		<div class="slide" ng-class="upsell_products.length === 1 ? '' : '' "> 
-		<div class="thumbnail border no-thumbnail thumbnail-space-upsell">
+		<div   class="ng-scope" > 
+		<div class="slide" > 
+		<div class="thumbnail-space">
 		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/864/original/1110-X-810.jpg?1472296003" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/864/original/1110-X-810.jpg?1472296003" alt="">
 		<div class="caption" style="padding:10px">
 		<h3 class="ng-binding" style="font-size:13px;line-height:2">Rich Chocolate Brownie </h3>
-		<span class="non-veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span>
+		<span class="non-veg"  style="top:14px;right:11px!important"></span>
 		<div class="pull-left rupee1 ng-binding" style="font-size:12px">
 		<span>₹</span> 58</div> 
 		<div class="pull-right"> 
-		<a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> 
-		<div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
-		<input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button">
-		<input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> 
-		<input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div> 
+		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> 
+		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
+		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button">
+		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> 
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 		<!-- end ngRepeat: product in upsell_products -->
-		<div aria-hidden="true" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive="">
-		<div class="slide" ng-class="upsell_products.length === 1 ? '' : '' "> <div class="thumbnail border no-thumbnail thumbnail-space-upsell"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/869/original/1110-X-810.jpg?1472295932" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/869/original/1110-X-810.jpg?1472295932" alt=""> <div class="caption" style="padding:10px">
-		<h3 class="ng-binding" style="font-size:13px;line-height:2">Double Chocolate Chip Muffin </h3> <span class="non-veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span>
+		<div   class="ng-scope" >
+		<div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/869/original/1110-X-810.jpg?1472295932" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/869/original/1110-X-810.jpg?1472295932" alt=""> <div class="caption" style="padding:10px">
+		<h3 class="ng-binding" style="font-size:13px;line-height:2">Double Chocolate Chip Muffin </h3> <span class="non-veg"  style="top:14px;right:11px!important"></span>
 		<div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div>
 		<div class="pull-right"> 
-		<a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div>
-		<div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
-		<input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button"> 
-		<input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> 
-		<input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div>
+		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div>
+		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
+		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> 
+		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div>
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 		<!-- end ngRepeat: product in upsell_products -->
-		<div aria-hidden="true" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive="">
-		<div class="slide" ng-class="upsell_products.length === 1 ? '' : '' ">
-		<div class="thumbnail border no-thumbnail thumbnail-space-upsell"> 
-		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/602/original/Choco-Lava-Cake.jpg?1456988321" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/602/original/Choco-Lava-Cake.jpg?1456988321" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Choco Lava Cake </h3> <span class="veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div aria-hidden="true" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive=""> <div class="slide" ng-class="upsell_products.length === 1 ? '' : '' "> <div class="thumbnail border no-thumbnail thumbnail-space-upsell"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Moong Dal Ka Halwa </h3> <span class="veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div aria-hidden="true" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive=""> <div class="slide" ng-class="upsell_products.length === 1 ? '' : '' "> <div class="thumbnail border no-thumbnail thumbnail-space-upsell"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Ice Tea </h3> <span class="veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div> <div class="pull-right"> <a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div aria-hidden="true" style="float: left; list-style: outside none none; position: relative; width: 300px; margin-right: 25px;" class="ng-scope" ng-repeat="product in upsell_products" my-repeat-directive=""> <div class="slide" ng-class="upsell_products.length === 1 ? '' : '' "> <div class="thumbnail border no-thumbnail thumbnail-space-upsell"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Masala Lemonade </h3> <span class="veg" ng-class=" product.veg ? 'veg': 'non-veg' " style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div>
+		<div   class="ng-scope" >
+		<div class="slide" >
+		<div class="thumbnail-space"> 
+		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/602/original/Choco-Lava-Cake.jpg?1456988321" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/602/original/Choco-Lava-Cake.jpg?1456988321" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Choco Lava Cake </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Moong Dal Ka Halwa </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Ice Tea </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Masala Lemonade </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div>
 		<div class="pull-right"> 
-		<a href="" class="btn btn-primary red-btn coming-soon ng-binding" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> 
-		<div class="pull-right text-center width50 ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
-		<input value="-" class="plus-btn radius-3" ng-click="decrement_product( product )" readonly="" type="button"> 
-		<input class="input ng-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn radius-3" ng-click="add_product(product, true)" readonly="" type="button"> </div>
+		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> 
+		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
+		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> 
+		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div>
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 		<!-- end ngRepeat: product in upsell_products --> </div></div>
 		<div class="bx-controls bx-has-controls-direction"><div class="bx-controls-direction">
 		<a class="bx-prev disabled" href="">Prev</a>
 		<a class="bx-next" href="">Next</a></div></div></div> </div>
-		</upsell> 
+		
 		
 		
 		<!-- Cart Upsell Stops -->
@@ -251,9 +251,9 @@ $user = new USER();
 		<i class="" ng-show="show_click_to_customize(product_size)"> 
 		<p ng-click="customize(item_product,item)" style="font-size:12px;cursor:pointer">Click to customize</p></i>
 		</div> </div> </div> <div class="col-sm-3 text-center width50 plus-minus"> <!-- <div class="space-10"></div> -->
-		<input value="-" class="plus-btn radius-3" ng-click="decrement_quantity(item)" readonly="" type="button">
+		<input value="-" class="plus-btn-radius" ng-click="decrement_quantity(item)" readonly="" type="button">
 		<input class="input" value="1" readonly="" type="text"> 
-		<input value="+" class="plus-btn radius-3" ng-click="increment_quantity(item)" readonly="" type="button"> 
+		<input value="+" class="plus-btn-radius" ng-click="increment_quantity(item)" readonly="" type="button"> 
 		<!-- <div class="space-10"></div> --> </div> <div class="col-sm-2 text-right width50 price-pos ng-binding"> 
 		<!-- <div class="space-10"></div> --> <span class="rupee">₹</span> 138 <!-- <div class="space-10"></div> --> </div> 
 		<div ng-click="remove_item(item)" class="delete"> <!-- <div class="space-10"></div> --> 
@@ -603,52 +603,8 @@ $user = new USER();
 				  <!--Custom parameter value-->
 				  </form>
 				  
-				  <script type="text/javascript">
-				  function handleCitrusPaymentOptions(e){
-					  if(null!=e.netBanking)
-						  for(i=0;i<e.netBanking.length;i++)
-						  {
-							  var n=document.getElementById("citrusAvailableOptions"),t=document.createElement("option");
-							  t.text=e.netBanking[i].bankName,t.value=e.netBanking[i].issuerCode,n&&n.add(t)
-						 }
-							  
-							  }
-							  
-				function assign_bank_dropdown()
-				{
-					var e=document.getElementById("select_bank").value;
-					angular.element(document.getElementById("select_bank")).scope().select_bank("none");
-					var n=document.getElementById("citrusAvailableOptions");n.value=e
-					}
-					
-				function citrusServerErrorMsg(e){
-					
-				}
-				
-				
-				function citrusClientErrMsg(e){
-					angular.element(document.getElementById("paymentMethods")).scope().bootstrap_alert(e)
-					}
-					
-					function citrusClientErrMsg(e){
-						angular.element(document.getElementById("paymentMethods")).scope().bootstrap_alert(e)}CitrusPay.Merchant.Config={Merchant:{accessKey:"XLOYA94WCTI1K1POVFTR",vanityUrl:"BOX8"}},fetchPaymentOptions();
-						</script>
-						
-						
-						<script>
-						$(document).ready(function()
-						{
-							function a(a){
-								var e=$(this);
-								setTimeout(function(){
-									var a=e.val();""!=a?e.parent().addClass("floating-placeholder-float"):e.parent().removeClass("floating-placeholder-float")
-									},1)}
-									
-								$(".floating-placeholder input").keydown(a),$(".floating-placeholder input").change(a)});
 								
-								</script>
-								
-								</payments> 
+								 
 								</div> 
 								</div>
 								</div>
@@ -697,9 +653,9 @@ $user = new USER();
       <h4>Stay tuned</h4>
 	  Connect with us and stay updated!</br>
 	  <p>
-	  <button class="Footerbutton1" onclick="parent.open('https://www.facebook.com/')"><i class="fa fa-facebook-square" aria-hidden="true"></i></button>
-	  <button class="Footerbutton2" onclick="parent.open('https://www.youtube.com/')"><i class="fa fa-youtube" aria-hidden="true"></i></button>
-	  <button class="Footerbutton3" onclick="parent.open('https://www.twitter.com/')"><i class="fa fa-twitter-square" aria-hidden="true"></i></button>
+	  <button class="Footerbutton1" onclick="parent.open('https://www.facebook.com/')"><i class="fa fa-facebook-square" ></i></button>
+	  <button class="Footerbutton2" onclick="parent.open('https://www.youtube.com/')"><i class="fa fa-youtube" ></i></button>
+	  <button class="Footerbutton3" onclick="parent.open('https://www.twitter.com/')"><i class="fa fa-twitter-square" ></i></button>
 	  </p></div>
 
 </div>

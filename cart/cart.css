@@ -704,3 +704,128 @@ background:#fff;
 .item{
 	height:100%;
 }
+
+.ng-scope{
+	
+	float: left;
+list-style: outside none none;
+position: relative;
+width: 300px;
+margin-right: 25px;
+}
+
+.thumbnail-space {
+    margin-bottom: 15px !important;
+	cursor: auto !important;
+	padding: 0;
+box-shadow: 6px 6px 10px #888;
+position: relative;
+border-radius: 0;
+line-height: 1.42857143;
+background-color: #fff;
+border: 1px solid #ddd;
+-webkit-transition: border .2s ease-in-out;
+-o-transition: border .2s ease-in-out;
+transition: border .2s ease-in-out;
+display: block;
+}
+
+.caption {
+    position: relative;
+    cursor: default;
+    color: #6b6b6b;
+}
+
+.ng-binding{
+margin: 0;
+color: #4a4a4a;
+font-weight: 500;
+}
+
+.veg {
+    background: url("https://box8.in/styles/../images/veg.62b68100.png") no-repeat;
+	position: absolute;
+width: 16px;
+height: 16px;
+}
+
+.rupee1 {
+    color: #323232;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.red-btn-primary{
+	
+background: #da3939;
+padding: 4px 15px;
+border: 1px solid #da3939;
+color: #fff;
+display: inline-block;
+margin-bottom: 0;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+border-radius: 4px;
+vertical-align: middle;
+outline: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.ng-hide {
+    display: none !important
+	
+}
+
+.plus-btn-radius{
+    margin: 0;
+    font: inherit;
+    color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	outline: 0;
+	border-radius: 3px;
+	border: 1px solid #e2e2e2 !important;
+	width: 21px;
+	height: 21px;
+	background: 0 0;
+	line-height: 0;
+	cursor: pointer;
+}
+
+.clearfix::before{
+display: table;
+content: " ";
+}
+
+.clearfix::after {
+    clear: both;
+	display: table;
+content: " ";
+}
+
+.input-binding{
+	
+	width: 40px;
+border: none;
+text-align: center;
+outline: 0;
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+font: inherit;
+color: inherit;
+}
+

@@ -752,7 +752,7 @@ cursor: pointer;
 	color: #89959B;
 	font-size: 11px;
 	cursor: pointer;
-	webkit-transition: color .1s ease;
+	-webkit-transition: color .1s ease;
 transition: color .1s ease;
 }
 
@@ -793,8 +793,6 @@ padding-right: 10px;
 .rating-popup {
     color: #fff;
     cursor: default;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     font-size: 16px;
     height: 25px;
@@ -849,6 +847,12 @@ cursor: pointer;
     display: table;
 }
 
+.row:after{
+	clear: both;
+	    content: " ";
+    display: table;
+}
+
 .search-result-address{
 	
 	
@@ -865,4 +869,94 @@ position: relative;
 min-height: 1px;
 padding-left: 10px;
 padding-right: 10px;
+}
+
+.search-result-address:after{
+	clear: both;
+	    content: " ";
+    display: table;
+}
+
+.ui-divider{
+border-top: 1px solid #e7e7e7;
+border-bottom: 1px solid rgba(255,255,255,.1);
+margin: .7rem 0;
+line-height: 1;
+height: 0;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: .05em;
+color: rgba(0,0,0,.85);
+font-size: 1rem;
+}
+
+.search-page-clearfix{
+margin-left: -10px;
+margin-right: -10px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.search-page-clearfix::before {
+    content: " ";
+    display: table;
+	
+}
+
+.search-page-clearfix::before {
+    content: " ";
+    display: table;
+}
+
+
+.ttuper-grey-text {
+    font-size: 12px;
+	color: #89959B;
+	text-transform: uppercase;
+letter-spacing: .01em;
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+@media only screen and (min-width:641px){
+.ttuper-grey-text{
+  width: 25%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+float:left;
+}
+}
+
+.nowrap-p10 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	padding-left: 0;
+	position: relative;
+min-height: 1px;
+padding-right: 10px;
+   
+
+}
+
+
+@media only screen and (min-width:641px){
+.nowrap-p10{
+  width: 25%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+float:left;
+}
+}
+
+.cuisine-title{
+	
+	color:#33373D;
 }
