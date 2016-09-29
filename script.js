@@ -270,7 +270,7 @@ function showError(error) {
  
 
  
-function checkForm()
+/*function checkForm()
 {
 //fetching values from all input fields and storing them in variables
     var txtupassvalue = document.getElementById("password-input").value;
@@ -304,12 +304,13 @@ function checkForm()
     }
 }
 
-
+*/
 
 
 //AJAX Code to check  input field values when onblur event triggerd.
-function validate(input,field, query)
+function validate(input,field,query)
 {
+	
 	var xmlhttp;
 	
 if (window.XMLHttpRequest)
@@ -323,28 +324,15 @@ else
   
     xmlhttp.onreadystatechange = function()
     {
-        if (xmlhttp.readyState != 4 && xmlhttp.status == 200)
-        {
-			console.log("Validating");
-			 document.getElementById(field).innerHTML = "Validating..";
-        }
-        else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {	
-			console.log(responseText);
+			
 			document.getElementById(field).innerHTML = xmlhttp.responseText;
         }
-        else
-        {
-			
-			
-            document.getElementById(field).innerHTML = "Error Occurred. <a href='index.php'>Reload Or Try Again</a> the page.";
         
-    }
-    xmlhttp.open("GET", "includes/validation.php?input=" + input + "&field=" + field + "&query=" + query, false);
+	}
+    xmlhttp.open("GET", "includes/validation.php?input="+input+"&field="+field+"&query="+query, false);
     xmlhttp.send();
-};
-
- 
 }
 
-
+ 

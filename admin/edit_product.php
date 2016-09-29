@@ -64,18 +64,18 @@ $get_id = $_GET['id'];
                                         <select type="text" name="category" class = "form-control" >
                                             <option><?php echo $row['category'];  ?></option>
 											<option></option>
-                                            <option>Guitar</option>
-                                            <option>Drums</option>
-                                            <option>Violin</option>
-                                            <option>Flute</option>
-                                            <option>Piano</option>
+											<option>Starters</option>
+                                            <option>Lunch</option>
+                                            <option>Dinner</option>
+                                            <option>Desserts</option>
+                                      
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputPassword">Filter</label>
                                     <div class="controls">
-                                        <input type="text" name="originated" class = "form-control"  value="<?php echo $row['filter']; ?>">
+                                        <input type="text" name="filter" class = "form-control"  value="<?php echo $row['filter']; ?>">
                                     </div>
                                 </div>
 
@@ -117,7 +117,7 @@ $get_id = $_GET['id'];
                                 $name = $_POST['name'];
                                 $description = $_POST['description'];
                                 $category = $_POST['category'];
-                                $originated = $_POST['originated'];
+                                $filter = $_POST['filter'];
                                 $price = $_POST['price'];
                                 $quantity = $_POST['quantity'];
 
@@ -128,7 +128,7 @@ $get_id = $_GET['id'];
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
                                 $location = "upload/" . $_FILES["image"]["name"];
 
-                                mysql_query("update tb_products set name='$name',description='$description',category='$category',originated='$originated',price='$price',quantity='$quantity',location='$location' where productID='$get_id'") or die(mysql_query());
+                                mysql_query("update tb_products set name='$name',description='$description',category='$category',filter='$filter',price='$price',quantity='$quantity',location='$location' where productID='$get_id'") or die(mysql_query());
                                 header('location:product.php');
                             }
                             ?>

@@ -31,7 +31,8 @@
 	box-sizing:border-box;
 	padding:12px;
 	font-family:Roboto,sans-serif;
-	overflow:hidden;
+	
+	
 }
 
 
@@ -135,17 +136,15 @@ li #link5 {
 	position:relative;
     /* The image used */
     background-image: url("../assets/images/img11.jpg");
-    height:50vh;
+    height:40vh;
     /* Set a specific height */
     min-height: 200px;
 	top:20vh;
     /* Create the parallax scrolling effect */
-   background-attachment: fixed;
+    background-attachment: fixed;
     background-position: 0 0;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     background-size: cover;
-	overflow:visible;
-
 	
 }
 
@@ -162,15 +161,14 @@ li #link5 {
    
 .headline {
     position: relative;
-    font-family: "Roboto",sans-serif; /*"herr_von_muellerhoffregular",Palatino,serif;*/
+    font-family: "herr_von_muellerhoffregular",Palatino,serif;
     font-size: 100px;
     font-weight: normal;
     letter-spacing: 0;
     text-transform: none;
     padding: 0 72px;
     margin: 0 -72px;
-    /*color: #c59d5f;*/
-	color:#fff;
+    color: #c59d5f;
 }    
 
 
@@ -278,6 +276,8 @@ li #link5 {
 	position:absolute;
 	top:2000px;
 	
+	
+	
 }
 
 .Footerbutton1 {
@@ -335,9 +335,9 @@ li #link5 {
 
 
  position:absolute;
- top:55vh;
- width: 100%;
-
+ top:60vh;
+	
+  width: 90vw;
  
 }
 
@@ -394,16 +394,12 @@ p {
 .container {
     padding-right: 15px;
     padding-left: 15px;
-	
 }
 
 .section{
 
 padding:30px;
-
-
 }
-
 #food{
 	  background-image: url("../assets/images/food.png");
     background-repeat: repeat-x;
@@ -414,7 +410,7 @@ padding:30px;
 	display: block;
 	width:100%;
 	height: 64px;
-	/*opacity:0.2px;*/
+	/*opacity:0.2;*/
 }
 	
 

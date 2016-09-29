@@ -2,6 +2,8 @@
 session_start();
 require_once 'includes/class.user.php';
 $user_login = new USER();
+
+
 $reg_user = new USER();
 
 if(isset($_POST['btn-signup']))
@@ -38,7 +40,7 @@ if(isset($_POST['btn-signup']))
 						Welcome to Foodies!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://localhost:81/Foodies/includes/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://localhost/Foodies/includes/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
 						
@@ -161,7 +163,7 @@ if(isset($_POST['btn-signup']))
 	
 	<div class="col-sm-12">
 	<div class="floating-placeholder"> 
-	<input id="email-input" name="txtemail" class="modalinput" onblur="validate('email-input','email-error', this.value)" type="text"> 
+	<input id="email-input" name="txtemail" class="modalinput" onblur="validate('email-input','email-error',this.value)" type="text"> 
 	<label for="email-input">Email/Mobile</label> 
 	</div>
 	<!--Error text-->
@@ -171,7 +173,7 @@ if(isset($_POST['btn-signup']))
       
 	 <div class="col-sm-12">
 	 <div class="floating-placeholder">
-	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('password-input','password-error', this.value)" type="password"> 
+	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('password-input','password-error',this.value)" type="password"> 
 	 <label for="password-input">Password</label> </div>
 	<!--Error text-->
 	<span id="password-error" class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
@@ -194,7 +196,7 @@ if(isset($_POST['btn-signup']))
 	
 	
 	<div class="col-sm-12"> 
-	<input name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
+	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -264,7 +266,7 @@ if(isset($_POST['btn-signup']))
 	<label for="name">Name</label> 
 	</div>
 	<!--Error text-->
-	<span class='error-text'>Enter valid email or mobile number </span>
+	<span class='error-text'><!--Enter valid email or mobile number --></span>
 	</div>
 	
       
@@ -273,7 +275,7 @@ if(isset($_POST['btn-signup']))
 	 <input id="sign-up-password" name="regpass" class="modalinput" type="password"> 
 	 <label for="regpass">Password</label> </div>
 	<!--Error text-->
-	<span class="error-text">Password is too short(minimum is 6 character) </span> 
+	<span class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
 	 </div> 
     
 	 <div class="col-sm-6">
@@ -281,7 +283,7 @@ if(isset($_POST['btn-signup']))
 	 <input id="sign-up-email" name="regemail" class="modalinput" type="email"> 
 	 <label for="regemail">Email</label> </div>
 	<!--Error text-->
-	<span class="error-text">Password is too short(minimum is 6 character) </span> 
+	<span class="error-text"><!--Password is too short(minimum is 6 character) --></span> 
 	 </div> 
     
 	
@@ -362,8 +364,7 @@ iscover
 <h1 class="headline-primary">Our Story</h1>
 
 <p style="text-align: center;">
-Foodies is a restaurant, bar and coffee roastery located on a busy corner site in Mumbai's  Market.
- With glazed frontage on two sides of the building, overlooking the market and a bustling  intersection.</p>
+Foodies is a an online marketplace for your favourite food. We have the widest range of restuarants in India. We believe food is a pleasure and food ordering should be fast and definitely a fun experience.</p>
  
  <p style="text-align: center;"><a class="aboutcode" href="about/about.html">About Us</a></p>
 </div>
