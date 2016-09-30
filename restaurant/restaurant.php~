@@ -166,7 +166,7 @@ $user = new USER();
                 <span data-icon="" class="zdark">Call</span>
             </a>
                     
-                <a class="item-result-menu" href="https://www.zomato.com/mumbai/gurukripa-powai/menu#tabtop" title="gurukripa Menu" data-result-type="ResCard_Menu">
+                <a class="item result-menu" href="https://www.zomato.com/mumbai/gurukripa-powai/menu#tabtop" title="gurukripa Menu" data-result-type="ResCard_Menu">
             <span data-icon="" class="zdark">View Menu</span>
         </a>
         

@@ -1107,17 +1107,4 @@ display: flex;
 -moz-box-align: center;
 align-items: center;
 cursor: pointer;
-position: relative;
-vertical-align: middle;
-line-height: 1;
-text-decoration: none;
--moz-box-flex: 0;
-flex: 0 0 auto;
--moz-user-select: none;
-background: transparent none repeat scroll 0px 0px;
-padding: 13px 28px;
-text-transform: none;
-color: #33373D;
-font-weight: 400;
-transition: #F2F1F0 0.1s ease 0s, box-shadow 0.1s ease 0s, color 0.1s ease 0s;
 }
