@@ -36,9 +36,7 @@
 
 
 
-@media screen and (min-height: 684px){
-    
-}
+
 
 a{
 	text-decoration:none;
@@ -355,17 +353,42 @@ section{
 }
 
 
-@media only screen and (min-width:1200px){
-.container {
-    width: 1170px;
-}
+@media only screen and (min-width:768px){
+.col-sm-6 {
+    width: 50%;
+	float:left;
 }
 
-@media only screen and (min-width:768px){
 .container {
     width: 750px;
 }
+
+.col-sm-3{
+	
+	width:25%;
+	float:left;
 }
+
+.col-sm-2{
+width: 16.66666667%;
+float:left;
+}
+
+
+.col-sm-8{
+width: 66.66666667%;
+float:left;
+}
+
+.col-sm-8{
+width: 58.33333333%;
+float:left;
+}
+
+
+
+}
+
 
 
 @media only screen and (min-width:992px){
@@ -373,6 +396,21 @@ section{
     width: 970px;
 }
 }
+
+
+@media only screen and (min-width:1200px){
+.container {
+    width: 1170px;
+}
+}
+
+@media only screen and (min-width:1200px){
+.col-lg-6 {
+    width: 50%;
+	float:left;
+}
+}
+
 
 .container{
     padding-right: 15px;
@@ -389,20 +427,6 @@ section{
 	min-height:1px;
 }
 
-
-@media only screen and (min-width:1200px){
-.col-lg-6 {
-    width: 50%;
-	float:left;
-}
-}
-
-@media only screen and (min-width:768px){
-.col-sm-6 {
-    width: 50%;
-	float:left;
-}
-}
 
 .black-menu .location-icon-white {
     background: url("../assets/images/location.svg") no-repeat;
@@ -829,3 +853,202 @@ font: inherit;
 color: inherit;
 }
 
+
+.img-food{
+	
+	
+	    max-width: 100%;
+    display: block;
+ margin-right: auto;
+margin-left: auto;
+height: auto;
+border:0;
+vertical-align: middle;
+}
+
+
+.bx-prev-disabled {
+    display: none;
+	z-index: 1;
+	    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    outline: 0;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+ left: 10px;
+background: url("img25.png") 0 -32px no-repeat;
+}
+
+
+.bx-next{
+	
+	z-index: 1;
+	    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    outline: 0;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    right: 10px;
+    background: url("img25.png") -43px -32px no-repeat;
+}
+	
+.carttable .row {
+    position: relative;
+	margin-right: -15px;
+margin-left: -15px;
+}
+	
+	
+	
+	
+.carttable .row::before {
+    display: table;
+    content: " ";
+}
+
+
+.carttable .row::after {
+    clear: both;
+}
+
+.col-sm-3 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+.col-sm-2 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.space-10 {
+    width: 100%;
+    height: 10px;
+	margin: 0 auto;
+}
+
+.padding{
+	
+	padding-left: 0;
+margin: 0;
+}
+
+
+.col-sm-8{
+position: relative;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+.ng-binding-heading {
+    margin: 0;
+    color: #4a4a4a;
+    font-weight: 500;
+}
+
+.ng-binding-type{
+    color: #ce2929;
+    text-transform: uppercase;
+    font-weight: 700;
+ 
+}
+
+.continue-shoping:hover {
+    background: #f5f5f5;
+}
+
+
+.continue-shoping {
+    border: 1px solid #6b6b6b !important;
+    background: #fff;
+    color: #323232;
+	cursor: pointer;
+	    padding: 13px 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+border-radius: 6px;
+line-height: inherit;
+margin: 0;
+margin: 0;
+font: inherit;
+}
+
+.next-step {
+    background: #DA3939;
+    color: #fff;
+    border: 1px solid #da3939 !important;
+	cursor:pointer;
+	padding: 13px 20px;
+font-size: 12px;
+text-transform: uppercase;
+text-align: center;
+
+border-radius: 6px;
+outline: 0;
+font-family: inherit;
+line-height: inherit;
+margin: 0;
+font: inherit;
+}
+
+.input-quantity{
+	
+	width: 40px;
+border: none;
+text-align: center;
+	outline:0;
+	font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+font: inherit;
+color: inherit;
+}
+
+.carttable hr {
+    margin-top: 5px;
+    margin-bottom: 10px;
+	    border:0;
+		border-top: 1px solid #eee;
+		height: 0;
+		box-sizing: content-box;
+		
+}
+
+
+.col-sm-7 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.space-20 {
+    width: 100%;
+    height: 20px;
+	margin:0 auto;
+}
+
+.carttable .rupee{
+	color: #6b6b6b;
+	font-size: 12px;
+}
+
+.margin {
+    margin-top: 0;
+}

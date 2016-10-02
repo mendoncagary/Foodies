@@ -1,3 +1,5 @@
+
+
 @font-face {
 	font-family: 'herr_von_muellerhoffregular';
     src: url('assets/fonts/herrvonmuellerhoff-regular-webfont.woff2') format('woff2'),
@@ -25,7 +27,14 @@
 
 
 
-	
+*, *::after, *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}	
+
+
+
 /*@media (min-width:768px) {
 	.header  {
 		right:0;
@@ -471,12 +480,6 @@ content: " ";
 
 }
 
-@media only screen and (min-width:768px){
-.col-sm-12 {
-    width: 100%;
-	float:left;
-}
-}
 
 .panel-signin .new-member {
     border: 1px solid #e2e2e2;
@@ -749,18 +752,9 @@ content: " ";
    margin-top:5%;
 }
 
-@media only screen and (min-width:992px){
-	
-	.search{
-		left: 25%;
-		width: 50%;
-		float: left;
-		
-	}
-	
-}
 
-/*@media only screen and (min-width:768px){
+
+/*@media  screen and (min-width:768px){
 	
 	.search{
 		left: 16.66666667%;
@@ -782,15 +776,6 @@ content: " ";
     position: relative;
     min-height: 1px;
 }
-@media only screen and (min-width:992px){
-	
-	.search-inner{
-
-			width: 100%;
-			float:left;
-	}
-	
-}
 
 
 .search-img{
@@ -803,13 +788,6 @@ content: " ";
 	
 }
 
-@media only screen and (min-width:992px)
-{
-	.col-md-1{
-	 width: 6.33333333%;
-    float: left;
-	}
-}
 
 .clearfixall{
 	display:none !important;
@@ -838,15 +816,9 @@ content: " ";
 	
 }
 
-@media only screen and (min-width:992px)
-{
-	.input-bar{
-	 width: 81.33333333%;
-    float: left;
-	}
-}
 
-/*@media only screen and (min-width:768px)
+
+/*@media  screen and (min-width:768px)
 {
 	.input-bar{
 	 width: 83.33333333%;
@@ -895,22 +867,6 @@ line-height: inherit;
 }
 
 
-@media only screen and (min-width:992px){
-.float-spinner{
-
-    width: 8.66666667%;
-	float:left;
-}
-}
-
-@media only screen and (min-width:992px){
-.col-md-2{
-
-    width: 16.66666667%;
-	float:left;
-}
-}
-
 
 .row{
 	margin-left:-15px;
@@ -927,6 +883,15 @@ line-height: inherit;
 	float:left;
 }
 
+
+
+
+
+
+
+	
+	
+	
 .locate-me{
 	
     border: none;
@@ -1329,4 +1294,126 @@ padding: 40px 20px 10px;
     float: right;
 }
 
+
+@media only screen and (min-width:768px){
+
+.col-sm-12 {
+    width: 100%;
+	float:left;
+}
+
+.padding-locate-me{
+	width: 100%;
+	float: left;
+}
+
+.locate-me {
+    font-size: 14px;
+}
+
+
+.padding-order-now{
+	width: 100%;
+	float: left;
+}
+
+.order-now {
+    font-size: 14px;
+}
+
+
+.search{
+	width: 66.66666667%;
+	float: left;
+	left: 16.66666667%;
+}
+
+
+}
+
+
+
+@media only screen and (min-width:990px){
+
+.locate-me, .order-now {
+    margin-top: 20px;
+}
+
+
+}
+
+
+
+
+@media only screen and (min-width:992px){
+
+.input-bar{
+	 width: 81.33333333%;
+    float: left;
+	}
+	
+.col-md-1{
+	 width: 6.33333333%;
+    float: left;
+	}
+	
+.col-md-2{
+
+    width: 16.66666667%;
+	float:left;
+}
+
+
+.float-spinner{
+
+    width: 8.66666667%;
+	float:left;
+}
+
+.padding-locate-me{
+	width: 16.66666667%;
+	float: left;
+}
+	.locate-me {
+    font-size: 11px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+}
+
+.padding-order-now{
+	width: 16.66666667%;
+	float: left;
+}
+	.order-now{
+    font-size: 11px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    margin-right: 5px !important;
+}
+
+.search{
+	width: 50%;
+	float: left;
+	left: 25%;
+}
+
+
+	.search-inner{
+
+			width: 100%;
+			float:left;
+	}
+	
+	
+}
+
+@media only screen and (max-width:1336px){
+
+
+.search{
+position:absolute;
+}
+
+}
 

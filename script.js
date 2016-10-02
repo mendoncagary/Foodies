@@ -200,7 +200,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition,showError,geoOptions);
     } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";}
+        x.value = "Geolocation is not supported by this browser.";}
     }
     
 	
@@ -251,16 +251,16 @@ function showPosition(position) {
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation.";
+            x.value = "User denied the request for Geolocation.";
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable.";
+            x.value = "Location information is unavailable.";
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out.";
+            x.value = "The request to get user location timed out.";
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred.";
+            x.value = "An unknown error occurred.";
             break;
     }
 }
@@ -335,4 +335,62 @@ else
     xmlhttp.send();
 }
 
+ 
+ 
+ function validateplace(){
+	 var xmlhttp;
+	
+if (window.XMLHttpRequest)
+  {// for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }	
+  
+    var url = "restaurant/restaurant.php";
+    var place = document.getElementById("googleAutoCompleteBox").value;
+    var vars = "place="+place;
+	
+	xmlhttp.onreadystatechange = function()
+    {
+         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {	
+			
+	     window.location.href = "restaurant/restaurant.php";		
+        }
+        
+	}
+	
+	xmlhttp.open("POST", url, true);
+	
+	
+	 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+    xmlhttp.send(vars);
+			
+	
+      
+        
+
+	 
+	 
+ }
+ 
+ 
+ 
+ /*
+ $(".order-now").click(function(){
+	  var place = $("#googleAutoCompleteBox").val();
+    $.post("restaurant/restaurant.php",
+    {
+       place:place
+    },
+    function(){
+        window.location.href = "restaurant/restaurant.php";
+    });
+});
+
+*/
  

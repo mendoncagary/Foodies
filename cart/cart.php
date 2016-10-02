@@ -167,18 +167,18 @@ $user = new USER();
 		<div class="ng-scope" >
 		<div class="slide" >
 		<div class="thumbnail-space">
-		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/493/original/1110-X-810_DD.jpg?1470661865" style="cursor:auto"  alt=""> 
+		<img class="img-food" src="" style="cursor:auto"  alt=""> 
 		<div class="caption" style="padding:10px">
 		<h3 class="ng-binding" style="font-size:13px;line-height:2">Super Saver Combo </h3> 
 		<span class="veg"  style="top:14px;right:11px!important"></span> 
 		<div class="pull-left rupee1 ng-binding" style="font-size:12px">
 		<span>₹</span> 68</div> 
 		<div class="pull-right">
-		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div>
-		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px">
-		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button">
-		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> 
-		<input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div>
+		<a href="" class="red-btn-primary" style="font-size:10px"  > + ADD </a> </div>
+		<div class="pull-right text-center ng-hide"  style="font-size:10px">
+		<input value="-" class="plus-btn-radius"  readonly="" type="button">
+		<input class="input-binding" value=""  readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius"  readonly="" type="button"> </div>
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 	
@@ -186,48 +186,58 @@ $user = new USER();
 		<div   class="ng-scope" > 
 		<div class="slide" > 
 		<div class="thumbnail-space">
-		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/864/original/1110-X-810.jpg?1472296003" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/864/original/1110-X-810.jpg?1472296003" alt="">
+		<img class="img-food" src="" style="cursor:auto"  alt="">
 		<div class="caption" style="padding:10px">
 		<h3 class="ng-binding" style="font-size:13px;line-height:2">Rich Chocolate Brownie </h3>
 		<span class="non-veg"  style="top:14px;right:11px!important"></span>
 		<div class="pull-left rupee1 ng-binding" style="font-size:12px">
 		<span>₹</span> 58</div> 
 		<div class="pull-right"> 
-		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> 
-		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
-		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button">
-		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> 
-		<input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> 
+		<a href="" class="red-btn-primary" style="font-size:10px"  > + ADD </a> </div> 
+		<div class="pull-right text-center ng-hide"  style="font-size:10px"> 
+		<input value="-" class="plus-btn-radius"  readonly="" type="button">
+		<input class="input-binding" value=""  readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius"  readonly="" type="button"> </div> 
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 		<!-- end ngRepeat: product in upsell_products -->
 		<div   class="ng-scope" >
-		<div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/869/original/1110-X-810.jpg?1472295932" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/869/original/1110-X-810.jpg?1472295932" alt=""> <div class="caption" style="padding:10px">
-		<h3 class="ng-binding" style="font-size:13px;line-height:2">Double Chocolate Chip Muffin </h3> <span class="non-veg"  style="top:14px;right:11px!important"></span>
+		<div class="slide" > <div class="thumbnail-space"> <img src="" style="cursor:auto"  alt="">
+		<div class="caption" style="padding:10px">
+		<h3 class="ng-binding" style="font-size:13px;line-height:2">Double Chocolate Chip Muffin </h3> 
+		<span class="non-veg"  style="top:14px;right:11px!important"></span>
 		<div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div>
 		<div class="pull-right"> 
-		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div>
-		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
-		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> 
-		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> 
-		<input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div>
+		<a href="" class="red-btn-primary" style="font-size:10px"  > + ADD </a> </div>
+		<div class="pull-right text-center ng-hide"  style="font-size:10px"> 
+		<input value="-" class="plus-btn-radius"  readonly="" type="button"> 
+		<input class="input-binding" value=""  readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius"  readonly="" type="button"> </div>
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 		<!-- end ngRepeat: product in upsell_products -->
 		<div   class="ng-scope" >
 		<div class="slide" >
 		<div class="thumbnail-space"> 
-		<img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/602/original/Choco-Lava-Cake.jpg?1456988321" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/602/original/Choco-Lava-Cake.jpg?1456988321" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Choco Lava Cake </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Moong Dal Ka Halwa </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Ice Tea </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> <div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> <input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> <input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Masala Lemonade </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div>
+		<img src="" style="cursor:auto" alt="">
+		<div class="caption" style="padding:10px">
+		<h3 class="ng-binding" style="font-size:13px;line-height:2">Choco Lava Cake </h3>
+		<span class="veg"  style="top:14px;right:11px!important">
+		</span> <div class="pull-left rupee1 ng-binding" style="font-size:12px">
+		<span>₹</span> 58</div> 
+		<div class="pull-right">
+		<a href="" class="red-btn-primary" style="font-size:10px" role="button"> + ADD </a>
+		</div> <div class="pull-right text-center ng-hide"  style="font-size:10px"> <input value="-" class="plus-btn-radius"  readonly="" type="button"> <input class="input-binding" value=""  readonly="" type="text"> <input value="+" class="plus-btn-radius"  readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/473/original/Moong-Dal-ka-Halwa.jpg?1447243845" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Moong Dal Ka Halwa </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 58</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px"  > + ADD </a> </div> <div class="pull-right text-center ng-hide"  style="font-size:10px"> <input value="-" class="plus-btn-radius"  readonly="" type="button"> <input class="input-binding" value=""  readonly="" type="text"> <input value="+" class="plus-btn-radius"  readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/468/original/Ice-Tea.jpg?1447243356" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Ice Tea </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div> <div class="pull-right"> <a href="" class="red-btn-primary" style="font-size:10px"  > + ADD </a> </div> <div class="pull-right text-center ng-hide"  style="font-size:10px"> <input value="-" class="plus-btn-radius"  readonly="" type="button"> <input class="input-binding" value=""  readonly="" type="text"> <input value="+" class="plus-btn-radius"  readonly="" type="button"> </div> <div class="clearfix"></div> </div> </div> </div> </div><!-- end ngRepeat: product in upsell_products --><div   class="ng-scope" > <div class="slide" > <div class="thumbnail-space"> <img src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" style="cursor:auto" ng-src="https://assets.box8.co.in/picture_resolutions/photos/000/000/465/original/Masala-Lemonade.jpg?1447243039" alt=""> <div class="caption" style="padding:10px"> <h3 class="ng-binding" style="font-size:13px;line-height:2">Masala Lemonade </h3> <span class="veg"  style="top:14px;right:11px!important"></span> <div class="pull-left rupee1 ng-binding" style="font-size:12px"><span>₹</span> 38</div>
 		<div class="pull-right"> 
-		<a href="" class="red-btn-primary" style="font-size:10px" role="button" ng-disabled="false" ng-click="(button_message!='false' || (product.sold_out !== undefined &amp;&amp; product.sold_out))?true:false || add_product(product, true)" ng-hide="isProductinCart( product )"> + ADD </a> </div> 
-		<div class="pull-right text-center ng-hide" ng-show="isProductinCart( product )" style="font-size:10px"> 
-		<input value="-" class="plus-btn-radius" ng-click="decrement_product( product )" readonly="" type="button"> 
-		<input class="input-binding" value="" ng-bind="" readonly="" type="text"> <input value="+" class="plus-btn-radius" ng-click="add_product(product, true)" readonly="" type="button"> </div>
+		<a href="" class="red-btn-primary" style="font-size:10px"  > + ADD </a> </div> 
+		<div class="pull-right text-center ng-hide"  style="font-size:10px"> 
+		<input value="-" class="plus-btn-radius"  readonly="" type="button"> 
+		<input class="input-binding" value=""  readonly="" type="text"> <input value="+" class="plus-btn-radius"  readonly="" type="button"> </div>
 		<div class="clearfix"></div> </div> </div> </div> </div>
 		
 		<!-- end ngRepeat: product in upsell_products --> </div></div>
 		<div class="bx-controls bx-has-controls-direction"><div class="bx-controls-direction">
-		<a class="bx-prev disabled" href="">Prev</a>
+		<a class="bx-prev-disabled" href="">Prev</a>
 		<a class="bx-next" href="">Next</a></div></div></div> </div>
 		
 		
@@ -241,22 +251,22 @@ $user = new USER();
 		<div class="space-10"></div>
 
 		<!-- ngRepeat: item in cart_items.items track by item.id -->
-		<div class="ng-scope" ng-repeat="item in cart_items.items track by item.id"> <div class="row">
-		<div class="col-sm-6 padding width50"> <div class="col-sm-8"> <div ng-init="product_size = get_product_size(item); item_product = get_product(product_size)">
-		<h3 class="ng-binding" style="font-size:14px;line-height:18px"> 
-		<span class="ng-binding" ng-show="is_subcategory_present(item_product.subcategory)" style="font-size:10px"> Classic<br>
-		</span> Summer Fresh Pizza <img src="images/veg.62b68100.png" ng-src="images/veg.62b68100.png" alt="" class="veg-padding"> </h3>
+		<div class="ng-scope-items"> <div class="row">
+		<div class="col-sm-6 padding width50"> <div class="col-sm-8"> <div>
+		<h3 class="ng-binding-heading" style="font-size:14px;line-height:18px"> 
+		<span class="ng-binding-type"  style="font-size:10px"> Classic<br>
+		</span> Summer Fresh Pizza <img src="images/veg.62b68100.png" alt="" class="veg-padding"> </h3>
 		<p class="ng-binding" style="font-size:12px">Regular , Original Crust </p>
-		<div ng-class=" get_customizations(product_size.id, item)? '': 'break-class' "></div> 
-		<i class="" ng-show="show_click_to_customize(product_size)"> 
-		<p ng-click="customize(item_product,item)" style="font-size:12px;cursor:pointer">Click to customize</p></i>
+		<div></div> 
+		<i class="" > 
+		<p  style="font-size:12px;cursor:pointer">Click to customize</p></i>
 		</div> </div> </div> <div class="col-sm-3 text-center width50 plus-minus"> <!-- <div class="space-10"></div> -->
-		<input value="-" class="plus-btn-radius" ng-click="decrement_quantity(item)" readonly="" type="button">
-		<input class="input" value="1" readonly="" type="text"> 
-		<input value="+" class="plus-btn-radius" ng-click="increment_quantity(item)" readonly="" type="button"> 
+		<input value="-" class="plus-btn-radius" readonly="" type="button">
+		<input class="input-quantity" value="1" readonly="" type="text"> 
+		<input value="+" class="plus-btn-radius" readonly="" type="button"> 
 		<!-- <div class="space-10"></div> --> </div> <div class="col-sm-2 text-right width50 price-pos ng-binding"> 
 		<!-- <div class="space-10"></div> --> <span class="rupee">₹</span> 138 <!-- <div class="space-10"></div> --> </div> 
-		<div ng-click="remove_item(item)" class="delete"> <!-- <div class="space-10"></div> --> 
+		<div class="delete"> <!-- <div class="space-10"></div> --> 
 		<a href="">
 		<img src="images/delete-grey.c7cf4237.svg" alt=""> </a> <!-- <div class="space-10"></div> --> </div> </div> <hr> </div>		
 		<!-- end ngRepeat: item in cart_items.items track by item.id -->
@@ -273,17 +283,18 @@ $user = new USER();
 		<span class="ng-hide" ng-show="final_price"><i> With Taxes</i></span> <!-- <label ng-show="true"> with taxes</label> --> </div> </div>
 		<div class="space-20"></div>
 		<div class="row"> <div class="col-sm-6 width50">
-		<input ng-click="redirect_to_menu()" value="Add More Items" class="continue-shoping radius-6" type="button"></div> 
+		<input  value="Add More Items" class="continue-shoping" type="button"></div> 
 		<div class="col-sm-6 text-right width50">
-		<input ng-click="redirect_to_sign_in()" value="Next Step" class="next-step radius-6" type="button"></div> </div> </div>
+		<input  value="Next Step" class="next-step" type="button"></div> </div> </div>
 		<div class="clearfix"></div>
 		<div class="space-20"></div> </div> </div> </div>
 
 		<!-- signin / signup view --> 
 		<div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> <a style="text-decoration:none" id="pan-2" ng-click="open_sign()" href="">Sign in</a> <a ng-hide="true" id="pan-21" class="accordion-toggle ng-hide" data-toggle="collapse" data-parent="#accordion" href="" data-target="#panel-2">Sign in</a> </h4> </div> <div id="panel-2" class="panel-collapse collapse"> <div class="panel-body"> <!-- already signed in --> <div class="payment-ul ng-hide" style="padding-bottom:0px" ng-show="panel_2_view('signed_in')"> <div class="col-sm-12 ng-binding"><span>Logged in as </span> </div> <div class="clearfix"></div> <div class="space-20"></div> <div class="col-sm-5 col-md-2"> <input value="Logout" class="btn-block continue-shoping radius-3 margin-right" ng-click="logout()" type="button"> </div> <div class="col-sm-2 col-md-1 text-center center-text">Or</div> <div class="col-sm-5 col-md-3"> <input value="Proceed to Payment" class="btn-block next-step radius-3 margin-left" ng-click="proceed_to_payment()" type="button"> </div> <div class="clearfix"></div> <div class="space-50"></div> </div> <!-- sign in --> <div class="panel-signin" ng-show="panel_2_view('sign_in')"> <div class="space-50"></div> <span class="weight-700">Already a member? Log in here</span> <div class="clearfix"></div> <div class="col-sm-12"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="sign_in_email" class="input1 ng-pristine ng-untouched ng-valid" ng-class="(show_email_error_span)?'error':'input1'" type="text"> <label for="name">Email/Mobile</label> </div> <span ng-show="show_email_error_span" class="error-text ng-hide">Enter valid email or Mobile number </span> </div> <div class="col-sm-12"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="sign_in_password" class="input1 ng-pristine ng-untouched ng-valid" ng-class="(show_password_error_span)?'error':'input1'" type="password"> <label for="name">Password</label> </div> <span ng-show="show_password_error_span" class="error-text ng-hide">Password is too short(minimum is 6 character) </span> </div> <div class="clearfix"></div> <div class="space-15"></div> <div class="col-sm-12"> <div class="text-left pull-left"><input name="checkboxG1" id="checkboxG1" class="css-checkbox" type="checkbox"><label for="checkboxG1" class="css-label radGroup1">Remember me</label></div> <div class="text-right pull-right link"><a href="" data-toggle="modal" data-target="#forget-Password">Forgot password?</a></div> </div> <div class="clearfix"></div> <div class="space-20"></div> <div class="col-sm-12"> <input ng-click="let_me_in('customer','0')" value="Let me in" class="radius-6 sign-up-btn" type="button"> </div> <div class="clearfix"></div> <div class="space-15"></div> <div class="text-center or">or</div> <div class="clearfix"></div> <div class="space-15"></div> <div class="col-sm-6"> <button onclick="fb_login()" class="btn btn-block radius-6 facebook-btn"><i class="fa fa-facebook"></i> Sign in with Facebook</button> <!--   <input type="button" onclick="fb_login();" value="Sign in with facebook" class="radius-6 facebook-btn"> --> </div> <div class="col-sm-6" id="signinButton"> <!-- <input type="button" onclick="auth();" value="Sign in with Google +" class="radius-6 twitter-btn"> --> <button onclick="auth()" class="btn btn-block radius-6 twitter-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> </div> <div class="clearfix"></div> <div class="space-15"></div> <p class="terms text-center"> By signing here, you agree to our Terms of Service and Privacy Policy</p> <div class="space-15"></div> <div class="col-sm-12"> <div class="new-member text-center"> Not a member? <a href="" ng-click="show_sign_up()">Sign Up</a></div> </div> <div class="clearfix"></div> <div class="space-50"></div> </div> <!-- signup --> <div class="panel-signin ng-hide" ng-show="panel_2_view('sign_up')"> <div class="space-50"></div> <span class="weight-700">New member? Enter your details below</span> <div class="clearfix"></div> <div class="col-sm-12"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="sign_up_name" class="input1 ng-pristine ng-untouched ng-valid" ng-class="(show_name_error_span)?'error':'input1'" type="text"> <label for="name">Name</label> </div> <span ng-show="show_name_error_span" class="error-text ng-hide">Enter you name </span> </div> <div class="col-sm-6"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="sign_up_password" style="background:none" class="input1 ng-pristine ng-untouched ng-valid" ng-class="(show_password_error_span)?'error':'input1'" type="password"> <label for="name">Password</label> </div> <span ng-show="show_password_error_span" class="error-text ng-hide">Password is too short(minimum is 6 character) </span> </div> <div class="col-sm-6"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="sign_up_email" style="background:none" class="input1 ng-pristine ng-untouched ng-valid" ng-class="(show_email_error_span)?'error':'input1'" type="text"> <label for="name">Email</label> </div> <span ng-show="show_email_error_span" class="error-text ng-hide">Enter valid emailid </span> </div> <div class="clearfix"></div> <div class="space-20"></div> <div class="col-sm-12"> <input ng-click="signup('customer',0)" value="Sign Up" class="radius-6 sign-up-btn" type="button"> </div> <div class="clearfix"></div> <div class="space-15"></div> <div class="text-center or">or</div> <div class="clearfix"></div> <div class="space-15"></div> <div class="col-sm-6"> <input onclick="fb_login()" value="Sign in with facebook" class="radius-6 facebook-btn" type="button"> </div> <div class="col-sm-6"> <input onclick="auth()" value="Sign in with Google +" class="radius-6 twitter-btn" type="button"> </div> <div class="clearfix"></div> <div class="space-15"></div> <p class="terms text-center"> By signing here, you agree to our Terms of Service and Privacy Policy</p> <div class="space-15"></div> <div class="col-sm-12"> <div class="new-member text-center"> Already a member? <a href="" ng-click="show_sign_in()">Sign in</a></div> </div> <div class="clearfix"></div> <div class="space-50"></div> </div> <!-- phone verify form --> <div class="ng-hide" ng-show="panel_2_view('phone_verify')"> <div class="space-50"></div> <div class="panel-signin"> <div class="space-50"></div> <div class="clearfix"></div> <h2>Sign Up / Add Mobile no.</h2> <div class="clearfix"></div> <p class="p-center">Enter your mobile number below</p> <div class="col-sm-6 col-sm-push-3"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="phone_number" style="background:none" class="input1 ng-pristine ng-untouched ng-valid" ng-class="(show_phone_error_span)?'error':'input1'" type="text"> <label for="name">Mobile No.</label> </div> <span ng-show="show_phone_error_span" class="error-text ng-hide">Enter valid mobile number </span> </div> <div class="clearfix"></div> <div class="space-20"></div> <div style="text-align:center"><input value="okay" class="okay-btn text-center radius-3" ng-click="otp_generate()" type="button"></div> <div class="space-50"></div> </div> </div> <!-- otp form --> <div class="ng-hide" ng-show="panel_2_view('otp')"> <div class="space-50"></div> <div class="panel-signin"> <p class="p-center ng-binding">A code has been sent to your mobile ().Please enter the code below</p> <div class="space-20"></div> <div class="col-sm-12 text-center"> <input maxlength="1" focus="" ng-model="otp_digit_1" class="otp-code ng-pristine ng-untouched ng-valid ng-valid-maxlength" type="text"> <input maxlength="1" delfocus="" focus="" ng-model="otp_digit_2" class="otp-code ng-pristine ng-untouched ng-valid ng-valid-maxlength" type="text"> <input maxlength="1" delfocus="" focus="" ng-model="otp_digit_3" class="otp-code ng-pristine ng-untouched ng-valid ng-valid-maxlength" type="text"> <input maxlength="1" delfocus="" focus="" ng-model="otp_digit_4" class="otp-code ng-pristine ng-untouched ng-valid ng-valid-maxlength" type="text"> <input maxlength="1" delfocus="" focus="" ng-model="otp_digit_5" class="otp-code ng-pristine ng-untouched ng-valid ng-valid-maxlength" type="text"> <input maxlength="1" delfocus="" ng-model="otp_digit_6" class="otp-code ng-pristine ng-untouched ng-valid ng-valid-maxlength" type="text"> <div> <input style="text-align:center" value="okay" class="okay-btn text-center radius-3" ng-click="otp_verify()" type="button"></div> </div> <div class="clearfix"></div> <div class="space-20"></div> <p class="text-center font-11"><span>Problem receiving code?</span><br> <a ng-click="otp_resend()">Resend code</a></p> <div class="space-50"></div> </div> </div> <!-- change_password --> <div class="panel-signin width ng-hide" ng-show="panel_2_view('change_password')"> <div class="space-50"></div> <div class="col-sm-12"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="verification_code" class="input1 ng-pristine ng-untouched ng-valid" type="text"> <label for="name">Verification Code</label> </div> </div> <div class="col-sm-12"> <div class="floating-placeholder"> <input id="name" name="name" ng-model="new_password" class="input1 ng-pristine ng-untouched ng-valid" type="password"> <label for="name">New Password</label> </div> </div> <div class="col-sm-12"> <div class="floating-placeholder">
-		<input id="name" name="name" ng-model="password_confirmation" class="input1 ng-pristine ng-untouched ng-valid" type="password"> 
+		<input id="name" name="name" ng-model="password_confirmation" class="input1  type="password"> 
 		<label for="name">Confirm Password <img src="images/star.6c957114.jpg" alt="" style="margin-bottom:3px"> </label> </div> </div>
-		<div class="clearfix"></div> <div class="space-20">
+		<div class="clearfix"></div> 
+		<div class="space-20">
 		</div>
 		
 		<div class="col-sm-12"> <input ng-click="password_reset()" value="Continue" class="radius-6 change-password" type="button"> </div> <div class="clearfix"></div> <div class="space-50"></div> </div> </div> </div> </div>
@@ -291,16 +302,17 @@ $user = new USER();
 
 		<!-- delivery address view--> <div class="panel panel-default"> <div class="panel-heading"> 
 		
-		<h4 class="panel-title"> <a style="text-decoration:none" id="pan-3" ng-click="open_address()" href="">Delivery Address</a> <a ng-hide="true" id="pan-31" class="accordion-toggle ng-hide" data-toggle="collapse" data-parent="#accordion" href="" data-target="#panel-3">Delivery Address</a> </h4> </div> <div id="panel-3" class="panel-collapse collapse"> <div class="panel-body">
-		<!-- address list --> <div class="delivery-pad" ng-show="show_delivery_list">
+		<h4 class="panel-title"> <a style="text-decoration:none" id="pan-3" href="">Delivery Address</a>
+		<a  id="pan-31" class="accordion-toggle ng-hide" href="">Delivery Address</a> </h4> </div> <div id="panel-3" class="panel-collapse collapse"> <div class="panel-body">
+		<!-- address list --> <div class="delivery-pad">
 		<div class="col-sm-6 width50">
 		<span>Your address list</span></div> 
 		<div class="col-sm-6 width50"> 
-		<input ng-click="add_address()" value="Add new address" class="show-all-btn radius-3" type="button"></div>
+		<input value="Add new address" class="show-all-btn radius-3" type="button"></div>
 		<div class="clearfix"></div>
 		
 		
-		<ul> <li class="list-inline showaction ellipsis-add" ng-show="takeawayAllowed()" style="max-width:100%" ng-click="toggleTakeAway()"> <input name="take_away" class="css-checkbox" id="takeAway" ng-checked="takeAway" type="radio"> <label for="take_away" class="css-label radGroup1" style="width:80%">
+		<ul> <li class="list-inline showaction ellipsis-add" style="max-width:100%" > <input name="take_away" class="css-checkbox" id="takeAway" ng-checked="takeAway" type="radio"> <label for="take_away" class="css-label radGroup1" style="width:80%">
 		<div class="ellipsis-add" style="float:left ;max-width:100%">I'll pick up</div></label> </li>
 		<!-- ngRepeat: address in addresses --> 
 		</ul> 
@@ -310,7 +322,7 @@ $user = new USER();
                   </div> -->
 
 				  <!--  add address form --> 
-				  <div class="delivery-pad ng-hide" ng-hide="show_delivery_list"> <div class="col-sm-6 width50">
+				  <div class="delivery-pad ng-hide" > <div class="col-sm-6 width50">
 				  <span>Your address list</span></div>
 				  <div class="col-sm-6 width50"> <input ng-click="show_all()" value="Show all" class="show-all-btn radius-3" type="button"></div>
 				  <div class="clearfix"></div> 

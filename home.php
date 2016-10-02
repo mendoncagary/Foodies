@@ -68,7 +68,7 @@ if(isset($_POST['btn-signup']))
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta  http-equiv="content-type" content="text/html" charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -394,7 +394,7 @@ whats cooking
               	 		
               	 		</a> 
               	 		</span> 
-						
+					<form method="post">
               	 		<input autocomplete="off" value="" class="input-search" id="googleAutoCompleteBox" placeholder="Delivery Location e.g. Marine Drive, Mumbai" details="localityDetails" options="options" type="text"> </div> 
 						
 						
@@ -402,15 +402,15 @@ whats cooking
               	 			<img class="rot" src="assets/images/img19.png" alt=""></div>
 							<div class="clearfixall"></div>
              
-              	 			  <div class="padding-order-now col-md-2" onclick="validateplace"> 
-              	 			  	<button style="border: 0px" onclick="document.location.href='order/order.php'" class="order-now"> &nbsp; ORDER NOW</button> 
+              	 			  <div class="padding-order-now col-md-2" onclick="validateplace()"> 
+              	 			  	<button type="button" style="border: 0px" class="order-now"> &nbsp; ORDER NOW</button> 
               	 			  	</div> 
               	 			  	<div class="padding-locate-me col-md-2"> 
-              	 			  		<button onclick="getLocation()" class="locate-me">
+              	 			  		<button type="button" onclick="getLocation()" class="locate-me">
               	 			  			<i class="fa fa-location-arrow search-arrow"></i> &nbsp; LOCATE ME</button>
               	 			  			 </div> 
-										
-              	 			  			
+									
+              	 			  			</form>
               	 			  			 </div> 
               	 			  			 </div>
 

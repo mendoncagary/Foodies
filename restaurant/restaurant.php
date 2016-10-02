@@ -1,6 +1,18 @@
 <?php 
+session_start();	
 require_once '../includes/class.user.php';
 $user = new USER();
+
+if(isset($_POST["place"]))
+{$_SESSION["place"]=$_POST["place"];
+}
+
+ if(isset($_SESSION["place"]))
+   {	$place = $_SESSION['place'];
+   }
+   else
+   { $place="Location unknown";
+   }
 ?>
 
 <!DOCTYPE html>
@@ -54,11 +66,54 @@ $user = new USER();
 
 
 
-
+<section style="position: relative;" class="black-menu"> 
+<div class="container">
+ <div class="col-sm-6 col-lg-6"> 
+ <div class="location-icon-white"></div> 
+ <div class="location">
+ <span class="" ng-show="!showEditLocality">
+ <div class="locality-ellipsis"><?php echo $place;?></div>
+ <div class="widthlocality">
+ <input value="Edit" class="edit-btn" onclick="editLocality()" type="button"></div></span>
+ 
+ 
+ <span class="ng-hide"> 
+ <input autocomplete="off" id="googleAutoCompleteBox" class="input-locality-search" placeholder="Delivery Location" type="text">
+ <img class="location_close" src="images/cross-white.26cb9f25.png" alt=""> 
+ 
+ </span>
+ </div> 
+ 
+ <div class="filter-icon-white">
+ <button type="button" class="dropdown-toggle"> 
+ <img src="images/filter_empty.bcdd107b.svg" alt="" class="displayblock"> 
+ <img src="images/filter_applied.b1f2cad7.svg" alt="" class="displayblock ng-hide"> 
+ <img src="images/filter_empty_mobile.b9124006.svg" alt="" class="displaynone filter-show"> 
+ <img src="images/filter_applied_mobile.406ef5d0.svg" alt="" class="displaynone filter-show ng-hide">
+ </button> 
+ 
+ </div> </div>
+ 
+ 
+ </div> 
+</section>
 
 
 
 <div class="section">
+
+
+<?php
+                            $stmt = $user -> runQuery("select * from restaurants WHERE location = :location");
+							$stmt->execute(array(":location"=>"Powai"));
+							
+							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+							{
+                            
+                                
+                                ?>
+								
+								
 
 			<div class="search-snippet-card">
 	    <div class="content">
@@ -69,28 +124,28 @@ $user = new USER();
                     <div class="row">
                                   <div class="col-smj-6">
                                 <div class="search-left-featured">
-                                   <a href="https://www.zomato.com/mumbai/gurukripa-powai/photos#tabtop" class="feat-img" ></a>
+                                   <a href="" class="feat-img" ></a>
                                </div>
                         	</div>
                             
-                        <div class="pl0">
+                        <div class="p10">
                             <div class="row">
                                 <div class="col-s-12">
                               <div class="res-snippet-small" style="margin-bottom: 7px;">
-							  <a title="Casual Dining in Powai" href="https://www.zomato.com/mumbai/powai-restaurants/casual-dining " class="zdark">Casual Dining
+							   <a title="Casual Dining in Powai" href="# " class="zdark"><?php echo $row["type"];?>
 							  </a></div>
                                                                                                             
 
-                                    <a class="result-title" href="https://www.zomato.com/mumbai/gurukripa-powai" title="gurukripa Restaurant, Powai">Gurukripa
+                                    <a class="result-title" href="#" title="gurukripa Restaurant, Powai"><?php echo $row["name"];?>
                                     </a>
                                     <div class="clear"></div>
                                                                         
-                                        <a class="search-page-text" href="https://www.zomato.com/mumbai/powai-restaurants" title="Restaurants in Powai"><b>Powai</b></a>
+                                        <a class="search-page-text" href="#" title="Restaurants in Powai"><b><?php echo $row["location"];?></b></a>
                                     
                                                                                                         </div>
                                 <div class="search-result-rating" style="line-height: 14px;">
-                                  <div data-res-id="35658" data-variation="mini inverted" data-content="Good" class="rating-popup">
-                                        3.9
+                                  <div class="rating-popup">
+                                        <?php echo $row["rating"];?>
                                     </div>
                                     <div class="clearmb5"></div>
 
@@ -99,7 +154,7 @@ $user = new USER();
                                                                                                             
                                                                         
                                                                             <br>
-                                        <a href="https://www.zomato.com/mumbai/gurukripa-powai/reviews#tabtop" class="result-reviews" title="User reviews for Gurukripa, Powai" data-result-type="ResCard_Reviews">
+                                        <a href="#" class="result-reviews" title="User reviews for Gurukripa, Powai" >
                                             459 reviews
                                         </a>
                                                                     </div>
@@ -107,7 +162,7 @@ $user = new USER();
 
                             <div class="row">
                                                                     
-                                          <div style=" max-width:370px; " class="search-result-address" title="55, Thunga Village, Opposite Local Office Bus Stop, Saki Vihar Road, Powai, Mumbai"> 55, Thunga Village, Opposite Local Office Bus Stop, Saki Vihar Road, Powai, Mumbai</div>
+                                          <div style=" max-width:370px; " class="search-result-address" title="55, Thunga Village, Opposite Local Office Bus Stop, Saki Vihar Road, Powai, Mumbai"> <?php echo $row["address"];?></div>
                                                                         
                                                                         
                                                                                               </div>
@@ -122,19 +177,19 @@ $user = new USER();
                                                     <div class="clearfix">
 													<span class="ttuper-grey-text">Cuisines: </span>
 													<span class="nowrap-p10">
-													<a class="cuisine-title" title="North Indian" href="https://www.zomato.com/mumbai/restaurants/north-indian">North Indian</a>, 
-													<a class="cuisine-title" title="Chinese" href="https://www.zomato.com/mumbai/restaurants/chinese">Chinese</a>,
-													<a class="cuisine-title" title="Seafood" href="https://www.zomato.com/mumbai/restaurants/sea-food">Seafood</a>
+													<a class="cuisine-title" title="North Indian" href="#">North Indian</a>, 
+													<a class="cuisine-title" title="Chinese" href="#">Chinese</a>,
+													<a class="cuisine-title" title="Seafood" href="#">Seafood</a>
 													</span></div>
                         
-                                                    <div class="res-cost clearfix">
+                                                    <div class="res-cost-clearfix">
 <span class="ttuper-grey-text">Cost for two:</span>
-<span class="col-s-p10">₹800</span></div>
+<span class="col-s-p10"><?php echo $row["cost"];?></span></div>
                         
-                                                <div class="res-timing clearfix" title="11:30 AM to 12:30 AM">
+                                                     <div class="res-timing clearfix" title="11:30 AM to 12:30 AM">
                             <span class="ttuper-grey-text left">Hours:</span>
                             <div class="search-grid-right">
-                                11:30 AM to 12:30 AM (Mon-Sun)
+                                <?php echo $row["hours"];?>
                                                             </div>
                             <div class="clear"></div>
                         </div>
@@ -162,27 +217,33 @@ $user = new USER();
 
         <div class="search-result-action">
 
-                                <a class="item-res-snippet" data-res-name="Gurukripa" data-phone-no-str="022 33126791">
-                <span data-icon="" class="zdark">Call</span>
+                                <a class="item-res-snippet">
+                <span class="zdark">Call</span>
             </a>
                     
-                <a class="item-result-menu" href="https://www.zomato.com/mumbai/gurukripa-powai/menu#tabtop" title="gurukripa Menu" data-result-type="ResCard_Menu">
-            <span data-icon="" class="zdark">View Menu</span>
+                <a class="item-result-menu" href="../order/order.php" title="gurukripa Menu">
+            <span class="zdark">View Menu</span>
         </a>
         
-                                <a class="item o2_link" data-res_id="35658" data-class_name="o2_link" href="https://www.zomato.com/restaurant?tab=order&amp;res_id=35658" data-app_link="" data-source="search"><div><span class="fontsize4 bold zgreen o2_btn_text action_btn_icon" data-icon="">Order Now</span><div class="clear ieclear"></div><span class="fontsize5 grey-text">60 min · Rs. 200</span></div></a>
+                                <a class="item-link" href="../order/order.php">
+								<div><span class="fontsize4 bold zgreen o2_btn_text action_btn_icon">Order Now</span>
+								<div class="clear ieclear"></div>
+								<span class="fontsize5 grey-text">60 min · Rs. 200</span></div></a>
                     
         
 
-                                    <a class="item book-test table-booking-search" href="/mumbai/gurukripa-powai/book#tablebook-search" title="Book a table at gurukripa" style="text-transform:none;" data-result-type="ResCard_TableBooking" data-res_id="35658" data-mezzoprovider="0" data-trprovider="MEDIO_ZOMATO">
-                                        <span data-icon="" class="zdark">
+                                    <a class="item-book-test" href="#" title="Book a table at gurukripa" style="text-transform:none;">
+                                        <span class="zdark data-book">
                         Book a Table
                     </span>
                                     </a>
                     
     </div>
     </div>
-					
+		
+		<?php
+							}
+		?>
        
     </div>
 	

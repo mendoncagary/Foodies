@@ -504,8 +504,62 @@ left: 1px;
     height: 32px;
 }
 
+.dish-addToCart
+{
+	display:none;
+}
+
+
+.dish-addToCart1 {
+    display: block;
+    color: #212121;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 100px 0;
+    top: 0;
+    bottom: 0;
+}
+
+.dish-addToCart1::after {
+    content: "IN YOUR CART";
+    background: rgba(255,255,255,0.69);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    line-height: 249px;
+    padding: 10px 0 0;
+}
+
 .rmv-btn{
-    display: none;
+    
+	background: transparent;
+border: 1px solid #e2e2e2;
+color: #707070;
+width: 31px;
+min-width: 31px;
+padding: 3.6px 0 5px;
+margin-right: 4px;
+text-transform: uppercase;
+font-size: 16px;
+margin-bottom: 0;
+font-weight: normal;
+text-align: center;
+cursor: pointer;
+line-height: 1.26;
+border-radius: 2px;
+white-space: nowrap;
+display: none;
+    -webkit-transition: all 0s;
+    transition: all 0s;
 }
 
 .add-btn{
@@ -524,7 +578,62 @@ left: 1px;
 	border-radius: 2px;
 	border:none;
 	color:#fff;
+	-webkit-user-select: none;
+-moz-user-select: none;
+cursor: pointer;
 
+}
+
+.added-btn{
+	
+	background: transparent;
+border: 1px solid #e2e2e2;
+color: #707070;
+width: 31px;
+min-width: 31px;
+padding: 3.6px 0 5px;
+margin-left: 4px;
+display: inline-block !important;
+font-size: 0;
+	text-transform: uppercase;
+	margin-bottom: 0;
+font-weight: normal;
+text-align: center;
+cursor:pointer;
+white-space: nowrap;
+line-height: 1.26;
+border-radius: 2px;
+}
+ 
+
+ .added-btn::after{
+    content: "+";
+    font-size: 16px;
+}
+
+}
+
+ .add-btn:hover{
+    background: #403141;
+	outline: none;
+box-shadow: none;
+color: #fff;
+border-color: #adadad;
+}
+
+/*.add-btn::after{
+    content: "+";
+    font-size: 16px;
+}*/
+
+.added_item_cart {
+    /*margin: 0 -9px;*/
+    color: #707070;
+    width: 29px;
+    text-align: center;
+    line-height: 30px;
+    display: none;
+    vertical-align: middle;
 }
 
 .lazy{
@@ -750,6 +859,13 @@ section{
 
 .pull-right{
 	float: right !important;
+
+}
+
+.hideCheckOut{
+	
+	display:none !important;
+	
 }
 
 .black-menu .circle {

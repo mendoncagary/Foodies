@@ -31,3 +31,50 @@ window.addEventListener('scroll', function(){ // on page scroll
 }, false)
 
  
+ $(document).ready(function(){
+var x=0;
+ 
+ $(".add-btn").click(function(){
+    $(".add-btn").addClass("added-btn");
+	$(".rmv-btn").show();
+	$(".added_item_cart").show();
+
+	x=x+1;
+   
+    $(".added_item_cart").html(x);
+	$(".circle").html(x);
+	$(".dish-addToCart").addClass("dish-addToCart1");
+	$(".dish-addToCart1").html(x);
+	$(".pull-right").removeClass("hideCheckOut");
+	});
+
+
+
+
+
+ $(".rmv-btn").click(function(){
+	if(x>1)
+	{
+	x=x-1;
+      $(".added_item_cart").html(x);
+	$(".dish-addToCart1").html(x); 	
+	}
+	else if(x=1)
+	{
+	x=x-1;
+	$(".added_item_cart").hide();
+	$(".rmv-btn").hide();
+		$(".dish-addToCart").removeClass("dish-addToCart1");
+	
+
+	$(".add-btn").removeClass("added-btn");
+	
+	}	
+	else
+	{
+		x=x;
+	}
+	 
+});	 	 
+	 
+});	 

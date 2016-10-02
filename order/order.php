@@ -1,9 +1,17 @@
 <?php 
+session_start();
 require_once '../includes/class.user.php';
 $user = new USER();
 
 
 
+ if(isset($_SESSION["place"]))
+   {	$place = $_SESSION['place'];
+   }
+   else
+   { $place="Location unknown";
+   }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +70,7 @@ $user = new USER();
  <div class="location-icon-white"></div> 
  <div class="location">
  <span class="" ng-show="!showEditLocality">
- <div class="locality-ellipsis">1403, Phase One, MHADA Colony 20, ... </div>
+ <div class="locality-ellipsis"><?php echo $place;?></div>
  <div class="widthlocality">
  <input value="Edit" class="edit-btn" onclick="editLocality()" type="button"></div></span>
  
@@ -124,12 +132,15 @@ $user = new USER();
  </ul> </div> </div>
  
  
- <div class="col-lg-6 col-sm-6 pull-right" ng-show=" cart.items.length > 0"> 
+ <div class="col-lg-6 col-sm-6 pull-right hideCheckOut" ng-show=" cart.items.length > 0"> 
  <div class="circle">0</div> 
  <input value="Checkout" onclick="document.location.href='../cart/cart.php'" class="check-out" type="button"> 
  <img src="images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
  <div class="price-outer"> 
- <div class="price"> <span>₹</span> 0 </div> </div> </div> </div> 
+ <div class="price"> <span>₹</span> 0 </div> </div> 
+ </div> 
+ 
+ </div> 
 </section>
 
 
@@ -191,7 +202,7 @@ $user = new USER();
          
           <div class="dish-add-remove">
             <button class="rmv-btn"  name="button" type="submit">-</button>
-            <span class="addet_item_cart"></span>
+            <span class="added_item_cart"></span>
             <button class="add-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
           </div>
       </div>
