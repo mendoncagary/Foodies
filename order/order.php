@@ -53,6 +53,200 @@ $user = new USER();
 </div>
 
 
+<!-- Sign in Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    
+	
+	
+	
+    <div class="panel-signin">
+	
+	<form method="POST" id="sign-in-form">
+		<button id="signin_close" type="button" class="close" >
+		<span>×</span>
+		<!--<img src="images/close.47cfd871.png" alt="">-->
+		</button>
+      <div class="space-50"></div>
+      <h2>Sign In</h2>
+	  
+	  
+	<div class="clearfix"></div>
+	
+	<div class="col-sm-12">
+	<div class="floating-placeholder"> 
+	<input id="email-input" name="txtemail" class="modalinput" onblur="validate('email-input','email-error',this.value)" type="text"> 
+	<label for="email-input">Email/Mobile</label> 
+	</div>
+	<!--Error text-->
+	<span id="email-error" class='error-text'><!--Enter valid email or mobile number --></span>
+	</div>
+	
+      
+	 <div class="col-sm-12">
+	 <div class="floating-placeholder">
+	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('password-input','password-error',this.value)" type="password"> 
+	 <label for="password-input">Password</label> </div>
+	<!--Error text-->
+	<span id="password-error" class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
+	 </div> 
+    
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+	
+	 <div class="col-sm-12"> 
+	 <div class="pull-left">
+	 <input name="checkboxG1" id="checkboxG1" class="css-checkbox" type="checkbox">
+	 <label id="remember_label" for="checkboxG1" class="css-label">Remember me</label></div>
+	 <div class="pull-right">
+	 <a href="includes/fpass.php">Forgot Password ?</a>
+	 </div> </div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-20"></div>
+	
+	
+	<div class="col-sm-12"> 
+	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
+	</div>
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+  
+	<div class="or">or</div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
+	<i class="fa fa-facebook"></i> Sign in with Facebook</button>
+	</div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	</div>
+	
+	<div class="clearfix"></div>
+	
+	<div class="space-15"></div>
+	
+	<p class="terms"> By signing here, you agree to our Terms of Service and Privacy Policy</p>
+	
+	<div class="space-20"></div>
+	<div class="clearfix"></div>
+	
+	<div class="col-sm-12"> <div class="new-member"> New User? 
+	<a class="" id="sign-up-button">Sign Up</a></div> </div>
+	<div class="clearfix"></div>
+	<div class="space-50"></div>
+  </div>
+  
+  </form>
+</div>
+</div>
+
+
+
+<!-- Sign up Modal -->
+<div id="signupModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    
+	
+	
+	
+    <div class="panel-signin">
+	
+	<form method="POST">
+		<button id="signup_close" type="button" class="close" >
+		<span>×</span>
+		<!--<img src="images/close.47cfd871.png" alt="">-->
+		</button>
+      <div class="space-50"></div>
+      <h2>Sign up</h2>
+	  
+	  
+	  <div class="clearfix"></div> 
+	
+	<div class="col-sm-12">
+	<div class="floating-placeholder"> 
+	<input id="sign-up-name" name="regname" class="modalinput" type="text"> 
+	<label for="name">Name</label> 
+	</div>
+	<!--Error text-->
+	<span class='error-text'><!--Enter valid email or mobile number --></span>
+	</div>
+	
+      
+	 <div class="col-sm-6">
+	 <div class="floating-placeholder">
+	 <input id="sign-up-password" name="regpass" class="modalinput" type="password"> 
+	 <label for="regpass">Password</label> </div>
+	<!--Error text-->
+	<span class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
+	 </div> 
+    
+	 <div class="col-sm-6">
+	 <div class="floating-placeholder">
+	 <input id="sign-up-email" name="regemail" class="modalinput" type="email"> 
+	 <label for="regemail">Email</label> </div>
+	<!--Error text-->
+	<span class="error-text"><!--Password is too short(minimum is 6 character) --></span> 
+	 </div> 
+    
+	
+	<div class="clearfix"></div>
+	<div class="space-20"></div>
+	
+
+	
+	<div class="col-sm-12"> 
+	<input name="btn-signup" value="Sign up" class="sign-up-btn" type="submit"> 
+	</div>
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+  
+	<div class="or">or</div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
+	<i class="fa fa-facebook"></i> Sign in with Facebook</button>
+	</div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	</div>
+	
+	<div class="clearfix"></div>
+	
+	<div class="space-15"></div>
+	
+	<p class="terms"> By signing here, you agree to our Terms of Service and Privacy Policy</p>
+	
+	<div class="space-20"></div>
+	<div class="clearfix"></div>
+	
+	<div class="col-sm-12"> <div class="new-member"> Already a Member? 
+	<a class="" id="sign-in-button">Sign in</a></div> </div>
+	<div class="clearfix"></div>
+	<div class="space-50"></div>
+  </div>
+  
+  </form>
+</div>
+</div>
+
 
 
 
@@ -246,7 +440,7 @@ $user = new USER();
 	  <a href="#" style="text-decoration:none;">How it works</a></br>
 	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
 	  <a href="#" style="text-decoration:none;">Team</a></br>
-	  <a href="#" style="text-decoration:none;">Believers</a></br>
+	  <a href="../faq/faq.html" style="text-decoration:none;">FAQs</a></br>
 	  <a href="#" style="text-decoration:none;">Careers</a></br>
 	  </div>
     <div class="col">
