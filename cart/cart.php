@@ -34,7 +34,7 @@ $user = new USER();
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="#home">About</a></li>
+  <li><a id="link1" class="mainlink" href="../about/about.html">About</a></li>
   <li><a id="link2" class="mainlink" href="#news">Menu</a></li>
   <li><a id="link3" href="../home.php">
       <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
@@ -670,7 +670,7 @@ $user = new USER();
 	  <a href="#" style="text-decoration:none;">How it works</a></br>
 	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
 	  <a href="#" style="text-decoration:none;">Team</a></br>
-	  <a href="#" style="text-decoration:none;">Believers</a></br>
+	  <a href="../faq/faq.html" style="text-decoration:none;">FAQs</a></br>
 	  <a href="#" style="text-decoration:none;">Careers</a></br>
 	  </div>
     <div class="col">
