@@ -12,6 +12,19 @@ $user = new USER();
    { $place="Location unknown";
    }
  
+ if(isset($_GET["res_id"]))
+ {
+	 $rid = $_GET["res_id"];
+	 
+ }
+ 
+ 
+ if(!isset($rid))
+ {
+	 $user->redirect("../restaurant/restaurant.php");
+	 
+ }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -150,8 +163,12 @@ $user = new USER();
 <div class="section">
 
 <?php
-                            $stmt = $user -> runQuery("select * from tb_products WHERE category = :category");
-							$stmt->execute(array(":category"=>"Dinner"));
+
+                            
+							
+							
+                            $stmt = $user -> runQuery("select * from tb_products WHERE resid = :resid");
+							$stmt->execute(array(":resid"=>$rid));
 							
 							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 							{
@@ -232,6 +249,10 @@ $user = new USER();
 
 			<?php
 				}
+				
+				
+				
+				
 				?>
 </div>
 

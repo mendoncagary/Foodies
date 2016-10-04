@@ -981,7 +981,7 @@ border-radius: 6px;
 line-height: inherit;
 margin: 0;
 margin: 0;
-font: inherit;
+/*font: inherit;*/
 }
 
 .next-step {
@@ -999,8 +999,10 @@ outline: 0;
 font-family: inherit;
 line-height: inherit;
 margin: 0;
-font: inherit;
+/*font: inherit;*/
+
 }
+
 
 .input-quantity{
 	

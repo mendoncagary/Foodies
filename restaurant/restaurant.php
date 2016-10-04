@@ -221,7 +221,7 @@ if(isset($_POST["place"]))
                 <span class="zdark">Call</span>
             </a>
                     
-                <a class="item-result-menu" href="../order/order.php" title="gurukripa Menu">
+                <a class="item-result-menu" href="../order/order.php?res_id=<?php echo $row["id"];?>" title="gurukripa Menu">
             <span class="zdark">View Menu</span>
         </a>
         
