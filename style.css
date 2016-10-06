@@ -110,8 +110,22 @@ a{
     background-image: url(assets/images/img4.png);
     line-height: 46px;
     font-size: 26px;
+	-webkit-transition: top 0.5s ease;
+-moz-transition: top 0.5s ease;
+-ms-transition: top 0.5s ease;
+-o-transition: top 0.5s ease;
+transition: top 0.5s ease;
 
 }
+
+.mainlink:hover{
+	
+	color:#fff;
+background: url(assets/images/img4.png) 0px 45px;
+	
+}
+
+
 li #link1 {
 	left:50%;
 	margin-left:-472px;

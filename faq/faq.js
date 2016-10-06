@@ -31,3 +31,19 @@ window.addEventListener('scroll', function(){ // on page scroll
 }, false)
 
  
+
+ //Sign in modal
+$(document).ready(function() {
+	$("#sign-up-button").click(function(){
+		$("#signupModal").show();
+		$("#myModal").hide();
+		
+	});
+	
+	$("#sign-in-button").click(function(){
+		$("#myModal").show();
+		$("#signupModal").hide();
+		
+	});
+
+});

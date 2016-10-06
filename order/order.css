@@ -30,7 +30,7 @@
 	display:none;
 	box-sizing:border-box;
 	padding:12px;
-	font-family:Roboto,sans-serif;
+	font-family:"Roboto",sans-serif;
 	
 }
 
@@ -88,6 +88,14 @@ z-index:30;
     font-size: 26px;
 
 }
+
+.mainlink:hover{
+	
+	color:#fff;
+background: url(../assets/images/img4.png) 0px 45px;
+	
+}
+
 li #link1 {
 	left:50%;
 	margin-left:-472px;
@@ -584,6 +592,30 @@ cursor: pointer;
 
 }
 
+
+.sold-btn{
+	
+	-webkit-transition: all 0s;
+	transition: all 0s;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	min-width: 91px;
+	padding: 7px 14px;
+	background: #F7F2F2;
+	text-transform: uppercase;
+	text-align:center;
+	line-height: 1;
+	border-radius: 2px;
+	border:1px solid red;
+	color:red;
+	-webkit-user-select: none;
+-moz-user-select: none;
+cursor: pointer;
+}
+
+
+
 .added-btn{
 	
 	background: transparent;
@@ -611,7 +643,7 @@ border-radius: 2px;
     font-size: 16px;
 }
 
-}
+
 
  .add-btn:hover{
     background: #403141;

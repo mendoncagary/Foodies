@@ -364,13 +364,22 @@ $user = new USER();
                             $stmt = $user -> runQuery("select * from tb_products WHERE resid = :resid");
 							$stmt->execute(array(":resid"=>$rid));
 							
+							
+							
 							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 							{
+								$qty = $row['quantity'];
+								
+								 $stmt1 = $user -> runQuery("SELECT *,SUM(qty) as qty FROM order_details WHERE productID = :productID AND status=:status");
+							     $stmt1->execute(array(":productID"=>$row["productID"],":status"=>"Delivered"));
+							
+							     $row1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+							     $total_qty = $qty - $row1['qty'];
                             
                                 
                                 ?>
 								
-<div class="fooddiv">
+<div class="fooddiv" data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-id="<?php echo $row['productID'];?>" data-dish-name="<?php echo $row['name'];?>">
    
     <div class="dish-img">
       
@@ -378,7 +387,7 @@ $user = new USER();
         <a href="#"  class="modal-popup">
           <label class="dish-label"><span><?php echo $row["filter"];  ?></span></label>
           
-          <span class="dish-addToCart"></span>
+          <span class="dish-addToCart">0</span>
           
           <span class="dish-rating"><i class="fa fa-star icon-star" aria-hidden="true"></i><?php echo $row["rating"];?></span>
           
@@ -411,13 +420,25 @@ $user = new USER();
           <i class="fa fa-inr icon-rupee" aria-hidden="true"></i><?php echo $row['price']; ?>
         </span>
          
-          <div class="dish-add-remove">
-            <button class="rmv-btn"  name="button" type="submit">-</button>
-            <span class="added_item_cart"></span>
-            <button class="add-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
+       <?php if($total_qty > 0){ ?>
+	   <div class="dish-add-remove">
+            <button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-id="<?php echo $row['productID'];?>" data-dish-name="<?php echo $row['name'];?>" class="rmv-btn"  name="button" type="submit">-</button>
+            <span class="added_item_cart">0</span>
+       	
+			<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-id="<?php echo $row['productID'];?>" data-dish-name="<?php echo $row['name'];?>" class="add-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
           </div>
       </div>
-      
+	  <?php 
+	   } 
+	   else
+	   {?>
+      <div class="dish-add-remove">
+           
+			<button class="sold-btn"  name="button" type="submit">SOLD OUT</button>
+          </div>
+      </div>
+	   <?php }
+	  ?>
       <div class="dish-chef">
           <div class="dish-chef-img">
             <a href="#">

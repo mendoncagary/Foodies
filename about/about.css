@@ -88,6 +88,14 @@ z-index:30;
     font-size: 26px;
 
 }
+
+.mainlink:hover{
+	
+	color:#fff;
+background: url(../assets/images/img4.png) 0px 45px;
+	
+}
+
 li #link1 {
 	left:50%;
 	margin-left:-472px;
