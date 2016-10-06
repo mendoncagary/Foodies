@@ -94,7 +94,7 @@ $('.locate-me').click(function(){
 
 $(document).ready(function(){
 $('.icon-link').hover(function(){
-  $("#box-signin").toggle(); //<----here
+  $("#box-signin").show(); //<----here
    
 });
 });

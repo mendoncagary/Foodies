@@ -370,7 +370,7 @@ if(isset($_POST['btn-signup']))
 
 <div id="section1">
 
-<div class="space-100">
+<div class="space-50">
 </div>
 
 <div class="aboutgrid">
