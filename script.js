@@ -400,3 +400,31 @@ else
 
 */
  
+
+ 
+//Logout script
+
+    
+
+$( document ).ready( function() {
+ $( ".current_logout" ).on( "click", function() {
+   
+   $.ajax({
+        type:'post',
+        url:'home.php',
+        data:{
+          logout:logout
+        },
+        success:function(response) {
+			
+	
+   }
+   });
+	
+   
+  });
+});
+
+
+
+ 

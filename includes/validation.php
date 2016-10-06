@@ -1,7 +1,20 @@
 <?php
-$value = $_GET['query'];
+
+if(isset($_GET['query']))
+{
+	$value = $_GET['query'];
+}
+
+if(isset($_GET['field']))
+{
 $formfield = $_GET['field'];
+}
+
+if(isset($_GET['input']))
+{
 $input= $_GET['input'];
+}
+
 
 //Check Valid or Invalid password when user enters password in password input field.
 if ($input == "email-input") {

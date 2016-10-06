@@ -340,11 +340,12 @@ $user = new USER();
  
  
  <div class="col-lg-6 col-sm-6 pull-right hideCheckOut" ng-show=" cart.items.length > 0"> 
- <div class="circle">0</div> 
- <input value="Checkout" onclick="document.location.href='../cart/cart.php'" class="check-out" type="button"> 
+ <div id="total_items" class="circle">0</div> 
+ <input id="checkout" value="Checkout" onclick="document.location.href='../cart/cart.php'" class="check-out" type="button"> 
  <img src="images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
  <div class="price-outer"> 
  <div class="price"> <span>₹</span> 0 </div> </div> 
+ 
  </div> 
  
  </div> 
@@ -379,7 +380,7 @@ $user = new USER();
                                 
                                 ?>
 								
-<div class="fooddiv" data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-id="<?php echo $row['productID'];?>" data-dish-name="<?php echo $row['name'];?>">
+<div class="fooddiv" data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-name="<?php echo $row['name'];?>" data-dish-name="<?php echo $row['name'];?>">
    
     <div class="dish-img">
       
@@ -422,10 +423,10 @@ $user = new USER();
          
        <?php if($total_qty > 0){ ?>
 	   <div class="dish-add-remove">
-            <button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-id="<?php echo $row['productID'];?>" data-dish-name="<?php echo $row['name'];?>" class="rmv-btn"  name="button" type="submit">-</button>
+            <button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="rmv-btn"  name="button" type="submit">-</button>
             <span class="added_item_cart">0</span>
        	
-			<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-id="<?php echo $row['productID'];?>" data-dish-name="<?php echo $row['name'];?>" class="add-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
+			<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="add-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
           </div>
       </div>
 	  <?php 
