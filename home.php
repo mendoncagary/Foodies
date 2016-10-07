@@ -4,8 +4,77 @@ require_once 'includes/class.user.php';
 $user_login = new USER();
 
 
+if(isset($_POST['action']) && $_POST['action'] =="login")
+{
+	$response = array("emailerror"=>"Enter valid email or mobile number","passerror"=>"Password is too short(minimum is 6 character)");
+	
+	if(empty($_POST["txtemailvalue"]))
+	{
+		echo json_encode($response);
+	}
+	 else 
+	{
+	$email = $_POST["txtemailvalue"];	
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);	
+	if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
+	{
+		$emailset = "true";
+		
+	}
+	}
+	
+	if(empty($_POST["txtupassvalue"]) && strlen($_POST["txtupassvalue"]) <= '6')
+	{
+		echo json_encode($response);
+	}
+	else
+	{
+	$password =  $_POST["txtupassvalue"];
+	$passwordset="true";
+	}
+	
+	if(isset($emailset) && isset($passwordset))
+	{
+		
+	$user->login($email,$password);	
+	}
+	
+	
+}
 
-if(isset($_GET['logout']))
+
+
+/*
+//Check input Fields Should not be blanks.
+    if (txtemailvalue == '' || txtupassvalue == '' ) 
+    {
+        alert("Fill All Fields");
+    }
+	else
+    {
+	
+	//Notifying error fields
+	
+    var txtupass = document.getElementById("password-error");
+    var txtemail = document.getElementById("email-error");
+	
+	//Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
+        if (txtupass.innerHTML == "Password is too short(minimum is 6 character)" || txtemail.innerHTML == "Enter valid email or mobile number ") 
+        {
+            alert("Fill Valid Information");
+        }
+        else 
+        {
+		//Submit Form When All values are valid.
+            document.getElementById("sign-in-form").submit();
+        }
+    }
+	
+	
+}*/
+
+
+if(isset($_POST['logout']))
 {
 $user_login->logout();
 }
@@ -69,6 +138,7 @@ if(isset($_POST['btn-signup']))
 }
 
 
+
 ?>
 
 
@@ -118,19 +188,6 @@ if(isset($_POST['btn-signup']))
 		<a id="link5" class="mainlink">Sign In</a>
 	
 	<?php
-		}
-
-		if(isset($_POST['btn-login']))
-		{
-		$email = trim($_POST['txtemail']);
-		$upass = trim($_POST['txtupass']);
-	
-		if($user_login->login($email,$upass))
-		{
-	?>
-		<a id="link5" class="mainlink">Welcome</a>
-	<?php
-		}
 		}
 	?>
 </li>
@@ -232,7 +289,7 @@ if(isset($_POST['btn-signup']))
 	
 	
 	<div class="col-sm-12"> 
-	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
+	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="button"> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -329,7 +386,7 @@ if(isset($_POST['btn-signup']))
 
 	
 	<div class="col-sm-12"> 
-	<input name="btn-signup" value="Sign up" class="sign-up-btn" type="submit"> 
+	<input name="btn-signup" value="Sign up" class="sign-up-btn" type="button"> 
 	</div>
 	
 	<div class="clearfix"></div>

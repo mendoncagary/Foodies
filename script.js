@@ -276,45 +276,35 @@ function showError(error) {
  
 
  
-/*function checkForm()
+function checkForm()
 {
 //fetching values from all input fields and storing them in variables
     var txtupassvalue = document.getElementById("password-input").value;
     var txtemailvalue = document.getElementById("email-input").value;
-    
+    var action = "login";
+	  $.ajax({
+        type:'post',
+        url:'home.php',
+        data:{
+			action:action,
+          txtupassvalue:txtupassvalue,
+		  txtemailvalue:txtemailvalue
+        },
+        success:function(response) {
+			
 	
-//Check input Fields Should not be blanks.
-    if (txtemailvalue == '' || txtupassvalue == '' ) 
-    {
-        alert("Fill All Fields");
-    }
+   }
+   });
 
-    else
-    {
-	
-	//Notifying error fields
-	
-    var txtupass = document.getElementById("password-error");
-    var txtemail = document.getElementById("email-error");
-	
-	//Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
-        if (txtupass.innerHTML == "Password is too short(minimum is 6 character)" || txtemail.innerHTML == "Enter valid email or mobile number ") 
-        {
-            alert("Fill Valid Information");
-        }
-        else 
-        {
-		//Submit Form When All values are valid.
-            document.getElementById("sign-in-form").submit();
-        }
-    }
+
+    
 }
 
-*/
+
 
 
 //AJAX Code to check  input field values when onblur event triggerd.
-function validate(input,field,query)
+/*function validate(input,field,query)
 {
 	
 	var xmlhttp;
@@ -341,7 +331,7 @@ else
     xmlhttp.send();
 }
 
- 
+ */
  
  function validateplace(){
 	 var xmlhttp;
