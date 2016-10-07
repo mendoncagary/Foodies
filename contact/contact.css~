@@ -183,8 +183,6 @@ word-wrap: break-word;
 hyphens: auto;
 font-weight: 900;
 text-transform: uppercase;
-font-size: 2.9375rem;
-line-height: 1.03128;
 }
 
 .sign-up-btn{

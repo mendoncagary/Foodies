@@ -771,9 +771,9 @@ Your browser does not support the video tag. I suggest you upgrade your browser.
       <h4>Stay tuned</h4>
 	  Connect with us and stay updated!</br>
 	  <p>
-	  <button class="Footerbutton1" onclick="parent.open('https://www.facebook.com/')"><i class="fa fa-facebook-square" aria-hidden="true"></i></button>
-	  <button class="Footerbutton2" onclick="parent.open('https://www.youtube.com/')"><i class="fa fa-youtube" aria-hidden="true"></i></button>
-	  <button class="Footerbutton3" onclick="parent.open('https://www.twitter.com/')"><i class="fa fa-twitter-square" aria-hidden="true"></i></button>
+	  <button class="Footerbutton1" onclick="parent.open('https://www.facebook.com/')"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></button>
+	  <button class="Footerbutton2" onclick="parent.open('https://www.youtube.com/')"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></button>
+	  <button class="Footerbutton3" onclick="parent.open('https://www.twitter.com/')"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></button>
 	  </p></div>
 
 </div>

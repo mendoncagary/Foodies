@@ -747,7 +747,7 @@ content: " ";
 	font-size: 15px;
 	padding: 3px 0;
 	/*border-bottom: 2px solid #c59d5f;*/
-		border-bottom: 2px solid #c59d5f;
+		border-bottom: 2px solid #85171a;
 }
 
 
@@ -1104,7 +1104,7 @@ line-height: inherit;
 
 .Footerbutton1 {
     background-color: white;
-    border: 1px solid #5A1A0C;
+    border: 1px solid black;
     border-radius: 25px;
     color: #3b5998;
     text-decoration: none;
@@ -1115,7 +1115,8 @@ line-height: inherit;
 
 .Footerbutton2 {
     background-color: white;
-    border: 1px solid #5A1A0C;
+ /*   border: 1px solid black;*/
+ border:none;
     border-radius: 25px;
     color: #FF0202;
     text-decoration: none;
@@ -1126,7 +1127,9 @@ line-height: inherit;
 
 .Footerbutton3 {
     background-color: white; 
-    border: 1px solid #5A1A0C;
+/*   border: 1px solid black;*/
+ border:none;
+   
     border-radius: 25px;
     color: #00aced;
     text-decoration: none;
