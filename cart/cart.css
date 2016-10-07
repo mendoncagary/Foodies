@@ -1165,6 +1165,8 @@ cursor:pointer;
 	
 }
 
+
+
 .error-text {
     color: #dd4c39;
     font-size: 11px;
@@ -1439,12 +1441,29 @@ content: " ";
 }
 
 .panel-title {
-    font-size: 12px;
-    font-weight: 700;
-    padding: 15px;
-     text-transform: uppercase;
-margin-top: 0;
-margin-bottom: 0;
-margin-bottom: 0;
-font-family:inherit;
+  font-size: 12px;
+font-weight: 700;
+padding: 15px;
+color: #000;
+text-transform: uppercase;
+margin-bottom:0px;
+margin-top:0px;
+font-family: inherit;
+line-height:1.1;
+}
+
+.panel-title a{
+	
+	color:inherit;
+	text-align: center;
+    outline: none;
+}
+
+.panel-active {
+    background-color: #323232 !important;
+    padding: 20px 40px;
+    font-size: 30px !important;
+    color: #fff !important;
+    font-weight: 300;
+    text-transform: capitalize;
 }

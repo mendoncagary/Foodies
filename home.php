@@ -4,6 +4,12 @@ require_once 'includes/class.user.php';
 $user_login = new USER();
 
 
+
+if(isset($_GET['logout']))
+{
+$user_login->logout();
+}
+
 $reg_user = new USER();
 
 if(isset($_POST['btn-signup']))
@@ -128,12 +134,25 @@ if(isset($_POST['btn-signup']))
 		}
 	?>
 </li>
+
+	
+	<?php
+	if($user_login->is_logged_in()!="")	
+		{
+	?>
+	
 <li>
 <a id="link6" class="icon-link"><img src="assets/images/img27.jpg" alt="lang"></a>
   
   </li>
+  <?php
+		}?>
   </ul>
-  
+ 	<?php
+	if($user_login->is_logged_in()!="")	
+		{
+
+ ?>
  <ul id="box-signin">
   <li><a href="cart/cart.php" title="Carts">
   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -142,9 +161,11 @@ if(isset($_POST['btn-signup']))
   <li><a href="#" title="Track Orders"
   > Track Orders
   </a></li>
-  <li><a href="#" title="Logout" class="current_language"> Logout
+  <li><a title="Logout" class="current_logout"> Logout
   </a></li>
-  </ul> 
+  </ul>
+
+  <?php } ?>  
 </nav>
 
 
