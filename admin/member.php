@@ -42,27 +42,26 @@
                                 </div>
                                 <thead>
                                     <tr>
-                                        <th>FirstName</th>
-                                        <th>LastName</th>
+									    <th>UserName</th>
                                         <th>Email</th>
                                         <th>Contact Number</th>
                                         <th>Address</th>
-                                  
+                                        <th>User Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php include ('../includes/config.php');
-                                    $query = mysql_query("select * from tb_member") or die(mysql_error());
+                                    $query = mysql_query("select * from tbl_users") or die(mysql_error());
                                     while ($row = mysql_fetch_array($query)) {
-                                        $member_id = $row['memberID'];
+                                        $member_id = $row['userID'];
                                         ?>
                                         <tr class="odd gradeX">
-                                            <td><?php echo $row['Firstname']; ?></td> 
-                                            <td><?php echo $row['Lastname']; ?></td> 
-                                            <td><?php echo $row['Email']; ?></td> 
-                                            <td><?php echo $row['Contact_Number']; ?></td> 
+                                            <td><?php echo $row['userName']; ?></td>                       
+                                            <td><?php echo $row['userEmail']; ?></td> 
+                                            <td><?php echo $row['contactNumber']; ?></td> 
                                             <td><?php echo $row['address']; ?></td> 
+											<td><?php echo $row['userStatus']; ?></td> 
                                                                                <td width="100">
                                               <a href="#delete_member<?php echo $member_id; ?>" role="button"  data-target = "#delete_member<?php echo $member_id;?>"data-toggle="modal" class="btn btn-danger"><i class="icon-trash icon-large"></i>&nbsp;Delete</a>
                                             </td>

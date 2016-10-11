@@ -1,4 +1,7 @@
+
 <?php include ('header.php');?>	
+
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -9,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Moozikay&nbsp;Melo's</a>
+                <a class="navbar-brand" href="index.html">Foodies</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

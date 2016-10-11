@@ -284,15 +284,30 @@ function checkForm()
     var action = "login";
 	  $.ajax({
         type:'post',
-        url:'home.php',
-        data:{
+        url:'includes/letmein.php',
+       
+		data:{
 			action:action,
           txtupassvalue:txtupassvalue,
 		  txtemailvalue:txtemailvalue
         },
-        success:function(response) {
+		
+        success:function(response1,response2,response3) { 
+			if(response1)
+			{
+			$("#email-error").show();	
 			
-	
+			}
+	       if(response2)
+			{
+			$("#password-error").show();
+				
+			}
+			if(response3)
+			{
+				$("#myModal").hide();
+			}
+	      
    }
    });
 
@@ -300,11 +315,37 @@ function checkForm()
     
 }
 
+$(document).ready(function(){
+	
+	
+$("#signmebutton").click(function(){
+//fetching values from all input fields and storing them in variables
+    var name = document.getElementById("sign-up-name").value;
+    var password = document.getElementById("sign-up-password").value;
+	var email = document.getElementById("sign-up-email").value;
+    var action = "signup";
+	  $.ajax({
+        type:'post',
+        url:'includes/signup.php',
+       
+		data:{
+			action:action,
+          name:name,
+		  password:password,
+		  email:email
+        },
+		
+        success:function(response) {
+			$("#myModal").hide();;
+   }
+   });
 
 
 
+});
+});
 //AJAX Code to check  input field values when onblur event triggerd.
-/*function validate(input,field,query)
+function validate(input,field,query)
 {
 	
 	var xmlhttp;
@@ -327,11 +368,10 @@ else
         }
         
 	}
-    xmlhttp.open("GET", "includes/validation.php?input="+input+"&field="+field+"&query="+query, false);
+    xmlhttp.open("GET", "includes/validation.php?input="+input+"&field="+field+"&query="+query, true);
     xmlhttp.send();
 }
 
- */
  
  function validateplace(){
 	 var xmlhttp;
@@ -359,7 +399,7 @@ else
         
 	}
 	
-	xmlhttp.open("POST", url, true);
+	xmlhttp.open("POST", url, false);
 	
 	
 	 xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -417,4 +457,32 @@ $( document ).ready( function() {
 
 
 
+ //email/password label
+ $(document).ready(function(){
+
+ $("#password-input").keypress(function()
+ {
+	 
+	   $("label[for='password-input']").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 if(!$("#password-input").val())
+	 
+	 {
+		$("label[for='password-input']").css({"transform": "scale(1,1) rotateY(0)", "line-height": "45px", "font-size": "14px" });
+	 }
+ 
+});
+	 
+ 
+ $("#email-input").keypress(function()
+ {
+	  $("label[for='email-input']").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 
+	 if(!$("#email-input").val())
+	 {
+		$("label[for='email-input']").css({"transform": "scale(1,1) rotateY(0)", "line-height": "45px", "font-size": "14px" });
+	 }
+ });
+ 
+	});
+ 
  

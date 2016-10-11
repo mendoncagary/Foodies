@@ -33,16 +33,31 @@ window.addEventListener('scroll', function(){ // on page scroll
 
 //Slide Toggle Sign in cart panel
 $(document).ready(function(){
-
+$("#panel-1").show();
  $(".next-step").click(function(){
 	  $("#panel-1").hide();
 	  $("#panel-2").show();
 	  $("#panel-title-cart").removeClass("panel-active");
 	  $("#panel-title-signin").addClass("panel-active");
-	  
- 
- 
  });
+ 
+  
+ 
+	$("#sign-up-button").click(function(){
+		$("#signupModal").removeClass("ng-hide");
+		$("#myModal").addClass("ng-hide");
+		
+	});
+	
+	$("#sign-in-button").click(function(){
+		$("#myModal").removeClass("ng-hide");
+		$("#signupModal").addClass("ng-hide");
+		
+	});
+
+
+
+ 
  });
  
  
@@ -52,12 +67,29 @@ $(document).ready(function(){
  //email/password label
  $(document).ready(function(){
 
- $(".modalinput").focus(function()
+ $("#password-input").keypress(function()
  {
-	 if($(".modalinput").val())
-	 { $(".panel-signin .floating-placeholder label").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 
+	   $("label[for='password-input']").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 if(!$("#password-input").val())
+	 
+	 {
+		$("label[for='password-input']").css({"transform": "scale(1,1) rotateY(0)", "line-height": "45px", "font-size": "14px" });
+	 }
+ 
+});
+	 
+ 
+ $("#email-input").keypress(function()
+ {
+	  $("label[for='email-input']").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 
+	 if(!$("#email-input").val())
+	 {
+		$("label[for='email-input']").css({"transform": "scale(1,1) rotateY(0)", "line-height": "45px", "font-size": "14px" });
 	 }
  });
+ 
 	});
  
  

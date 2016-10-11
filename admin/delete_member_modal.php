@@ -3,10 +3,10 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                           
-                                            <h4 class="modal-title" id="myModalLabel"><center>Delete Product </center></h4>
+                                            <h4 class="modal-title" id="myModalLabel"><center>Delete Member </center></h4>
                                         </div>
                                          <div class="modal-body">
-                                            <div class="alert alert-danger">Are you Sure you Want to <strong>Delete&nbsp;</strong><?php echo $row['Firstname'] . " " . $row['Lastname']; ?>?</div>
+                                            <div class="alert alert-danger">Are you Sure you Want to <strong>Delete&nbsp;</strong><?php echo $row['userName']; ?>?</div>
                                         </div>
                                         <div class="modal-footer">
                                             <a class="btn btn-danger" href="delete_member.php<?php echo '?id=' . $member_id; ?>" ><i class="icon-check"></i>&nbsp;Yes</a>

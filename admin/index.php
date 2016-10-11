@@ -53,6 +53,7 @@
 																	{
 																	session_start();
 																	$_SESSION['id'] = $row['user_id'];
+																	$_SESSION['rolecode'] = $row['rolecode'];
 																header("location:product.php");
 																
 															}	

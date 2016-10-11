@@ -32,8 +32,8 @@ window.addEventListener('scroll', function(){ // on page scroll
 
  
  $(document).ready(function(){
-
- /*
+/*
+ 
  var x=0;
  
  $(".add-btn").click(function(){
@@ -52,7 +52,7 @@ window.addEventListener('scroll', function(){ // on page scroll
    /*$(".circle").html(parseInt($(".circle").html(), 10)+1);*/
 
 
-	/*$(".pull-right").removeClass("hideCheckOut");*/
+	/*$(".pull-right").removeClass("hideCheckOut");
 	});
 	
 */
@@ -90,7 +90,7 @@ $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(parseInt($(".fooddiv[da
 	 	 
 	 
 });	 
-
+/*
 $(document).ready(function(){
 
       $.ajax({
@@ -100,13 +100,13 @@ $(document).ready(function(){
           total_cart_items:"totalitems"
         },
         success:function(response) {
-          /*document.getElementById("total_items").value=response;*/
+          /*document.getElementById("total_items").value=response;
 		  $("#total_items").html(parseInt($("#total_items").html(), 10)+1);
         }
       });
 
     });
-    
+  */  
 
 $( document ).ready( function() {
  $( ".add-btn" ).on( "click", function() {

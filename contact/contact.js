@@ -31,3 +31,49 @@ window.addEventListener('scroll', function(){ // on page scroll
 }, false)
 
  
+$(document).ready(function() {
+	$("#sign-up-button").click(function(){
+		$("#signupModal").show();
+		$("#myModal").hide();
+		
+	});
+	
+	$("#sign-in-button").click(function(){
+		$("#myModal").show();
+		$("#signupModal").hide();
+		
+	});
+
+});
+
+
+ 
+ //email/password label
+ $(document).ready(function(){
+
+ $("#password-input").keypress(function()
+ {
+	 
+	   $("label[for='password-input']").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 if(!$("#password-input").val())
+	 
+	 {
+		$("label[for='password-input']").css({"transform": "scale(1,1) rotateY(0)", "line-height": "45px", "font-size": "14px" });
+	 }
+ 
+});
+	 
+ 
+ $("#email-input").keypress(function()
+ {
+	  $("label[for='email-input']").css({"transform": "scale(.55,.55) rotateY(0)", "line-height": "45px", "font-size": "21px" });
+	 
+	 if(!$("#email-input").val())
+	 {
+		$("label[for='email-input']").css({"transform": "scale(1,1) rotateY(0)", "line-height": "45px", "font-size": "14px" });
+	 }
+ });
+ 
+	});
+ 
+ 

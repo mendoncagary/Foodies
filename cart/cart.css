@@ -77,7 +77,8 @@ z-index:30;
 .mainlink {
     text-decoration: none;
     position: absolute;
-	color:#262526;
+	/*color:#262526;*/
+	color: #85171a;
     width: 193px;
     height: 45px;
     text-align: center;
@@ -196,16 +197,7 @@ li #link5 {
 }
 
 
-.col-sm-6{
-	width: 50%;
-	float:left;
-	position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-sizing: border-box;
-	
-}
+
 
 .facebook-btn{
     line-height: 50px !important;
@@ -334,12 +326,6 @@ li #link5 {
 
 
 
-.section{
-	
-	height:auto;
-	padding:20px;
-	display:block;
-}
 
 
 
@@ -361,63 +347,6 @@ section{
 }
 
 
-@media only screen and (min-width:768px){
-.col-sm-6 {
-    width: 50%;
-	float:left;
-}
-
-.container {
-    width: 750px;
-}
-
-.col-sm-3{
-	
-	width:25%;
-	float:left;
-}
-
-.col-sm-2{
-width: 16.66666667%;
-float:left;
-}
-
-
-.col-sm-8{
-width: 66.66666667%;
-float:left;
-}
-
-.col-sm-8{
-width: 58.33333333%;
-float:left;
-}
-
-
-
-}
-
-
-
-@media only screen and (min-width:992px){
-.container {
-    width: 970px;
-}
-}
-
-
-@media only screen and (min-width:1200px){
-.container {
-    width: 1170px;
-}
-}
-
-@media only screen and (min-width:1200px){
-.col-lg-6 {
-    width: 50%;
-	float:left;
-}
-}
 
 
 .container{
@@ -600,10 +529,7 @@ float:left;
 	
 }
 
-.ng-hide{
-	
-	display:none;
-}
+
 
 /*Cart begins here*/
 
@@ -798,7 +724,7 @@ height: 16px;
 background: #da3939;
 padding: 4px 15px;
 border: 1px solid #da3939;
-color: #fff;
+color: #fff !important;
 display: inline-block;
 margin-bottom: 0;
 font-weight: 400;
@@ -818,7 +744,7 @@ outline: 0;
 }
 
 .ng-hide {
-    display: none !important
+    display: none !important;
 	
 }
 
@@ -1112,7 +1038,8 @@ cursor:pointer;
 }
 
 .panel-signin {
-	padding: 2px 16px;
+	
+	/*padding: 2px 16px;*/
 	width: 54%;
 	margin: 0 auto;
     display: block;
@@ -1235,16 +1162,7 @@ font-size: 12px;
 }
 
 
-.col-sm-12{
-	
-	width: 100%;
-	float:left;
-	position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-sizing: border-box;
-}
+
 
 
 .or {
@@ -1272,8 +1190,7 @@ font-size: 12px;
 
 
 .col-sm-6{
-	width: 50%;
-	float:left;
+
 	position: relative;
     min-height: 1px;
     padding-right: 15px;
@@ -1362,16 +1279,7 @@ font-size: 12px;
 
 }
 
-.clearfix::before{
-display: table;
-content: " ";
-}
 
-.clearfix::after{
-clear:both;
-display: table;
-content: " ";
-}
 
 .space-15 {
 	width: 100%;
@@ -1466,4 +1374,78 @@ line-height:1.1;
     color: #fff !important;
     font-weight: 300;
     text-transform: capitalize;
+}
+
+.panel-collapse{
+	display:none;
+}
+
+.weight-700 {
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+
+
+@media only screen and (min-width:768px){
+.col-sm-6 {
+    width: 50%;
+	float:left;
+}
+
+.container {
+    width: 750px;
+}
+
+.col-sm-3{
+	
+	width:25%;
+	float:left;
+}
+
+.col-sm-2{
+width: 16.66666667%;
+float:left;
+}
+
+
+.col-sm-8{
+width: 66.66666667%;
+float:left;
+}
+
+.col-sm-8{
+width: 58.33333333%;
+float:left;
+}
+
+.col-sm-12{
+width: 100%;
+float:left;
+}
+
+
+
+}
+
+
+
+@media only screen and (min-width:992px){
+.container {
+    width: 970px;
+}
+}
+
+
+@media only screen and (min-width:1200px){
+.container {
+    width: 1170px;
+}
+}
+
+@media only screen and (min-width:1200px){
+.col-lg-6 {
+    width: 50%;
+	float:left;
+}
 }

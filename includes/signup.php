@@ -10,11 +10,12 @@ if($reg_user->is_logged_in()!="")
 }
 
 
-if(isset($_POST['btn-signup']))
+/*if(isset($_POST['btn-signup']))*/
+if(isset($_POST['action']) && $_POST['action'] == "signup")
 {
-	$uname = trim($_POST['txtuname']);
-	$email = trim($_POST['txtemail']);
-	$upass = trim($_POST['txtpass']);
+	$uname = trim($_POST['name']);
+	$email = trim($_POST['email']);
+	$upass = trim($_POST['password']);
 	$code = md5(uniqid(rand()));
 	
 	$stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
@@ -41,10 +42,10 @@ if(isset($_POST['btn-signup']))
 			$message = "					
 						Hello $uname,
 						<br /><br />
-						Welcome to Coding Cage!<br/>
+						Welcome to Foodies!<br/>
 						To complete your registration  please , just click following link<br/>
 						<br /><br />
-						<a href='http://localhost/x/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://localhost:81/Foodies/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
 						<br /><br />
 						Thanks,";
 						
@@ -58,6 +59,8 @@ if(isset($_POST['btn-signup']))
                     Please click on the confirmation link in the email to create your account. 
 			  		</div>
 					";
+					
+					echo "registered";
 		}
 		else
 		{
@@ -65,36 +68,4 @@ if(isset($_POST['btn-signup']))
 		}		
 	}
 }
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Signup | Coding Cage</title>
-    <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="assets/styles.css" rel="stylesheet" media="screen">
-     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-  </head>
-  <body id="login">
-    <div class="container">
-				<?php if(isset($msg)) echo $msg;  ?>
-      <form class="form-signin" method="post">
-        <h2 class="form-signin-heading">Sign Up</h2><hr />
-        <input type="text" class="input-block-level" placeholder="Username" name="txtuname" required />
-        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
-        <input type="password" class="input-block-level" placeholder="Password" name="txtpass" required />
-     	<hr />
-        <button class="btn btn-large btn-primary" type="submit" name="btn-signup">Sign Up</button>
-        <a href="index.php" style="float:right;" class="btn btn-large">Sign In</a>
-      </form>
-
-    </div> <!-- /container -->
-    <script src="vendors/jquery-1.9.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
-</html>
+?>	

@@ -18,7 +18,7 @@ $input= $_GET['input'];
 
 //Check Valid or Invalid password when user enters password in password input field.
 if ($input == "email-input") {
-    if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
         echo "Enter valid email or mobile number"; 
     } 
 }

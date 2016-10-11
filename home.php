@@ -4,137 +4,12 @@ require_once 'includes/class.user.php';
 $user_login = new USER();
 
 
-if(isset($_POST['action']) && $_POST['action'] =="login")
-{
-	$response = array("emailerror"=>"Enter valid email or mobile number","passerror"=>"Password is too short(minimum is 6 character)");
-	
-	if(empty($_POST["txtemailvalue"]))
-	{
-		echo json_encode($response);
-	}
-	 else 
-	{
-	$email = $_POST["txtemailvalue"];	
-    $email = filter_var($email, FILTER_SANITIZE_EMAIL);	
-	if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
-	{
-		$emailset = "true";
-		
-	}
-	}
-	
-	if(empty($_POST["txtupassvalue"]) && strlen($_POST["txtupassvalue"]) <= '6')
-	{
-		echo json_encode($response);
-	}
-	else
-	{
-	$password =  $_POST["txtupassvalue"];
-	$passwordset="true";
-	}
-	
-	if(isset($emailset) && isset($passwordset))
-	{
-		
-	$user->login($email,$password);	
-	}
-	
-	
-}
-
-
-
-/*
-//Check input Fields Should not be blanks.
-    if (txtemailvalue == '' || txtupassvalue == '' ) 
-    {
-        alert("Fill All Fields");
-    }
-	else
-    {
-	
-	//Notifying error fields
-	
-    var txtupass = document.getElementById("password-error");
-    var txtemail = document.getElementById("email-error");
-	
-	//Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
-        if (txtupass.innerHTML == "Password is too short(minimum is 6 character)" || txtemail.innerHTML == "Enter valid email or mobile number ") 
-        {
-            alert("Fill Valid Information");
-        }
-        else 
-        {
-		//Submit Form When All values are valid.
-            document.getElementById("sign-in-form").submit();
-        }
-    }
-	
-	
-}*/
 
 
 if(isset($_POST['logout']))
+
 {
 $user_login->logout();
-}
-
-$reg_user = new USER();
-
-if(isset($_POST['btn-signup']))
-{
-	$uname = trim($_POST['regname']);
-	$email = trim($_POST['regemail']);
-	$upass = trim($_POST['regpass']);
-	$code = md5(uniqid(rand()));
-	
-	$stmt = $reg_user->runQuery("SELECT * FROM tbl_users WHERE userEmail=:email_id");
-	$stmt->execute(array(":email_id"=>$email));
-	$row = $stmt->fetch(PDO::FETCH_ASSOC);
-	
-	if($stmt->rowCount() > 0)
-	{
-		$msg = "
-		      <div class='alert alert-error'>
-				<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry !</strong>  email allready exists , Please Try another one
-			  </div>
-			  ";
-	}
-	else
-	{
-		if($reg_user->register($uname,$email,$upass,$code))
-		{			
-			$id = $reg_user->lasdID();		
-			$key = base64_encode($id);
-			$id = $key;
-			
-			$message = "					
-						Hello $uname,
-						<br /><br />
-						Welcome to Foodies!<br/>
-						To complete your registration  please , just click following link<br/>
-						<br /><br />
-						<a href='http://localhost/Foodies/includes/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
-						<br /><br />
-						Thanks,";
-						
-			$subject = "Confirm Registration";
-						
-			$reg_user->send_mail($email,$message,$subject);	
-			$msg = "
-					<div class='alert alert-success'>
-						<button class='close' data-dismiss='alert'>&times;</button>
-						<strong>Success!</strong>  We've sent an email to $email.
-                    Please click on the confirmation link in the email to create your account. 
-			  		</div>
-					";
-		}
-		else
-		{
-			echo "sorry , Query could no execute...";
-		}		
-	}
 }
 
 
@@ -191,7 +66,6 @@ if(isset($_POST['btn-signup']))
 		}
 	?>
 </li>
-
 	
 	<?php
 	if($user_login->is_logged_in()!="")	
@@ -245,7 +119,7 @@ if(isset($_POST['btn-signup']))
 	
 	<form method="POST" id="sign-in-form">
 		<button id="signin_close" type="button" class="close" >
-		<span>×</span>
+		<span>�</span>
 		<!--<img src="images/close.47cfd871.png" alt="">-->
 		</button>
       <div class="space-50"></div>
@@ -260,7 +134,7 @@ if(isset($_POST['btn-signup']))
 	<label for="email-input">Email/Mobile</label> 
 	</div>
 	<!--Error text-->
-	<span id="email-error" class='error-text'><!--Enter valid email or mobile number --></span>
+	<span id="email-error" class='error-text'>Enter valid email or mobile number</span>
 	</div>
 	
       
@@ -269,7 +143,7 @@ if(isset($_POST['btn-signup']))
 	 <input id="password-input" name="txtupass" class="modalinput" onblur="validate('password-input','password-error',this.value)" type="password"> 
 	 <label for="password-input">Password</label> </div>
 	<!--Error text-->
-	<span id="password-error" class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
+	<span id="password-error" class="error-text">Password is too short(minimum is 6 character)</span> 
 	 </div> 
     
 	<div class="clearfix"></div>
@@ -344,7 +218,7 @@ if(isset($_POST['btn-signup']))
 	
 	<form method="POST">
 		<button id="signup_close" type="button" class="close" >
-		<span>×</span>
+		<span>�</span>
 		<!--<img src="images/close.47cfd871.png" alt="">-->
 		</button>
       <div class="space-50"></div>
@@ -386,7 +260,7 @@ if(isset($_POST['btn-signup']))
 
 	
 	<div class="col-sm-12"> 
-	<input name="btn-signup" value="Sign up" class="sign-up-btn" type="button"> 
+	<input id="signmebutton" name="btn-signup" value="Sign up" class="sign-up-btn" type="button"> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -399,12 +273,12 @@ if(isset($_POST['btn-signup']))
 	<div class="space-15"></div>
 	
 	<div class="col-sm-6"> 
-	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
+	<button onclick="" class="facebook-btn">
 	<i class="fa fa-facebook"></i> Sign in with Facebook</button>
 	</div>
 	
 	<div class="col-sm-6"> 
-	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	<button onclick="" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -527,201 +401,16 @@ nothing
 
 <div id="section3">
 
-<div id="wrapper">
-<h2 id="menutitle">Our Menu</h2>
+<section class="article__content">
+<div class="container">
+ <section class="page__content  js-post-gallery  cf"><div class="pixcode  pixcode--grid  grid  "><div class="grid__item six-twelfths palm-one-whole ">
+ <style type="text/css">#gallery-0{margin:auto}#gallery-0 .gallery-item{float:left;text-align:center;width:50%}</style>
+ 
+ <div id="gallery-0" class="gallery galleryid-15 gallery-columns-2 gallery-size-medium">
+ <figure class="gallery-item">
+ <div class="gallery-icon landscape"> 
+ <a data-title="menu-thumb-6" data-alt="" href="assets/images/img29.png"><img src="assets/images/img29.png" class="attachment-medium" alt="menu-thumb-6" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape"> <a data-title="menu-thumb-2" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-2.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-2-300x218.jpg" class="attachment-medium" alt="menu-thumb-2" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape"> <a data-title="menu-thumb-1" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-1.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-1-300x218.jpg" class="attachment-medium" alt="menu-thumb-1" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape"> <a data-title="menu-thumb-4" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-4.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-4-300x218.jpg" class="attachment-medium" alt="menu-thumb-4" width="300" height="218"></a></div></figure></div></div></div></section></div></section>
 
-<ul class="menutext">
-					<li class="a-1">
-						<a href="/" class="menuaccord">Entrées</a>
-						<div class="afteraccord">
-							<ul class="list-unstyled">
-								<li>
-									<h3>Soupe du jour <span class="vegan"></span></h3>
-									<p class="price">3<sup></sup></p>
-								</li>
-								<li>
-									<h3>Pois chiches rôtis <span class="vegan"></span></h3>
-									<p>Croustillants, épicés &amp; salés</p>
-									<p class="note"><span class="noix"></span>Ajout de noix torréfiées 3<sup>50</sup></p>
-									<p class="price">3<sup></sup></p>
-								</li>
-								<li>
-									<h3>Samosas Végé <span class="vegan"></span></h3>
-									<p>3 beignets de pommes de terre, pois verts &amp; légumes, sauce à la mangue </p>
-									<p class="price">6<sup></sup></p>
-								</li>
-								<li>
-									<h3>Crab Cakes <span class="coeur"></span></h3>
-									<p>2 croquettes 100% chair de crabe, mayo maison &amp; rémoulade céleri rave, céleri branche, chou savoie</p>
-									<p class="price">10<sup></sup></p>
-								</li>
-								<li>
-									<h3>Fish Pakora</h3>
-									<p>4 morceaux de morue du Canada frits, paprika fumé, mayo maison &amp; rémoulade céleri rave, céleri branche, chou savoie</p>
-									<p class="price">7<sup></sup></p>
-								</li>
-								<li>
-									<h3>Falafels &amp; tabouleh <span class="vegan"></span></h3>
-									<p>4 boules de pois chiches à l'indienne, tabouleh herbes &amp; amandes, raïta de tofu soyeux</p>
-									<p class="price">7<sup></sup></p>
-								</li>
-								<li>
-									<h3>Hummus <span class="vegan"></span></h3>
-									<p>Garniture de tabouleh herbes &amp; amandes, oignons marinés, chips de dos</p>
-									<p class="price">5<sup></sup></p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="a-2">
-						<a href="/" class="menuaccord">Accompagnements</a>
-						<div class="afteraccord">
-							<ul class="list-unstyled">
-								<li>
-									<h3>Aloo Gobi <span class="vegan"></span> <span class="coeur"></span></h3>
-									<p>Tranche de chou-fleur mariné, pommes de terre rôties, purée de pois verts à l'huile d'olive, bacon de coconut, pois chiches rôtis &amp; herbes fraiches.</p>
-									<p class="price">13<sup></sup></p>
-								</li>
-								<li>
-									<h3>Le Popeye</h3>
-									<p>Purée d'épinards, fromage grillé à la nigelle, yogourt coriandre &amp; menthe. </p>
-									<p class="price">6<sup>75</sup></p>
-								</li>
-								<li>
-									<h3>Salade de chou-fleur <span class="vegan"></span></h3>
-									<p>Mélange de chou-fleur mariné &amp; cru, chou de savoie, céleri et sésame grillé, vinaigrette au tahini &amp; citron</p>
-									<p class="note"><span class="noix"></span>Ajout de noix torréfiées  3<sup>50</sup></p>
-									<p class="price">11<sup></sup></p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="a-3">
-						<a href="/" class="menuaccord">Les essentiels </a>
-						<div class="afteraccord">
-							<ul class="list-unstyled">
-								<li>
-									<h3>Dosa <span class="vegan"></span></h3>
-									<p>Crêpe de lentilles et riz fermenté, craquante et aromatique</p>
-									<p class="price">2<sup>85</sup></p>
-								</li>
-								<li>
-									<h3>Naan <span class="vegan"></span></h3>
-									<p>Avec beurre clarifié ou huile de coco</p>
-									<p class="price">1<sup>25</sup></p>
-								</li>
-								<li>
-									<h3>Papadum <span class="vegan"></span></h3>
-									<p>Chips de farine de lentilles (frit) </p>
-									<p class="price">2<sup>85</sup></p>
-								</li>
-								<li>
-									<h3>Plateau de dégustation de trempettes</h3>
-									<p>Coulis mangue au fenouil, sauce tamarin, glaze épicé, chutney de mangue, yogourt coriandre &amp; menthe*, raïta de tofu, pâte de piment</p>
-									<p class="note"><span class="etoile"></span>Le yogourt peut être substitué par du taouleh pour offir un plateau</p>
-									<p class="price">4<sup></sup></p>
-								</li>
-								<li>
-									<h3>Biryani <span class="vegan"></span> <span class="coeur"></span></h3>
-									<p>Riz sauté aux épices, pois verts &amp; zucchini, herbes hachées et raïta</p>
-									<p><span class="pilon"></span> Ajout de 2 pilons 3<sup>50</sup></p>
-									<p class="price">6<sup></sup></p>
-								</li>
-								<li>
-									<h3>Riz au curcuma <span class="vegan"></span></h3>
-									<p class="price">2<sup></sup></p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="a-4">
-						<a href="/" class="menuaccord">Curries</a>
-						<div class="afteraccord">
-							<ul class="list-unstyled">
-								<li>
-									<h3>Poulet au beurre <span class="coeur"></span></h3>
-									<p>Poulet biologique des Voltigeurs, refroidi à l'air, élevé en liberté viande marinée et grillée, riche sauce tomatée, aromes de cardamome et coriandre </p>
-									<p class="price">13<sup>50</sup></p>
-								</li>
-								<li>
-									<h3>Crevettes nordiques &amp; morue</h3>
-									<p>Crevettes du Québec, morue du Canada pochée, légumes variés, sauce coco au galanga, gingembre &amp; citronnelle, lime kéfir, garniture de fèves germées croquantes. </p>
-									<p class="note"><span class="tofu"></span>Remplacer le poisson &amp; crevettes par du Tofu mariné 11<sup>25</sup> <span class="vegan"></span></p>
-									<p class="price">15<sup></sup></p>
-								</li>
-								<li>
-									<h3>Légumes Korma <span class="vegan"></span></h3>
-									<p>Légumes variés, lentilles, noix torréfiées, sauce coco aux arômes de macis, cardamome &amp; cumin, menthe fraiche </p>
-									<p class="price">11<sup></sup></p>
-								</li>
-								<li>
-									<h3>Pois chiches au tamarin <span class="vegan"></span></h3>
-									<p>Légumes variés, sauce relevée avec arômes de paprika, curcuma &amp; coriandre, coulis de mangue et gingembre</p>
-									<p class="price">10<sup></sup></p>
-								</li>
-								<li>
-									<h3>Pilon de poulet</h3>
-									<p>Poulet biologique des Voltigeurs, refroidi à l'air, élevé en liberté marinade au Garam Masala, 5 pilons grillés enrobés d'une sauce au paprika relevée, yogourt coriandre &amp; menthe.</p>
-									<p class="price">12<sup></sup></p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="a-5">
-						<a href="/" class="menuaccord">Breuvages</a>
-						<div class="afteraccord">
-							<ul class="list-unstyled">
-								<li>
-									<h3>Limonade concombre et menthe</h3>
-									<p class="price">3<sup></sup></p>
-								</li>
-								<li>
-									<h3>Limonade à l'eau de rose et pétales</h3>
-									<p class="price">3<sup></sup></p>
-								</li>
-								<li>
-									<h3>Chaï glacé</h3>
-									<p>Chaï infusé avec notre mélange d'épices <br>maison avec une touche de sucre</p>
-									<p class="note"><span class="milk"></span>Ajoutez du lait pour  0<sup>55</sup></p>
-									<p class="price">3<sup></sup></p>
-								</li>
-								<li>
-									<h3>Thé chaud (feuilles lousses)</h3>
-									<p>Vert au jasmin - earl grey - noir - chaï masala</p>
-									<p class="price">2<sup>85</sup></p>
-								</li>
-								<li>
-									<h3>Tisane (feuilles/fleurs lousses)</h3>
-									<p>Lavande - camomille - menthe - rose</p>
-									<p class="price">2<sup>85</sup></p>
-								</li>
-								<li>
-									<h3>Café filtre</h3>
-									<p>Phil &amp; Seb, bio - équitable - 3<sup>ième</sup> vague</p>
-									<p class="price">3<sup></sup></p>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="a-6">
-						<a href="/" class="menuaccord">Desserts</a>
-						<div class="afteraccord">
-							<ul class="list-unstyled">
-								<li>
-									<h3>Malabi</h3>
-									<p>Pouding au lait de coco, garniture de fruits</p>
-									<p class="price">4<sup></sup></p>
-								</li>
-								<li>
-									<h3>Dessert du jour</h3>
-									<p>Dessert fait maison par le pâtissier du Café Frida</p>
-									<p class="price">5<sup>50</sup></p>
-								</li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-</div>
 </div>
 
   

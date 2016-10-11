@@ -55,7 +55,8 @@
                                         <th>Password</th>
                                         <th>Firstname</th>
                                         <th>Lastname</th>
-                                        <th>Action</th>
+                                        <th>Role</th>
+										<th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,12 +64,17 @@
                                     $query = mysql_query("select * from tb_user") or die(mysql_error());
                                     while ($row = mysql_fetch_array($query)) {
                                         $user_id = $row['user_id'];
+										$rolecode = $row['rolecode'];
                                         ?>
                                         <tr class="odd gradeX">
                                             <td><?php echo $row['username']; ?></td> 
                                             <td>*****</td> 
                                             <td><?php echo $row['firstname']; ?></td> 
                                             <td><?php echo $row['lastname']; ?></td> 
+											<?php
+											$query1 = mysql_query("select role_rolename from role where role_rolecode = '$rolecode'") or die(mysql_error());
+											while ($row1 = mysql_fetch_array($query1)) {?>
+											<td><?php echo $row1['role_rolename']; }?></td> 
                                             <td width="80">
                                                 <a href="#delete_user<?php echo $user_id; ?>" role="button"  data-toggle="modal" class="btn btn-danger"><i class="icon-trash icon-large"></i>&nbsp;Delete</a>
                                                  </td>
