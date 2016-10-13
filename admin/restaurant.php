@@ -36,62 +36,62 @@
                         <h1 class="page-header">
                            
 							 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                              Add Product
+                              Add Restaurant
                             </button>
 							
 						
                         </h1>
-						<?php include ('modal_add_product.php');?>
+						<?php include ('modal_add_restaurant.php');?>
 						
 						<div class="hero-unit-table">   
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <div class="alert alert-info">
-                                    <strong><i class="icon-user icon-large"></i>&nbsp;Product Table</strong>
+                                    <strong><i class="icon-user icon-large"></i>&nbsp;Restaurant Table</strong>
                                 </div>
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Category</th>
-                                        <th>Filter</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
+                                        <th>Location</th>
+                                        <th>Address</th>
+                                        <th>Type</th>
+                                        <th>Cuisines</th>
+                                        <th>Cost</th>
+										<th>Hours</th>
 										<th>Rating</th>
-                                        <th>Chef Name</th>
-                                        <th>Image</th>
+										<th>Discount</th>
+										<th>Owner</th>
+										<th>Image</th>										
+                                        
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php include ('connect.php');
-                                    $query = mysql_query("select * from tb_products") or die(mysql_error());
+                                    $query = mysql_query("select * from restaurants") or die(mysql_error());
                                     while ($row = mysql_fetch_array($query)) {
-                                        $id = $row['productID'];
+                                        $id = $row['id'];
 										
-																
-										$query1 = mysql_query("SELECT *,SUM(qty) as qty FROM order_details WHERE productID = '$id' AND status = 'Delivered'");
-										$row1 = mysql_fetch_array($query1);
-										$total=$row['quantity'] - $row1['qty'];
-										$query2 = mysql_query ("UPDATE product set quantity = '$total' where productID = '$id'");
+															
 
                                         ?>
                                         <tr class="warning">
                                             <td><?php echo $row['name']; ?></td> 
-                                            <td><?php echo $row['description']; ?></td> 
-                                            <td><?php echo $row['category']; ?></td> 
-                                            <td><?php echo $row['filter']; ?></td> 
-                                            <td style="text-align:right;"><?php echo number_format($row['price'],2); ?></td> 
-                                            <td style="text-align:center;"><?php echo $total; ?></td> 
-											 <td><?php echo $row['rating']; ?></td> 
-                                            <td><?php echo $row['chef']; ?></td> 
-											
-                                            <td width="50" align="center"><img src="<?php echo $row['location']; ?>" class="img-rounded" width="50" height="40"></td> 
+                                            <td><?php echo $row['location']; ?></td> 
+                                            <td><?php echo $row['address']; ?></td> 
+                                            <td><?php echo $row['type']; ?></td> 
+											<td><?php echo $row['cuisines']; ?></td> 
+                                            <td style="text-align:center;"><?php echo $row['cost']; ?></td> 
+                                            <td style="text-align:center;"><?php echo $row['hours']; ?></td> 
+                                           <td style="text-align:center;"><?php echo $row['rating']; ?></td> 
+										   <td><?php echo $row['discount']; ?></td> 
+										   <td style="text-align:center;"><?php echo $row['owner']; ?></td>
+										   <td width="50" align="center"><img src="<?php echo $row['image']; ?>" class="img-rounded" width="60" height="40"></td> 
                                             <td width="160">
-                                                <a href="#delete_product<?php echo $id; ?>" role="button"  data-target = "#delete_product<?php echo $id;?>"data-toggle="modal" class="btn btn-danger"><i class="icon-trash icon-large"></i>&nbsp;Delete</a>
-                                                <a href="edit_product.php<?php echo '?id=' . $id; ?>" class="btn btn-success"><i class="icon-pencil icon-large"></i>&nbsp;Edit</a>
+                                                <a href="#delete_restaurant<?php echo $id; ?>" role="button"  data-target = "#delete_restaurant<?php echo $id;?>"data-toggle="modal" class="btn btn-danger"><i class="icon-trash icon-large"></i>&nbsp;Delete</a>
+                                                <a href="edit_restaurant.php<?php echo '?id=' . $id; ?>" class="btn btn-success"><i class="icon-pencil icon-large"></i>&nbsp;Edit</a>
                                             </td>
                                             <!-- product delete modal -->
-                                   <?php include ('delete_product_modal.php');?>
+                                   <?php include ('delete_restaurant_modal.php');?>
                                     <!-- end delete modal -->
 
                                     </tr>

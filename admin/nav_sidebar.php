@@ -1,6 +1,8 @@
  <?php
+ 
 require "functions.php";
 require_once("../includes/class.user.php");
+
 $user = new USER();
 
 if (!isset($_SESSION["access"])) {
@@ -53,31 +55,42 @@ if (!isset($_SESSION["access"])) {
                         <a href="#"><i class="fa fa-dashboard"></i> Menu's</a>
                     </li>
           
-                    
+                    <?php 
+					
+					if($_SESSION['rolecode']=="SUPERADMIN" || $_SESSION['rolecode']=="ADMIN")
+					{?>
+					<li>
+                        <a href="restaurant.php"><i class="fa fa-gear"></i> Restaurants</a>
+                    </li>
+					<?php } ?>
+					
+					<?php if($_SESSION['rolecode']=="RESOWNER") { ?>
 					<li>
                         <a href="product.php"><i class="fa fa-gear"></i> Products</a>
                     </li>
+					<?php } ?>
 					
+					<?php if($_SESSION['rolecode']=="SUPERADMIN" || $_SESSION['rolecode']=="ADMIN") { 
 					
-					<?php if (authorize($_SESSION["access"]["USER"]["MEMBERS"]["create"])) { ?>
+					?>
 					<li>
                         <a href="member.php"><i class="fa fa-users"></i> Members</a>
                     </li>
 					<?php } ?>
 					
-					<?php if (authorize($_SESSION["access"]["USER"]["MESSAGES"]["view"])) { ?>
+					<?php if($_SESSION['rolecode']=="SUPERADMIN" || $_SESSION['rolecode']=="ADMIN") { ?>
 					<li>
                         <a href="messages.php"><i class="fa fa-envelope"></i> Messages</a>
                     </li>
                     <?php } ?>
 					
-					<?php if (authorize($_SESSION["access"]["CHECKOUT"]["ORDER"]["view"])) { ?>
+					<?php if($_SESSION['rolecode']=="SUPERADMIN" || $_SESSION['rolecode']=="ADMIN") { ?>
 					<li>
                         <a href="orders.php"><i class="fa fa-truck"></i> Order</a>
                     </li>
 					<?php } ?>
 					
-					<?php if (authorize($_SESSION["access"]["USER"]["USER"]["view"])) { ?>
+					<?php if($_SESSION['rolecode']=="SUPERADMIN" || $_SESSION['rolecode']=="ADMIN") { ?>
 					<li>
                         <a href="user.php"><i class="fa fa-user"></i> User </a>
                     </li>

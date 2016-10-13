@@ -93,8 +93,8 @@ $('.locate-me').click(function(){
 
 
 $(document).ready(function(){
-$('.icon-link').hover(function(){
-  $("#box-signin").toggle(); //<----here
+$('.icon-link').click(function(){
+  $("#box-signin").slideToggle(); //<----here
    
 });
 });
@@ -126,13 +126,14 @@ window.requestAnimationFrame = window.requestAnimationFrame
  var bgimg1 = document.getElementsByClassName("bgimg1");
  var bgimg2 = document.getElementsByClassName("bgimg2");
  var bgimg3 = document.getElementsByClassName("bgimg3");
- 
+var bgimg4 = document.getElementsByClassName("bgimg4"); 
  
 function parallaxeffect(){
  var scrolltop = window.pageYOffset ;// get number of pixels document has scrolled vertically 
  bgimg1[0].style.backgroundPositionY = -scrolltop * .07 + 'px';
  bgimg3[0].style.backgroundPositionY = -scrolltop * .07+ 'px'; // move bubble1 at 20% of scroll rate
  bgimg2[0].style.backgroundPositionY = -scrolltop * .07 + 'px'; // move bubble2 at 50% of scroll rate
+ bgimg4[0].style.backgroundPositionY = -scrolltop * .07 + 'px'; // move bubble2 at 50% of scroll rate
 }
  
 window.addEventListener('scroll', function(){ // on page scroll
@@ -292,28 +293,59 @@ function checkForm()
 		  txtemailvalue:txtemailvalue
         },
 		
-        success:function(response1,response2,response3) { 
+        success:function(response1,response2) { 
 			if(response1)
 			{
 			$("#email-error").show();	
 			
 			}
+			
 	       if(response2)
 			{
 			$("#password-error").show();
 				
 			}
-			if(response3)
-			{
-				$("#myModal").hide();
-			}
-	      
+			
+		
+				$.ajax({
+                type:'post',
+                url:'includes/letmein2.php',
+       
+		        data:{
+		      	action:action,
+                txtupassvalue:txtupassvalue,
+		        txtemailvalue:txtemailvalue
+        },
+		success:function(response) { 
+      
+	  if(response)
+	  {
+		  
+		  $("#usernamelist").append(response);	
+        $("#myModal").hide();
+				$("#link5").addClass("ng-hide");
+				$("#linkw").removeClass("ng-hide");
+				$("#link6").removeClass("ng-hide");	
+				$("#box-signin").removeClass("ng-hide");	
+    
+				
+	  }
+	  else
+	  {
+		  $("#email-error").show();
+		  $("#password-error").show();
+	  }
    }
-   });
+				});
+			
+}
 
+	  });
+	  
+}
 
     
-}
+
 
 $(document).ready(function(){
 	
@@ -336,7 +368,8 @@ $("#signmebutton").click(function(){
         },
 		
         success:function(response) {
-			$("#myModal").hide();;
+			
+			$("#myModal").hide();
    }
    });
 

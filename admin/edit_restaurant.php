@@ -39,12 +39,12 @@ $get_id = $_GET['id'];
                         <div class="hero-unit-table">   
                           <div class="hero-unit-table">   
                             <?php include ('connect.php');
-                            $query = mysql_query("select * from tb_products where productID='$get_id'") or die(mysql_error());
+                            $query = mysql_query("select * from restaurants where id='$get_id'") or die(mysql_error());
                             $row = mysql_fetch_array($query);
                             ?>
 						
                             <form class="form-horizontal" method="post" enctype="multipart/form-data">
-                                <div class="alert alert-info"><strong>Edit Product</strong> </div>
+                                <div class="alert alert-info"><strong>Edit Restaurant</strong> </div>
                                 <hr>
                                 <div class="control-group">
                                     <label class="control-label" for="inputEmail">Name</label>
@@ -53,75 +53,62 @@ $get_id = $_GET['id'];
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Description</label>
+                                    <label class="control-label" for="location">Location</label>
                                     <div class="controls">
-                                        <input type="text"  name="description"  class = "form-control" value="<?php echo $row['description']; ?>">
+                                        <input type="text"  name="location"  class = "form-control" value="<?php echo $row['location']; ?>">
                                     </div>
                                 </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Category</label>
-                                    <div class="controls">
-                                        <select type="text" name="category" class = "form-control" >
-                                            <option><?php echo $row['category'];  ?></option>
-											<option></option>
-											<option>Starters</option>
-                                            <option>Lunch</option>
-                                            <option>Dinner</option>
-                                            <option>Desserts</option>
-                                      
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Filter</label>
-                                    <div class="controls">
-                                        <select type="text" name="filter" class = "form-control" >
-                                            <option><?php echo $row['filter'];  ?></option>
-											
-                                            <option></option>
-                                            <option>Classic</option>
-                                            <option>Specials</option>
-                                            <option>Supreme</option>
-											<option>Non-Veg</option>
-											<option>Veg</option>
-											<option>Non-Spicy</option>
-											<option>Spicy</option>
-											<option>Super-Saver</option>
-											<option>Protein Punch</option>
-											<option>Paneer Dishes</option>
-											<option>Best Sellers</option>
-                                      
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Price</label>
-                                    <div class="controls">
-                                        <input type="text" name="price"  class = "form-control" value="<?php echo $row['price']; ?>">
-                                    </div>
-                                </div>
-
-                                <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Quantity</label>
-                                    <div class="controls">
-                                        <input type="text" name="quantity" class = "form-control"  value="<?php echo $row['quantity']; ?>">
-                                    </div>
-                                </div>
-								
 								<div class="control-group">
-                                    <label class="control-label" for="inputPassword">Rating:</label>
+                                    <label class="control-label" for="address">Address</label>
                                     <div class="controls">
-                                        <input type="text" name="rating"  value="<?php echo $row['rating']; ?>" class = "form-control" >
+                                        <input type="text"  name="address"  class = "form-control" value="<?php echo $row['address']; ?>">
                                     </div>
                                 </div>
-								
-								 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Chef Name:</label>
+								<div class="control-group">
+                                    <label class="control-label" for="address">Type</label>
                                     <div class="controls">
-                                        <input type="text" name="chef" value="<?php echo $row['chef']; ?>"  class = "form-control" >
+                                        <input type="text"  name="type"  class = "form-control" value="<?php echo $row['type']; ?>">
                                     </div>
                                 </div>
+								<div class="control-group">
+                                    <label class="control-label" for="cuisines">Cuisines</label>
+                                    <div class="controls">
+                                        <input type="text"  name="cuisines"  class = "form-control" value="<?php echo $row['cuisines']; ?>">
+                                    </div>
+                                </div>
+								<div class="control-group">
+                                    <label class="control-label" for="cost">Cost</label>
+                                    <div class="controls">
+                                        <input type="text"  name="cost"  class = "form-control" value="<?php echo $row['cost']; ?>">
+                                    </div>
+                                </div>
+								<div class="control-group">
+                                    <label class="control-label" for="hours">Hours</label>
+                                    <div class="controls">
+                                        <input type="text"  name="hours"  class = "form-control" value="<?php echo $row['hours']; ?>">
+                                    </div>
+                                </div>
+								<div class="control-group">
+                                    <label class="control-label" for="rating">Rating</label>
+                                    <div class="controls">
+                                        <input type="text"  name="rating"  class = "form-control" value="<?php echo $row['rating']; ?>">
+                                    </div>
+                                </div>
+								<div class="control-group">
+                                    <label class="control-label" for="discount">Discount</label>
+                                    <div class="controls">
+                                        <input type="text"  name="discount"  class = "form-control" value="<?php echo $row['discount']; ?>">
+                                    </div>
+                                </div>
+                              
+                         <div class="control-group">
+                                    <label class="control-label" for="owner">Owner</label>
+                                    <div class="controls">
+                                        <input type="text"  name="owner"  class = "form-control" value="<?php echo $row['owner']; ?>">
+                                    </div>
+                                </div>
+                              
+             
 								
                                 <div class="control-group">
                                     <label class="control-label" for="input01">Image:</label>
@@ -136,7 +123,7 @@ $get_id = $_GET['id'];
                                     <div class="controls">
 
                                         <button type="submit" name="update" class="btn btn-success"><i class="icon-save icon-large"></i>&nbsp;Update</button>
-										<span><a href = "product.php" class = "btn btn-danger"> Back</a></span>
+										<span><a href = "restaurant.php" class = "btn btn-danger"> Back</a></span>
                                     </div>
                                 </div>
                             </form>
@@ -145,11 +132,16 @@ $get_id = $_GET['id'];
                             if (isset($_POST['update'])) {
 
                                 $name = $_POST['name'];
-                                $description = $_POST['description'];
-                                $category = $_POST['category'];
-                                $filter = $_POST['filter'];
-                                $price = $_POST['price'];
-                                $quantity = $_POST['quantity'];
+                                $location = $_POST['location'];
+                                $address = $_POST['address'];
+								$type = $_POST['type'];
+								 $cuisines = $_POST['cuisines'];
+                                $cost = $_POST['cost'];
+                                $hours = $_POST['hours'];
+								$rating = $_POST['rating'];
+								$discount = $_POST['discount'];
+                                
+                                $owner = $_POST['owner'];
 
                                 $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
                                 $image_name = addslashes($_FILES['image']['name']);
@@ -158,8 +150,8 @@ $get_id = $_GET['id'];
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
                                 $location = "upload/" . $_FILES["image"]["name"];
 
-                                mysql_query("update tb_products set name='$name',description='$description',category='$category',filter='$filter',price='$price',quantity='$quantity',location='$location' where productID='$get_id'") or die(mysql_query());
-                                header('location:product.php');
+                                mysql_query("update restaurants set name='$name',location='$location',address='$address'typ'$type',cuisines='$cuisines',cost='$cost',hours='$hours',rating='$rating',discount='$discount',owner='$owner',image='$location' where id='$get_id'") or die(mysql_query());
+                                header('location:restaurant.php');
                             }
                             ?>
 

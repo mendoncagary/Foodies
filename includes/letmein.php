@@ -39,21 +39,6 @@ if($_POST['action'] == "login")
 	$passwordset="true";
 	}
 	
-	if(isset($emailset) && isset($passwordset))
-	{
-		$user_login->login($email,$password);
-	   if($user_login->is_logged_in() == true)
-	    {
-			$response3 = "logged in";
-		echo $response3;
-		
-	     }
-		 else{
-			 echo $response1;
-			 
-		 }
-	}
-	
 	
 }
 

@@ -3,7 +3,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                           
-                                            <div class="alert alert-info"><strong><center>Add Product </center></strong></div>
+                                            <div class="alert alert-info"><strong><center>Add restaurant </center></strong></div>
                                         </div>
                                         <div class="modal-body">
                               <form  method="post" enctype="multipart/form-data">
@@ -17,76 +17,66 @@
                                  </div>
                                
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Description:</label>
+                                    <label class="control-label" for="inputPassword">Location:</label>
                                     <div class="controls">
-                                        <input type="text" class = "form-control"  name="description"  placeholder="Description" >
+                                        <input type="text" class = "form-control"  name="location"  placeholder="Location" >
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Category:</label>
+                                    <label class="control-label" for="inputPassword">Address:</label>
                                     <div class="controls">
-                                        <select type="text" name="category" class = "form-control" placeholder="Category" >
-
-                                            <option></option>
-                                            <option>Starters</option>
-                                            <option>Lunch</option>
-                                            <option>Dinner</option>
-											<option>Deserts</option>
-                                        </select>
+                                         <input type="text" class = "form-control"  name="address"  placeholder="Address" >
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Filter:</label>
+                                    <label class="control-label" for="inputPassword">Type:</label>
                                     <div class="controls">
-                                        <select type="text" name="filter" class = "form-control" placeholder="Filter" >
-
-                                            <option></option>
-                                            <option>Classic</option>
-                                            <option>Specials</option>
-                                            <option>Supreme</option>
-											<option>Non-Veg</option>
-											<option>Veg</option>
-											<option>Non-Spicy</option>
-											<option>Spicy</option>
-											<option>Super-Saver</option>
-											<option>Protein Punch</option>
-											<option>Paneer Dishes</option>
-											<option>Best Sellers</option>
-											
-											
-											
-                                        </select>
+                                        <input type="text" name="type" class = "form-control" placeholder="Type">
                                     </div>
                                 </div>
 
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Price:</label>
+                                    <label class="control-label" for="inputPassword">Cuisines:</label>
                                     <div class="controls">
-                                        <input type="text" name="price"  class = "form-control" placeholder="Price" >
+                                        <input type="text" name="cuisines"  class = "form-control" placeholder="Cuisines" >
                                     </div>
                                 </div>
 
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Quantity:</label>
+                                    <label class="control-label" for="inputPassword">Cost:</label>
                                     <div class="controls">
-                                        <input type="text" name="quantity" placeholder="Quantity"  class = "form-control" >
+                                        <input type="text" name="cost" placeholder="Cost"  class = "form-control" >
                                     </div>
                                 </div>
 								
-								 <div class="control-group">
+								<div class="control-group">
+                                    <label class="control-label" for="inputPassword">Hours:</label>
+                                    <div class="controls">
+                                        <input type="text" name="hours" class = "form-control" placeholder="Hours" >
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
                                     <label class="control-label" for="inputPassword">Rating:</label>
                                     <div class="controls">
                                         <input type="text" name="rating" placeholder="Rating"  class = "form-control" >
                                     </div>
                                 </div>
-								
-								 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Chef Name:</label>
+
+								<div class="control-group">
+                                    <label class="control-label" for="inputPassword">Discount:</label>
                                     <div class="controls">
-                                        <input type="text" name="chef" placeholder="Chef Name"  class = "form-control" >
+                                        <input type="text" name="discount" placeholder="Discount"  class = "form-control" >
                                     </div>
                                 </div>
-
+								
+								<div class="control-group">
+                                    <label class="control-label" for="inputPassword">Owner:</label>
+                                    <div class="controls">
+                                        <input type="text" name="owner" placeholder="Owner"  class = "form-control" >
+                                    </div>
+                                </div>
+								
                                 <div class="control-group">
                                     <label class="control-label" for="input01">Image:</label>
                                     <div class="controls">
@@ -112,29 +102,33 @@
 									   <?php include ('../includes/config.php');
                             if (isset($_POST['go'])) {
 
-                                $name = $_POST['name'];
-                                $description = $_POST['description'];
-                                $category = $_POST['category'];
-                                $filter = $_POST['filter'];
-                                $price = $_POST['price'];
-                                $quantity = $_POST['quantity'];
+                               
+							   $name = $_POST['name'];
+                                $location = $_POST['location'];
+                                $address = $_POST['address'];
+								$type = $_POST['type'];
+								 $cuisines = $_POST['cuisines'];
+                                $cost = $_POST['cost'];
+                                $hours = $_POST['hours'];
 								$rating = $_POST['rating'];
-								$chef = $_POST['chef'];
-
+								$discount = $_POST['discount'];
+                                
+                                $owner = $_POST['owner'];
+								
                                 //image
                                 $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
                                 $image_name = addslashes($_FILES['image']['name']);
                                 $image_size = getimagesize($_FILES['image']['tmp_name']);
-//
+
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
-                                $location = "upload/" . $_FILES["image"]["name"];
+                                $imglocation = "upload/" . $_FILES["image"]["name"];
 
 
-                                mysql_query("insert into tb_products (name,description,category,filter,price,quantity,location,rating,chef)
-                            	values ('$name','$description','$category','$filter','$price','$quantity','$location','$rating','$chef')
+                                mysql_query("insert into restaurant(name,location,address,type,cuisines,cost,hours,rating,discount,image)
+                            	values ('$name','$location','$address','$type','$cuisines','$cost','$hours','$rating','$discount','$imglocation')
                                 ") or die(mysql_error());
 
-                                header('location:product.php');
+                                header('location:restaurant.php');
                             }
                             ?>
 									  

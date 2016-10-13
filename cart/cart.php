@@ -52,7 +52,7 @@
       <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
        </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
-  <li><a id="link5" class="mainlink">Sign In</a></li>
+  <li><a id="link5" class="mainlink">Trial</a></li>
 </ul>
 </nav>
 </div>
@@ -479,6 +479,7 @@
 	    <input id="sign-up-name" name="regname" class="modalinput" type="text"> 
 	    <label for="name">Name</label> 
 	    </div>
+		</div>
 		
   <div class="col-sm-6">
 	 <div class="floating-placeholder">
@@ -643,13 +644,18 @@
 				  <label for="name" placeholder="Locality">Locality</label> </div> </div> <div class="clearfix"></div> 
 				  <div class="space-20"></div> </div> <div class="clearfix"></div> <div class="space-20"></div> 
 				  <input ng-click="save_address()" value="Add address" class="next-step radius-6" type="button"> </div>
-				  </div> </div> </div> <!-- payment view --> <div class="panel panel-default">
+				  </div> </div> </div> 
+				  
+				  
+				  <!-- payment view --> 
+				  <div class="panel panel-default">
 				  <div class="panel-heading"> 
 				  
 				  <h4 id="panel-title-makepayment" class="panel-title"> 
 				  <a style="text-decoration:none" id="pan-4" class="accordion-toggle" data-parent="#accordion" href="">Make Payment</a> 
 				  <a ng-show="preorder_availibility" id="preorder_time_selector" href="" class="pull-right ng-hide" ng-click="select_preorder_time()" style="pointer-events: none;font-size:17px" popover-template="'preorder_tutorial_message.html'" popover-is-open="show_preorder_popover" popover-placement="bottom" popover-trigger="none" popover-animation="true"><div id="preorder_clock_image" class="preorder-false-inactive"></div></a> 
-				  <a ng-hide="true" id="pan-41" class="accordion-toggle ng-hide" data-toggle="collapse" data-target="#panel-4" data-parent="#accordion" href="">Make Payment </a> </h4> </div> <div id="panel-4" class="panel-collapse collapse"> <payments class="ng-isolate-scope" open="" payment-method="payment_method" payment-methods="data.outlet_web.payment_methods" take-away="takeAway" show-coupon-applied="show_coupon_applied" promo-code="promo_code" final-price="final_price" total-cart-quanity="1" select-address="select_address" allowed-cashback="allowed_cashback" currency-used="currency_used" preorder-availibility="preorder_availibility" is-preorder-time-selected="is_preorder_time_selected" selected-preorder-time="selectedPreorderTime" pay-on-delivery-params="" total-payable-without-discount="total_payable_without_discount_coupon" total-payable="total_payable_coupon"><div class="panel-body"> 
+				  <a ng-hide="true" id="pan-41" class="accordion-toggle ng-hide" data-toggle="collapse" data-target="#panel-4" data-parent="#accordion" href="">Make Payment </a> </h4> </div> 
+				  <div id="panel-4" class="panel-collapse collapse"> <payments class="ng-isolate-scope" open="" payment-method="payment_method" payment-methods="data.outlet_web.payment_methods" take-away="takeAway" show-coupon-applied="show_coupon_applied" promo-code="promo_code" final-price="final_price" total-cart-quanity="1" select-address="select_address" allowed-cashback="allowed_cashback" currency-used="currency_used" preorder-availibility="preorder_availibility" is-preorder-time-selected="is_preorder_time_selected" selected-preorder-time="selectedPreorderTime" pay-on-delivery-params="" total-payable-without-discount="total_payable_without_discount_coupon" total-payable="total_payable_coupon"><div class="panel-body"> 
 				  <div class="payment-ul" style="padding-bottom:0px"> <div class="col-sm-6"><span>Choose the payment mode</span></div> 
 				  <div class="clearfix"></div> <ul id="paymentMethods"> 
 				  <li class="" ng-show="is_present_in_outlet('Card')"> 
@@ -659,7 +665,8 @@
 				  <font color="#da3939 ">Box8 Money is not applicable for cash payment</font> </label> </div> </div>
 				  <div class="col-md-6" ng-hide="show_coupon_applied"> 
 				  <div class="promo-style text-center">
-				  <input ng-model="promo_code" class="input-promo-coupon radius-3 ng-pristine ng-untouched ng-valid" placeholder="Enter your promo code here" ng-disabled="pay_on_delivery_params.available" type="text"> <!-- ngIf: !pay_on_delivery_params.available --><input ng-if="!pay_on_delivery_params.available" ng-click="apply_coupon()" value="Apply" class="input-apply-btn radius-3 ng-scope" type="button"><!-- end ngIf: !pay_on_delivery_params.available --> </div> </div> 
+				  <input ng-model="promo_code" class="input-promo-coupon radius-3 ng-pristine ng-untouched ng-valid" placeholder="Enter your promo code here" ng-disabled="pay_on_delivery_params.available" type="text"> <!-- ngIf: !pay_on_delivery_params.available -->
+				  <input ng-if="!pay_on_delivery_params.available" ng-click="apply_coupon()" value="Apply" class="input-apply-btn radius-3" type="button"><!-- end ngIf: !pay_on_delivery_params.available --> </div> </div> 
 				  <div class="col-md-6 ng-hide" ng-show="show_coupon_applied"> 
 				  <div class="promo-style text-center"> <div>
 				  <span class="ng-binding">Your Total Bill is <span class="strike ng-binding ng-hide" ng-show="show_strike_off()">₹&nbsp;&nbsp;</span> ₹</span> </div> 
@@ -922,6 +929,8 @@
 								 
 								</div> 
 								</div>
+								
+								
 								</div>
 								</div>
 								</div>

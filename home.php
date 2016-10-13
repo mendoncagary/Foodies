@@ -50,41 +50,62 @@ $user_login->logout();
       </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
 	<li>
+	<?php if($user_login->is_logged_in())
+	{
+		?>
+		<a id="linkw" class="mainlink">Welcome</a>
+		<a id="link5" class="mainlink ng-hide">Sign In</a>
 	<?php
-		if($user_login->is_logged_in()!="")	
-		{
-	?>
-		<a id="link5" class="mainlink">Welcome</a>
-	<?php
-		}
-		else
-		{
-	?>
+	} 
+	else
+	{
+		?>
+		<a id="linkw" class="mainlink ng-hide">Welcome</a>
 		<a id="link5" class="mainlink">Sign In</a>
-	
 	<?php
-		}
+	}
 	?>
 </li>
 	
-	<?php
-	if($user_login->is_logged_in()!="")	
-		{
-	?>
-	
+
+<?php 
+if($user_login->is_logged_in())
+{
+	?>	
 <li>
 <a id="link6" class="icon-link"><img src="assets/images/img27.jpg" alt="lang"></a>
   
   </li>
-  <?php
-		}?>
+<?php }
+else{
+	?>
+<li>
+<a id="link6" class="icon-link ng-hide"><img src="assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php 
+}
+?>
+  
   </ul>
- 	<?php
-	if($user_login->is_logged_in()!="")	
-		{
 
- ?>
+
+  <?php
+  if($user_login->is_logged_in())
+  {
+	  ?>
  <ul id="box-signin">
+  <li id="usernamelist">Hi <?php   
+
+  $stmt = $user_login -> runQuery("select * from tbl_users WHERE userID = :id");
+							$stmt->execute(array(":id"=>$_SESSION['userSession']));			
+							
+							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+							{
+	                         echo $row["userName"];
+                            }
+     ?>
+ </li>
   <li><a href="cart/cart.php" title="Carts">
   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
  Cart
@@ -95,8 +116,25 @@ $user_login->logout();
   <li><a title="Logout" class="current_logout"> Logout
   </a></li>
   </ul>
+  <?php }
+  else
+  {
+	  ?>
+  <ul id="box-signin" class="ng-hide">
+  <li id="usernamelist">Hi 
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }?>
 
-  <?php } ?>  
 </nav>
 
 
@@ -305,6 +343,11 @@ $user_login->logout();
 
 
 <div class="bgimg1">
+
+<video autoplay="" loop="" muted="" preload="auto" class="video-item">
+<source src="assets/videos/risotto-video01.mp4" type="video/mp4">
+Your browser does not support the video tag. I suggest you upgrade your browser.</video>
+
 <div id="headerbox">
 <h2 class="headline"><span class="first-letter">W</span>elcome</h2>
 </div>
@@ -342,7 +385,7 @@ Foodies is a an online marketplace for your favourite food. We have the widest r
  </div>
 
 <div class="bgimg2">
-whats cooking
+
 </div>
 
 
@@ -396,7 +439,7 @@ whats cooking
 </div>
 
 <div class="bgimg3">
-nothing
+
 </div>
 
 <div id="section3">
@@ -409,100 +452,28 @@ nothing
  <div id="gallery-0" class="gallery galleryid-15 gallery-columns-2 gallery-size-medium">
  <figure class="gallery-item">
  <div class="gallery-icon landscape"> 
- <a data-title="menu-thumb-6" data-alt="" href="assets/images/img29.png"><img src="assets/images/img29.png" class="attachment-medium" alt="menu-thumb-6" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape"> <a data-title="menu-thumb-2" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-2.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-2-300x218.jpg" class="attachment-medium" alt="menu-thumb-2" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape"> <a data-title="menu-thumb-1" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-1.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-1-300x218.jpg" class="attachment-medium" alt="menu-thumb-1" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape"> <a data-title="menu-thumb-4" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-4.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-4-300x218.jpg" class="attachment-medium" alt="menu-thumb-4" width="300" height="218"></a></div></figure></div></div></div></section></div></section>
+ <a data-title="menu-thumb-6" data-alt="" href="assets/images/img29.png">
+ <img src="assets/images/img29.png" class="attachment-medium" alt="menu-thumb-6" width="300" height="218"></a></div></figure>
+ <figure class="gallery-item">
+ <div class="gallery-icon landscape"> <a data-title="menu-thumb-2" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-2.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-2-300x218.jpg" class="attachment-medium" alt="menu-thumb-2" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape">
+ <a data-title="menu-thumb-1" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-1.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-1-300x218.jpg" class="attachment-medium" alt="menu-thumb-1" width="300" height="218"></a></div></figure><figure class="gallery-item"><div class="gallery-icon landscape">
+ <a data-title="menu-thumb-4" data-alt="" href="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-4.jpg"><img src="https://demos-pgm.netdna-ssl.com/demos/rosa/wp-content/uploads/2014/05/menu-thumb-4-300x218.jpg" class="attachment-medium" alt="menu-thumb-4" width="300" height="218">
+ </a></div></figure></div></div></div></section></div></section>
 
 </div>
 
-  
+  <div class="bgimg4">
+  </div>
 
+  
 
 <section class="video-sec" >
 <div class="wpb_row vc_row-fluid full-row">
 <div class="spattern">
 
-<video autoplay="" loop="" muted="" preload="auto" class="video-item">
-<source src="assets/videos/risotto-video01.mp4" type="video/mp4">
-Your browser does not support the video tag. I suggest you upgrade your browser.</video>
 
 
-<article class="slides-content">
-<div class="container">
-<div class="vc-coloumn">
-<div class="vc_column-inner ">
-<div class="wpb_wrapper"><hr class="vertical-space4">
-<div class="divider">
-<i class="fa fa-star" aria-hidden="true"></i>
-
-<h3><span class="reservationtitle">Reservation</span>
-<span class="subtitle">BOOK A TABLE</span></h3></div>
-<hr class="vertical-space">
-	
-	<form action="http://www.opentable.com/restaurant-search.aspx" method="get" class="reservation-form" target="_blank">
-		<div class="res-sub-form">
-
-			<div class="reservation-col">
-				<i class="fa fa-calendar" aria-hidden="true"></i>
-
-				<span class="form-wrap">
-					<input name="startDate" class="reservation-date" value="" autocomplete="off" type="text">
-				</span>
-			</div>
-
-			<div class="reservation-col">
-				<i class="fa fa-clock-o" aria-hidden="true"></i
-				<span class="form-wrap">
-					<select name="ResTime" class="otw-selectpicker"><option value="5:00pm">5:00 pm</option>
-<option value="5:30pm">5:30 pm</option>
-<option value="6:00pm">6:00 pm</option>
-<option value="6:30pm">6:30 pm</option>
-<option value="7:00pm" selected="selected">7:00 pm</option>
-<option value="7:30pm">7:30 pm</option>
-<option value="8:00pm">8:00 pm</option>
-<option value="8:30pm">8:30 pm</option>
-<option value="9:00pm">9:00 pm</option>
-<option value="9:30pm">9:30 pm</option>
-<option value="10:00pm">10:00 pm</option>
-<option value="10:30pm">10:30 pm</option>
-<option value="11:00pm">11:00 pm</option>
-<option value="11:30pm">11:30 pm</option>
-
-					</select>
-				</span>
-			</div>
-
-			<div class="reservation-col">
-				<i class="fa fa-user" aria-hidden="true"></i>
-
-				<span class="form-wrap">
-					<select name="partySize" class="otw-party-size-select">
-						<option value="1">1 Person</option>
-						<option value="2">2 People</option>
-						<option value="3">3 People</option>
-						<option value="4">4 People</option>
-						<option value="5">5 People</option>
-						<option value="6">6 People</option>
-						<option value="7">7 People</option>
-						<option value="8">8 People</option>
-						<option value="9">9 People</option>
-						<option value="10">10 People</option>
-					</select>
-				</span>
-			</div>
-
-			<div class="reservation-col">
-				<input value="FIND A TABLE" type="submit">
-			</div>
-
-			<input name="RestaurantID" class="RestaurantID" value="53425" type="hidden">
-			<input name="rid" class="rid" value="53425" type="hidden">
-			<input name="GeoID" class="GeoID" value="15" type="hidden">
-			<input name="txtDateFormat" class="txtDateFormat" value="MM/dd/yyyy" type="hidden">
-			<input name="RestaurantReferralID" class="RestaurantReferralID" value="53425" type="hidden">
-
-			<p>Openning hour is <strong>7:00 am - 11:00 pm</strong> every day on week</p>
-		</div>
-
-	</form><hr class="vertical-space5"></div></div></div></div></article></div></div></section>
+</div></div></section>
 
 
 

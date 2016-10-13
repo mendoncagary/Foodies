@@ -121,20 +121,7 @@ else
     xmlhttp.send();
 }
 
-$(document).ready(function() {
-	$("#sign-up-button").click(function(){
-		$("#signupModal").show();
-		$("#myModal").hide();
-		
-	});
-	
-	$("#sign-in-button").click(function(){
-		$("#myModal").show();
-		$("#signupModal").hide();
-		
-	});
 
-});
 
 
  
