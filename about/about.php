@@ -1,15 +1,20 @@
+<?php 
+session_start();
+require_once '../includes/class.user.php';
+$user_login = new USER();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="faq.css">
+<link rel="stylesheet" type="text/css" href="about.css">
 <link rel="stylesheet" type="text/css" href="../assets/libraries/font-awesome-4.6.3/css/font-awesome.css">
 <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">-->
-<script src="../assets/libraries/jquery-3.1.0.min.js"></script>
 
-
-<script src="faq.js"></script>
 <title>Foodies</title>
 
 </head>
@@ -25,15 +30,102 @@
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="../about/about.html">About</a></li>
-  <li><a id="link2" class="mainlink" href="">Menu</a></li>
+  <li><a id="link1" class="mainlink" href="#">About</a></li>
+  <li><a id="link2" class="mainlink" href="#">Menu</a></li>
   <li><a id="link3" href="../home.php">
       <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
        </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
-  <li><a id="link5" class="mainlink">Sign In</a></li>
-</ul>
+
+  <li>
+	<?php if($user_login->is_logged_in())
+	{
+		?>
+		<a id="linkw" class="mainlink">Welcome</a>
+		<a id="link5" class="mainlink ng-hide">Sign In</a>
+	<?php
+	} 
+	else
+	{
+		?>
+		<a id="linkw" class="mainlink ng-hide">Welcome</a>
+		<a id="link5" class="mainlink">Sign In</a>
+	<?php
+	}
+	?>
+</li>
+	
+
+<?php 
+if($user_login->is_logged_in())
+{
+	?>	
+<li>
+<a id="link6" class="icon-link"><img src="../assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php }
+else{
+	?>
+<li>
+<a id="link6" class="icon-link ng-hide"><img src="../assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php 
+}
+?>
+  
+  </ul>
+
+
+  <?php
+  if($user_login->is_logged_in())
+  {
+	  ?>
+ <ul id="box-signin">
+  <li id="usernamelist">Hi <?php   
+
+  $stmt = $user_login -> runQuery("select * from tbl_users WHERE userID = :id");
+							$stmt->execute(array(":id"=>$_SESSION['userSession']));			
+							
+							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+							{
+	                         echo $row["userName"];
+                            }
+     ?>
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }
+  else
+  {
+	  ?>
+  <ul id="box-signin" class="ng-hide">
+  <li id="usernamelist">Hi 
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }?>
+
 </nav>
+
+
 </div>
 
 
@@ -94,7 +186,7 @@
 	
 	
 	<div class="col-sm-12"> 
-	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
+	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="button"> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -231,39 +323,49 @@
 </div>
 </div>
 
+<div class= "space-50">
+</div>
+
+<div class= "space-50">
+</div>
+
 
 
 <div class="bgimg1">
-<div id="headerbox">
+<div id="floater" style="position:absolute; right: 10%; box-shadow: 0px 0px 10px black; background: white; opacity:0.7; width: 200px; padding: 10px;">
+We're <font color="red">Foodies</font>,
+India's fastest growing food delivery company.  Here we try to share our vision about food quality, our mission about customer’s satisfaction and introducing services that we provide for each one of you and ensure a delightful end-to-end experience <!--every single time. Founded by DBIT graduates, we have revolutionized the Global food industry.-->
+</div>
 
-<h2 class="headline"><span class="first-letter">F</span>aq</h2>
+
+<div id="headerbox">
+<h2 class="headline"><span class="first-letter">A</span>bout Us</h2>
 </div>
 </div>
+
+
 
 <div class="section">
+
 <div class="container">
  <div class="space-50">
- </div> <h3 class="regular">FAQ's </h3>
+ </div> 
   <div class="space-20"></div> 
   <div class="space-10"></div> 
-<p class="bolder">How safe is credit card payment on our website?</p>
- <p class="color">Credit card payments are absolutely secure on our website. Empowered with SSL technology, our payment gateway received credit card information with 128 bit encryption. This is the safest and the most trustworthy way to make online transactions. In addition, we do not store credit card information with us, so there is zero scope of the information being leaked.</p> <hr class="hr">
- <p class="bolder">Is it safe to order products online using my credit card or checking information?</p>
-  <p class="color">When making a purchase online using the credit card, it is advised to check for the little 'Lock' icon on the URL. This icon indicated that a secure transaction is taking place and your personal information will be kept confidential. The credit card information is protected by secure encryption while processing the payment. As an alternative, the customer can also check the security of the transaction by right-clicking on the web page and selecting 'Properties' from the menu. If the web address displays 'https' where the 's' denotes a secure web server, then it is safe for an online transaction.</p> <hr class="hr"> <p class="bolder">Keep your password confidential?</p>
-   <p class="color">Some online purchases usually necessitate the customer to 'login' before viewing and placing an order. For this, the customers are required to enter a username and password. The customer must not share their login information with anyone. Information like birth date, maiden name or phone number should be avoided while selecting a password. The password chosen at a particular website should be different from the passwords kept at other websites. Alpha-numeric passwords with atleast 8 characters are tougher to steal.</p> <hr class="hr">
-    <p class="bolder">Always print or save copies of your order</p> 
-    <p class="color">After completing an online transaction, the customer will get a confirmation page that reviews their entire order. This page comprises the cost of the order, customer information, delivery information, product information and an order confirmation number. It is recommended to make a note of these details in a hard or soft copy format. The customer should store such records for a minimum period which covers return/warranty policy. The customer may also be emailed a confirmation page with above information by the merchant. It is recommended to save or print such information, including any other email correspondence with the company. </p>
-     <hr class="hr">
-      <p class="bolder">Steps to place an order with us </p> <ul class="ul"> <li> Enter your address to select the nearest Box8 outlet</li> <li>Choose items you want to eat and add them to your cart</li> <li>Once you have finalized your order, click on 'Checkout'</li> <li>Enter your mobile number, email and delivery details</li> <li>If you are an existing customer, your details will be automatically captured</li> <li>If you are a new customer, you would be required to undergo a small registration process. This is to ensure the authenticity of your order</li> <li>Select between 'Take Away' or 'Delivery'</li> <li class="ul-list">If you select 'Delivery', enter the delivery address. Please enter a detailed address to ensure timely delivery. For existing customers, you will be given the option to select an existing address.</li> <li>The final step gives you the option to enter a promotional coupon code if you have one. On applying the code, the updated order total will be displayed.</li> <li> Select your preferred payment method to proceed. Note that the coupon code may not work with all payment options.</li> <li>After completing the online payment, you will be re-directed back to our website which will display your order confirmation details.</li> <li>Congratulations! Your order is now place and will be delivered shortly.</li> </ul> <hr class="hr"> <p class="bolder">Third Party related queries</p> <p class="color">If you have placed an order with us through third-party aggregators like FoodPanda, TinyOwl, Zomato, etc., we recommend you get your concerns addressed directly by the respective parties. This is to ensure that your queries are thoroughly answer as the concerned parties would be in a better position to address your queries regarding their services.</p> <hr class="hr"> 
-      <div class="space-50">
-      </div>
-       </div>
 
-
+ <div style="margin:auto; width: 60%;">
+ 
+ <h2 class="regular">About Us</h2><br>
+We keep one simple thing in mind when we make our food - we only serve food, that we love to eat.
+Believing in product innovation, we have designed meals which are convenient to eat anytime, anywhere. We have given a menu with a fusion of Italian & western flavours & have the most authentic, indigenous taste in meals.
+With an equal emphasis on technology and delivery, along with food, we make ordering food a first class experience.
+What started as a small outlet in a corporate cafeteria, has now grown to 50+ outlets spread across Mumbai delivering 10000+ orders every day.
+Just a few clicks on our ordering platform, and our super-fast integrated delivery management system will deliver piping hot food right at your door steps.
+</div>
+</div>
 
 
 </div>
-
 
 
 
@@ -275,7 +377,7 @@
 	  <a href="#" style="text-decoration:none;">How it works</a></br>
 	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
 	  <a href="#" style="text-decoration:none;">Team</a></br>
-	  <a href="faq.html" style="text-decoration:none;">FAQs</a></br>
+	  <a href="../faq/faq.php" style="text-decoration:none;">FAQs</a></br>
 	  <a href="#" style="text-decoration:none;">Careers</a></br>
 	  </div>
     <div class="col">
@@ -309,14 +411,16 @@
 </div>
 
 
-
-
 <!--<div id="food">
+
 </div>
 -->
 </div>
 
+<script src="../assets/libraries/jquery-3.1.0.min.js"></script>
 
+
+<script src="about.js"></script>
 
 <script>
 //Sign up modal
@@ -364,23 +468,7 @@ window.onclick = function(event) {
     }
 };
 
-var acc = document.getElementsByClassName("menuaccord");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        this.classList.toggle("active");
-        this.nextElementSibling.classList.toggle("show");
-  };
-}
-
-
-
-
-
-
 </script>
-
 
 </body>
 

@@ -43,7 +43,7 @@ $user_login->logout();
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="about/about.html">About</a></li>
+  <li><a id="link1" class="mainlink" href="about/about.php">About</a></li>
   <li><a id="link2" class="mainlink" href="#news">Menu</a></li>
   <li><a id="link3" href="home.php">
 		<img src="assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
@@ -380,7 +380,7 @@ iscover
 <p style="text-align: center;">
 Foodies is a an online marketplace for your favourite food. We have the widest range of restuarants in India. We believe food is a pleasure and food ordering should be fast and definitely a fun experience.</p>
  
- <p style="text-align: center;"><a class="aboutcode" href="about/about.html">About Us</a></p>
+ <p style="text-align: center;"><a class="aboutcode" href="about/about.php">About Us</a></p>
 </div>
  </div>
 
@@ -394,7 +394,7 @@ Foodies is a an online marketplace for your favourite food. We have the widest r
 <!--<button onclick="getLocation()">Try It</button>
 <p id="demo"></p>-->
 
-
+<input type="hidden" id="pincodespan"></input>
 
 <div class="row">
 <div class="search">
@@ -484,7 +484,7 @@ Foodies is a an online marketplace for your favourite food. We have the widest r
 	  <a href="#">How it works</a></br>
 	  <a href="#">Service Area</a></br>
 	  <a href="#">Team</a></br>
-	  <a href="faq/faq.html">FAQs</a></br>
+	  <a href="faq/faq.php">FAQs</a></br>
 	  <a href="#">Careers</a></br>
 	  </div>
     <div class="col">

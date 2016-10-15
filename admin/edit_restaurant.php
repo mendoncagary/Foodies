@@ -64,6 +64,12 @@ $get_id = $_GET['id'];
                                         <input type="text"  name="address"  class = "form-control" value="<?php echo $row['address']; ?>">
                                     </div>
                                 </div>
+										<div class="control-group">
+                                    <label class="control-label" for="address">Pincode</label>
+                                    <div class="controls">
+                                        <input type="text"  name="pincode"  class = "form-control" value="<?php echo $row['pincode']; ?>">
+                                    </div>
+                                  </div>                  
 								<div class="control-group">
                                     <label class="control-label" for="address">Type</label>
                                     <div class="controls">
@@ -135,6 +141,7 @@ $get_id = $_GET['id'];
                                 $location = $_POST['location'];
                                 $address = $_POST['address'];
 								$type = $_POST['type'];
+								$pincode = $_POST['pincode'];
 								 $cuisines = $_POST['cuisines'];
                                 $cost = $_POST['cost'];
                                 $hours = $_POST['hours'];
@@ -150,7 +157,7 @@ $get_id = $_GET['id'];
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
                                 $location = "upload/" . $_FILES["image"]["name"];
 
-                                mysql_query("update restaurants set name='$name',location='$location',address='$address'typ'$type',cuisines='$cuisines',cost='$cost',hours='$hours',rating='$rating',discount='$discount',owner='$owner',image='$location' where id='$get_id'") or die(mysql_query());
+                                mysql_query("update restaurants set name='$name',location='$location',address='$address',pincode='$pincode',type='$type',cuisines='$cuisines',cost='$cost',hours='$hours',rating='$rating',discount='$discount',owner='$owner',image='$location' where id='$get_id'") or die(mysql_query());
                                 header('location:restaurant.php');
                             }
                             ?>

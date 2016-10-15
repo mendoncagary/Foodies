@@ -54,8 +54,19 @@
 																	session_start();
 																	$_SESSION['id'] = $row['user_id'];
 																	$_SESSION['rolecode'] = $row['rolecode'];
-																header("location:product.php");
-																
+																	
+																	if($_SESSION['rolecode'] == "SUPERADMIN")
+																	{
+																		header("location:restaurant.php");
+																	}
+																	else if($_SESSION['rolecode'] == "SUPERADMIN")
+																	{
+																		header("location:restaurant.php");
+																	}
+																	else
+																	{
+																		header("location:product.php");
+																	}
 															}	
 							
 							}

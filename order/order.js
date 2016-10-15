@@ -113,14 +113,16 @@ $( document ).ready( function() {
   var id = $(this).attr("data-item-id");
    var name = $(this).attr("data-item-name");
    var price = $(this).attr("data-item-price");
-   
+   var action = "addToCart";
    $.ajax({
         type:'post',
-        url:'../cart/cart.php',
+        url:'../includes/cartAction.php',
         data:{
-          item_id:id,
-          item_name:name,
-          item_price:price
+			action:action,
+          id:id,
+          name:name,
+          price:price,
+		  quantity:1
         },
         success:function(response) {
 			$(".add-btn[data-item-id="+id+"]").addClass("added-btn");
@@ -129,7 +131,7 @@ $( document ).ready( function() {
 
 	        $(".fooddiv[data-item-id="+id+"] .dish-addToCart").addClass("dish-addToCart1");
 	
-	
+	        alert(response);
 			$(".pull-right").removeClass("hideCheckOut");
 			
 				$(".fooddiv[data-item-id="+id+"] .dish-addToCart1").each(function() {
@@ -149,3 +151,82 @@ $( document ).ready( function() {
 
 
 
+	
+	
+	
+$(document).ready(function(){
+$('.icon-link').click(function(){
+  $("#box-signin").slideToggle(); //<----here
+   
+});
+});
+	
+	
+	
+	 
+function checkForm()
+{
+//fetching values from all input fields and storing them in variables
+    var txtupassvalue = document.getElementById("password-input").value;
+    var txtemailvalue = document.getElementById("email-input").value;
+    var action = "login";
+	  $.ajax({
+        type:'post',
+        url:'includes/letmein.php',
+       
+		data:{
+			action:action,
+          txtupassvalue:txtupassvalue,
+		  txtemailvalue:txtemailvalue
+        },
+		
+        success:function(response1,response2) { 
+			if(response1)
+			{
+			$("#email-error").show();	
+			
+			}
+			
+	       if(response2)
+			{
+			$("#password-error").show();
+				
+			}
+			
+		
+				$.ajax({
+                type:'post',
+                url:'includes/letmein2.php',
+       
+		        data:{
+		      	action:action,
+                txtupassvalue:txtupassvalue,
+		        txtemailvalue:txtemailvalue
+        },
+		success:function(response) { 
+      
+	  if(response)
+	  {
+		  
+		  $("#usernamelist").append(response);	
+        $("#myModal").hide();
+				$("#link5").addClass("ng-hide");
+				$("#linkw").removeClass("ng-hide");
+				$("#link6").removeClass("ng-hide");	
+				$("#box-signin").removeClass("ng-hide");	
+    
+				
+	  }
+	  else
+	  {
+		  $("#email-error").show();
+		  $("#password-error").show();
+	  }
+   }
+				});
+			
+}
+
+	  });
+	  
+}

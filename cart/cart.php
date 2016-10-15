@@ -1,6 +1,10 @@
 <?php
-  session_start();
 
+  include '../includes/class.cart.php';
+$cart = new Cart;
+require_once '../includes/class.user.php';
+$user_login = new USER();
+/*
   if(isset($_POST['total_cart_items']))
   {
 	echo count($_SESSION['name']);
@@ -15,7 +19,7 @@
     echo count($_SESSION['name']);
     exit();
   }
-
+*/
   ?>
 
 <!DOCTYPE html>
@@ -46,7 +50,7 @@
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="../about/about.html">About</a></li>
+  <li><a id="link1" class="mainlink" href="../about/about.php">About</a></li>
   <li><a id="link2" class="mainlink" href="#news">Menu</a></li>
   <li><a id="link3" href="../home.php">
       <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
@@ -318,21 +322,26 @@
 		<div class="col-sm-2 text-right bold">Amount</div> </div> 
 		<div class="space-10"></div>
 
-	<?php
 	
-    if(isset($_SESSION['id']))
+	<?php
+    /*if(isset($_SESSION['id']))
 	{
       for($i=0;$i<count($_SESSION['id']);$i++)
-     {
-    
+     {*/
+      
+        if($cart->total_items() > 0){
+            //get cart items from session
+            $cartItems = $cart->contents();
+            foreach($cartItems as $item){
+        ?>
   
-?>
+
 		<!-- ngRepeat: item in cart_items.items track by item.id -->
 		<div class="ng-scope-items"> <div class="row">
 		<div class="col-sm-6 padding width50"> <div class="col-sm-8"> <div>
 		<h3 class="ng-binding-heading" style="font-size:14px;line-height:18px"> 
 		<span class="ng-binding-type"  style="font-size:10px"> Classic<br>
-		</span> <?php echo $_SESSION['name'][$i]; ?> <img src="images/veg.62b68100.png" alt="" class="veg-padding"> </h3>
+		</span> <?php /*echo $_SESSION['name'][$i];*/ echo $item['name']; ?> <img src="images/veg.62b68100.png" alt="" class="veg-padding"> </h3>
 		<p class="ng-binding" style="font-size:12px">Regular , Original Crust </p>
 		<div></div> 
 		<i class="" > 
@@ -342,7 +351,7 @@
 		<input class="input-quantity" value="<?php  ?>" readonly="" type="text"> 
 		<input value="+" class="plus-btn-radius" readonly="" type="button"> 
 		<!-- <div class="space-10"></div> --> </div> <div class="col-sm-2 text-right width50 price-pos ng-binding"> 
-		<!-- <div class="space-10"></div> --> <span class="rupee">₹</span> <?php  echo $_SESSION['price'][$i]; ?><!-- <div class="space-10"></div> --> </div> 
+		<!-- <div class="space-10"></div> --> <span class="rupee">₹</span> <?php  echo $item['price']; ?><!-- <div class="space-10"></div> --> </div> 
 		<div class="delete"> <!-- <div class="space-10"></div> --> 
 		<a href="">
 		<img src="../assets/images/delete.svg" alt=""> </a> 
@@ -379,7 +388,175 @@
 		<a ng-hide="true" id="pan-21" class="accordion-toggle ng-hide" href="">Sign in</a> </h4> </div>
 		<div id="panel-2" class="panel-collapse collapse"> 
 		<div class="panel-body">
+		<?php 
+       if($user_login->is_logged_in()) 
+      {
+	     ?>	
+
+		<!-- already signed in -->
+		<div class="payment-ul" style="padding-bottom:0px">
+		<div class="col-sm-12 ng-binding"><span>Logged in as </span> </div> 
+		<div class="clearfix"></div> 
+		<div class="space-20"></div> <div class="col-sm-5 col-md-2">
+		<input value="Logout" class="btn-block continue-shoping radius-3 margin-right" type="button"> </div>
+		<div class="col-sm-2 col-md-1 text-center center-text">Or</div>
+		<div class="col-sm-5 col-md-3">
+		<input value="Proceed to Payment" class="btn-block next-step radius-3 margin-left" ng-click="proceed_to_payment()" type="button">
+		</div> 
+		<div class="clearfix"></div> 
+		<div class="space-50"></div> </div>
+
+		<!-- sign in -->
+		<div id="myModal" class="panel-signin ng-hide"> 
+		<div class="space-50"></div> 
+		<span class="weight-700">Already a member? Log in here</span> 
+		<div class="clearfix"></div> 
 		
+		<div class="col-sm-12">
+	    <div class="floating-placeholder"> 
+	    <input id="email-input" name="txtemail" class="modalinput" onblur="validate('email-input','email-error',this.value)" type="text"> 
+	    <label for="email-input">Email/Mobile</label> 
+	    </div>
+	    <!--Error text-->
+	    <span id="email-error" class='error-text'><!--Enter valid email or mobile number --></span>
+	    </div>
+	
+		<div class="col-sm-12">
+   	    <div class="floating-placeholder">
+	    <input id="password-input" name="txtupass" class="modalinput" onblur="validate('password-input','password-error',this.value)" type="password"> 
+	    <label for="password-input">Password</label> </div>
+	    <!--Error text-->
+	    <span id="password-error" class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
+	    </div>
+	 
+		<div class="clearfix"></div>
+		<div class="space-15"></div>
+		
+		<div class="col-sm-12"> 
+	    <div class="pull-left">
+	    <input name="checkboxG1" id="checkboxG1" class="css-checkbox" type="checkbox">
+	    <label id="remember_label" for="checkboxG1" class="css-label">Remember me</label></div>
+	    <div class="pull-right">
+	    <a href="includes/fpass.php">Forgot Password ?</a>
+	    </div> </div>
+	 
+		<div class="clearfix"></div>
+		<div class="space-20"></div> 
+		
+		<div class="col-sm-12"> 
+	    <input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
+	    </div>
+		
+		<div class="clearfix"></div>
+	    <div class="space-15"></div>
+  
+	    <div class="or">or</div>
+	
+	
+	    <div class="clearfix"></div>
+	    <div class="space-15"></div>
+		
+		<div class="col-sm-6"> 
+	   <button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
+	   <i class="fa fa-facebook"></i> Sign in with Facebook</button>
+	   </div>
+	
+		<div class="col-sm-6"> 
+	    <button onclick="auth(&quot;signin&quot;)" class="google-btn">
+		<i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	   </div>
+
+	
+		<div class="clearfix"></div>
+	
+	    <div class="space-15"></div>    
+	
+	    <p class="terms"> By signing here, you agree to our Terms of Service and Privacy Policy</p>
+	
+	    <div class="space-15"></div>
+		
+		<div class="col-sm-12"> <div class="new-member"> Not a member? 
+	<a class="" id="sign-up-button">Sign Up</a></div> </div>
+	
+		<div class="clearfix"></div>
+		<div class="space-50"></div> </div> 
+		
+		<!-- signup -->
+		<div id="signupModal" class="panel-signin ng-hide">
+		<div class="space-50"></div> 
+		<span class="weight-700">New member? Enter your details below</span>
+		<div class="clearfix"></div>
+
+		<div class="col-sm-12">
+	    <div class="floating-placeholder"> 
+	    <input id="sign-up-name" name="regname" class="modalinput" type="text"> 
+	    <label for="name">Name</label> 
+	    </div>
+		</div>
+		
+  <div class="col-sm-6">
+	 <div class="floating-placeholder">
+	 <input id="sign-up-password" name="regpass" class="modalinput" type="password"> 
+	 <label for="regpass">Password</label> </div>
+	<!--Error text-->
+	<span class="error-text"><!--Password is too short(minimum is 6 character)--> </span> 
+	 </div> 
+ 
+ 
+	 <div class="col-sm-6">
+	 <div class="floating-placeholder">
+	 <input id="sign-up-email" name="regemail" class="modalinput" type="email"> 
+	 <label for="regemail">Email</label> </div>
+	<!--Error text-->
+	<span class="error-text"><!--Password is too short(minimum is 6 character) --></span> 
+	 </div> 
+<div class="clearfix"></div>
+	<div class="space-20"></div>
+	
+
+	
+	<div class="col-sm-12"> 
+	<input name="btn-signup" value="Sign up" class="sign-up-btn" type="submit"> 
+	</div>
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+  
+	<div class="or">or</div>
+	
+	
+	<div class="clearfix"></div>
+	<div class="space-15"></div>
+	
+ 
+	<div class="col-sm-6"> 
+	<button onclick="fb_login(&quot;signup&quot;)" class="facebook-btn">
+	<i class="fa fa-facebook"></i> Sign in with Facebook</button>
+	</div>
+	
+	<div class="col-sm-6"> 
+	<button onclick="auth(&quot;signin&quot;)" class="google-btn"><i class="fa fa-google-plus"></i> Sign in with Google+</button> 
+	</div>
+	
+ 
+ <div class="clearfix"></div>
+ <div class="space-15"></div>
+ <p class="terms text-center"> By signing here, you agree to our Terms of Service and Privacy Policy</p> 
+ <div class="space-15"></div> <div class="col-sm-12">
+ <div class="new-member text-center"> Already a member? <a id="sign-in-button">Sign in</a></div> </div> 
+ 
+ <div class="clearfix"></div> <div class="space-50"></div> 
+ </div>
+
+ 
+	  <?php }
+	  
+	  else
+	  {
+		  ?>
+ 
+ 
+ 
 		<!-- already signed in -->
 		<div class="payment-ul ng-hide" style="padding-bottom:0px">
 		<div class="col-sm-12 ng-binding"><span>Logged in as </span> </div> 
@@ -535,6 +712,10 @@
  <div class="clearfix"></div> <div class="space-50"></div> 
  </div>
 
+ 
+ <?php
+	  }
+ ?>
  <!-- phone verify form --> 
  <div class="ng-hide" ng-show="panel_2_view('phone_verify')">
  <div class="space-50"></div> <div class="panel-signin">
@@ -952,7 +1133,7 @@
 	  <a href="#" style="text-decoration:none;">How it works</a></br>
 	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
 	  <a href="#" style="text-decoration:none;">Team</a></br>
-	  <a href="../faq/faq.html" style="text-decoration:none;">FAQs</a></br>
+	  <a href="../faq/faq.php" style="text-decoration:none;">FAQs</a></br>
 	  <a href="#" style="text-decoration:none;">Careers</a></br>
 	  </div>
     <div class="col">

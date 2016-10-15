@@ -1,11 +1,23 @@
+<?php 
+session_start();
+require_once '../includes/class.user.php';
+$user_login = new USER();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="about.css">
+<link rel="stylesheet" type="text/css" href="contact.css">
 <link rel="stylesheet" type="text/css" href="../assets/libraries/font-awesome-4.6.3/css/font-awesome.css">
 <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">-->
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+
 
 <title>Foodies</title>
 
@@ -22,16 +34,105 @@
 <div id="header">
 <nav id="innercontent">
 <ul>
-  <li><a id="link1" class="mainlink" href="#">About</a></li>
-  <li><a id="link2" class="mainlink" href="#">Menu</a></li>
+  <li><a id="link1" class="mainlink" href="../about/about.php">About</a></li>
+  <li><a id="link2" class="mainlink" href="#news">Menu</a></li>
   <li><a id="link3" href="../home.php">
       <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
        </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
-  <li><a id="link5" class="mainlink">Sign In</a></li>
-</ul>
+  
+  <li>
+	<?php if($user_login->is_logged_in())
+	{
+		?>
+		<a id="linkw" class="mainlink">Welcome</a>
+		<a id="link5" class="mainlink ng-hide">Sign In</a>
+	<?php
+	} 
+	else
+	{
+		?>
+		<a id="linkw" class="mainlink ng-hide">Welcome</a>
+		<a id="link5" class="mainlink">Sign In</a>
+	<?php
+	}
+	?>
+</li>
+	
+
+<?php 
+if($user_login->is_logged_in())
+{
+	?>	
+<li>
+<a id="link6" class="icon-link"><img src="../assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php }
+else{
+	?>
+<li>
+<a id="link6" class="icon-link ng-hide"><img src="../assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php 
+}
+?>
+  
+  </ul>
+
+
+  <?php
+  if($user_login->is_logged_in())
+  {
+	  ?>
+ <ul id="box-signin">
+  <li id="usernamelist">Hi <?php   
+
+  $stmt = $user_login -> runQuery("select * from tbl_users WHERE userID = :id");
+							$stmt->execute(array(":id"=>$_SESSION['userSession']));			
+							
+							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+							{
+	                         echo $row["userName"];
+                            }
+     ?>
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }
+  else
+  {
+	  ?>
+  <ul id="box-signin" class="ng-hide">
+  <li id="usernamelist">Hi 
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }?>
+
 </nav>
+
+
 </div>
+
+
 
 <!-- Sign in Modal -->
 <div id="myModal" class="modal">
@@ -90,7 +191,7 @@
 	
 	
 	<div class="col-sm-12"> 
-	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="submit"> 
+	<input id="btn-login" name="btn-login" value="Let me in" class="sign-up-btn" onclick="checkForm()" type="button"> 
 	</div>
 	
 	<div class="clearfix"></div>
@@ -227,49 +328,59 @@
 </div>
 </div>
 
-<div class= "space-50">
-</div>
 
-<div class= "space-50">
-</div>
 
 
 
 <div class="bgimg1">
-<div id="floater" style="position:absolute; right: 10%; box-shadow: 0px 0px 10px black; background: white; opacity:0.7; width: 200px; padding: 10px;">
-We're <font color="red">Foodies</font>,
-India's fastest growing food delivery company.  Here we try to share our vision about food quality, our mission about customer’s satisfaction and introducing services that we provide for each one of you and ensure a delightful end-to-end experience <!--every single time. Founded by DBIT graduates, we have revolutionized the Global food industry.-->
-</div>
-
-
 <div id="headerbox">
-<h2 class="headline"><span class="first-letter">A</span>bout Us</h2>
+<h2 style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" class="headline_secondary"><span class="first-letter">F</span>ind us</h2>
+<h1 style="margin-right: -0.1em; letter-spacing: 0.2em; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" class="headline_primary">Contact</h1>
+<!--<h2 class="headline"><span class="first-letter">C</span>ontact</h2>-->
 </div>
 </div>
 
+<article id="post-116" class="article--page article--main post-116 page type-page status-publish has-post-thumbnail hentry">
+ <section class="article__content">
+ <div class="container">
+ <section class="page__content  js-post-gallery  cf">
+ <div class="pixcode  pixcode--grid  grid  thick-gutter  ">
+ <div class="grid__item six-twelfths palm-one-whole ">
+ <h3 class="flush--top">Get in touch</h3>
+ <!--<p>The Foodies are located on the ground and first floor within the Winchester Grade VI 
+ listed building of the Royal Institution of Chartered Surveyors. The restaurant and bar both have their own entrances.</p>-->
+ <p>If you have questions or comments, please get a hold of us in whichever way is most convenient. Ask away. 
+ There is no reasonable question that our team can not answer</p>
+ <h3>Follow us</h3>
+ <a class="pixcode-icon-link" href="https://www.facebook.com/PixelGradeMedia" target="_blank" "="">
+ <i class="pixcode  pixcode--icon  icon-e-facebook  circle  medium  "></i>
+ </a> 
+ <a class="pixcode-icon-link" href="https://twitter.com/pixelgrade" target="_blank" "="">
+ <i class="pixcode  pixcode--icon  icon-e-tumblr  circle  medium  "></i>
+ </a>
+ </div>
+ <div class="grid__item six-twelfths palm-one-whole ">
+ <div role="form" class="wpcf7" id="wpcf7-f4-p116-o1" dir="ltr" lang="en-US">
+ <div class="screen-reader-response"></div>
+ <form action="/demos/rosa/contact/#wpcf7-f4-p116-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+ <div style="display: none;"> <input name="_wpcf7" value="4" type="hidden">
+ <input name="_wpcf7_version" value="4.3.1" type="hidden">
+ <input name="_wpcf7_locale" value="en_US" type="hidden"> 
+ <input name="_wpcf7_unit_tag" value="wpcf7-f4-p116-o1" type="hidden"> 
+ <input name="_wpnonce" value="87f11e8450" type="hidden"></div>
+ <div class="grid pixcode--grid">
+ <div class="grid__item  six-twelfths palm-one-whole"> 
+ <span class="wpcf7-form-control-wrap your-name">
+ <input name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name" type="text">
+ </span></div>
+ <div class="grid__item  six-twelfths palm-one-whole"> <span class="wpcf7-form-control-wrap last-name">
+ <input name="last-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name" type="text"></span></div></div><p><span class="wpcf7-form-control-wrap your-email">
+ <input name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" type="email"></span> 
+ <span class="wpcf7-form-control-wrap your-message"><textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 236px;" name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea></span><input value="Send Message" class="wpcf7-form-control wpcf7-submit" type="submit"><img style="visibility: hidden;" alt="Sending ..." src="https://pixelgrade.com/demos/rosa/wp-content/plugins/contact-form-7/images/ajax-loader.gif" class="ajax-loader"></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></section></div> </section> </article>
 
 
-<div class="section">
-
-<div class="container">
- <div class="space-50">
- </div> 
-  <div class="space-20"></div> 
-  <div class="space-10"></div> 
-
- <div style="margin:auto; width: 60%;">
- 
- <h2 class="regular">About Us</h2><br>
-We keep one simple thing in mind when we make our food - we only serve food, that we love to eat.
-Believing in product innovation, we have designed meals which are convenient to eat anytime, anywhere. We have given a menu with a fusion of Italian & western flavours & have the most authentic, indigenous taste in meals.
-With an equal emphasis on technology and delivery, along with food, we make ordering food a first class experience.
-What started as a small outlet in a corporate cafeteria, has now grown to 50+ outlets spread across Mumbai delivering 10000+ orders every day.
-Just a few clicks on our ordering platform, and our super-fast integrated delivery management system will deliver piping hot food right at your door steps.
-</div>
-</div>
 
 
-</div>
 
 
 
@@ -281,7 +392,7 @@ Just a few clicks on our ordering platform, and our super-fast integrated delive
 	  <a href="#" style="text-decoration:none;">How it works</a></br>
 	  <a href="#" style="text-decoration:none;" >Service Area</a></br>
 	  <a href="#" style="text-decoration:none;">Team</a></br>
-	  <a href="../faq/faq.html" style="text-decoration:none;">FAQs</a></br>
+	  <a href="../faq/faq.php" style="text-decoration:none;">FAQs</a></br>
 	  <a href="#" style="text-decoration:none;">Careers</a></br>
 	  </div>
     <div class="col">
@@ -315,16 +426,14 @@ Just a few clicks on our ordering platform, and our super-fast integrated delive
 </div>
 
 
-<!--<div id="food">
 
 </div>
--->
-</div>
+
+
 
 <script src="../assets/libraries/jquery-3.1.0.min.js"></script>
+<script src="contact.js"></script>
 
-
-<script src="about.js"></script>
 
 <script>
 //Sign up modal
@@ -372,7 +481,24 @@ window.onclick = function(event) {
     }
 };
 
+var acc = document.getElementsByClassName("menuaccord");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+  };
+}
+
+
+
+
+
+
 </script>
+
+
 
 </body>
 

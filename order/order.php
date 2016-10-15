@@ -2,7 +2,7 @@
 session_start();
 require_once '../includes/class.user.php';
 $user = new USER();
-
+$user_login = new USER();
 
 
  if(isset($_SESSION["place"]))
@@ -60,9 +60,96 @@ $user = new USER();
       <img src="../assets/images/img5.png" alt="Foodies" id="logo" height="160" width="160">
        </a></li>
   <li><a id="link4" class="mainlink" href="#contact">Offers</a></li>
-  <li><a id="link5" class="mainlink">Sign In</a></li>
-</ul>
+  
+  <li>
+	<?php if($user_login->is_logged_in())
+	{
+		?>
+		<a id="linkw" class="mainlink">Welcome</a>
+		<a id="link5" class="mainlink ng-hide">Sign In</a>
+	<?php
+	} 
+	else
+	{
+		?>
+		<a id="linkw" class="mainlink ng-hide">Welcome</a>
+		<a id="link5" class="mainlink">Sign In</a>
+	<?php
+	}
+	?>
+</li>
+	
+
+<?php 
+if($user_login->is_logged_in())
+{
+	?>	
+<li>
+<a id="link6" class="icon-link"><img src="../assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php }
+else{
+	?>
+<li>
+<a id="link6" class="icon-link ng-hide"><img src="../assets/images/img27.jpg" alt="lang"></a>
+  
+  </li>
+<?php 
+}
+?>
+  
+  </ul>
+
+
+  <?php
+  if($user_login->is_logged_in())
+  {
+	  ?>
+ <ul id="box-signin">
+  <li id="usernamelist">Hi <?php   
+
+  $stmt = $user_login -> runQuery("select * from tbl_users WHERE userID = :id");
+							$stmt->execute(array(":id"=>$_SESSION['userSession']));			
+							
+							while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+							{
+	                         echo $row["userName"];
+                            }
+     ?>
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }
+  else
+  {
+	  ?>
+  <ul id="box-signin" class="ng-hide">
+  <li id="usernamelist">Hi 
+ </li>
+  <li><a href="cart/cart.php" title="Carts">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+ Cart
+  </a></li>
+  <li><a href="#" title="Track Orders"
+  > Track Orders
+  </a></li>
+  <li><a title="Logout" class="current_logout"> Logout
+  </a></li>
+  </ul>
+  <?php }?>
+
 </nav>
+
+
 </div>
 
 

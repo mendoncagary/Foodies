@@ -209,9 +209,10 @@ function getLocation() {
     } else { 
         x.value = "Geolocation is not supported by this browser.";}
     }
+	
+	var pincode = 0;
+	var address = 0;
     
-	
-	
 function showPosition(position) {
 	
       	var latitude = position.coords.latitude;
@@ -228,8 +229,16 @@ function showPosition(position) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         //alert("Location: " + results[1].formatted_address);
-						x.value = results[1].formatted_address;
+						//alert("Location"+results[1].types['0'].long_name);
 						
+						x.value = results[1].formatted_address;
+						address = results[0].address_components;
+						for (p = address.length-1; p >= 0; p--) {
+                          if (address[p].types.indexOf("postal_code") != -1) {
+                         pincode = address[p].long_name;
+						 //document.getElementById("pincodespan").value=pincode;
+                         }
+						}
 						
 
                        	$('.float-spinner').hide(); //<----here
@@ -377,6 +386,7 @@ $("#signmebutton").click(function(){
 
 });
 });
+
 //AJAX Code to check  input field values when onblur event triggerd.
 function validate(input,field,query)
 {
@@ -420,7 +430,8 @@ else
   
     var url = "restaurant/restaurant.php";
     var place = document.getElementById("googleAutoCompleteBox").value;
-    var vars = "place="+place;
+    //var pincode = document.getElementById("pincodespan").value;
+	var vars = "place="+place+"&pincode="+pincode;
 	
 	xmlhttp.onreadystatechange = function()
     {

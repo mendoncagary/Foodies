@@ -138,6 +138,85 @@ li #link5 {
 }
 
 
+li #linkw {
+	left:50%;
+	margin-left:280px;
+	top:24px;
+	cursor:pointer;
+	
+}
+
+
+/* Menu signin*/
+#box-signin {
+    list-style: outside none none;
+    width: 186px;
+    right: 79px;
+    border-radius: 20px;
+    position: absolute;
+    top: 98px;
+    z-index: 100;
+    background-color: #FFF;
+    display: none;
+    overflow: hidden;
+    box-shadow: 0px 0px 29px rgba(46, 46, 46, 0.29);
+}
+
+#box-signin li{
+    float: left;
+    padding: 10px 0px;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+}
+
+#box-signin a {
+    text-align: left;
+    margin: 3px 0px 3px 16px;
+    display: block;
+    color: inherit;
+    outline: medium none;
+    text-decoration: none;
+}
+
+#box-signin li:hover{
+	color: #85171a;
+}
+
+#box-signin i {
+    padding-right: 5px;
+    margin: auto;
+    border:medium none;
+}
+
+
+.icon-link img{
+margin: 14px 0px 0px 12px;
+float: left;
+margin-top: 15px !important;
+border: medium none;
+}
+
+
+.icon-link{
+top: 24px;
+transition: top 0.5s ease 0s;
+background-position: center bottom !important;
+right: 8%;
+margin-left: -416px;
+    background-image: url("../assets/images/img28.png");
+    width: 46px;
+    height: 45px;
+    display: block;
+    position: absolute;
+    cursor:pointer;
+}
+
+.ng-hide{
+display:none !important;	
+	
+}
+
 
 
 .bgimg1{

@@ -53,7 +53,8 @@
                                         <th>Name</th>
                                         <th>Location</th>
                                         <th>Address</th>
-                                        <th>Type</th>
+                                        <th>Pincode</th>
+										<th>Type</th>
                                         <th>Cuisines</th>
                                         <th>Cost</th>
 										<th>Hours</th>
@@ -78,7 +79,8 @@
                                             <td><?php echo $row['name']; ?></td> 
                                             <td><?php echo $row['location']; ?></td> 
                                             <td><?php echo $row['address']; ?></td> 
-                                            <td><?php echo $row['type']; ?></td> 
+                                            <td><?php echo $row['pincode']; ?></td> 
+											<td><?php echo $row['type']; ?></td> 
 											<td><?php echo $row['cuisines']; ?></td> 
                                             <td style="text-align:center;"><?php echo $row['cost']; ?></td> 
                                             <td style="text-align:center;"><?php echo $row['hours']; ?></td> 

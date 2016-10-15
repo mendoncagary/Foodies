@@ -28,6 +28,12 @@
                                          <input type="text" class = "form-control"  name="address"  placeholder="Address" >
                                     </div>
                                 </div>
+								<div class="control-group">
+                                    <label class="control-label" for="inputPassword">Pincode:</label>
+                                    <div class="controls">
+                                         <input type="text" class = "form-control"  name="pincode"  placeholder="Pincode" >
+                                    </div>
+                                </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputPassword">Type:</label>
                                     <div class="controls">
@@ -106,6 +112,7 @@
 							   $name = $_POST['name'];
                                 $location = $_POST['location'];
                                 $address = $_POST['address'];
+								$pincode = $_POST['pincode'];
 								$type = $_POST['type'];
 								 $cuisines = $_POST['cuisines'];
                                 $cost = $_POST['cost'];
@@ -124,8 +131,8 @@
                                 $imglocation = "upload/" . $_FILES["image"]["name"];
 
 
-                                mysql_query("insert into restaurant(name,location,address,type,cuisines,cost,hours,rating,discount,image)
-                            	values ('$name','$location','$address','$type','$cuisines','$cost','$hours','$rating','$discount','$imglocation')
+                                mysql_query("insert into restaurant(name,location,address,pincode,type,cuisines,cost,hours,rating,discount,image)
+                            	values ('$name','$location','$address','$pincode','$type','$cuisines','$cost','$hours','$rating','$discount','$imglocation')
                                 ") or die(mysql_error());
 
                                 header('location:restaurant.php');
