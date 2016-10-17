@@ -55,7 +55,7 @@ $get_id = $_GET['id'];
                                 <div class="control-group">
                                     <label class="control-label" for="location">Location</label>
                                     <div class="controls">
-                                        <input type="text"  name="location"  class = "form-control" value="<?php echo $row['location']; ?>">
+                                        <input type="text" name="location" class ="form-control" value="<?php echo $row['location']; ?>">
                                     </div>
                                 </div>
 								<div class="control-group">
@@ -150,14 +150,18 @@ $get_id = $_GET['id'];
                                 
                                 $owner = $_POST['owner'];
 
+								if(isset($_POST['image']))
+								{
                                 $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
                                 $image_name = addslashes($_FILES['image']['name']);
                                 $image_size = getimagesize($_FILES['image']['tmp_name']);
-
+								}
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
                                 $imglocation = "upload/" . $_FILES["image"]["name"];
 
                                 mysql_query("update restaurants set name='$name',location='$location',address='$address',pincode='$pincode',type='$type',cuisines='$cuisines',cost='$cost',hours='$hours',rating='$rating',discount='$discount',owner='$owner',image='$imglocation' where id='$get_id'") or die(mysql_query());
+								
+								
                                 header('location:restaurant.php');
                             }
                             ?>

@@ -3,6 +3,18 @@ session_start();
 require_once '../includes/class.user.php';
 $user_login = new USER();
 
+
+
+$user = new USER();
+
+if(isset($_POST["action"]) == "logout")
+{
+if($user->is_logged_in()!="")
+{
+	$user->logout();	
+	exit();
+}
+}
 ?>
 
 <!DOCTYPE html>

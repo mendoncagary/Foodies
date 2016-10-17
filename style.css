@@ -1340,6 +1340,7 @@ position:absolute;
     color: inherit;
     outline: medium none;
     text-decoration: none;
+	cursor:pointer;
 }
 
 #box-signin li:hover{
@@ -1453,6 +1454,7 @@ section{
     display: block;
     padding-bottom: 0;
     border: 0 !important;
+	
 }
 
 .gallery-icon img{

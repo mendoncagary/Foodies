@@ -2,17 +2,15 @@
 session_start();
 require_once 'includes/class.user.php';
 $user_login = new USER();
+$user = new USER();
 
-
-
-
-if(isset($_POST['logout']))
-
+if(isset($_POST["action"]) == "logout")
 {
-$user_login->logout();
+	if($user->is_logged_in()!="")
+{
+	$user->logout();	
 }
-
-
+}
 
 ?>
 
@@ -409,7 +407,7 @@ Foodies is a an online marketplace for your favourite food. We have the widest r
               	 		</a> 
               	 		</span> 
 					<form method="post">
-              	 		<input autocomplete="off" value="" class="input-search" id="googleAutoCompleteBox" placeholder="Delivery Location e.g. Marine Drive, Mumbai" details="localityDetails" options="options" type="text"> </div> 
+              	 		<input autocomplete="" value="" class="input-search" id="googleAutoCompleteBox" placeholder="Delivery Location e.g. Marine Drive, Mumbai" details="localityDetails" options="options" type="text"> </div> 
 						
 						
 						<div class="float-spinner">

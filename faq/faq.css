@@ -177,6 +177,7 @@ li #linkw {
     color: inherit;
     outline: medium none;
     text-decoration: none;
+	cursor:pointer;
 }
 
 #box-signin li:hover{

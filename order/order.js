@@ -113,25 +113,26 @@ $( document ).ready( function() {
   var id = $(this).attr("data-item-id");
    var name = $(this).attr("data-item-name");
    var price = $(this).attr("data-item-price");
-   var action = "addToCart";
+   var action = "add";
+   var quantity = $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").innerHTML;
+   alert(quantity);
    $.ajax({
         type:'post',
-        url:'../includes/cartAction.php',
+        url:'../includes/cartAction2.php',
         data:{
 			action:action,
           id:id,
           name:name,
           price:price,
-		  quantity:1
+		  quantity:quantity
         },
         success:function(response) {
-			$(".add-btn[data-item-id="+id+"]").addClass("added-btn");
+	
+	$(".add-btn[data-item-id="+id+"]").addClass("added-btn");
 	        $(".rmv-btn[data-item-id="+id+"]").show();
 	        $(".fooddiv[data-item-id="+id+"] .added_item_cart").show();
 
 	        $(".fooddiv[data-item-id="+id+"] .dish-addToCart").addClass("dish-addToCart1");
-	
-	        alert(response);
 			$(".pull-right").removeClass("hideCheckOut");
 			
 				$(".fooddiv[data-item-id="+id+"] .dish-addToCart1").each(function() {

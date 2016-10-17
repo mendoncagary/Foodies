@@ -236,8 +236,10 @@ function showPosition(position) {
 						for (p = address.length-1; p >= 0; p--) {
                           if (address[p].types.indexOf("postal_code") != -1) {
                          pincode = address[p].long_name;
+						
 						 //document.getElementById("pincodespan").value=pincode;
                          }
+						 alert(pincode);
 						}
 						
 
@@ -482,16 +484,19 @@ else
 
 $( document ).ready( function() {
  $( ".current_logout" ).on( "click", function() {
-   
+   var action = "logout";
    $.ajax({
         type:'post',
         url:'home.php',
         data:{
-          logout:logout
+          action:action
         },
         success:function(response) {
-			
-	
+		$("#usernamelist").html("Hi");		
+	$("#link5").removeClass("ng-hide");
+				$("#linkw").addClass("ng-hide");
+				$("#link6").addClass("ng-hide");	
+				$("#box-signin").addClass("ng-hide");
    }
    });
 	

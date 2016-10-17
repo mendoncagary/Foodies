@@ -188,3 +188,31 @@ else
 }
 
  
+ 
+ 
+ 
+//Logout script
+
+    
+
+$( document ).ready( function() {
+ $( ".current_logout" ).on( "click", function() {
+   var action = "logout";
+   $.ajax({
+        type:'post',
+        url:'about.php',
+        data:{
+          action:action
+        },
+        success:function(response) {
+			$("#usernamelist").html("Hi");		
+	$("#link5").removeClass("ng-hide");
+				$("#linkw").addClass("ng-hide");
+				$("#link6").addClass("ng-hide");	
+				$("#box-signin").addClass("ng-hide");
+   }
+   });
+	
+   
+  });
+});

@@ -1,7 +1,6 @@
 <?php
 
-  include '../includes/class.cart.php';
-$cart = new Cart;
+session_start();
 require_once '../includes/class.user.php';
 $user_login = new USER();
 /*
@@ -324,17 +323,11 @@ $user_login = new USER();
 
 	
 	<?php
-    /*if(isset($_SESSION['id']))
-	{
-      for($i=0;$i<count($_SESSION['id']);$i++)
-     {*/
-      
-        if($cart->total_items() > 0){
-            //get cart items from session
-            $cartItems = $cart->contents();
-            foreach($cartItems as $item){
-        ?>
-  
+if(isset($_SESSION["cart_item"])){
+    $item_total = 0;
+
+    foreach ($_SESSION["cart_item"] as $item){
+		?>
 
 		<!-- ngRepeat: item in cart_items.items track by item.id -->
 		<div class="ng-scope-items"> <div class="row">
@@ -348,7 +341,7 @@ $user_login = new USER();
 		<p  style="font-size:12px;cursor:pointer">Click to customize</p></i>
 		</div> </div> </div> <div class="col-sm-3 text-center width50 plus-minus"> <!-- <div class="space-10"></div> -->
 		<input value="-" class="plus-btn-radius" readonly="" type="button">
-		<input class="input-quantity" value="<?php  ?>" readonly="" type="text"> 
+		<input class="input-quantity" value="<?php echo $item['quantity']; ?>" readonly="" type="text"> 
 		<input value="+" class="plus-btn-radius" readonly="" type="button"> 
 		<!-- <div class="space-10"></div> --> </div> <div class="col-sm-2 text-right width50 price-pos ng-binding"> 
 		<!-- <div class="space-10"></div> --> <span class="rupee">₹</span> <?php  echo $item['price']; ?><!-- <div class="space-10"></div> --> </div> 
