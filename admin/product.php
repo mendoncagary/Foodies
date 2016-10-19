@@ -77,11 +77,13 @@ while ($row2 = mysql_fetch_array($query2))
 	
 }
 
-$query3 = mysql_query("select * from restaurants where owner = $username") or die(mysql_error());
+$query3 = mysql_query("select * from restaurants where owner = '$username'") or die(mysql_error());
 
 while ($row3 = mysql_fetch_array($query3))
 {
 	$resid = $row3["id"];
+   $_SESSION['res-id'] = $resid;
+   echo "<script>alert('".$_SESSION['res-id']."');</script>";
 	
 }
 
@@ -94,6 +96,7 @@ while ($row3 = mysql_fetch_array($query3))
 										$row1 = mysql_fetch_array($query1);
 										$total=$row['quantity'] - $row1['qty'];
 										$query2 = mysql_query ("UPDATE product set quantity = '$total' where productID = '$id'");
+
 
                                         ?>
                                         <tr class="warning">

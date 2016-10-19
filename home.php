@@ -155,8 +155,8 @@ else{
 	
 	<form method="POST" id="sign-in-form">
 		<button id="signin_close" type="button" class="close" >
-		<span>×</span>
-		<!--<img src="images/close.47cfd871.png" alt="">-->
+		<!--<<span>×</span>-->
+		<img src="assets/images/close.png" alt="">
 		</button>
       <div class="space-50"></div>
       <h2>Sign In</h2>
@@ -254,8 +254,8 @@ else{
 	
 	<form method="POST">
 		<button id="signup_close" type="button" class="close" >
-		<span>×</span>
-		<!--<img src="images/close.47cfd871.png" alt="">-->
+		<!--<span>×</span>-->
+		<img src="assets/images/close.png" alt="">
 		</button>
       <div class="space-50"></div>
       <h2>Sign up</h2>

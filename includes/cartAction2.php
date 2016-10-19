@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 require_once("dbcontroller.php");
 $db_handle = new DBController();
@@ -9,16 +9,33 @@ switch($_POST["action"]) {
 			$productByCode = $db_handle->runQuery("SELECT * FROM tb_products WHERE productID='" . $_POST["id"] . "'");
 			$itemArray = array($productByCode[0]["productID"]=>array('name'=>$productByCode[0]["name"], 'id'=>$productByCode[0]["productID"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"]));
 
+			//$response = array($item_total,$quantity);
+			//if(isset($_SESSION["cart_item"])){
+             //$response.item_total = 0;
+
+              //foreach ($_SESSION["cart_item"] as $item){
+		
+		       //$item_total += ($item["price"]*$item["quantity"]);
+	 /*}
+	 echo json_decode($response);
+}*/
+
+
 			if(!empty($_SESSION["cart_item"])) {
-				if(in_array($productByCode[0]["productID"],$_SESSION["cart_item"])) {
+				if(array_key_exists($productByCode[0]["productID"],$_SESSION["cart_item"])) {
 					foreach($_SESSION["cart_item"] as $k => $v) {
 							if($productByCode[0]["productID"] == $k)
 								$_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"];
+							   echo $_SESSION["cart_item"][$k]["quantity"];
 					}
-				} else {
+				}
+				else 
+				{
 					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
 				}
-			} else {
+			}
+			else 
+			{
 				$_SESSION["cart_item"] = $itemArray;
 			}
 		}
@@ -35,7 +52,24 @@ switch($_POST["action"]) {
 	break;
 	case "empty":
 		unset($_SESSION["cart_item"]);
-	break;	
+	break;
+
+	case "minus":
+		if(!empty($_POST["quantity"])) {
+			$productByCode = $db_handle->runQuery("SELECT * FROM tb_products WHERE productID='" . $_POST["id"] . "'");
+			$itemArray = array($productByCode[0]["productID"]=>array('name'=>$productByCode[0]["name"], 'id'=>$productByCode[0]["productID"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"]));
+
+			if(!empty($_SESSION["cart_item"])) {
+				if(array_key_exists($productByCode[0]["productID"],$_SESSION["cart_item"])) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($productByCode[0]["productID"] == $k)
+								$_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"];
+							   echo $_SESSION["cart_item"][$k]["quantity"];
+					}
+				}
+	
+}
+}
 }
 }
 ?>

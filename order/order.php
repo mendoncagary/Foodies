@@ -5,6 +5,8 @@ $user = new USER();
 $user_login = new USER();
 
 
+
+
  if(isset($_SESSION["place"]))
    {	$place = $_SESSION['place'];
    }
@@ -15,6 +17,7 @@ $user_login = new USER();
  if(isset($_GET["res_id"]))
  {
 	 $rid = $_GET["res_id"];
+	 $_SESSION['rid'] = $rid;
 	 
  }
  
@@ -425,15 +428,46 @@ else{
  
  </ul> </div> </div>
  
+ <?php 
  
- <div class="col-lg-6 col-sm-6 pull-right hideCheckOut" ng-show=" cart.items.length > 0"> 
+ if(isset($_SESSION["cart_item"]))
+ {
+ if(count($_SESSION["cart_item"])>0)
+ {
+	 ?>
+ <div class="col-lg-6 col-sm-6 pull-right"> 
+ <div id="total_items" class="circle"><?php echo count($_SESSION['cart_item']);?></div> 
+ <input id="checkout" value="Checkout" onclick="document.location.href='../cart/cart.php'" class="check-out" type="button"> 
+ <img src="images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
+ <div class="price-outer"> 
+ <div class="price"> <span>₹</span> <?php
+if(isset($_SESSION["cart_item"])){
+    $item_total = 0;
+
+    foreach ($_SESSION["cart_item"] as $item){
+		
+		 $item_total += ($item["price"]*$item["quantity"]);
+	 }
+	 echo $item_total;
+}
+		?>
+
+
+</div> </div> 
+ 
+ </div> 
+ <?php }}
+else
+{	?>
+<div class="col-lg-6 col-sm-6 pull-right hideCheckOut"> 
  <div id="total_items" class="circle">0</div> 
  <input id="checkout" value="Checkout" onclick="document.location.href='../cart/cart.php'" class="check-out" type="button"> 
  <img src="images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
  <div class="price-outer"> 
  <div class="price"> <span>₹</span> 0 </div> </div> 
  
- </div> 
+</div><?php } ?>
+
  
  </div> 
 </section>
@@ -475,11 +509,22 @@ else{
         <a href="#"  class="modal-popup">
           <label class="dish-label"><span><?php echo $row["filter"];  ?></span></label>
           
-          <span class="dish-addToCart">0</span>
+		  <?php
+			$k = $row['productID'];
+			if(isset($_SESSION["cart_item"][$k]["quantity"]))
+			{
+				?>
+          <span class="dish-addToCart1"><?php echo $_SESSION["cart_item"][$k]["quantity"];?></span>
           
+			<?php }
+			else
+			{?>
+		          <span class="dish-addToCart">0</span>
+				  <?php
+			}?>
           <span class="dish-rating"><i class="fa fa-star icon-star" aria-hidden="true"></i><?php echo $row["rating"];?></span>
           
-          <img alt="Dsc 7926" class="food-item-placeholder-image-url" src="https://d1e7veuf3koykl.cloudfront.net/food_items/images/000/020/707/medium2/DSC_7926.JPG?1471438427">
+          <img alt="Dsc 7926" class="food-item-placeholder-image-url" src="../assets/images/img6.jpg">
         </a>
       </div>
       
@@ -510,10 +555,27 @@ else{
          
        <?php if($total_qty > 0){ ?>
 	   <div class="dish-add-remove">
-            <button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="rmv-btn"  name="button" type="submit">-</button>
-            <span class="added_item_cart">0</span>
+            <?php
+			$k = $row['productID'];
+			if(isset($_SESSION["cart_item"][$k]["quantity"]))
+			{
+				?>
+				<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="rmv-btn"  name="button" type="submit">-</button>
+            <span class="added_item_cart">
+			<?php echo $_SESSION["cart_item"][$k]["quantity"];?>
+			</span>
+			<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="add-btn added-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
+			<?php } 
+			else
+			{
+				?>
+			<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="rmv-btn ng-hide"  name="button" type="submit">-</button>
+            <span class="added_item_cart ng-hide">
+			0
+			</span>
        	
 			<button data-item-id="<?php echo $row['productID'];?>" data-chef-name="<?php echo $row['chef'];?>" data-price="<?php echo $row['price'];?>" data-item-name="<?php echo $row['name'];?>" data-name="<?php echo $row['name'];?>" class="add-btn"  name="button" type="submit">+&nbsp;&nbsp;Add</button>
+			<?php } ?>
           </div>
       </div>
 	  <?php 
@@ -533,7 +595,7 @@ else{
             
                 </a>
 				<a href="/chefs/chef-ramani-m-v">
-				<img alt="Ramani" class="lazy" src="https://d1e7veuf3koykl.cloudfront.net/cheffs/avatars/000/000/003/small2/Ramani.jpg?1426745740"></a>
+				<img alt="Ramani" class="lazy" src="../assets/images/img31.jpg"></a>
             
           </div>
           <div class="dish-chef-detail">

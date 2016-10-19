@@ -222,9 +222,9 @@ margin-left: -416px;
 	position:relative;
     /* The image used */
     background-image: url("../assets/images/img11.jpg");
-    height:50vh;
+    height:37vh;
     /* Set a specific height */
-    min-height: 200px;
+    min-height: 1px;
 	
     /* Create the parallax scrolling effect */
    background-attachment: fixed;

@@ -239,7 +239,7 @@ function showPosition(position) {
 						
 						 //document.getElementById("pincodespan").value=pincode;
                          }
-						 alert(pincode);
+						 //alert(pincode);
 						}
 						
 

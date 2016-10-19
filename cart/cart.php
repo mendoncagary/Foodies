@@ -19,6 +19,9 @@ $user_login = new USER();
     exit();
   }
 */
+
+
+ 
   ?>
 
 <!DOCTYPE html>
@@ -141,16 +144,26 @@ $user_login = new USER();
  
  
  <div class="col-lg-6 col-sm-6 pull-right" ng-show=" cart.items.length > 0"> 
- <div class="circle">0</div> 
- <input value="Checkout" onclick="" class="check-out" type="button"> 
+ <div class="circle ng-hide"><?php if(isset($_SESSION['cart_item'])){echo count($_SESSION['cart_item']);}?></div> 
+ <input value="Checkout" onclick="" class="check-out  ng-hide" type="button"> 
  <img src="images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
  <div class="price-outer"> 
- <div class="price"> <span>₹</span> 0 </div> </div> </div> </div> 
+ <div class="price"> <span>₹</span> 
+<?php
+if(isset($_SESSION["cart_item"])){
+    $item_total = 0;
+
+    foreach ($_SESSION["cart_item"] as $item){
+		
+		 $item_total += ($item["price"]*$item["quantity"]);
+	 }
+	 echo $item_total;
+}
+		?>
+
+
+ </div> </div> </div> </div> 
 </section>
-
-
-
-
 
 <div class="section">
 
@@ -165,7 +178,7 @@ $user_login = new USER();
 		<h4 id="panel-title-cart" class="panel-title panel-active">
 		<a style="text-decoration:none" id="pan-1">Cart</a> 
 	
-		<div class="cart-number" ng-bind="cal_total_quantity()">1</div> </h4> </div>
+		<div class="cart-number" ng-bind="cal_total_quantity()"><?php if(isset($_SESSION['cart_item'])){echo count($_SESSION['cart_item']);}?></div> </h4> </div>
 		<!-- cart view -->
 		<div id="panel-1" class="panel-collapse">
 		<div class="panel-body">
@@ -352,6 +365,8 @@ if(isset($_SESSION["cart_item"])){
 		<!-- end ngRepeat: item in cart_items.items track by item.id -->
 		
 		<?php
+	 
+	 $item_total += ($item["price"]*$item["quantity"]);
 	 }
 	 }
 		?>
@@ -363,12 +378,18 @@ if(isset($_SESSION["cart_item"])){
 		
 		<div class="carttable margin">
 		<div class="row"> <div class="col-sm-6 padding width50"> <div class="col-sm-7"><span class="bold"> Total Amount </span> </div> </div>
-		<div class="col-sm-3 text-center width50"> </div> <div class="col-sm-2 text-right width50">
-		<span class="rupee">₹</span> <strong class="ng-binding" style="font-size:18px" >0</strong>&nbsp; 
+		<div class="col-sm-3 text-center width50"> </div>
+		<div class="col-sm-2 text-right width50">
+		<span class="rupee">₹</span> <strong class="ng-binding" style="font-size:18px" ><?php if(isset($item_total)){echo $item_total;}?></strong>&nbsp; 
 		<span class="ng-hide" ><i> With Taxes</i></span> <!-- <label ng-show="true"> with taxes</label> --> </div> </div>
 		<div class="space-20"></div>
 		<div class="row"> <div class="col-sm-6 width50">
-		<input  value="Add More Items" class="continue-shoping" type="button"></div> 
+		<input value="Add More Items" class="continue-shoping" onclick="document.location.href='../order/order.php<?php
+		if(isset($_SESSION['rid']))
+		{
+			echo "?res_id=".$_SESSION['rid'];
+		}
+		?>'" type="button"></div> 
 		<div class="col-sm-6 text-right width50">
 		<input id="nextstepbutton" value="Next Step" class="next-step" type="button"></div> </div> </div>
 		<div class="clearfix"></div>
@@ -793,7 +814,7 @@ if(isset($_SESSION["cart_item"])){
 		<!-- ngRepeat: address in addresses --> 
 		</ul> 
 		
-		<input id="proceedpayment" value="Make Payment" class="next-step radius-6" type="button"> </div> 
+		<input id="proceedpayment" value="Make Payment" class="next-step radius-6" onclick="document.location.href='https://www.sandbox.paypal.com/cgi-bin/webscr'" type="button"> </div> 
 		<!--  </div>
                   </div> -->
 

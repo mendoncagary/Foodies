@@ -59,7 +59,7 @@ window.addEventListener('scroll', function(){ // on page scroll
 
 
 
-
+/*
  $(".rmv-btn").click(function(){
 	 var id = $(this).attr("data-item-id");
 	if(parseInt($(".fooddiv[data-item-id="+id+"] .added_item_cart").html(),10)>1)
@@ -85,7 +85,7 @@ $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(parseInt($(".fooddiv[da
 	
 });
 
-
+*/
 
 	 	 
 	 
@@ -108,50 +108,89 @@ $(document).ready(function(){
     });
   */  
 
+  
+  
 $( document ).ready( function() {
  $( ".add-btn" ).on( "click", function() {
   var id = $(this).attr("data-item-id");
    var name = $(this).attr("data-item-name");
    var price = $(this).attr("data-item-price");
    var action = "add";
-   var quantity = $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").innerHTML;
-   alert(quantity);
+   var quantity = parseInt($(".fooddiv[data-item-id="+id+"] .added_item_cart").html(),10)+1;
+   
    $.ajax({
         type:'post',
         url:'../includes/cartAction2.php',
         data:{
-			action:action,
+		  action:action,
           id:id,
           name:name,
           price:price,
 		  quantity:quantity
         },
         success:function(response) {
-	
+			if(response)
+			{$(".fooddiv[data-item-id="+id+"] .added_item_cart").html(response);
+		       $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(response);
+		
+		}
 	$(".add-btn[data-item-id="+id+"]").addClass("added-btn");
-	        $(".rmv-btn[data-item-id="+id+"]").show();
-	        $(".fooddiv[data-item-id="+id+"] .added_item_cart").show();
+	        $(".rmv-btn[data-item-id="+id+"]").removeClass("ng-hide");
+	        $(".fooddiv[data-item-id="+id+"] .added_item_cart").removeClass("ng-hide");
 
 	        $(".fooddiv[data-item-id="+id+"] .dish-addToCart").addClass("dish-addToCart1");
 			$(".pull-right").removeClass("hideCheckOut");
-			
-				$(".fooddiv[data-item-id="+id+"] .dish-addToCart1").each(function() {
+	
+	;
+				/*$(".fooddiv[data-item-id="+id+"] .dish-addToCart1").each(function() {
                    $(this).data("serial");
    
                 $(".fooddiv[data-item-id="+id+"] .added_item_cart").html(parseInt($(".fooddiv[data-item-id="+id+"] .added_item_cart").html(), 10)+1);
                 $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(parseInt($(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(), 10)+1);
- });
+ });*/
           /*document.getElementById("total_items").value=response;*/
-		  $("#total_items").html(parseInt($("#total_items").html(), 10)+1);
+		  //$("#total_items").html(parseInt($("#total_items").html(), 10)+1);
         }
       });
 	
    
    });
+   
+   
+   
+    $(".rmv-btn").click(function(){
+	 var id = $(this).attr("data-item-id");
+	 var name = $(this).attr("data-item-name");
+     var price = $(this).attr("data-item-price");
+     var action = "minus";
+     var quantity = parseInt($(".fooddiv[data-item-id="+id+"] .added_item_cart").html(),10)-1;
+   
+	
+	  $.ajax({
+        type:'post',
+        url:'../includes/cartAction2.php',
+        data:{
+		  action:action,
+          id:id,
+          name:name,
+          price:price,
+		  quantity:quantity
+        },
+        success:function(response) {
+			if(response)
+			{$(".fooddiv[data-item-id="+id+"] .added_item_cart").html(response);
+		       $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(response);
+		}
+
+	
+	}	
+	
+});
+
 });
 
 
-
+});
 	
 	
 	

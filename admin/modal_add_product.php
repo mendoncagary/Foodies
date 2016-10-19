@@ -1,3 +1,5 @@
+
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -120,18 +122,19 @@
                                 $quantity = $_POST['quantity'];
 								$rating = $_POST['rating'];
 								$chef = $_POST['chef'];
+								$resid=$_SESSION['res-id'];
 
                                 //image
                                 $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
                                 $image_name = addslashes($_FILES['image']['name']);
                                 $image_size = getimagesize($_FILES['image']['tmp_name']);
-//
+
                                 move_uploaded_file($_FILES["image"]["tmp_name"], "upload/" . $_FILES["image"]["name"]);
                                 $location = "upload/" . $_FILES["image"]["name"];
 
 
-                                mysql_query("insert into tb_products (name,description,category,filter,price,quantity,location,rating,chef)
-                            	values ('$name','$description','$category','$filter','$price','$quantity','$location','$rating','$chef')
+                                mysql_query("insert into tb_products (name,description,category,filter,price,quantity,location,rating,chef,resid)
+                            	values ('$name','$description','$category','$filter','$price','$quantity','$location','$rating','$chef','$resid')
                                 ") or die(mysql_error());
 
                                 header('location:product.php');
