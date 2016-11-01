@@ -438,7 +438,7 @@ else{
  <div class="col-lg-6 col-sm-6 pull-right"> 
  <div id="total_items" class="circle"><?php echo count($_SESSION['cart_item']);?></div> 
  <input id="checkout" value="Checkout" onclick="document.location.href='../cart/cart.php'" class="check-out" type="button"> 
- <img src="images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
+ <img src="../assets/images/cart-icon.e823b04a.svg" alt="" onclick="redirect_to_cart()" class="displaynone" style="margin-top:15px"> 
  <div class="price-outer"> 
  <div class="price"> <span>₹</span> <?php
 if(isset($_SESSION["cart_item"])){

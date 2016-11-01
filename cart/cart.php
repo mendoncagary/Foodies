@@ -766,17 +766,17 @@ if(isset($_SESSION["cart_item"])){
  <div class="space-50"></div> </div> </div> 
  
  <!-- change_password -->
- <div class="panel-signin width ng-hide" ng-show="panel_2_view('change_password')"> <div class="space-50"></div> 
+ <div class="panel-signin width ng-hide"> <div class="space-50"></div> 
  <div class="col-sm-12"> 
  <div class="floating-placeholder">
- <input id="name" name="name" ng-model="verification_code" class="input1 ng-pristine ng-untouched ng-valid" type="text"> <label for="name">Verification Code</label> </div> </div>
+ <input id="name" name="name"  class="input1 ng-pristine ng-untouched ng-valid" type="text"> <label for="name">Verification Code</label> </div> </div>
  <div class="col-sm-12"> <div class="floating-placeholder"> 
- <input id="name" name="name" ng-model="new_password" class="input1 ng-pristine ng-untouched ng-valid" type="password"> 
+ <input id="name" name="name" class="input1 ng-pristine ng-untouched ng-valid" type="password"> 
 		<label for="name">New Password</label> </div>
 		</div> 
 		
 		<div class="col-sm-12"> <div class="floating-placeholder">
-		<input id="name" name="name" ng-model="password_confirmation" class="input1  type="password"> 
+		<input id="name" name="name" class="input1  type="password"> 
 		<label for="name">Confirm Password 
 		<img src="images/star.6c957114.jpg" alt="" style="margin-bottom:3px"> </label> 
 		</div> </div>
@@ -786,7 +786,7 @@ if(isset($_SESSION["cart_item"])){
 		</div>
 		
 		<div class="col-sm-12"> 
-		<input ng-click="password_reset()" value="Continue" class="radius-6 change-password" type="button"> </div>
+		<input value="Continue" class="radius-6 change-password" type="button"> </div>
 		<div class="clearfix"></div> 
 		<div class="space-50"></div>
 		</div> 
@@ -800,33 +800,38 @@ if(isset($_SESSION["cart_item"])){
 		
 		<h4 id="panel-title-delivery" class="panel-title"> 
 		<a style="text-decoration:none" id="pan-3" href="">Delivery Address</a>
-		<a  id="pan-31" class="accordion-toggle ng-hide" href="">Delivery Address</a> </h4> </div> <div id="panel-3" class="panel-collapse collapse"> <div class="panel-body">
-		<!-- address list --> <div class="delivery-pad">
+		<a  id="pan-31" class="accordion-toggle ng-hide" href="">Delivery Address</a> </h4> </div> 
+		<div id="panel-3" class="panel-collapse collapse"> 
+		<div class="panel-body">
+		
+		<!-- address list -->
+		<div class="delivery-pad">
 		<div class="col-sm-6 width50">
 		<span>Your address list</span></div> 
 		<div class="col-sm-6 width50"> 
-		<input value="Add new address" class="show-all-btn radius-3" type="button"></div>
+		<input id="add-address" value="Add new address" class="show-all-btn radius-3" type="button"></div>
 		<div class="clearfix"></div>
 		
 		
-		<ul> <li class="list-inline showaction ellipsis-add" style="max-width:100%" > <input name="take_away" class="css-checkbox" id="takeAway" ng-checked="takeAway" type="radio"> <label for="take_away" class="css-label radGroup1" style="width:80%">
+		<ul> <li class="list-inline showaction ellipsis-add" style="max-width:100%" > 
+		<input name="take_away" class="css-checkbox" id="takeAway" type="radio"> <label for="take_away" class="css-label radGroup1" style="width:80%">
 		<div class="ellipsis-add" style="float:left ;max-width:100%">I'll pick up</div></label> </li>
 		<!-- ngRepeat: address in addresses --> 
 		</ul> 
 		
-		<input id="proceedpayment" value="Make Payment" class="next-step radius-6" onclick="document.location.href='https://www.sandbox.paypal.com/cgi-bin/webscr'" type="button"> </div> 
+		<input id="proceedpayment" value="Make Payment" class="next-step radius-6" type="button"> </div> 
 		<!--  </div>
                   </div> -->
 
 				  <!--  add address form --> 
 				  <div class="delivery-pad ng-hide" > <div class="col-sm-6 width50">
 				  <span>Your address list</span></div>
-				  <div class="col-sm-6 width50"> <input ng-click="show_all()" value="Show all" class="show-all-btn radius-3" type="button"></div>
+				  <div class="col-sm-6 width50"> <input value="Show all" class="show-all-btn radius-3" type="button"></div>
 				  <div class="clearfix"></div> 
 				  <div class="panel-signin pull-left">
 				  <div class="col-sm-12"> 
 				  <div class="floating-placeholder"> 
-				  <input id="name" ng-model="address_line" name="name" class="input1 ng-pristine ng-untouched ng-valid" type="text"> 
+				  <input id="name"  name="name" class="input1 ng-pristine ng-untouched ng-valid" type="text"> 
 				  <label for="name">Flat No., Building Name, Society/ Office Name</label> </div> </div> 
 				  <div class="col-sm-12">
 				  <div class="floating-placeholder">
@@ -849,15 +854,15 @@ if(isset($_SESSION["cart_item"])){
 				  <h4 id="panel-title-makepayment" class="panel-title"> 
 				  <a style="text-decoration:none" id="pan-4" class="accordion-toggle" data-parent="#accordion" href="">Make Payment</a> 
 				  <a ng-show="preorder_availibility" id="preorder_time_selector" href="" class="pull-right ng-hide" ng-click="select_preorder_time()" style="pointer-events: none;font-size:17px" popover-template="'preorder_tutorial_message.html'" popover-is-open="show_preorder_popover" popover-placement="bottom" popover-trigger="none" popover-animation="true"><div id="preorder_clock_image" class="preorder-false-inactive"></div></a> 
-				  <a id="pan-41" class="accordion-toggle ng-hide" data-toggle="collapse" data-target="#panel-4" data-parent="#accordion" href="">Make Payment </a> </h4> </div> 
-				  <div id="panel-4" class="panel-collapse collapse"> <payments class="ng-isolate-scope" open="" payment-method="payment_method" payment-methods="data.outlet_web.payment_methods" take-away="takeAway" show-coupon-applied="show_coupon_applied" promo-code="promo_code" final-price="final_price" total-cart-quanity="1" select-address="select_address" allowed-cashback="allowed_cashback" currency-used="currency_used" preorder-availibility="preorder_availibility" is-preorder-time-selected="is_preorder_time_selected" selected-preorder-time="selectedPreorderTime" pay-on-delivery-params="" total-payable-without-discount="total_payable_without_discount_coupon" total-payable="total_payable_coupon"><div class="panel-body"> 
+				  <a id="pan-41" class="accordion-toggle ng-hide"  href="">Make Payment </a> </h4> </div> 
+				  <div id="panel-4" class="panel-collapse collapse"> <div class="panel-body"> 
 				  <div class="payment-ul" style="padding-bottom:0px"> <div class="col-sm-6"><span>Choose the payment mode</span></div> 
 				  <div class="clearfix"></div> <ul id="paymentMethods"> 
 				  <li class="" ng-show="is_present_in_outlet('Card')"> 
 				  <input ng-model="payment_method" value="Card" name="radio_dark" id="radio23" class="css-checkbox ng-pristine ng-untouched ng-valid" ng-click="check_valid_coupon('Card')" type="radio"> <label id="Card" for="radio23" class="css-label radGroup23">Card Payment</label> </li> <li class="" ng-show="is_present_in_outlet('Cash')"> <input ng-model="payment_method" value="Cash" name="radio_dark" id="radio21" class="css-checkbox ng-pristine ng-untouched ng-valid" ng-click="check_valid_coupon('Cash')" type="radio"> <label id="Cash" for="radio21" class="css-label radGroup23">Cash Payment</label> </li> <li class="" ng-show="is_present_in_outlet('Net Banking')">
 				  <input ng-model="payment_method" value="Net Banking" name="radio_dark" id="radio22" class="css-checkbox ng-pristine ng-untouched ng-valid" ng-click="check_valid_coupon('Net Banking')" type="radio"> <label id="Net" for="radio22" class="css-label radGroup23">Net Banking</label> </li> 
-				  <li class="" ng-show="is_present_in_outlet('Wallet')"> <input ng-model="payment_method" value="Wallet" name="radio_dark" id="radio24" class="css-checkbox ng-pristine ng-untouched ng-valid" ng-click="check_valid_coupon('Wallet')" type="radio"> <label id="Wallet" for="radio24" class="css-label radGroup23">Wallet</label> </li> </ul> </div> <div class="yellow-bg payment" ng-show="!pay_on_delivery_params.hide_coupon_panel"> <div class="space-20"></div> <div class="row"> <div class="col-md-6 panel-signin panel-signin-promo ng-hide" ng-show="show_box8_currency() &amp;&amp; !cash_currency_msg"> <div class="text-center box8-money-red"> <input ng-click="currency_click()" name="checkbox" id="checkboxG33" class="css-checkbox" type="checkbox"> <label for="checkboxG33" class="background-remove css-label box8-money-red"> <font class="ng-binding" color="#da3939 ">Use ₹ Box8 Money</font> </label> </div> </div> <div class="col-md-6 panel-signin panel-signin-promo ng-hide" ng-show="cash_currency_msg"> <div class="text-center box8-money-red"> <label class="Box8-money-red"> 
-				  <font color="#da3939 ">Box8 Money is not applicable for cash payment</font> </label> </div> </div>
+				  <li class="" ng-show="is_present_in_outlet('Wallet')"> <input ng-model="payment_method" value="Wallet" name="radio_dark" id="radio24" class="css-checkbox ng-pristine ng-untouched ng-valid" ng-click="check_valid_coupon('Wallet')" type="radio"> <label id="Wallet" for="radio24" class="css-label radGroup23">Wallet</label> </li> </ul> </div> <div class="yellow-bg payment" ng-show="!pay_on_delivery_params.hide_coupon_panel"> <div class="space-20"></div> <div class="row"> <div class="col-md-6 panel-signin panel-signin-promo ng-hide" ng-show="show_box8_currency() &amp;&amp; !cash_currency_msg"> <div class="text-center box8-money-red"> <input ng-click="currency_click()" name="checkbox" id="checkboxG33" class="css-checkbox" type="checkbox"> <label for="checkboxG33" class="background-remove css-label box8-money-red"> <font class="ng-binding" color="#da3939 ">Use ₹ Foodies Money</font> </label> </div> </div> <div class="col-md-6 panel-signin panel-signin-promo ng-hide" ng-show="cash_currency_msg"> <div class="text-center box8-money-red"> <label class="Box8-money-red"> 
+				  <font color="#da3939 ">Foodies Money is not applicable for cash payment</font> </label> </div> </div>
 				  <div class="col-md-6" ng-hide="show_coupon_applied"> 
 				  <div class="promo-style text-center">
 				  <input ng-model="promo_code" class="input-promo-coupon radius-3 ng-pristine ng-untouched ng-valid" placeholder="Enter your promo code here" ng-disabled="pay_on_delivery_params.available" type="text"> <!-- ngIf: !pay_on_delivery_params.available -->
@@ -869,18 +874,26 @@ if(isset($_SESSION["cart_item"])){
 				  <input ng-if="!pay_on_delivery_params.available" ng-click="remove_coupon()" value="Remove" class="input-apply-btn radius-3 ng-scope" type="button"><!-- end ngIf: !pay_on_delivery_params.available --> </div> </div> </div> <div class="clearfix"></div> <div class="space-20"></div> </div> <!-- cash payment --> 
 				  <div class="payment-ul ng-hide" style="padding-bottom:20px" ng-show="check_payment_type('Cash')"> <div class="col-sm-6"><span>Bring change of</span></div> 
 				  <div class="clearfix"></div> <ul> <li> 
-				  <input checked="checked" value="50" ng-value="50" name="change_label" id="radio26" class="css-checkbox" ng-checked="true" type="radio"> 
+				  <input checked="checked" value="50" ng-value="50" name="change_label" id="radio26" class="css-checkbox" type="radio"> 
 				  <label for="radio26" class="css-label radGroup1 radGroup2">₹50/-</label> </li> <li> 
 				  <input value="100" ng-value="100" name="change_label" id="radio27" class="css-checkbox" type="radio"> 
 				  <label for="radio27" class="css-label radGroup1 radGroup2">₹100/-</label> </li> <li> <input value="500" ng-value="500" name="change_label" id="radio28" class="css-checkbox" type="radio"> 
 				  <label for="radio28" class="css-label radGroup1 radGroup2">₹500/-</label> </li> <li>
-				  <input value="1000" ng-value="1000" name="change_label" id="radio29" class="css-checkbox" type="radio"> <label for="radio29" class="css-label radGroup1 radGroup2 removechk">₹1000/-</label> </li> </ul> <div class="col-sm-12"> <input ng-init="isClicked=false" ng-disabled="isClicked" ng-click="payment_validate('Cash')" value="Make Payment" class="next-step radius-6" type="button"> </div> <div class="clearfix"></div> <div class="space-20"></div> </div>
-				  <!-- card payment --> <div class="" ng-show="check_payment_type('Card')"> <div class="delivery-pad" ng-hide="show_card_form"> <div class="col-sm-6 width50"><span>Your card</span></div>
-				  <div class="col-sm-6 width50"> <input ng-click="toggle_show_card_form()" value="Add new card" class="show-all-btn radius-3" type="button"> </div> <div class="clearfix"></div> 
-				  <div class="col-sm-12 cards-margin"> <!-- ngRepeat: used_card in $root.used_cards | filter: getCreditDebitCards --> </div> <div class="clearfix"></div> <div class="space-20"></div> <input ng-disabled="isClicked" ng-click="payment_validate('used_card')" value="Make Payment" class="coming-soon next-step radius-6" type="button"> </div> <div class="payment-ul ng-hide" ng-show="show_card_form"> <div class="col-sm-6 width50"><span>Add New Card</span></div> <div class="col-sm-6 width50"> <input ng-click="toggle_show_card_form()" value="Show all" class="show-all-btn radius-3" type="button"> </div> <div class="clearfix"></div> <ul id="citrusCardType"> <li class="" ng-click="assign_card('debit')"> <input name="radiog_dark" id="radio66" class="css-checkbox" type="radio"> <label for="radio66" class="css-label radGroup29 debitradio">Debit Card</label> </li> <li class="" ng-click="assign_card('credit')"> <input name="radiog_dark" id="radio64" class="css-checkbox" type="radio"> 
+				  <input value="1000" ng-value="1000" name="change_label" id="radio29" class="css-checkbox" type="radio"> <label for="radio29" class="css-label radGroup1 radGroup2 removechk">₹1000/-</label> </li> </ul> <div class="col-sm-12"> <input  value="Make Payment" class="next-step radius-6" type="button"> </div> <div class="clearfix"></div> <div class="space-20"></div> </div>
+				  <!-- card payment --> <div class="" ng-show="check_payment_type('Card')"> <div class="delivery-pad"> <div class="col-sm-6 width50"><span>Your card</span></div>
+				  <div class="col-sm-6 width50">
+				  <input value="Add new card" class="show-all-btn radius-3" type="button"> </div> <div class="clearfix"></div> 
+				  <div class="col-sm-12 cards-margin"> 
+				  
+				  <!-- ngRepeat: used_card in $root.used_cards | filter: getCreditDebitCards --> </div> 
+				  <div class="clearfix"></div> <div class="space-20"></div> 
+				  <input onclick="ordersuccess()" value="Make Payment" class="coming-soon next-step radius-6" type="button">
+				  </div>
+				  <div class="payment-ul ng-hide" ng-show="show_card_form">
+				  <div class="col-sm-6 width50"><span>Add New Card</span></div> <div class="col-sm-6 width50"> <input ng-click="toggle_show_card_form()" value="Show all" class="show-all-btn radius-3" type="button"> </div> <div class="clearfix"></div> <ul id="citrusCardType"> <li class="" ng-click="assign_card('debit')"> <input name="radiog_dark" id="radio66" class="css-checkbox" type="radio"> <label for="radio66" class="css-label radGroup29 debitradio">Debit Card</label> </li> <li class="" ng-click="assign_card('credit')"> <input name="radiog_dark" id="radio64" class="css-checkbox" type="radio"> 
 				  <label for="radio64" class="css-label radGroup29 creditradio">Credit Card</label> </li> </ul> <select class="ng-hide" ng-show="false" id="citrusScheme"> <option value="VISA">VISA</option> <option value="mastercard">MASTER</option> <option value="amex">AMEX</option> <option value="rupay">RUPAY</option> </select> 
 				  <div class="col-sm-12 col-md-12 payment-card"> <div class="col-sm-2 col-md-1"> <div class="floating-placeholder float:left">
-				  <img src="images/dummy.d4ece676.png" ng-src="images/dummy.d4ece676.png" alt="" height="30"> </div> </div> <div class="col-xs-12 col-sm-12 col-md-3"> <div class="floating-placeholder"> <input name="name" id="citrusNumber" ng-model="new_card_number" class="input1 ng-pristine ng-untouched ng-valid" type="text"> <label for="name">Card Number</label> </div> </div> 
+				  <img src="images/dummy.d4ece676.png" ng-src="images/dummy.d4ece676.png" alt="" height="30"> </div> </div> <div class="col-xs-12 col-sm-12 col-md-3"> <div class="floating-placeholder"> <input name="name" id="citrusNumber"  class="input1 ng-pristine ng-untouched ng-valid" type="text"> <label for="name">Card Number</label> </div> </div> 
 				  <div class="col-xs-12 col-sm-12 col-md-2"> <div class="floating-placeholder"> <input name="name" id="citrusCardHolder" class="input1" type="text"> <label for="name">Name</label> </div> </div> <div class="col-xs-12 col-sm-12 col-md-4"> <div style="width:50%; float:left"> <div class="floating-placeholder"> <input name="name" class="input1" disabled="" type="text"> <label for="name">Expiration</label> </div> </div> <div style="width:20%; float:left"> <div class="floating-placeholder"> <input id="expiry_month" name="name" min="1" max="12" maxlength="2" class="input1" type="text"> <label for="name">MM</label> </div> </div> <div style="width:20%; float:left"> 
 				  <div class="floating-placeholder"> <input id="expiry_year" name="name" min="1" max="99" maxlength="2" class="input1" type="text"> <label for="name">YY</label> </div> </div> <div class="ng-hide" ng-show="false" style="width:0%; float:left"> <div class="floating-placeholder"> <input name="name" maxlength="2" id="citrusExpiry" class="input1" type="text"> <label for="name">Date</label> </div> </div> </div> <div class="col-xs-12 col-sm-12 col-md-2"> <div class="floating-placeholder" style="width:40%"> <input name="name" maxlength="4" id="citrusCvv" class="input1" type="password"> <label for="name">CVV</label> </div> </div> </div> 
 				  <div class="clearfix"></div> <div class="space-20"></div> <div class="clearfix"></div> <div class="space-20"></div> <div class="col-sm-12"> <input ng-disabled="isClicked" ng-click="payment_validate('card')" id="citrusCardPayButton" value="Make Payment" class="next-step radius-6" type="button"> </div> <div class="clearfix"></div> <div class="space-20"></div> </div> </div> <!-- net banking --> <div class="payment-ul ng-hide" style="padding-bottom:20px" ng-show="check_payment_type('Net Banking')"> <div class="col-sm-6"><span>Choose your Bank</span></div> <div class="col-sm-6 bank"> <label class="pull-right">Select other bank <select class="ng-pristine ng-untouched ng-valid" id="select_bank" ng-model="dropdown_value" onchange="assign_bank_dropdown()"><option value="? undefined:undefined ?"></option> 
@@ -988,24 +1001,24 @@ if(isset($_SESSION["cart_item"])){
 				  <!-- ngRepeat: wallet in valid_wallet -->
 				  <li class="ng-scope" ng-repeat="wallet in valid_wallet"> 
 				  <div ng-click="select_wallet(wallet.name)"> 
-				  <img class="ng-hide" ng-show="is_wallet_selected(wallet.name)" src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute"> 
-				  <img src="images/paytm.c5e7436d.png" ng-src="images/paytm.c5e7436d.png" alt="PayTm" style="z-index: 1" height="60"> </div> 
+				  <img class="ng-hide" src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute"> 
+				  <img src="images/paytm.c5e7436d.png"  alt="PayTm" style="z-index: 1" height="60"> </div> 
 				  <label class="ng-binding" style="font-weight:100"> PayTm </label> </li>
 				  <!-- end ngRepeat: wallet in valid_wallet -->
 				  <li class="ng-scope" ng-repeat="wallet in valid_wallet"> 
 				  <div ng-click="select_wallet(wallet.name)"> 
-				  <img class="ng-hide" ng-show="is_wallet_selected(wallet.name)" src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute"> 
-				  <img src="images/citrus.294e9d5e.png" ng-src="images/citrus.294e9d5e.png" alt="Citrus" style="z-index: 1" height="60"> </div> 
+				  <img class="ng-hide"  src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute"> 
+				  <img src="images/citrus.294e9d5e.png"  alt="Citrus" style="z-index: 1" height="60"> </div> 
 				  <label class="ng-binding" style="font-weight:100"> Citrus </label> </li>
 				  <!-- end ngRepeat: wallet in valid_wallet -->
 				  <li class="ng-scope" ng-repeat="wallet in valid_wallet">
 				  <div ng-click="select_wallet(wallet.name)"> 
 				  <img class="ng-hide" ng-show="is_wallet_selected(wallet.name)" src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute">
-				  <img src="images/mobikwik.47ab44c5.png" ng-src="images/mobikwik.47ab44c5.png" alt="Mobikwik" style="z-index: 1" height="60"> 
+				  <img src="images/mobikwik.47ab44c5.png" alt="Mobikwik" style="z-index: 1" height="60"> 
 				  </div> <label class="ng-binding" style="font-weight:100"> Mobikwik </label> </li>
 				  <!-- end ngRepeat: wallet in valid_wallet -->
-				  <li class="ng-scope" ng-repeat="wallet in valid_wallet"> 
-				  <div ng-click="select_wallet(wallet.name)"> 
+				  <li class="ng-scope"> 
+				  <div> 
 				  <img class="ng-hide" ng-show="is_wallet_selected(wallet.name)" src="images/tick.fe3ef458.png" style="z-index: 2;position:absolute">
 				  <img src="images/ola_money.d8db81b7.png" ng-src="images/ola_money.d8db81b7.png" alt="Ola Money" style="z-index: 1" height="60"> </div> 
 				  <label class="ng-binding" style="font-weight:100"> Ola Money </label> </li>
@@ -1087,28 +1100,28 @@ if(isset($_SESSION["cart_item"])){
 				  <option value="CID070">UCO Bank</option>
 				  <option value="CID080">Axis Corporate Bank</option></select>
 				  <form class="ng-pristine ng-valid ng-hide" ng-show="false"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusFirstName" ng-model="customer_name"> 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusFirstName" > 
 				  <input id="citrusLastName" value="">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusEmail" ng-model="customer_email"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusStreet1" ng-model="select_address_line">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusStreet2" ng-model="select_address_landmark"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCity" ng-model="select_address_locality"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusMobile" ng-model="customer_phone_no">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusAmount" ng-model="citrus_final_price"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusMerchantTxnId" ng-model="merchantTxnId">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusSignature" ng-model="signature"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusReturnUrl" ng-model="returnUrl"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusNotifyUrl" ng-model="notifyUrl"> 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusEmail" > 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusStreet1" >
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusStreet2" > 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCity" > 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusMobile" >
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusAmount" > 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusMerchantTxnId" >
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusSignature" > 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusReturnUrl" > 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusNotifyUrl"> 
 				  <input id="citrusCustomParamCount" value="8" type="hidden"> 
 				  <!--Custom parameter Name--> 
 				  <input id="citrusCustomParamsName1" value="sessionId"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue1" ng-model="session_id"> 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue1" > 
 				  <!--Custom parameter value-->
 				  <input id="citrusCustomParamsName2" value="addressId"> 
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue2" ng-model="select_address"> 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue2" > 
 				  <!--Custom parameter value-->
 				  <input id="citrusCustomParamsName3" value="currencyRedeem">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue3" ng-model="currency_used"> <
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue3"> <
 				  !--Custom parameter value--> 
 				  <input id="citrusCustomParamsName4" value="platform">
 				  <input id="citrusCustomParamsValue4" value="web"> <!--Custom parameter value--> 
@@ -1116,14 +1129,14 @@ if(isset($_SESSION["cart_item"])){
 				  <input id="citrusCustomParamsValue5" value="web">
 				  <!--Custom parameter value--> 
 				  <input id="citrusCustomParamsName6" value="outletServiceType">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue6" ng-model="citrusOutletServiceType">
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue6" >
 				  <!--Custom parameter value-->
 
 				  <input id="citrusCustomParamsName7" value="orderTime">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue7" ng-model="server_returned_preorder_time"> 
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue7" > 
 				  <!--Custom parameter value-->
 				  <input id="citrusCustomParamsName8" value="cashOrderId">
-				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue8" ng-model="server_returned_cash_order_id">
+				  <input class="ng-pristine ng-untouched ng-valid" id="citrusCustomParamsValue8" >
 				  <!--Custom parameter value-->
 				  </form>
 				  

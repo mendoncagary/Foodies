@@ -1679,3 +1679,8 @@ float:left;
 	float:left;
 }
 }
+
+input[type="button"]
+{
+	cursor:pointer;
+}

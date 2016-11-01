@@ -105,6 +105,14 @@ $("#proceedpayment").click(function(){
 	 }
  });
  
+ 
+ 
+ $("#add-address").click(function()
+ {
+	 $("#panel-3 .delivery-pad").eq(0).addClass("ng-hide");
+	 $("#panel-3 .delivery-pad").eq(1).removeClass("ng-hide");
+ });
+ 
 	});
  
  
@@ -138,3 +146,25 @@ else
 
 
 
+
+
+function ordersuccess(){
+	
+   var action = "checkout";
+   
+   $.ajax({
+        type:'post',
+        url:'../includes/checkout.php',
+        data:{
+		  action:action,
+        },
+        success:function(response) {
+			
+			alert("Your order has been placed.");
+			
+			
+}
+
+   });
+   
+}

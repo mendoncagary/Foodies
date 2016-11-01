@@ -1,68 +1,85 @@
-<?php
-// initialize shopping cart class
-require 'class.user.php';
-$user = new USER();
-include 'class.cart.php';
-include 'connect.php';
-$cart = new Cart;
+<?php 
+session_start();
+require_once("class.user.php");
+$user = new User();
+if(!empty($_POST["action"])) {
+switch($_POST["action"]) {
+	case "add":
+		if(!empty($_POST["quantity"])) {
+			$productByCode = $user->runQuery("SELECT * FROM tb_products WHERE productID=:id");
+			$productByCode->execute(array(":id"=>$_POST["id"]));
+			$row = $productByCode->fetch(PDO::FETCH_ASSOC);
+			$itemArray = array($row["productID"]=>array('name'=>$row["name"], 'id'=>$row["productID"], 'quantity'=>$_POST["quantity"], 'price'=>$row["price"]));
 
-// include database configuration file
-if(isset($_POST['action']) && !empty($_POST['action'])){
-    if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
-        $productID = $_REQUEST['id'];
-        // get product details
-        $stmt = $user->runQuery("SELECT * FROM tb_products WHERE productID =:productID ");
-        $stmt->execute(array(":productID"=>$productID));
-		while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-        
-		{$itemData = array(
-            'id' => $row['id'],
-            'name' => $row['name'],
-            'price' => $row['price'],
-            'qty' => 1
-        );
-        }
-        $insertItem = $cart->insert($itemData);
-        $redirectLoc = $insertItem?'../cart/cart.php':'../order/order.php';
-		echo "done";
-        header("Location: ".$redirectLoc);
-    }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['id'])){
-        $itemData = array(
-            'rowid' => $_REQUEST['id'],
-            'qty' => $_REQUEST['qty']
-        );
-        $updateItem = $cart->update($itemData);
-        echo $updateItem?'ok':'err';die;
-    }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['id'])){
-        $deleteItem = $cart->remove($_REQUEST['id']);
-        header("Location: ../cart/cart.php");
-    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
-        // insert order details into database
-        $insertOrder = $conn->query("INSERT INTO orders (customer_id, total_price, created, modified) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
-        
-        if($insertOrder){
-            $orderID = $conn->insert_id;
-            $sql = '';
-            // get cart items
-            $cartItems = $cart->contents();
-            foreach($cartItems as $item){
-                $sql .= "INSERT INTO order_items (order_id, product_id, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['qty']."');";
-            }
-            // insert order items into database
-            $insertOrderItems = $conn->runQuery($sql);
-            
-            if($insertOrderItems){
-                $cart->destroy();
-                header("Location: orderSuccess.php?id=$orderID");
-            }else{
-                header("Location: checkout.php");
-            }
-        }else{
-            header("Location: checkout.php");
-        }
-    }else{
-        header("Location: index.php");
-    }
-}else{
-    header("Location: index.php");
+			//$response = array($item_total,$quantity);
+			//if(isset($_SESSION["cart_item"])){
+             //$response.item_total = 0;
+
+              //foreach ($_SESSION["cart_item"] as $item){
+	
+//		       $item_total += ($item["price"]*$item["quantity"]);
+	// }
+	 //echo json_decode($response);
+//}
+
+
+			if(!empty($_SESSION["cart_item"])) {
+				if(array_key_exists($row["productID"],$_SESSION["cart_item"])) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($row["productID"] == $k)
+								$_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"];
+						 $quantity = $_SESSION["cart_item"][$k]["quantity"];
+						 echo $quantity;
+					
+					}
+				}
+				else 
+				{
+					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+					
+					echo $_POST['quantity'];
+				}
+			}
+			else 
+			{
+				$_SESSION["cart_item"] = $itemArray;
+				echo $_POST['quantity'];
+			}
+		}
+	break;
+	
+	case "remove":
+		if(!empty($_SESSION["cart_item"])) {
+			foreach($_SESSION["cart_item"] as $k => $v) {
+					if( $_POST["id"] == $k )
+						unset($_SESSION["cart_item"][$k]);				
+					if(empty($_SESSION["cart_item"]))
+						unset($_SESSION["cart_item"]);
+			}
+		}
+	break;
+	case "empty":
+		unset($_SESSION["cart_item"]);
+	break;
+
+	case "minus":
+		if(!empty($_POST["quantity"])) {
+			$productByCode = $user->runQuery("SELECT * FROM tb_products WHERE productID=:id");
+			$productByCode->execute(array(":id"=>$_POST["id"]));
+			$row = $productByCode->fetch(PDO::FETCH_ASSOC);
+			$itemArray = array($row["productID"]=>array('name'=>$row["name"], 'id'=>$row["productID"], 'quantity'=>$_POST["quantity"], 'price'=>$row["price"]));
+
+			if(!empty($_SESSION["cart_item"])) {
+				if(array_key_exists($row["productID"],$_SESSION["cart_item"])) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($row["productID"] == $k)
+								$_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"];
+							   echo $_SESSION["cart_item"][$k]["quantity"];
+					}
+				}
+	
 }
+} 
+}
+}
+?>

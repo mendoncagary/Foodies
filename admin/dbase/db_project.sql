@@ -1,24 +1,23 @@
-
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 31, 2016 at 01:55 PM
--- Server version: 10.0.20-MariaDB
--- PHP Version: 5.2.17
+-- Host: 127.0.0.1
+-- Generation Time: Nov 01, 2016 at 10:01 PM
+-- Server version: 5.6.25
+-- PHP Version: 5.6.11
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u424939072_dbpro`
+-- Database: `db_project`
 --
 
 -- --------------------------------------------------------
@@ -28,12 +27,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `messages` (
-  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `Email` varchar(30) NOT NULL,
-  `message` varchar(1000) NOT NULL,
-  PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `message` varchar(1000) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `name`, `Email`, `message`) VALUES
+(7, 'Gary', 'mendonca_gary@ymail.com', 'Superb fast delivery and good food . Foodies is the best.'),
+(8, 'George', 'george@gmail.com', ''),
+(9, 'Fred', 'fred12@yahoo.co.in', 'Best Food ordering System.'),
+(10, 'Cheryl', 'cheryl1995@ymail.com', 'The ordering system was not complex. Just takes 5 minutes to order your favourite food. Would love to order again.'),
+(11, 'Dylan Menez', 'mredylan@gmail.com', 'Like Foodies a lot for its nice and elegant service.'),
+(12, 'Kennedy', 'kengen@rediff.com', 'I liked your service. The only place where you can choose from your favourite restaurants.'),
+(13, 'Lawrance Xavier', 'lawrancexavier@hotmail.com', 'Foodies has the best service in town\ndue to its quality service and unique philosophy.'),
+(14, 'Amanda', 'amanda@google.co.in', 'Superb service with quality food. Foodies goes by its philosophy.'),
+(15, 'Jenny', 'jenny@rediff.com', 'I always order from Foodies as you can choose from the nearest restaurants and also order the cheapest meals.');
 
 -- --------------------------------------------------------
 
@@ -48,10 +61,8 @@ CREATE TABLE IF NOT EXISTS `module` (
   `mod_modulename` varchar(50) NOT NULL,
   `mod_modulegrouporder` int(3) NOT NULL,
   `mod_moduleorder` int(3) NOT NULL,
-  `mod_modulepagename` varchar(255) NOT NULL,
-  PRIMARY KEY (`mod_modulegroupcode`,`mod_modulecode`),
-  UNIQUE KEY `mod_modulecode` (`mod_modulecode`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `mod_modulepagename` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `module`
@@ -78,16 +89,15 @@ INSERT INTO `module` (`mod_modulegroupcode`, `mod_modulegroupname`, `mod_modulec
 --
 
 CREATE TABLE IF NOT EXISTS `order` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
   `memberID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `price` double(11,2) NOT NULL,
   `total` double(11,2) NOT NULL,
   `status` varchar(100) NOT NULL,
   `payment_type` varchar(100) NOT NULL,
-  `transaction_code` varchar(100) NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `transaction_code` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -96,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `order` (
 --
 
 CREATE TABLE IF NOT EXISTS `order_details` (
-  `orderid` int(11) NOT NULL AUTO_INCREMENT,
+  `orderid` int(11) NOT NULL,
   `memberID` int(11) NOT NULL,
   `qty` int(5) NOT NULL,
   `price` double(11,2) NOT NULL,
@@ -104,9 +114,8 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   `total` double(11,2) NOT NULL,
   `status` varchar(100) NOT NULL,
   `modeofpayment` varchar(100) NOT NULL,
-  `transaction_code` varchar(200) NOT NULL,
-  PRIMARY KEY (`orderid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `transaction_code` varchar(200) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order_details`
@@ -117,7 +126,17 @@ INSERT INTO `order_details` (`orderid`, `memberID`, `qty`, `price`, `productID`,
 (5, 17, 100, 3000.00, 12, 300000.00, 'Delivered', 'Paypal', ''),
 (6, 18, 2, 12000.00, 10, 24000.00, 'Delivered', 'Paypal', ''),
 (7, 19, 1, 9089.00, 13, 9089.00, 'Pending', '', ''),
-(8, 20, 2, 700.00, 15, 1400.00, 'Pending', '', '');
+(8, 20, 2, 700.00, 15, 1400.00, 'Pending', '', ''),
+(9, 0, 0, 0.00, 0, 0.00, '', '', ''),
+(10, 0, 0, 0.00, 0, 0.00, '', '', ''),
+(11, 0, 0, 0.00, 0, 0.00, '', '', ''),
+(12, 0, 0, 0.00, 0, 0.00, '', '', ''),
+(13, 0, 0, 0.00, 0, 0.00, '', '', ''),
+(14, 0, 0, 0.00, 0, 0.00, ':status', ':mop', ''),
+(15, 0, 0, 0.00, 0, 0.00, ':status', ':mop', ''),
+(16, 0, 0, 0.00, 0, 0.00, ':status', ':mop', ''),
+(17, 0, 0, 0.00, 0, 0.00, ':status', ':mop', ''),
+(18, 0, 0, 0.00, 0, 0.00, ':status', ':mop', '');
 
 -- --------------------------------------------------------
 
@@ -126,7 +145,7 @@ INSERT INTO `order_details` (`orderid`, `memberID`, `qty`, `price`, `productID`,
 --
 
 CREATE TABLE IF NOT EXISTS `restaurants` (
-  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `id` int(50) NOT NULL,
   `name` varchar(60) NOT NULL,
   `location` varchar(50) NOT NULL,
   `address` varchar(150) NOT NULL,
@@ -138,9 +157,8 @@ CREATE TABLE IF NOT EXISTS `restaurants` (
   `discount` varchar(150) NOT NULL,
   `owner` varchar(60) NOT NULL,
   `image` varchar(50) NOT NULL,
-  `pincode` int(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `pincode` int(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `restaurants`
@@ -160,9 +178,8 @@ INSERT INTO `restaurants` (`id`, `name`, `location`, `address`, `type`, `cuisine
 
 CREATE TABLE IF NOT EXISTS `role` (
   `role_rolecode` varchar(50) NOT NULL,
-  `role_rolename` varchar(50) NOT NULL,
-  PRIMARY KEY (`role_rolecode`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `role_rolename` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `role`
@@ -186,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `role_rights` (
   `rr_edit` varchar(50) NOT NULL,
   `rr_delete` varchar(50) NOT NULL,
   `rr_view` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `role_rights`
@@ -231,7 +248,7 @@ INSERT INTO `role_rights` (`rr_rolecode`, `rr_modulecode`, `rr_create`, `rr_edit
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_users` (
-  `userID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
   `userName` varchar(100) NOT NULL,
   `userEmail` varchar(100) NOT NULL,
   `userPass` varchar(100) NOT NULL,
@@ -240,10 +257,8 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `firstName` varchar(60) DEFAULT NULL,
   `lastName` varchar(60) DEFAULT NULL,
   `contactNumber` varchar(25) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`userID`),
-  UNIQUE KEY `userEmail` (`userEmail`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `address` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_users`
@@ -259,15 +274,14 @@ INSERT INTO `tbl_users` (`userID`, `userName`, `userEmail`, `userPass`, `userSta
 --
 
 CREATE TABLE IF NOT EXISTS `tb_member` (
-  `memberID` int(25) NOT NULL AUTO_INCREMENT,
+  `memberID` int(25) NOT NULL,
   `Firstname` varchar(25) NOT NULL,
   `Lastname` varchar(25) NOT NULL,
   `Email` varchar(25) NOT NULL,
   `Password` varchar(25) NOT NULL,
   `Contact_Number` varchar(25) NOT NULL,
-  `address` varchar(200) NOT NULL,
-  PRIMARY KEY (`memberID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+  `address` varchar(200) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_member`
@@ -283,7 +297,7 @@ INSERT INTO `tb_member` (`memberID`, `Firstname`, `Lastname`, `Email`, `Password
 --
 
 CREATE TABLE IF NOT EXISTS `tb_products` (
-  `productID` int(11) NOT NULL AUTO_INCREMENT,
+  `productID` int(11) NOT NULL,
   `name` varchar(500) NOT NULL,
   `description` varchar(500) NOT NULL,
   `category` varchar(200) NOT NULL,
@@ -293,9 +307,8 @@ CREATE TABLE IF NOT EXISTS `tb_products` (
   `location` varchar(500) NOT NULL,
   `rating` float(2,1) NOT NULL,
   `chef` varchar(60) NOT NULL,
-  `resid` int(60) NOT NULL,
-  PRIMARY KEY (`productID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+  `resid` int(60) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_products`
@@ -316,14 +329,13 @@ INSERT INTO `tb_products` (`productID`, `name`, `description`, `category`, `filt
 --
 
 CREATE TABLE IF NOT EXISTS `tb_user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
-  `rolecode` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+  `rolecode` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_user`
@@ -335,6 +347,116 @@ INSERT INTO `tb_user` (`user_id`, `username`, `password`, `firstname`, `lastname
 (21, 'aadesh', 'asdfgh', 'Aadesh', 'Shah', 'RESOWNER'),
 (22, 'amey', 'asdfgh', 'Amey', 'More', 'RESOWNER');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
+-- Indexes for table `module`
+--
+ALTER TABLE `module`
+  ADD PRIMARY KEY (`mod_modulegroupcode`,`mod_modulecode`),
+  ADD UNIQUE KEY `mod_modulecode` (`mod_modulecode`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`orderid`);
+
+--
+-- Indexes for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`role_rolecode`);
+
+--
+-- Indexes for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `userEmail` (`userEmail`);
+
+--
+-- Indexes for table `tb_member`
+--
+ALTER TABLE `tb_member`
+  ADD PRIMARY KEY (`memberID`);
+
+--
+-- Indexes for table `tb_products`
+--
+ALTER TABLE `tb_products`
+  ADD PRIMARY KEY (`productID`);
+
+--
+-- Indexes for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tb_member`
+--
+ALTER TABLE `tb_member`
+  MODIFY `memberID` int(25) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT for table `tb_products`
+--
+ALTER TABLE `tb_products`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

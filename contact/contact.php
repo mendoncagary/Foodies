@@ -4,20 +4,32 @@ require_once '../includes/class.user.php';
 $user_login = new USER();
 $user = new USER();
 
- require "../includes/config.php";
 						
-						if (isset ($_POST ['submit']))
+						if (isset($_POST ['action']) =="send_message")
 						
 						{
+							if($_POST['name'] != ""	&& $_POST['email'] != "" && $_POST['message'] !="")
+							{
 							$name = $_POST['name'];	
 							
 							$email = $_POST['email'];
 							$message = $_POST['message'];
-	
+							
+										$stmt = $user -> runQuery("insert into messages(name,email,message) VALUES(:name,:email,:message)");
+										$stmt->execute(array(":name"=>$name,":email"=>$email,":message"=>$message));
+										
+										echo "Thank you for your feedback.";
+										
+										
+							
+							}
+							else {
+								
+								echo "Please fill all field correctly.";
+							}
 
 
-
-										mysql_query("insert into messages(name,email,message) VALUES('$name','$email','$message')");
+                             exit();
 										
 						}
 					 ?>	
@@ -369,31 +381,47 @@ else{
  <p>If you have questions or comments, please get a hold of us in whichever way is most convenient. Ask away. 
  There is no reasonable question that our team can not answer</p>
  <h3>Follow us</h3>
- <a class="pixcode-icon-link" href="https://www.facebook.com/PixelGradeMedia" target="_blank" "="">
+ <a class="pixcode-icon-link" href="https://www.facebook.com/" target="_blank">
  <i class="pixcode  pixcode--icon  icon-e-facebook  circle  medium  "></i>
  </a> 
- <a class="pixcode-icon-link" href="https://twitter.com/pixelgrade" target="_blank" "="">
+ <a class="pixcode-icon-link" href="https://twitter.com/" target="_blank">
  <i class="pixcode  pixcode--icon  icon-e-tumblr  circle  medium  "></i>
  </a>
  </div>
  <div class="grid__item six-twelfths palm-one-whole ">
  <div role="form" class="wpcf7" id="wpcf7-f4-p116-o1" dir="ltr" lang="en-US">
  <div class="screen-reader-response"></div>
- <form action="contact.php" method="post" class="wpcf7-form" novalidate="novalidate">
+ <form method="post" class="contact-form">
  <div style="display: none;"> <input name="_wpcf7" value="4" type="hidden">
- <input name="_wpcf7_version" value="4.3.1" type="hidden">
- <input name="_wpcf7_locale" value="en_US" type="hidden"> 
- <input name="_wpcf7_unit_tag" value="wpcf7-f4-p116-o1" type="hidden"> 
+ <input name="version" value="4.3.1" type="hidden">
+ <input name="locale" value="en_US" type="hidden"> 
+ <input name="unit_tag" value="f4-p116-o1" type="hidden"> 
  <input name="_wpnonce" value="87f11e8450" type="hidden"></div>
+ 
  <div class="grid pixcode--grid">
  <div class="grid__item  six-twelfths palm-one-whole"> 
- <span class="wpcf7-form-control-wrap your-name">
- <input name="name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" type="text">
- </span></div>
- <div class="grid__item  six-twelfths palm-one-whole"> <span class="wpcf7-form-control-wrap last-name">
+ <span class="form-control-wrap your-name">
+ <input name="name" value="" size="40" class="form-control text validates-as-required" placeholder="Your Name" type="text">
+ </span>
+ </div>
+ <div class="grid__item  six-twelfths palm-one-whole"> 
+ <span class="form-control-wrap email">
  <!--<input name="last-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Last Name" type="text"></span></div></div><p><span class="wpcf7-form-control-wrap your-email">-->
- <input name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" type="email"></span> 
- <span class="wpcf7-form-control-wrap your-message"><textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 236px;" name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Message"></textarea></span><input value="Send Message" class="wpcf7-form-control wpcf7-submit" type="submit"><img style="visibility: hidden;" alt="Sending ..." src="https://pixelgrade.com/demos/rosa/wp-content/plugins/contact-form-7/images/ajax-loader.gif" class="ajax-loader"></p><div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></section></div> </section> </article>
+ <input name="email" value="" size="40" class="form-control text email validates-as-required validates-as-email"  placeholder="Email" type="email"></span> 
+ <span class="form-control-wrap your-message">
+ <textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 236px;" name="message" cols="40" rows="10" class="form-control textarea" placeholder="Message"></textarea></span>
+ <input value="Send Message" class="form-control submit contact-submit" type="button">
+ <img style="visibility: hidden;" alt="Sending ..." src="../assets/images/ajax-loader.gif" class="ajax-loader"></p>
+ <div class="response-output display-none">
+
+ </div></form>
+ </div></div>
+ 
+ </div>
+ </section>
+ </div> 
+ </section> 
+ </article>
 
 
 

@@ -156,3 +156,33 @@ function checkForm()
 	  });
 	  
 }
+
+
+
+
+$( document ).ready( function() {
+ $( ".contact-submit" ).on( "click", function() {
+	 $(".ajax-loader").css({"visibility":"visible"});	
+var name = $("span.your-name input").val();
+var email = $("span.email input").val();
+var message = $("span.your-message textarea").val();	 
+   var action = "send_message";
+   $.ajax({
+        type:'post',
+        url:'contact.php',
+        data:{
+          action:action,
+		  name:name,
+		  email:email,
+		  message:message
+        },
+        success:function(response) {
+		$(".ajax-loader").css({"visibility":"hidden"});		
+	$(".response-output").html(response);	
+	$(".contact-form")[0].reset();	
+   }
+   });
+	
+   
+  });
+});

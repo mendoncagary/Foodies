@@ -120,7 +120,7 @@ $( document ).ready( function() {
    
    $.ajax({
         type:'post',
-        url:'../includes/cartAction2.php',
+        url:'../includes/cartAction.php',
         data:{
 		  action:action,
           id:id,
@@ -131,17 +131,18 @@ $( document ).ready( function() {
         success:function(response) {
 			if(response)
 			{$(".fooddiv[data-item-id="+id+"] .added_item_cart").html(response);
-		       $(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(response);
+       $(".fooddiv[data-item-id="+id+"] .dish-addToCart").addClass("dish-addToCart1");	
+	$(".fooddiv[data-item-id="+id+"] .dish-addToCart1").html(response);
 		
 		}
 	$(".add-btn[data-item-id="+id+"]").addClass("added-btn");
 	        $(".rmv-btn[data-item-id="+id+"]").removeClass("ng-hide");
 	        $(".fooddiv[data-item-id="+id+"] .added_item_cart").removeClass("ng-hide");
 
-	        $(".fooddiv[data-item-id="+id+"] .dish-addToCart").addClass("dish-addToCart1");
+	 
 			$(".pull-right").removeClass("hideCheckOut");
 	
-	;
+
 				/*$(".fooddiv[data-item-id="+id+"] .dish-addToCart1").each(function() {
                    $(this).data("serial");
    
@@ -168,7 +169,7 @@ $( document ).ready( function() {
 	
 	  $.ajax({
         type:'post',
-        url:'../includes/cartAction2.php',
+        url:'../includes/cartAction.php',
         data:{
 		  action:action,
           id:id,
